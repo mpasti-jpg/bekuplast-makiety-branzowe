@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Makieta v2 — Rolnictwo, ogrodnictwo, owoce-warzywa | bekuplast.pl</title>
+<style>
+:root {
+  --bg: #fdf8f2;
+  --paper: #fff;
+  --ink: #1a1a1a;
+  --muted: #555;
+  --soft: #888;
+  --line: #e0e0e0;
+  --accent: #FF6B2C;
+  --accent-soft: #ffeae0;
+  --accent-dark: #d44e15;
+  --note-bg: #fff8c2;
+  --note-border: #e0c34a;
+  --green: #2e7d32;
+  --green-soft: #e8f5e9;
+  --red: #c62828;
+  --red-soft: #ffebee;
+  --new-badge: #d81b60;
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  background-image: repeating-linear-gradient(45deg, transparent 0 30px, rgba(0,0,0,0.012) 30px 31px);
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 30px 20px;
+}
+.wrap { max-width: 1240px; margin: 0 auto; }
+
+.meta-banner {
+  background: var(--accent-soft);
+  border: 1.5px dashed var(--accent);
+  padding: 16px 22px; border-radius: 8px;
+  margin-bottom: 32px;
+  font-family: var(--mono); font-size: 13px; color: var(--accent-dark);
+}
+.meta-banner strong { display: block; font-size: 16px; margin-bottom: 6px; }
+.meta-banner .specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; }
+.meta-banner .specs div { background: rgba(255,255,255,0.6); padding: 8px 12px; border-radius: 4px; font-size: 11px; }
+.meta-banner .specs b { color: var(--ink); }
+
+.desktop { background: var(--paper); border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.06); overflow: hidden; }
+
+/* Prototype dropdown nav — switch between 10 makiet */
+.proto-nav {
+  background: #1a1a1a; color: #fff;
+  padding: 12px 28px;
+  display: flex; align-items: center; gap: 16px;
+  font-family: var(--mono); font-size: 12px;
+  border-bottom: 1px solid #333;
+}
+.proto-nav .label { color: rgba(255,255,255,0.7); }
+.proto-nav .label b { color: var(--accent); }
+.proto-nav select {
+  background: #2a2a2a; color: #fff;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-family: var(--mono); font-size: 12px;
+  cursor: pointer;
+  flex: 1;
+  max-width: 460px;
+}
+.proto-nav select:hover { border-color: var(--accent); }
+.proto-nav select:focus { outline: none; border-color: var(--accent); }
+.proto-nav .current-tag {
+  background: var(--accent); color: #fff;
+  padding: 4px 10px; border-radius: 3px;
+  font-size: 11px; font-weight: 700;
+}
+
+.sticky-header {
+  background: #fff; border-bottom: 1px solid var(--line);
+  padding: 14px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; z-index: 10;
+}
+.logo { font-family: var(--serif); font-weight: 700; font-size: 22px; }
+.nav-main { display: flex; gap: 22px; font-size: 14px; }
+.nav-main a { color: var(--ink); text-decoration: none; font-weight: 500; }
+.nav-main a:hover { color: var(--accent); }
+.sticky-cta { display: flex; gap: 12px; align-items: center; font-family: var(--mono); font-size: 13px; }
+.sticky-cta a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.sticky-cta .btn-mini { background: var(--accent); color: #fff; padding: 7px 14px; border-radius: 4px; }
+
+/* HERO — 2 column */
+.hero {
+  padding: 48px 36px;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.hero-content { display: flex; flex-direction: column; }
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 44px; font-weight: 700; line-height: 1.1;
+  margin-bottom: 18px; letter-spacing: -0.5px;
+}
+.hero .lead {
+  font-size: 17px; color: var(--muted);
+  margin-bottom: 28px; line-height: 1.55;
+}
+.cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent); color: #fff; text-decoration: none;
+  padding: 14px 24px; border-radius: 6px;
+  font-weight: 600; font-size: 15px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: var(--accent-dark); }
+.btn-secondary {
+  background: #fff; color: var(--ink);
+  border: 1.5px solid var(--ink);
+  text-decoration: none;
+  padding: 13px 22px; border-radius: 6px;
+  font-weight: 600; font-size: 15px;
+}
+.btn-secondary:hover { background: var(--ink); color: #fff; }
+
+/* HERO illustration — pusty placeholder */
+.hero-illustration {
+  position: relative;
+  background: linear-gradient(135deg, #fff5ed 0%, #f5f5f5 100%);
+  border-radius: 12px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.hero-illustration .illustration-label {
+  position: absolute; top: 14px; left: 14px;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--soft); background: rgba(255,255,255,0.9);
+  padding: 4px 10px; border-radius: 3px;
+}
+
+/* Breadcrumb pod hero */
+.breadcrumb-section {
+  padding: 16px 36px;
+  font-family: var(--mono); font-size: 12px; color: var(--muted);
+  border-bottom: 1px solid var(--line);
+  background: #fcfbf6;
+}
+.breadcrumb-section span { margin: 0 6px; color: var(--soft); }
+.breadcrumb-section .tag {
+  background: var(--new-badge); color: #fff;
+  padding: 2px 8px; border-radius: 3px;
+  margin-left: 8px; font-size: 10px; font-weight: 700;
+}
+.breadcrumb-section .tag.rebrand { background: var(--accent); }
+
+section { padding: 52px 36px; border-bottom: 1px solid var(--line); }
+section.tldr { background: #fcfbf6; }
+section h2 {
+  font-family: var(--serif);
+  font-size: 32px; font-weight: 700; line-height: 1.2;
+  margin-bottom: 24px; letter-spacing: -0.3px;
+}
+section h3 { font-size: 20px; font-weight: 700; margin: 28px 0 12px; }
+section p { margin-bottom: 14px; color: var(--ink); max-width: 860px; }
+
+/* TL;DR — 2 column z animacją placeholder */
+.tldr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+  align-items: center;
+}
+.tldr-animation {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 12px;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.tldr-animation .play-icon {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,107,44,0.6);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2;
+  backdrop-filter: blur(4px);
+}
+.tldr-animation .play-icon::after {
+  content: "";
+  width: 0; height: 0;
+  border-left: 18px solid var(--accent);
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  margin-left: 5px;
+}
+.tldr-animation .anim-label {
+  position: absolute; bottom: 14px; left: 14px;
+  font-family: var(--mono); font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.4);
+  padding: 4px 10px; border-radius: 3px;
+}
+.tldr-animation .anim-dots {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,107,44,0.25) 0%, transparent 30%),
+    radial-gradient(circle at 70% 60%, rgba(255,107,44,0.18) 0%, transparent 25%),
+    radial-gradient(circle at 50% 80%, rgba(255,107,44,0.12) 0%, transparent 30%);
+}
+.tldr-box {
+  border-left: 4px solid var(--accent);
+  padding: 8px 28px;
+  background: transparent;
+}
+.tldr-box h2 {
+  font-family: var(--serif);
+  font-size: 32px; font-weight: 700; line-height: 1.2;
+  margin-bottom: 22px; letter-spacing: -0.3px;
+}
+.tldr-box ul { padding-left: 22px; }
+.tldr-box li { margin-bottom: 12px; }
+
+/* WYZWANIA */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 22px; }
+.card {
+  background: #fff; border: 1px solid var(--line);
+  padding: 24px; border-radius: 8px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card .num {
+  font-family: var(--mono); font-size: 36px; color: var(--accent);
+  font-weight: 700; line-height: 1; margin-bottom: 10px;
+}
+.card h4 { font-size: 16px; margin-bottom: 10px; line-height: 1.3; }
+.card p { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+.card .what {
+  margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line);
+  font-size: 13px; color: var(--accent-dark); font-weight: 600;
+}
+
+/* PRODUKTY */
+.product-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 22px; }
+.tile {
+  background: #fff; border: 1px solid var(--line); padding: 18px;
+  border-radius: 8px; text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.tile:hover { border-color: var(--accent); transform: translateY(-2px); }
+.tile .img-placeholder {
+  width: 100%; height: 110px; background: linear-gradient(135deg, #f5f5f5, #ebebeb);
+  border-radius: 4px; margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--soft); font-family: var(--mono); font-size: 11px;
+  position: relative; overflow: hidden;
+}
+.tile .img-placeholder::before {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%; height: 60%;
+  border: 1.5px dashed var(--accent); border-radius: 4px;
+  opacity: 0.35;
+}
+.tile h5 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.tile .tile-meta { font-size: 12px; color: var(--soft); }
+
+/* PPWR */
+.ppwr-section {
+  background: linear-gradient(135deg, #fff8f3 0%, #fff 100%);
+  border-left: 6px solid var(--accent);
+}
+.ppwr-section h2 { color: var(--accent-dark); }
+.regulations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 28px 0; }
+.reg-pill {
+  background: #fff; border: 1px solid var(--accent);
+  padding: 16px; border-radius: 6px;
+}
+.reg-pill .article-tag {
+  display: inline-block; background: var(--accent); color: #fff;
+  padding: 2px 8px; border-radius: 3px; font-family: var(--mono);
+  font-size: 11px; margin-bottom: 8px; font-weight: 600;
+}
+.reg-pill p { font-size: 13px; margin: 0; line-height: 1.5; }
+
+.ppwr-cta-box {
+  background: #fff; border: 2px dashed var(--accent);
+  padding: 26px; border-radius: 8px; margin-top: 28px;
+}
+.ppwr-cta-box h3 { color: var(--accent-dark); margin-top: 0; margin-bottom: 16px; }
+.ppwr-cta-box ol { padding-left: 22px; margin-bottom: 0; }
+.ppwr-cta-box li { margin-bottom: 14px; }
+.ppwr-cta-box a { color: var(--accent); font-weight: 600; }
+
+.scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 24px 0; }
+.scope-col { padding: 20px; border-radius: 6px; }
+.scope-col.included { background: var(--red-soft); border-left: 4px solid var(--red); }
+.scope-col.excluded { background: var(--green-soft); border-left: 4px solid var(--green); }
+.scope-col h4 { font-size: 16px; margin-bottom: 12px; }
+.scope-col.included h4 { color: var(--red); }
+.scope-col.excluded h4 { color: var(--green); }
+.scope-col ul { padding-left: 18px; margin: 0; }
+.scope-col li { font-size: 13px; margin-bottom: 8px; line-height: 1.4; }
+
+blockquote {
+  border-left: 4px solid var(--ink);
+  padding: 22px 0 22px 28px;
+  margin: 28px 0;
+  font-family: var(--serif);
+  font-size: 22px; line-height: 1.4;
+  font-style: italic;
+  max-width: 860px;
+}
+blockquote cite {
+  display: block; margin-top: 16px;
+  font-family: var(--sans); font-style: normal;
+  font-size: 13px; color: var(--muted); font-weight: 600;
+}
+
+/* CASE STUDY */
+.case-placeholder {
+  background: #fff;
+  border: 2px dashed var(--red);
+  padding: 26px; border-radius: 8px;
+  position: relative; margin-top: 16px;
+}
+.case-placeholder::before {
+  content: "🔴 PLACEHOLDER";
+  position: absolute; top: -12px; left: 22px;
+  background: var(--red); color: #fff;
+  padding: 4px 10px; border-radius: 4px;
+  font-family: var(--mono); font-size: 11px; font-weight: 700;
+}
+.case-placeholder h4 { font-size: 17px; margin-bottom: 14px; }
+.case-placeholder p { font-size: 13px; color: var(--soft); margin-bottom: 12px; }
+.case-placeholder ul { padding-left: 22px; }
+.case-placeholder li { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+
+/* MID CTA */
+.mid-cta-box {
+  background: var(--accent); color: #fff;
+  padding: 36px; border-radius: 8px;
+  text-align: center; margin: 32px 0;
+}
+.mid-cta-box h3 { color: #fff; font-family: var(--serif); font-size: 26px; margin-bottom: 12px; }
+.mid-cta-box p { color: rgba(255,255,255,0.95); max-width: 600px; margin: 0 auto 18px; }
+.mid-cta-box .btn-primary { background: #fff; color: var(--accent); }
+.mid-cta-box .btn-primary:hover { background: rgba(255,255,255,0.9); }
+
+/* POOLING — wariant A (neutralny) */
+.pooling-box {
+  background: #fcfbf6; border: 1px solid var(--line);
+  padding: 26px; border-radius: 8px;
+  display: grid; grid-template-columns: 80px 1fr; gap: 22px;
+  align-items: start;
+}
+.pooling-box .pooling-icon { font-size: 48px; line-height: 1; }
+.pooling-box .btn-secondary { margin-top: 16px; }
+
+/* POOLING — wariant C (highlight) */
+.pooling-highlight {
+  background: linear-gradient(135deg, var(--accent) 0%, #ff8a4c 100%);
+  color: #fff;
+  padding: 32px; border-radius: 8px;
+  margin: 8px 0;
+}
+.pooling-highlight h3 { color: #fff; font-family: var(--serif); font-size: 26px; margin-bottom: 12px; }
+.pooling-highlight p { color: rgba(255,255,255,0.95); margin-bottom: 14px; }
+.pooling-highlight ul { padding-left: 22px; margin: 14px 0; }
+.pooling-highlight ul li { color: rgba(255,255,255,0.95); margin-bottom: 6px; }
+.pooling-highlight .btn-pooling {
+  background: #fff; color: var(--accent);
+  text-decoration: none;
+  padding: 13px 24px; border-radius: 6px;
+  font-weight: 600; font-size: 14px;
+  display: inline-block; margin-top: 10px;
+}
+
+/* POWIĄZANE */
+.related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 22px; }
+.related-tile {
+  background: #fff; border: 1px solid var(--line);
+  padding: 20px; border-radius: 6px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.related-tile:hover { border-color: var(--accent); transform: translateY(-2px); }
+.related-tile h5 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--accent-dark); }
+.related-tile p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
+
+/* FAQ */
+details {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+details summary {
+  padding: 18px 22px; cursor: pointer;
+  font-weight: 700; font-size: 15px;
+  list-style: none; position: relative;
+  padding-right: 50px;
+}
+details summary::after {
+  content: "+"; position: absolute; right: 22px; top: 14px;
+  font-size: 24px; color: var(--accent); font-weight: 400;
+}
+details[open] summary::after { content: "−"; }
+details > p { padding: 0 22px 18px; font-size: 14px; color: var(--muted); max-width: 100%; line-height: 1.6; }
+
+/* END CTA */
+.end-cta {
+  background: var(--ink); color: #fff;
+  padding: 56px 36px; text-align: center;
+}
+.end-cta h2 { color: #fff; }
+.end-cta p { color: rgba(255,255,255,0.85); margin: 0 auto 22px; max-width: 640px; line-height: 1.6; }
+.end-cta ul { list-style: none; max-width: 500px; margin: 0 auto 24px; }
+.end-cta ul li { padding: 6px 0; color: rgba(255,255,255,0.9); font-size: 14px; }
+.end-cta ul li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+.end-cta .btn-primary { background: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+
+    <div class="meta-banner">
+      <strong>Makieta v2 — strona #07 — Rolnictwo, ogrodnictwo, owoce-warzywa</strong>
+      URL: <code>/branzowe/rolnictwo-ogrodnictwo/</code> · REBRAND z /rolnictwo-i-logistyka/ · 301 redirect
+      <div class="specs">
+        <div><b>Klasyfikacja:</b> mieszany (high SEO)</div>
+        <div><b>Persona:</b> Manager hurtowni agro / Sadownik</div>
+        <div><b>Primary keyword:</b> skrzynki plastikowe na warzywa (vol 250, KD 0)</div>
+        <div><b>Potencjał 12m:</b> 400–800/m</div>
+      </div>
+    </div>
+
+<div class="desktop">
+
+<div class="proto-nav">
+  <span class="label">Makiety branżowe (<b>10</b>):</span>
+  <select onchange="if(this.value) window.location.href = this.value">
+      <option value="makieta_01_motoryzacja_automotive.html">01 — Motoryzacja i automotive</option>
+      <option value="makieta_02_przetworstwo_zywnosci.html">02 — Przetwórstwo żywności</option>
+      <option value="makieta_03_napoje.html">03 — Sprzedaż i transport na rynku napojów</option>
+      <option value="makieta_04_farmacja_kosmetyki.html">04 — Farmacja i kosmetyki</option>
+      <option value="makieta_05_intralogistyka.html">05 — Intralogistyka i magazyn</option>
+      <option value="makieta_06_logistyka_3pl.html">06 — Logistyka i transport (3PL) [NOWA]</option>
+      <option value="makieta_07_rolnictwo_ogrodnictwo.html" selected>07 — Rolnictwo, ogrodnictwo, owoce-warzywa [REBRAND]</option>
+      <option value="makieta_08_produkcja_przemyslowa.html">08 — Produkcja przemysłowa</option>
+      <option value="makieta_09_handel_fmcg.html">09 — Handel detaliczny i FMCG [REBRAND]</option>
+      <option value="makieta_10_ecommerce_3pl.html">10 — E-commerce, 3PL i fulfillment [NOWA]</option>
+  </select>
+  <span class="current-tag">PROTOTYP</span>
+</div>
+
+<div class="sticky-header">
+  <div class="logo">bekuplast</div>
+  
+    <nav class="nav-main">
+      <a href="#">Produkty</a>
+      <a href="#">Rozwiązania branżowe</a>
+      <a href="#">Pooling</a>
+      <a href="#">PPWR</a>
+      <a href="#">Firma</a>
+    </nav>
+    
+  <div class="sticky-cta">
+    <a href="#">📞 +48 32 224-3520</a>
+    <a href="#" class="btn-mini">Rozmowa z inżynierem</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Skrzynki plastikowe dla rolnictwa i ogrodnictwa</h1>
+    <p class="lead">Skrzynki ogrodnicze na warzywa, do zbioru jabłek i truskawek, transportery dla sadowników i hurtowni warzywno-owocowych. Pracują w 200+ polskich gospodarstwach.</p>
+    <div class="cta-row">
+      <a href="#" class="btn-primary">Rozmowa z inżynierem opakowań →</a>
+      <a href="#" class="btn-secondary">Pobierz kalendarz zbiorów + dobór SKU (XLS)</a>
+    </div>
+  </div>
+  <div class="hero-illustration">
+    <span class="illustration-label">Ilustracja / foto produktów</span>
+  </div>
+</div>
+
+<div class="breadcrumb-section">
+  Strona główna <span>›</span> Rozwiązania branżowe <span>›</span> <b>Rolnictwo, ogrodnictwo, owoce-warzywa</b>
+  <span class="tag rebrand">REBRAND</span>
+</div>
+
+<section class="tldr">
+  <div class="tldr-grid">
+    <div class="tldr-animation">
+      <div class="anim-dots"></div>
+      <div class="play-icon"></div>
+      <span class="anim-label">▶ Wideo / animacja zapętlona (mute, autoplay) — produkty w cyklu reuse</span>
+    </div>
+    <div class="tldr-box">
+      <h2>Kluczowe wnioski</h2>
+      <ul>
+        <li><b>Polski rynek owoców-warzyw to dziś mix:</b> drewniane skrzynki na zbiór, plastikowe na transport, tekturowe na sprzedaż detaliczną. Konsolidacja pod plastikowe RTP trwa od 2020 r.</li><li><b>Sezonowość ekstremalna:</b> truskawki maj–czerwiec, czereśnie czerwiec, jabłka sierpień–październik, kapusta wrzesień–listopad. Floty skrzynek muszą być skalowane.</li><li><b>PPWR Art. 26 wyłącza rolnictwo pierwotne</b> z celów reuse — zbiór z pola jest poza zakresem. Ale <b>transport produktów rolnych do sieci handlowych jest objęty</b> Art. 29(3).</li><li><b>Sadownik z 50+ ha</b> używa 8 000–25 000 skrzynek w cyklu. Optymalny model: 70% zakup własny + 30% pooling sezonowy.</li><li><b>Skrzynki bekuplast EURO</b> są kompatybilne z systemami dystrybucyjnymi Lidl, Biedronka, Carrefour — eliminacja przeładunku.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Cztery wyzwania sadowników, gospodarstw warzywnych i hurtowni</h2>
+  <div class="cards-grid">
+    <div class="card"><div class="num">01</div><h4>Sezonowość — flota skrzynek skaluje 4–6× w 6–10 tygodni</h4><p>Sadownik z 50 ha jabłoni używa 18 000 skrzynek w peak zbiorów (sierpień–wrzesień). Przez 9 miesięcy roku: 3 000–5 000 skrzynek wystarcza.</p><div class="what">→ Pooling sezonowy (CapEx → OpEx) lub kontrakty z wymianą flot. Skalowanie zgodne z kalendarzem zbiorów.</div></div>
+<div class="card"><div class="num">02</div><h4>Transport temperaturowy — od pola do sieci</h4><p>Truskawki, maliny, sałata, ogórki = transport chłodzony (2–6°C). Skrzynki muszą wytrzymać kondensację, różnicę temperatur, wahania wilgotności.</p><div class="what">→ Skrzynki ogrodnicze EURO HDPE z otworami wentylacyjnymi.</div></div>
+<div class="card"><div class="num">03</div><h4>Standaryzacja pod sieci handlowe</h4><p>Lidl, Biedronka, Carrefour wymagają konkretnych wymiarów skrzynek — Euro 400×300 lub 600×400. Sadownik musi dostosować flotę do standardu sieci.</p><div class="what">→ Skrzynki w wymiarach EURO 400×300 i 600×400, kompatybilne z systemami 5 największych sieci PL.</div></div>
+<div class="card"><div class="num">04</div><h4>Niska żywotność drewnianych skrzynek na zbiór</h4><p>Drewniane skrzynki sadownicze wytrzymują 2–4 lata. HDPE: 10–15 lat. ROI na wymianie: 18–28 miesięcy dla sadu 25+ ha.</p><div class="what">→ Skrzynki ogrodnicze EURO z dnem perforowanym, sztaplowanie 8 jednostek.</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Skrzynki ogrodnicze EURO, skrzyniopalety i palety</h2>
+  <div class="product-tiles">
+    <a class="tile" href="#"><div class="img-placeholder">[Skrzynki ogrodnicze EURO]</div><h5>Skrzynki ogrodnicze EURO</h5><div class="tile-meta">Pełna gama</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Owoce i warzywa norma EURO]</div><h5>Owoce i warzywa norma EURO</h5><div class="tile-meta">Standardy sieci</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Skrzyniopalety]</div><h5>Skrzyniopalety</h5><div class="tile-meta">Hurt jabłka, ziemniaki</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Palety Euro]</div><h5>Palety Euro</h5><div class="tile-meta">Bez fumigacji (eksport)</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Skrzynki na truskawki]</div><h5>Skrzynki na truskawki</h5><div class="tile-meta">8 kg, perforowane</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Skrzyniopalety na jabłka]</div><h5>Skrzyniopalety na jabłka</h5><div class="tile-meta">300 kg hurt</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Indywidualne pod SKU]</div><h5>Indywidualne pod SKU</h5><div class="tile-meta">Pod konkretne owoce</div></a>
+  </div>
+</section>
+
+<section class="ppwr-section">
+  <h2>PPWR a rolnictwo — co jest objęte, a co nie</h2>
+  <p>Rolnictwo pierwotne (zbiór z pola, transport pomiędzy polem a magazynem sadu) jest wyłączone z PPWR Art. 26. Ale transport do sieci handlowych jest objęty Art. 29(3), a PFAS ban (Art. 5) dotyczy wszystkich opakowań do kontaktu — w tym papierowych skrzynek z powłoką woskową.</p>
+  
+        <div class="scope-grid">
+          <div class="scope-col included">
+            <h4>🟥 OBJĘTE — wymagana akcja</h4>
+            <ul><li><b>Transport z sadu/hurtowni do sieci handlowej</b> — Art. 29(3) PPWR (40% reuse 2030)</li><li><b>Transport produktów przetworzonych</b> (sok jabłkowy w butelce) — Art. 26 + Art. 5 PFAS</li><li><b>Transport B2B w obrębie firmy</b> (hurtownia agro z 2+ magazynami) — Art. 29(1), 100% reuse</li></ul>
+          </div>
+          <div class="scope-col excluded">
+            <h4>🟩 POZA ZAKRESEM lub neutralne</h4>
+            <ul><li><b>Zbiór z pola</b> — wyłączony z Art. 26 PPWR</li><li><b>Transport sezonowy w obrębie gospodarstwa</b> — wyłączony</li><li><b>Sadownik produkujący dla własnej hurtowni</b> — wyłączony</li></ul>
+          </div>
+        </div>
+  <div class="regulations-grid">
+    <div class="reg-pill"><span class="article-tag">Art. 26</span><p>Wyłącza rolnictwo pierwotne z celów reuse — zbiór z pola poza zakresem.</p></div>
+<div class="reg-pill"><span class="article-tag">Art. 29(3)</span><p>Transport z sadu/hurtowni do sieci handlowych — objęty (40% reuse 2030).</p></div>
+<div class="reg-pill"><span class="article-tag">Art. 5 PFAS</span><p>Większość papierowych skrzynek na owoce ma powłokę woskową z PFAS — nielegalne od 12.08.2026.</p></div>
+  </div>
+  <blockquote>
+    Polski rynek owoców-warzyw jest średnio 8–10 lat za DACH w eliminacji drewna i tektury na rzecz plastikowych RTP. PPWR + PFAS ban przyspieszą tę konwersję — sieci handlowe (objęte Art. 29(3)) wymuszą u dostawców.
+    <cite>— Polski Pakt Plastikowy, raport 'Reuse w rolnictwie i FMCG PL', grudzień 2025</cite>
+  </blockquote>
+  <div class="ppwr-cta-box">
+    <h3>Co możesz zrobić teraz</h3>
+    <ol>
+      <li><b>Pobierz kalendarz zbiorów + dobór SKU</b> — Excel z mapowaniem skrzynek per sezon i per kategoria. → <a href="#">Pobierz Excel</a></li><li><b>Sprawdź gotowość firmy pod PPWR</b>. → <a href="#">Sprawdź gotowość PPWR</a></li><li><b>Oblicz koszt floty</b> dla Twojego sadu / gospodarstwa. → <a href="#">Oblicz TCO</a></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2>Case study</h2>
+  <div class="case-placeholder">
+    <h4>Case study: hurtownia agro z Wielkopolski — wymiana floty 14 000 skrzynek + standaryzacja pod 3 sieci</h4>
+    <p>Brief do uzupełnienia po decyzji AD3 (Monika Sojka, tydzień 26 / 25–29 maja 2026):</p>
+    <ul>
+      <li><b>Klient:</b> hurtownia warzywno-owocowa z Wielkopolski (anonim)</li><li><b>Skala:</b> 14 000 skrzynek w cyklu, obroty 280 t/tydzień w peak sezonu, dostawca dla 3 sieci handlowych</li><li><b>Rozwiązanie:</b> 9 000 × skrzynki ogrodnicze EURO 400×300, 3 500 × na owoce i warzywa norma EURO 600×400, 1 500 × skrzyniopalety, pooling sezonowy 40%</li><li><b>3 KPI:</b> redukcja stłuczek o 73%, eliminacja przeładunku skrzynka→skrzynka u sieci (oszczędność 2,1 etatu), ROI 22 miesiące</li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+            <section>
+              <h2>Pooling sezonowy — skaluj flotę zgodnie z kalendarzem zbiorów</h2>
+              <div class="pooling-highlight">
+                <h3>🔄 Wynajem skrzynek w peak za stałą opłatę</h3>
+                <p>Sadownik z 50 ha jabłoni potrzebuje 18 000 skrzynek w sierpniu–wrześniu, 5 000 przez resztę roku. Pooling sezonowy = bez over-provisioning, bez magazynowania pustej floty 9 miesięcy w roku.</p>
+                <ul><li>Skalowanie z sezonem zbiorów (jabłka, truskawki, kapusta)</li><li>CapEx → OpEx, stała opłata miesięczna</li><li>Zarządzanie cyklem (mycie, naprawa, audyt jakości) zlecone operatorowi</li></ul>
+                <a href="#" class="btn-pooling">Sprawdź model pooling →</a>
+              </div>
+            </section>
+
+<section>
+  <h2>Może Cię też zainteresować</h2>
+  <div class="related-grid">
+    <a class="related-tile" href="#"><h5>Przetwórstwo żywności →</h5><p>Przetwórnie owoców i warzyw, soków, mrożonek (HACCP + PPWR).</p></a>
+<a class="related-tile" href="#"><h5>Handel detaliczny i FMCG →</h5><p>Sieci handlowe są Twoim odbiorcą, ich standardy = Twój standard.</p></a>
+<a class="related-tile" href="#"><h5>Logistyka i transport (3PL) →</h5><p>Operatorzy logistyczni obsługujący transport temperaturowy.</p></a>
+  </div>
+</section>
+
+<section>
+  <h2>Najczęściej zadawane pytania</h2>
+  <details><summary>Jakie skrzynki polecacie do zbioru truskawek?</summary><p>Skrzynki ogrodnicze EURO 400×300×120 mm z perforowanym dnem (drenaż soku owoców) i ażurowymi ścianami (wentylacja). Pojemność 8–10 kg truskawek. Sztaplowanie 6 jednostek.</p></details>
+<details><summary>Jakie skrzynki polecacie do jabłek?</summary><p>Dla zbioru w sadzie: skrzynki ogrodnicze EURO 600×400×180–280 mm, pełnościenne, z dnem perforowanym. Dla hurtowego transportu: skrzyniopalety 1200×800×800 mm (300–400 kg jabłek). Dla transportu do sieci handlowej: skrzynki EURO 600×400×130 mm w standardzie sieci.</p></details>
+<details><summary>Czy macie skrzynki kompatybilne z Lidlem, Biedronką i Carrefourem?</summary><p>Tak — produkujemy skrzynki w wymiarach Euro 400×300 i 600×400 w standardach najczęściej wymaganych przez sieci handlowe. Możemy dopasować znakowanie, kolorystykę, perforację pod konkretną kategorię.</p></details>
+<details><summary>Czy rolnictwo jest objęte PPWR?</summary><p>Rolnictwo pierwotne (zbiór z pola, transport w obrębie gospodarstwa) — wyłączone przez Art. 26 PPWR. Transport do sieci handlowych — objęty Art. 29(3) (40% reuse 2030). PFAS ban (Art. 5) — dotyczy wszystkich opakowań do kontaktu z żywnością.</p></details>
+<details><summary>Ile cykli wytrzymują skrzynki ogrodnicze HDPE?</summary><p>10–15 lat intensywnej eksploatacji (sezonowa), 100+ cykli rotacji dla skrzynek transportowych. Dla porównania: drewniane skrzynki sadownicze 2–4 lata, tekturowe 1 cykl.</p></details>
+<details><summary>Czy mogę wynająć skrzynki tylko na sezon zbiorów?</summary><p>Tak — oferujemy pooling sezonowy (model OpEx). Płacisz miesięczną opłatę za cykl skrzynki w okresie peak (np. sierpień–październik dla jabłek).</p></details>
+<details><summary>Czy macie palety bez fumigacji do eksportu owoców?</summary><p>Tak — palety plastikowe Euro nie wymagają fumigacji ISPM-15. Sadownicy eksportujący do Skandynawii, UK, Bliskiego Wschodu unikają kosztów certyfikacji + dezynfekcji = oszczędność 8–12 zł/paleta.</p></details>
+</section>
+
+<div class="end-cta">
+  <h2>Porozmawiajmy o skrzynkach dla Twojego sadu / hurtowni</h2>
+  <p>Rozmowa z inżynierem opakowań — z osobą, która projektowała skrzynki sadownicze dla 200+ polskich gospodarstw.</p>
+  <ul>
+    <li>Odpowiedź w 24 godziny</li><li>Inżynier, nie handlowiec</li><li>Konsultacja bezpłatna</li><li>Próbki bezpłatne</li>
+  </ul>
+  <a href="#" class="btn-primary">Umów rozmowę z inżynierem →</a>
+</div>
+
+</div>
+</div>
+</body>
+</html>

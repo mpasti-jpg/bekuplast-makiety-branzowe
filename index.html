@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bekuplast.pl — makiety 10 stron branżowych (kampania PPWR)</title>
+<style>
+:root {
+  --bg: #fdf8f2;
+  --paper: #fff;
+  --ink: #1a1a1a;
+  --muted: #555;
+  --soft: #888;
+  --line: #e0e0e0;
+  --accent: #FF6B2C;
+  --accent-soft: #ffeae0;
+  --accent-dark: #d44e15;
+  --new-badge: #d81b60;
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  background-image: repeating-linear-gradient(45deg, transparent 0 30px, rgba(0,0,0,0.012) 30px 31px);
+  color: var(--ink);
+  line-height: 1.55;
+  padding: 40px 20px;
+}
+.wrap { max-width: 980px; margin: 0 auto; }
+.header { margin-bottom: 40px; }
+.header .label {
+  display: inline-block; background: var(--accent-soft); color: var(--accent-dark);
+  padding: 6px 12px; border-radius: 4px;
+  font-family: var(--mono); font-size: 12px; margin-bottom: 18px; font-weight: 600;
+}
+.header h1 {
+  font-family: var(--serif);
+  font-size: 42px; font-weight: 700; line-height: 1.1;
+  margin-bottom: 16px; letter-spacing: -0.5px;
+}
+.header p {
+  font-size: 17px; color: var(--muted);
+  margin-bottom: 14px; max-width: 760px;
+}
+.meta-bar {
+  background: #fff; border: 1px solid var(--line);
+  border-radius: 8px; padding: 18px 22px;
+  margin-bottom: 36px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  font-family: var(--mono); font-size: 12px;
+}
+.meta-bar div b { color: var(--ink); display: block; margin-bottom: 4px; font-family: var(--sans); font-size: 11px; text-transform: uppercase; color: var(--soft); }
+.meta-bar div span { color: var(--ink); font-weight: 600; }
+
+.grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.card {
+  background: #fff; border: 1px solid var(--line);
+  padding: 20px 22px; border-radius: 8px;
+  text-decoration: none; color: inherit;
+  transition: border-color 0.2s, transform 0.2s;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.card .num {
+  font-family: var(--mono); font-size: 11px; color: var(--accent);
+  font-weight: 700; letter-spacing: 0.5px;
+}
+.card h3 {
+  font-size: 18px; font-weight: 700; line-height: 1.25;
+  margin: 0;
+}
+.card .meta {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  margin-top: 4px;
+}
+.card .meta .pill {
+  background: #f5f5f5; padding: 3px 8px; border-radius: 3px;
+}
+.card .meta .pill.new { background: var(--new-badge); color: #fff; }
+.card .meta .pill.rebrand { background: var(--accent); color: #fff; }
+.card .meta .pill.pain { background: #ffe4e0; color: #c62828; }
+.card .meta .pill.compliance { background: #e8f5e9; color: #2e7d32; }
+.card .meta .pill.mixed { background: #e3f2fd; color: #1565c0; }
+.card .desc { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+.footer { margin-top: 50px; padding: 24px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--soft); }
+.footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <span class="label">🔬 PROTOTYPY · kampania PPWR · maj 2026</span>
+  <h1>bekuplast.pl — 10 stron branżowych</h1>
+  <p>Makiety wireframe (lo-fi blueprint) dla 10 podstron <code>/branzowe/...</code> przygotowanych pod kampanię PPWR (Rozporządzenie UE 2025/40, wejście w życie 12 sierpnia 2026 r.).</p>
+  <p>Każda strona ma w nagłówku dropdown z linkami do pozostałych 9 makiet — łatwe przełączanie się między branżami.</p>
+</div>
+
+<div class="meta-bar">
+  <div><b>Domena</b><span>bekuplast.pl</span></div>
+  <div><b>Rynek</b><span>Polska (PL only)</span></div>
+  <div><b>Status</b><span>Prototypy lo-fi</span></div>
+  <div><b>Autor</b><span>Mateusz Pasternak (crear)</span></div>
+</div>
+
+<div class="grid">
+
+<a href="makieta_01_motoryzacja_automotive.html" class="card">
+  <div class="num">#01</div>
+  <h3>Motoryzacja i automotive</h3>
+  <div class="meta">
+    <span class="pill compliance">compliance</span>
+    <span class="pill">KLT/VDA, tier 1/2/3</span>
+  </div>
+  <div class="desc">Pojemniki KLT i VDA 4500 dla tier 1/2/3 dostawców OEM. 95% reuse u OEM-ów to standard od dekad.</div>
+</a>
+
+<a href="makieta_02_przetworstwo_zywnosci.html" class="card">
+  <div class="num">#02</div>
+  <h3>Przetwórstwo żywności</h3>
+  <div class="meta">
+    <span class="pill pain">pain-point</span>
+    <span class="pill">HACCP, PFAS ban</span>
+  </div>
+  <div class="desc">Pojemniki HACCP dla piekarni, mleczarni, mięsa. HDPE bez PFAS, dopuszczenie Reg. (UE) 10/2011.</div>
+</a>
+
+<a href="makieta_03_napoje.html" class="card">
+  <div class="num">#03</div>
+  <h3>Sprzedaż i transport na rynku napojów</h3>
+  <div class="meta">
+    <span class="pill pain">pain-point (pillar SEO)</span>
+    <span class="pill">skrzynka na piwo · vol 1 300</span>
+  </div>
+  <div class="desc">Skrzynki przegrodowe dla browarów, mleczarni, rozlewni. Kaucja 2025 + ROP + PPWR.</div>
+</a>
+
+<a href="makieta_04_farmacja_kosmetyki.html" class="card">
+  <div class="num">#04</div>
+  <h3>Farmacja i kosmetyki</h3>
+  <div class="meta">
+    <span class="pill compliance">compliance</span>
+    <span class="pill">ESD, sterylne, wyłączenie 2035</span>
+  </div>
+  <div class="desc">Pojemniki ESD wg IEC 61340-5-1, sterylizowalne dla farmacji. Pułapka czasowa 2035.</div>
+</a>
+
+<a href="makieta_05_intralogistyka.html" class="card">
+  <div class="num">#05</div>
+  <h3>Intralogistyka i magazyn</h3>
+  <div class="meta">
+    <span class="pill mixed">mieszany (high SEO)</span>
+    <span class="pill">silverline, AKL, ±0,3 mm</span>
+  </div>
+  <div class="desc">Pojemniki silverline, contecline, ESD dla magazynów AKL i shuttle. Quick win SEO.</div>
+</a>
+
+<a href="makieta_06_logistyka_3pl.html" class="card">
+  <div class="num">#06</div>
+  <h3>Logistyka i transport (3PL)</h3>
+  <div class="meta">
+    <span class="pill new">NOWA</span>
+    <span class="pill mixed">mieszany</span>
+    <span class="pill">Art. 29(3), pooling</span>
+  </div>
+  <div class="desc">Palety, skrzyniopalety, pooling Container-as-a-Service dla operatorów 3PL.</div>
+</a>
+
+<a href="makieta_07_rolnictwo_ogrodnictwo.html" class="card">
+  <div class="num">#07</div>
+  <h3>Rolnictwo, ogrodnictwo, owoce-warzywa</h3>
+  <div class="meta">
+    <span class="pill rebrand">REBRAND</span>
+    <span class="pill mixed">mieszany (high SEO)</span>
+    <span class="pill">vol 250</span>
+  </div>
+  <div class="desc">Skrzynki na warzywa, do zbioru jabłek i truskawek. Pooling sezonowy.</div>
+</a>
+
+<a href="makieta_08_produkcja_przemyslowa.html" class="card">
+  <div class="num">#08</div>
+  <h3>Produkcja przemysłowa</h3>
+  <div class="meta">
+    <span class="pill pain">pain-point</span>
+    <span class="pill">closed-loop, Art. 29(1)</span>
+  </div>
+  <div class="desc">Pojemniki basicline, silverline, palety Euro dla AGD, elektroniki, mebli, chemii.</div>
+</a>
+
+<a href="makieta_09_handel_fmcg.html" class="card">
+  <div class="num">#09</div>
+  <h3>Handel detaliczny i FMCG</h3>
+  <div class="meta">
+    <span class="pill rebrand">REBRAND</span>
+    <span class="pill pain">pain-point #1</span>
+    <span class="pill">Lidl/Biedronka/Carrefour</span>
+  </div>
+  <div class="desc">Skrzynki przegrodowe, palety, systemy dystrybucyjne DC → sklep. Priorytet #1 PPWR.</div>
+</a>
+
+<a href="makieta_10_ecommerce_3pl.html" class="card">
+  <div class="num">#10</div>
+  <h3>E-commerce, 3PL i fulfillment</h3>
+  <div class="meta">
+    <span class="pill new">NOWA</span>
+    <span class="pill pain">pain-point #2</span>
+    <span class="pill">Allegro/InPost/DPD</span>
+  </div>
+  <div class="desc">Składane skrzynki paczkomatowe, totes magazynowe, kuwety na zwroty.</div>
+</a>
+
+</div>
+
+<div class="footer">
+  <p>📂 Repo: <a href="https://github.com/" target="_blank">github.com/{owner}/bekuplast-makiety-branzowe</a> · stack: pure HTML + inline CSS · build: Python · domain: bekuplast.pl · status: prototyp pre-implementacja TYPO3</p>
+  <p style="margin-top:6px;">Dokumentacja kampanii PPWR: Notion teamspace „bekuplast PPWR — Centrum projektu"</p>
+</div>
+
+</div>
+</body>
+</html>
