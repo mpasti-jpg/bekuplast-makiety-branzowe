@@ -1,0 +1,27 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .scale{ display:grid; grid-template-columns: repeat(10,1fr); gap: 6px; }
+  .sw{ height: 96px; border-radius: var(--r-sm); padding: 8px 10px; display:flex; flex-direction: column; justify-content: space-between; color: var(--bp-ink-700); position: relative; }
+  .sw .w { font: var(--t-mono); opacity:.7; }
+  .sw .hex { font: var(--t-mono); }
+  .sw[data-on=dark]{ color: white; }
+  .sw.anchor::after{ content:""; position:absolute; top:8px; right:8px; width:6px; height:6px; border-radius:999px; background: currentColor; opacity:.7; }
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+</style>
+<div class="ttl">Brand Green · anchor #65b32e (500)</div>
+<div class="sub">Bekuplast Green — primary brand. Used as accent / primary action / active state. Never decorative.</div>
+<div class="scale">
+  <div class="sw" style="background:var(--bp-green-50)"><div class="w">50</div><div class="hex">#F1FAEA</div></div>
+  <div class="sw" style="background:var(--bp-green-100)"><div class="w">100</div><div class="hex">#DEFAC3</div></div>
+  <div class="sw" style="background:var(--bp-green-200)"><div class="w">200</div><div class="hex">#CBF893</div></div>
+  <div class="sw" style="background:var(--bp-green-300)"><div class="w">300</div><div class="hex">#B0D583</div></div>
+  <div class="sw" style="background:var(--bp-green-400)"><div class="w">400</div><div class="hex">#8EC659</div></div>
+  <div class="sw anchor" data-on="dark" style="background:var(--bp-green-500)"><div class="w">500</div><div class="hex">#65B32E</div></div>
+  <div class="sw" data-on="dark" style="background:var(--bp-green-600)"><div class="w">600</div><div class="hex">#54971F</div></div>
+  <div class="sw" data-on="dark" style="background:var(--bp-green-700)"><div class="w">700</div><div class="hex">#427718</div></div>
+  <div class="sw" data-on="dark" style="background:var(--bp-green-800)"><div class="w">800</div><div class="hex">#325912</div></div>
+  <div class="sw" data-on="dark" style="background:var(--bp-green-900)"><div class="w">900</div><div class="hex">#21390B</div></div>
+</div>
+</body></html>

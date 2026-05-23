@@ -1,0 +1,20 @@
+/* Shared chrome for design system preview cards.
+   Each card is ~700×variable px, rendered in the Design System tab. */
+@import url("../colors_and_type.css");
+
+html, body { background: var(--bp-white); }
+body.bp-card{
+  margin: 0;
+  padding: 24px;
+  font: var(--t-body);
+  color: var(--bp-ink-700);
+  background: var(--bp-white);
+  -webkit-font-smoothing: antialiased;
+}
+body.bp-card-dark{ background: var(--bp-ink-800); color: var(--bp-white); }
+body.bp-card-light{ background: var(--bp-ink-25); }
+.bp-row { display:flex; flex-wrap:wrap; align-items:center; gap: 16px; }
+.bp-col { display:flex; flex-direction: column; gap: 12px; }
+.bp-grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.bp-grid-3 { display:grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.bp-grid-4 { display:grid; grid-template-columns: repeat(4,1fr); gap: 12px; }

@@ -1,0 +1,36 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+  .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .alert{ display:flex; gap: 10px; padding: 12px 14px; border-radius: var(--r-sm); border-left: 3px solid currentColor; font: var(--t-body-sm); }
+  .alert .body{ color: var(--bp-ink-700); flex: 1; }
+  .alert .body strong{ display:block; margin-bottom: 2px; font: 600 14px/1.4 var(--f-display); }
+  .alert .ico{ width: 18px; height: 18px; flex: none; margin-top: 1px; }
+  .a-success{ color: var(--bp-success); background: var(--bp-success-bg); }
+  .a-info{    color: var(--bp-info);    background: var(--bp-info-bg); }
+  .a-warn{    color: var(--bp-warning); background: var(--bp-warning-bg); }
+  .a-danger{  color: var(--bp-danger);  background: var(--bp-danger-bg); }
+</style>
+<div class="ttl">Alerts &amp; toasts</div>
+<div class="sub">Four levels with semantic colors. Left border 3 px, tinted background, plain-spoken copy.</div>
+<div class="grid">
+  <div class="alert a-success">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <div class="body"><strong>Zamówienie potwierdzone.</strong>Numer #BP-2026-04891. Wysyłka na 28.05.2026.</div>
+  </div>
+  <div class="alert a-info">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <div class="body"><strong>Cennik 2026 do pobrania.</strong>Zmiany cen średnio +3.2%.</div>
+  </div>
+  <div class="alert a-warn">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3z"/><path d="M12 9v4M12 17h.01"/></svg>
+    <div class="body"><strong>Niski stan magazynowy.</strong>KLT 4314 — pozostało 240 sztuk.</div>
+  </div>
+  <div class="alert a-danger">
+    <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+    <div class="body"><strong>Niepoprawny format NIP.</strong>Wpisany numer nie spełnia algorytmu kontrolnego.</div>
+  </div>
+</div>
+</body></html>

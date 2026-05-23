@@ -2,224 +2,207 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Makieta v4 (Design System) — Sprzedaż i transport na rynku napojów | bekuplast.pl</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Makieta v5 (DS bekuplast canonical) — Sprzedaż i transport na rynku napojów | bekuplast.pl</title>
+<!-- Canonical tokens — single source of truth z /design-system/ -->
+<link rel="stylesheet" href="design-system/colors_and_type.css">
 <style>
 /* ===================================================================
-   bekuplast Design System — tokens (z theme.css, zip "Design system creation")
-   Brand: green #65b32e (zamiast pomarańczowego), Manrope semibold dla H,
-   Inter dla uppercase tagów, rounded-4px, shadow-sm, brand-dark text.
+   Makieta layout — używa wyłącznie tokens z colors_and_type.css.
+   Nie definiujemy żadnych kolorów ani typografii inline — wszystko
+   przez var(--bp-*) lub helper classes .bp-*.
+   Per design-system/README.md:
+     - 80px gutter (--s-20), 1352px maxw (--maxw)
+     - 96px section padding-y (--s-24)
+     - Card style: flat 1px ink-100, white bg, 8px radius, hover shadow + ty(-2px)
+     - Buttons: 44px height, 22px padding-x, Manrope 700 14px, -.16px tracking
 =================================================================== */
-:root {
-  /* Brand palette */
-  --brand-green: #65b32e;
-  --brand-green-hover: #58a127;
-  --brand-lightgreen: #CBF893;
-  --brand-lightgreen2: #b0d583;
-  --brand-lightgreen-bg: #f4fbe9;
-  --brand-dark: #434343;
-  --brand-gray: #717171;
-  --brand-lightgray: #f0f0f0;
-  --brand-lightgray-soft: #fafafa;
-  --destructive: #d4183d;
-
-  /* Aliasy semantyczne */
-  --bg: #fafafa;
-  --paper: #ffffff;
-  --ink: var(--brand-dark);
-  --muted: var(--brand-gray);
-  --line: var(--brand-lightgray);
-  --line-strong: #e0e0e0;
-  --accent: var(--brand-green);
-  --accent-hover: var(--brand-green-hover);
-  --accent-soft: var(--brand-lightgreen);
-  --accent-bg: var(--brand-lightgreen-bg);
-
-  /* Typografia */
-  --sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
-  --inter: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-
-  /* Radius */
-  --radius: 4px;
-  --radius-lg: 8px;
-
-  /* Shadow */
-  --shadow-sm: 0 1px 2px rgba(67, 67, 67, 0.05);
-  --shadow-md: 0 4px 16px rgba(67, 67, 67, 0.08);
-  --shadow-lg: 0 12px 32px rgba(67, 67, 67, 0.12);
-}
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.55;
+body.bp-base {
   padding: 40px 20px;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: var(--bp-ink-25);
 }
 
-.wrap { max-width: 1240px; margin: 0 auto; }
+.wrap { max-width: var(--maxw); margin: 0 auto; }
 
-/* ===================================================================
-   PROTOTYPE banners (dev-internal — nieobecne w produkcji)
-=================================================================== */
+/* === META-BANNER (dev-only) =================================== */
 .meta-banner {
-  background: var(--accent-bg);
-  border: 1.5px dashed var(--accent);
-  padding: 18px 24px; border-radius: var(--radius);
+  background: var(--bp-green-50);
+  border: 1.5px dashed var(--bp-green-500);
+  padding: 18px 24px; border-radius: var(--r-sm);
   margin-bottom: 32px;
-  font-family: var(--inter); font-size: 13px; color: var(--brand-dark);
+  font: var(--t-body-sm); color: var(--bp-ink-700);
 }
-.meta-banner strong { display: block; font-size: 14px; margin-bottom: 6px; font-family: var(--sans); font-weight: 600; }
-.meta-banner code { background: #fff; padding: 2px 6px; border-radius: 3px; color: var(--accent); }
+.meta-banner strong { display: block; font: 700 14px/1.4 var(--f-display); margin-bottom: 6px; }
+.meta-banner code { font: var(--t-mono); background: var(--bp-white); padding: 2px 6px; border-radius: var(--r-xs); color: var(--bp-green-600); }
 .meta-banner .specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; }
-.meta-banner .specs div {
-  background: #fff; padding: 10px 12px; border-radius: var(--radius);
-  font-size: 11px; line-height: 1.5;
-  border: 1px solid var(--line);
-}
+.meta-banner .specs div { background: var(--bp-white); padding: 10px 12px; border-radius: var(--r-sm); font: var(--t-caption); border: 1px solid var(--bp-ink-100); }
 .meta-banner .specs b {
-  display: block; color: var(--brand-gray); text-transform: uppercase;
-  font-family: var(--inter); font-size: 10px; letter-spacing: 1px;
-  margin-bottom: 2px; font-weight: 600;
+  display: block; font: var(--t-label);
+  letter-spacing: var(--ls-label-wide);
+  text-transform: uppercase;
+  color: var(--bp-ink-500);
+  margin-bottom: 2px;
 }
 
 .desktop {
-  background: var(--paper);
-  border-radius: var(--radius-lg);
+  background: var(--bp-white);
+  border-radius: var(--r-lg);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
 }
 
-/* Proto-nav dropdown */
+/* === PROTO-NAV (dev dropdown) ================================ */
 .proto-nav {
-  background: var(--brand-dark); color: #fff;
+  background: var(--bp-ink-800); color: var(--bp-white);
   padding: 14px 32px;
   display: flex; align-items: center; gap: 16px;
-  font-family: var(--inter); font-size: 12px;
-  border-bottom: 1px solid #2a2a2a;
+  font: var(--t-label); letter-spacing: var(--ls-label-wide);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--bp-ink-700);
 }
-.proto-nav .label { color: rgba(255,255,255,0.7); }
-.proto-nav .label b { color: var(--accent); font-weight: 600; }
+.proto-nav .label { color: rgba(255,255,255,.7); text-transform: none; letter-spacing: 0; font: var(--t-caption); font-family: var(--f-label); }
+.proto-nav .label b { color: var(--bp-green-300); font-weight: 700; }
 .proto-nav select {
-  background: #525252; color: #fff;
-  border: 1px solid #6b6b6b;
-  border-radius: var(--radius);
+  background: var(--bp-ink-700); color: var(--bp-white);
+  border: 1px solid var(--bp-ink-600);
+  border-radius: var(--r-sm);
   padding: 9px 14px;
-  font-family: var(--inter); font-size: 12px;
+  font: var(--t-caption); font-family: var(--f-label);
   cursor: pointer;
   flex: 1;
   max-width: 480px;
+  text-transform: none;
 }
-.proto-nav select:hover { border-color: var(--accent); }
-.proto-nav select:focus { outline: none; border-color: var(--accent); }
+.proto-nav select:hover,
+.proto-nav select:focus { outline: none; border-color: var(--bp-green-500); }
 .proto-nav .current-tag {
-  background: var(--accent); color: #fff;
-  padding: 5px 12px; border-radius: var(--radius);
-  font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
-  font-family: var(--inter); text-transform: uppercase;
+  background: var(--bp-green-500); color: var(--bp-white);
+  padding: 5px 12px; border-radius: var(--r-sm);
+  font: var(--t-eyebrow); letter-spacing: var(--ls-eyebrow-wide);
+  text-transform: uppercase;
 }
 
-/* ===================================================================
-   STICKY HEADER
-=================================================================== */
+/* === STICKY HEADER (per preview/header.html) ================== */
 .sticky-header {
-  background: var(--paper);
-  border-bottom: 1px solid var(--line);
-  padding: 18px 32px;
-  display: flex; justify-content: space-between; align-items: center;
+  background: var(--bp-white);
+  border-bottom: 1px solid var(--bp-ink-100);
+  padding: 16px 32px;
+  display: flex; flex-direction: column; gap: 14px;
   position: sticky; top: 0; z-index: 10;
 }
+.sticky-header .top {
+  display: flex; align-items: center; justify-content: space-between;
+}
 .logo {
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: 22px;
-  color: var(--ink);
-  letter-spacing: -0.5px;
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font: 700 24px/1 var(--f-display);
+  letter-spacing: -.6px;
+  color: var(--bp-ink-700);
 }
-.logo span { color: var(--accent); }
-.nav-main { display: flex; gap: 28px; font-size: 15px; }
-.nav-main a {
-  color: var(--ink); text-decoration: none;
-  font-weight: 500; font-family: var(--sans);
-  transition: color 0.2s;
+.logo .dot {
+  width: 5px; height: 5px;
+  background: var(--bp-green-500);
+  border-radius: 999px;
+  transform: translateY(-1px);
 }
-.nav-main a:hover { color: var(--accent); }
-.sticky-cta { display: flex; gap: 14px; align-items: center; font-size: 14px; }
-.sticky-cta a.phone {
-  color: var(--brand-gray); text-decoration: none;
-  font-weight: 500; font-family: var(--sans);
+.util-nav {
+  display: flex; gap: 28px; align-items: center;
+  font: 500 13px/1 var(--f-display);
+  color: var(--bp-ink-600);
 }
-.sticky-cta a.phone:hover { color: var(--ink); }
-
-/* ===================================================================
-   DS BUTTONS
-=================================================================== */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 8px;
-  font-family: var(--sans); font-weight: 600;
-  border-radius: var(--radius);
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+.util-nav .item {
+  display: inline-flex; gap: 6px; align-items: center;
+  color: var(--bp-ink-600); text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.util-nav .item:hover { color: var(--bp-green-600); }
+.util-nav svg { width: 14px; height: 14px; }
+.util-nav .ai {
+  background: var(--bp-green-500); color: var(--bp-white);
+  padding: 8px 16px; border-radius: var(--r-sm);
+  display: inline-flex; gap: 6px; align-items: center;
+  font: 600 13px/1 var(--f-display);
   text-decoration: none;
-  border: none; cursor: pointer;
-  letter-spacing: -0.16px;
+  transition: background var(--dur-fast) var(--ease-out);
 }
-.btn-sm { height: 36px; padding: 0 15px; font-size: 14px; letter-spacing: -0.14px; }
-.btn-md { height: 48px; padding: 0 24px; font-size: 16px; }
-.btn-lg { height: 56px; padding: 0 32px; font-size: 18px; letter-spacing: -0.18px; }
+.util-nav .ai:hover { background: var(--bp-green-600); }
+.util-nav .pl {
+  width: 32px; height: 32px; border-radius: 999px;
+  background: var(--bp-white); border: 1px solid var(--bp-ink-100);
+  display: grid; place-items: center;
+  font: 700 11px/1 var(--f-label);
+  color: var(--bp-ink-600);
+}
+.main-nav {
+  display: flex; gap: 28px;
+  font: 600 14px/1 var(--f-display);
+}
+.main-nav a {
+  color: var(--bp-ink-700); text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.main-nav a:hover { color: var(--bp-green-600); }
+.main-nav a.is-active { color: var(--bp-green-600); }
 
-.btn-primary {
-  background: var(--accent); color: #fff;
-}
-.btn-primary:hover { background: var(--accent-hover); }
-.btn-secondary {
-  background: var(--brand-dark); color: #fff;
-}
-.btn-secondary:hover { background: #2a2a2a; }
-.btn-outline {
-  background: transparent; color: var(--accent);
-  border: 1px solid var(--accent);
-}
-.btn-outline:hover { background: var(--accent); color: #fff; }
-.btn-ghost {
-  background: transparent; color: var(--ink);
-}
-.btn-ghost:hover { background: var(--brand-lightgray); }
-
-/* ===================================================================
-   DS TAG (uppercase + dot)
-=================================================================== */
+/* === DS Tags (per preview/tags-badges.html) =================== */
 .tag {
-  display: inline-flex; align-items: center; gap: 20px;
-  padding: 8px 12px; border-radius: var(--radius);
-  border: 1px solid #dedede;
-  font-family: var(--inter);
-  font-size: 12px; font-weight: 600;
-  letter-spacing: 1.2px; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 5px 11px; border-radius: var(--r-sm);
+  border: 1px solid var(--bp-ink-200);
+  background: var(--bp-white);
+  font: 700 11px/1 var(--f-label);
+  letter-spacing: var(--ls-label-wide);
+  text-transform: uppercase;
+  color: var(--bp-ink-500);
 }
-.tag .dot {
-  width: 4px; height: 4px; border-radius: 50%;
+.tag::after {
+  content: ""; width: 3px; height: 3px;
+  background: var(--bp-ink-500);
 }
-.tag-green { color: var(--accent); border-color: #dedede; }
-.tag-green .dot { background: var(--accent); }
-.tag-gray { color: var(--brand-gray); border-color: #ececec; }
-.tag-gray .dot { background: var(--brand-gray); }
-.tag-dark { color: #fff; background: var(--brand-dark); border-color: var(--brand-dark); }
-.tag-dark .dot { background: var(--accent); }
+.tag.is-green { color: var(--bp-green-600); }
+.tag.is-green::after { background: var(--bp-green-500); }
+.tag.is-dark {
+  color: var(--bp-white); background: var(--bp-ink-700);
+  border-color: transparent;
+}
+.tag.is-dark::after { background: var(--bp-green-300); }
 
-/* ===================================================================
-   HERO — DS HeroTitle 72px Manrope semibold
-=================================================================== */
+/* === DS Buttons (per preview/buttons-variants.html) =========== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 44px; padding: 0 22px;
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  font: 700 14px/1 var(--f-display);
+  letter-spacing: -.16px;
+  cursor: pointer; text-decoration: none;
+  transition: background var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--bp-green-500); color: var(--bp-white); }
+.btn-primary:hover { background: var(--bp-green-600); }
+.btn-secondary { background: var(--bp-ink-700); color: var(--bp-white); }
+.btn-secondary:hover { background: var(--bp-ink-800); }
+.btn-outline {
+  background: var(--bp-white); color: var(--bp-green-600);
+  border-color: var(--bp-green-500);
+}
+.btn-outline:hover { background: var(--bp-green-50); }
+.btn-ghost { background: transparent; color: var(--bp-ink-700); }
+.btn-ghost:hover { background: var(--bp-ink-50); }
+.btn-on-dark { background: var(--bp-white); color: var(--bp-green-600); }
+.btn-on-dark:hover { background: var(--bp-green-50); }
+.btn-sm { height: 36px; padding: 0 16px; font-size: 13px; }
+.btn-lg { height: 56px; padding: 0 32px; font-size: 16px; }
+
+/* === HERO ===================================================== */
 .hero {
-  padding: 80px 48px 64px;
-  border-bottom: 1px solid var(--line);
+  padding: 96px 80px 80px;
+  border-bottom: 1px solid var(--bp-ink-100);
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   gap: 64px;
@@ -228,30 +211,24 @@ body {
 .hero-content { display: flex; flex-direction: column; }
 .hero .tag { align-self: flex-start; margin-bottom: 24px; }
 .hero h1 {
-  font-family: var(--sans);
-  font-size: 72px;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -1.44px;
-  color: var(--ink);
+  font: var(--t-display-1);
+  letter-spacing: var(--ls-display-tight);
+  color: var(--bp-ink-700);
   margin-bottom: 28px;
 }
-.hero .lead {
-  font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: -0.18px;
-  color: var(--muted);
+.hero .lede {
+  font: var(--t-body-lg);
+  letter-spacing: var(--ls-body-tight);
+  color: var(--bp-ink-500);
   margin-bottom: 36px;
-  max-width: 520px;
+  max-width: 540px;
 }
 .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
 
 .hero-illustration {
   position: relative;
-  background: var(--brand-lightgray);
-  border-radius: var(--radius-lg);
+  background: var(--bp-ink-50);
+  border-radius: var(--r-lg);
   aspect-ratio: 4 / 3;
   overflow: hidden;
 }
@@ -262,100 +239,85 @@ body {
 }
 .hero-illustration .illustration-label {
   position: absolute; top: 16px; left: 16px;
-  font-family: var(--inter); font-size: 11px;
-  color: var(--brand-gray); background: rgba(255,255,255,0.95);
-  padding: 6px 12px; border-radius: var(--radius);
-  font-weight: 500;
+  font: var(--t-label); letter-spacing: var(--ls-label-wide);
+  text-transform: uppercase;
+  color: var(--bp-ink-500);
+  background: var(--bp-white);
+  padding: 6px 12px; border-radius: var(--r-sm);
 }
 
-/* ===================================================================
-   STATBLOCK row (po hero) — DS StatBlock 44px green
-=================================================================== */
+/* === STATBLOCK ROW ============================================ */
 .stats-row {
-  padding: 56px 48px;
-  border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  padding: 64px 80px;
+  border-bottom: 1px solid var(--bp-ink-100);
+  background: var(--bp-white);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
 }
 .stat-block { display: flex; flex-direction: column; gap: 8px; }
 .stat-block .value {
-  font-family: var(--sans);
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.88px;
-  color: var(--accent);
+  font: var(--t-display-2);
+  letter-spacing: var(--ls-display-tight);
+  color: var(--bp-green-500);
 }
 .stat-block .label {
-  font-family: var(--sans);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  color: var(--muted);
+  font: var(--t-body);
+  color: var(--bp-ink-500);
 }
 
-/* ===================================================================
-   BREADCRUMB
-=================================================================== */
+/* === BREADCRUMB =============================================== */
 .breadcrumb-section {
-  padding: 20px 48px;
-  font-family: var(--inter);
-  font-size: 12px;
-  color: var(--muted);
-  background: var(--brand-lightgray-soft);
-  border-bottom: 1px solid var(--line);
+  padding: 20px 80px;
+  font: var(--t-caption);
+  color: var(--bp-ink-500);
+  background: var(--bp-ink-25);
+  border-bottom: 1px solid var(--bp-ink-100);
   display: flex; align-items: center; gap: 12px;
 }
-.breadcrumb-section span.sep { color: var(--brand-gray); opacity: 0.5; }
-.breadcrumb-section b { color: var(--ink); font-weight: 600; }
-.breadcrumb-section .tag { margin-left: 8px; }
+.breadcrumb-section span.sep { color: var(--bp-ink-400); }
+.breadcrumb-section b { color: var(--bp-ink-700); font-weight: 600; }
+.breadcrumb-section .tag { margin-left: auto; }
 
-/* ===================================================================
-   SECTIONS — DS SectionTitle 44px Manrope semibold
-=================================================================== */
+/* === SECTIONS ================================================= */
 section {
-  padding: 80px 48px;
-  border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  padding: 96px 80px;
+  border-bottom: 1px solid var(--bp-ink-100);
+  background: var(--bp-white);
 }
-section.alt-bg { background: var(--brand-lightgray-soft); }
+section.alt-bg { background: var(--bp-ink-25); }
+section .section-eyebrow {
+  font: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow-wide);
+  text-transform: uppercase;
+  color: var(--bp-green-500);
+  margin-bottom: 16px;
+  display: block;
+}
 section h2 {
-  font-family: var(--sans);
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.88px;
-  color: var(--ink);
+  font: var(--t-h1);
+  letter-spacing: var(--ls-display-tight);
+  color: var(--bp-ink-700);
   margin-bottom: 28px;
-  max-width: 860px;
+  max-width: 920px;
+  text-wrap: pretty;
 }
 section h3 {
-  font-family: var(--sans);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.24px;
-  color: var(--ink);
+  font: var(--t-h3);
+  letter-spacing: var(--ls-body-tight);
+  color: var(--bp-ink-700);
   margin: 28px 0 12px;
 }
 section p {
-  font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 28px;
-  letter-spacing: -0.18px;
-  color: var(--muted);
+  font: var(--t-body-lg);
+  letter-spacing: var(--ls-body-tight);
+  color: var(--bp-ink-500);
   margin-bottom: 16px;
   max-width: 860px;
 }
-section .section-tag { margin-bottom: 20px; }
 
-/* ===================================================================
-   TL;DR section — Figma-inspired, zielona paleta
-=================================================================== */
-.tldr { position: relative; overflow: hidden; background: var(--brand-lightgray-soft); }
+/* === TL;DR — Figma-inspired w zielonej palecie ================ */
+.tldr { position: relative; overflow: hidden; background: var(--bp-ink-25); }
 .tldr-tiles {
   position: absolute; top: 48px; right: 0;
   display: grid;
@@ -366,12 +328,15 @@ section .section-tag { margin-bottom: 20px; }
   transform: translateX(38%);
 }
 .tldr-tiles span {
-  display: block; border-radius: var(--radius);
-  background: var(--accent);
+  display: block; border-radius: var(--r-sm);
+  background: var(--bp-green-500);
 }
 .tldr-tiles span:nth-child(2),
-.tldr-tiles span:nth-child(6) { background: var(--accent-soft); }
-.tldr-tiles span:nth-child(4) { background: #fff; border: 1.5px solid var(--accent); }
+.tldr-tiles span:nth-child(6) { background: var(--bp-green-200); }
+.tldr-tiles span:nth-child(4) {
+  background: var(--bp-white);
+  box-shadow: inset 0 0 0 1.5px var(--bp-green-500);
+}
 .tldr .tldr-grid { position: relative; z-index: 1; }
 .tldr-grid {
   display: grid;
@@ -381,8 +346,8 @@ section .section-tag { margin-bottom: 20px; }
 }
 .tldr-animation {
   position: relative;
-  background: var(--brand-dark);
-  border-radius: var(--radius-lg);
+  background: var(--bp-ink-700);
+  border-radius: var(--r-lg);
   aspect-ratio: 16 / 11;
   overflow: hidden;
   display: flex; align-items: center; justify-content: center;
@@ -391,25 +356,26 @@ section .section-tag { margin-bottom: 20px; }
 .tldr-animation .play-icon {
   width: 80px; height: 80px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  border: 2px solid var(--accent);
+  background: rgba(255,255,255,.15);
+  border: 2px solid var(--bp-green-500);
   display: flex; align-items: center; justify-content: center;
   position: relative; z-index: 2;
 }
 .tldr-animation .play-icon::after {
   content: "";
   width: 0; height: 0;
-  border-left: 20px solid var(--accent);
+  border-left: 20px solid var(--bp-green-500);
   border-top: 12px solid transparent;
   border-bottom: 12px solid transparent;
   margin-left: 5px;
 }
 .tldr-animation .anim-label {
   position: absolute; bottom: 16px; left: 16px;
-  font-family: var(--inter); font-size: 11px;
-  color: rgba(255,255,255,0.85);
-  background: rgba(0,0,0,0.4);
-  padding: 6px 12px; border-radius: var(--radius);
+  font: var(--t-label); letter-spacing: var(--ls-label-wide);
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+  background: rgba(0,0,0,.4);
+  padding: 6px 12px; border-radius: var(--r-sm);
 }
 .tldr-animation .anim-dots {
   position: absolute; inset: 0;
@@ -418,15 +384,11 @@ section .section-tag { margin-bottom: 20px; }
     radial-gradient(circle at 70% 60%, rgba(101, 179, 46, 0.18) 0%, transparent 25%),
     radial-gradient(circle at 50% 80%, rgba(101, 179, 46, 0.12) 0%, transparent 30%);
 }
-.tldr-box { padding: 0; background: transparent; }
 .tldr-box .tag { margin-bottom: 24px; }
 .tldr-box h2 {
-  font-family: var(--sans);
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.88px;
-  color: var(--ink);
+  font: var(--t-h1);
+  letter-spacing: var(--ls-display-tight);
+  color: var(--bp-ink-700);
   margin-bottom: 32px;
 }
 .tldr-box ul { list-style: none; padding: 0; }
@@ -434,30 +396,26 @@ section .section-tag { margin-bottom: 20px; }
   position: relative;
   padding-left: 28px;
   margin-bottom: 24px;
-  font-family: var(--sans);
-  font-size: 16px; line-height: 24px;
-  color: var(--muted);
+  font: var(--t-body);
+  color: var(--bp-ink-500);
 }
 .tldr-box li::before {
   content: "";
   position: absolute;
   left: 0; top: 6px;
   width: 10px; height: 10px;
-  background: var(--accent);
-  border-radius: var(--radius);
+  background: var(--bp-green-500);
+  border-radius: var(--r-sm);
 }
 .tldr-box li b,
 .tldr-box li strong {
   display: block;
-  color: var(--ink);
-  font-weight: 600;
-  font-size: 16px;
+  color: var(--bp-ink-700);
+  font-weight: 700;
   margin-bottom: 6px;
 }
 
-/* ===================================================================
-   CARDS GRID — Wyzwania (DS Card)
-=================================================================== */
+/* === CARDS GRID (Wyzwania) — flat, hover shadow + ty(-2px) === */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -465,55 +423,44 @@ section .section-tag { margin-bottom: 20px; }
   margin-top: 32px;
 }
 .card {
-  background: var(--paper);
-  border: 1px solid var(--line);
+  background: var(--bp-white);
+  border: 1px solid var(--bp-ink-100);
   padding: 28px;
-  border-radius: var(--radius);
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  border-radius: var(--r-md);
+  transition: box-shadow var(--dur-base) var(--ease-out),
+              transform var(--dur-base) var(--ease-out);
 }
 .card:hover {
-  border-color: var(--accent);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 .card .num {
-  font-family: var(--sans);
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.88px;
-  color: var(--accent);
+  font: var(--t-display-2);
+  letter-spacing: var(--ls-display-tight);
+  color: var(--bp-green-500);
   margin-bottom: 12px;
 }
 .card h4 {
-  font-family: var(--sans);
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.2px;
-  color: var(--ink);
+  font: var(--t-h4);
+  letter-spacing: var(--ls-body-tight);
+  color: var(--bp-ink-700);
   margin-bottom: 12px;
 }
 .card p {
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--muted);
+  font: var(--t-body);
+  color: var(--bp-ink-500);
   margin-bottom: 0;
 }
 .card .what {
   margin-top: 16px; padding-top: 16px;
-  border-top: 1px solid var(--line);
-  font-family: var(--inter);
-  font-size: 13px;
-  color: var(--accent);
-  font-weight: 600;
-  letter-spacing: 0.3px;
+  border-top: 1px solid var(--bp-ink-100);
+  font: var(--t-label);
+  letter-spacing: var(--ls-label-wide);
+  text-transform: uppercase;
+  color: var(--bp-green-600);
 }
 
-/* ===================================================================
-   PRODUCT TILES — DS Card (image area 4:3 + content)
-=================================================================== */
+/* === PRODUCT TILES — image 4:3 + 24px content =============== */
 .product-tiles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -521,29 +468,28 @@ section .section-tag { margin-bottom: 20px; }
   margin-top: 32px;
 }
 .tile {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+  background: var(--bp-white);
+  border: 1px solid var(--bp-ink-100);
+  border-radius: var(--r-sm);
   text-decoration: none; color: inherit;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow var(--dur-base) var(--ease-out),
+              transform var(--dur-base) var(--ease-out);
   overflow: hidden;
   display: flex; flex-direction: column;
-  cursor: pointer;
 }
 .tile:hover {
-  border-color: var(--accent);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 .tile .img-placeholder {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, var(--brand-lightgray) 0%, #e8e8e8 100%);
+  background: linear-gradient(135deg, var(--bp-ink-50) 0%, var(--bp-ink-100) 100%);
   display: flex; align-items: center; justify-content: center;
-  color: var(--brand-gray);
-  font-family: var(--inter); font-size: 11px;
+  color: var(--bp-ink-400);
+  font: var(--t-mono);
   position: relative; overflow: hidden;
-  transition: transform 0.5s;
+  transition: transform var(--dur-slow) var(--ease-out);
 }
 .tile:hover .img-placeholder { transform: scale(1.03); }
 .tile .img-placeholder::before {
@@ -551,35 +497,28 @@ section .section-tag { margin-bottom: 20px; }
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 50%; height: 50%;
-  border: 1.5px dashed var(--accent);
-  border-radius: var(--radius);
+  border: 1.5px dashed var(--bp-green-500);
+  border-radius: var(--r-sm);
   opacity: 0.4;
 }
 .tile-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 4px; }
 .tile h5 {
-  font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.3;
-  color: var(--ink);
-  transition: color 0.2s;
+  font: var(--t-h4);
+  color: var(--bp-ink-700);
+  transition: color var(--dur-fast) var(--ease-out);
 }
-.tile:hover h5 { color: var(--accent); }
+.tile:hover h5 { color: var(--bp-green-600); }
 .tile .tile-meta {
-  font-family: var(--inter);
-  font-size: 12px;
-  color: var(--brand-gray);
+  font: var(--t-mono);
+  color: var(--bp-ink-500);
   margin-top: 4px;
 }
 
-/* ===================================================================
-   PPWR section — lightgreen accent
-=================================================================== */
+/* === PPWR SECTION — lightgreen accent ======================= */
 .ppwr-section {
-  background: linear-gradient(135deg, var(--brand-lightgreen-bg) 0%, var(--paper) 100%);
-  border-left: 6px solid var(--accent);
+  background: linear-gradient(135deg, var(--bp-green-50) 0%, var(--bp-white) 100%);
+  border-left: 6px solid var(--bp-green-500);
 }
-.ppwr-section h2 { color: var(--ink); }
 .regulations-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -587,194 +526,157 @@ section .section-tag { margin-bottom: 20px; }
   margin: 36px 0;
 }
 .reg-pill {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
-  padding: 20px; border-radius: var(--radius);
-  transition: box-shadow 0.2s;
+  background: var(--bp-white);
+  border: 1px solid var(--bp-ink-100);
+  border-left: 3px solid var(--bp-green-500);
+  padding: 20px; border-radius: var(--r-sm);
+  transition: box-shadow var(--dur-base) var(--ease-out);
 }
 .reg-pill:hover { box-shadow: var(--shadow-md); }
 .reg-pill .article-tag {
   display: inline-flex; align-items: center; gap: 12px;
-  background: var(--accent); color: #fff;
-  padding: 5px 12px; border-radius: var(--radius);
-  font-family: var(--inter);
-  font-size: 11px;
-  margin-bottom: 12px;
-  font-weight: 600;
-  letter-spacing: 0.8px;
+  background: var(--bp-green-500); color: var(--bp-white);
+  padding: 5px 12px; border-radius: var(--r-sm);
+  font: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow-wide);
   text-transform: uppercase;
+  margin-bottom: 12px;
 }
 .reg-pill p {
-  font-family: var(--sans);
-  font-size: 14px;
-  line-height: 22px;
-  color: var(--muted);
+  font: var(--t-body-sm);
+  color: var(--bp-ink-500);
   margin: 0;
 }
 
 .ppwr-cta-box {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
+  background: var(--bp-white);
+  border: 1px solid var(--bp-ink-100);
+  border-left: 3px solid var(--bp-green-500);
   padding: 32px;
-  border-radius: var(--radius);
+  border-radius: var(--r-sm);
   margin-top: 32px;
 }
 .ppwr-cta-box h3 {
-  font-family: var(--sans);
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--ink);
+  font: var(--t-h3);
+  color: var(--bp-ink-700);
   margin-top: 0;
   margin-bottom: 20px;
 }
 .ppwr-cta-box ol { padding-left: 22px; margin-bottom: 0; }
 .ppwr-cta-box li {
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 26px;
-  color: var(--muted);
+  font: var(--t-body);
+  color: var(--bp-ink-500);
   margin-bottom: 14px;
+  line-height: 26px;
 }
-.ppwr-cta-box li b { color: var(--ink); font-weight: 600; }
+.ppwr-cta-box li b { color: var(--bp-ink-700); font-weight: 700; }
 .ppwr-cta-box a {
-  color: var(--accent);
+  color: var(--bp-green-600);
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 1px solid var(--accent);
+  border-bottom: 1px solid var(--bp-green-500);
+  transition: color var(--dur-fast) var(--ease-out);
 }
-.ppwr-cta-box a:hover { color: var(--accent-hover); border-color: var(--accent-hover); }
+.ppwr-cta-box a:hover { color: var(--bp-green-700); }
 
 blockquote {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--bp-green-500);
   padding: 28px 0 28px 32px;
   margin: 36px 0;
-  font-family: var(--sans);
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.24px;
-  color: var(--ink);
+  font: 500 24px/1.4 var(--f-display);
+  letter-spacing: var(--ls-body-tight);
+  color: var(--bp-ink-700);
   max-width: 860px;
 }
 blockquote cite {
   display: block; margin-top: 18px;
-  font-family: var(--inter);
-  font-style: normal;
-  font-size: 12px;
+  font: var(--t-label); letter-spacing: var(--ls-label-wide);
   text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--brand-gray);
-  font-weight: 600;
+  color: var(--bp-ink-500);
+  font-style: normal;
 }
 
-/* ===================================================================
-   CASE STUDY placeholder
-=================================================================== */
+/* === CASE STUDY placeholder ================================== */
 .case-placeholder {
-  background: var(--paper);
-  border: 2px dashed var(--destructive);
+  background: var(--bp-white);
+  border: 2px dashed var(--bp-danger);
   padding: 32px;
-  border-radius: var(--radius);
+  border-radius: var(--r-sm);
   position: relative;
   margin-top: 20px;
 }
 .case-placeholder::before {
   content: "PLACEHOLDER — UZUPEŁNIĆ PO AD3";
   position: absolute; top: -12px; left: 24px;
-  background: var(--destructive); color: #fff;
-  padding: 5px 12px; border-radius: var(--radius);
-  font-family: var(--inter); font-size: 10px;
-  font-weight: 700; letter-spacing: 1px;
+  background: var(--bp-danger); color: var(--bp-white);
+  padding: 5px 12px; border-radius: var(--r-sm);
+  font: 700 10px/1 var(--f-label);
+  letter-spacing: var(--ls-label-wide);
+  text-transform: uppercase;
 }
 .case-placeholder h4 {
-  font-family: var(--sans);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--ink);
+  font: var(--t-h4);
+  color: var(--bp-ink-700);
   margin-bottom: 16px;
 }
 .case-placeholder p {
-  font-family: var(--sans);
-  font-size: 14px;
-  color: var(--brand-gray);
+  font: var(--t-body-sm);
+  color: var(--bp-ink-500);
   margin-bottom: 14px;
 }
 .case-placeholder ul { padding-left: 22px; }
 .case-placeholder li {
-  font-family: var(--sans);
-  font-size: 14px;
-  color: var(--muted);
+  font: var(--t-body-sm);
+  color: var(--bp-ink-500);
   margin-bottom: 10px;
-  line-height: 22px;
 }
-.case-placeholder li b { color: var(--ink); font-weight: 600; }
+.case-placeholder li b { color: var(--bp-ink-700); font-weight: 700; }
 
-/* ===================================================================
-   MID CTA — green primary banner
-=================================================================== */
+/* === MID CTA — green primary banner ========================= */
 .mid-cta-box {
-  background: var(--accent); color: #fff;
-  padding: 48px; border-radius: var(--radius-lg);
+  background: var(--bp-green-500); color: var(--bp-white);
+  padding: 48px; border-radius: var(--r-lg);
   text-align: center; margin: 32px 0;
 }
 .mid-cta-box h3 {
-  font-family: var(--sans);
-  color: #fff;
-  font-size: 32px;
-  font-weight: 600;
-  letter-spacing: -0.32px;
+  font: var(--t-h2);
+  letter-spacing: var(--ls-display-tight);
+  color: var(--bp-white);
   margin-bottom: 14px;
 }
 .mid-cta-box p {
-  color: rgba(255,255,255,0.95);
+  color: rgba(255,255,255,.95);
   max-width: 640px;
   margin: 0 auto 24px;
-  font-size: 18px;
+  font: var(--t-body-lg);
 }
-.mid-cta-box .btn-on-green {
-  background: #fff; color: var(--accent);
-}
-.mid-cta-box .btn-on-green:hover { background: rgba(255,255,255,0.9); }
 
-/* ===================================================================
-   POOLING — lightgreen highlight
-=================================================================== */
+/* === POOLING — green→lightgreen gradient ==================== */
 .pooling-highlight {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--brand-lightgreen2) 100%);
-  color: #fff;
-  padding: 40px; border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--bp-green-500) 0%, var(--bp-green-300) 100%);
+  color: var(--bp-white);
+  padding: 40px; border-radius: var(--r-lg);
   margin: 8px 0;
 }
 .pooling-highlight h3 {
-  color: #fff;
-  font-family: var(--sans);
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -0.28px;
+  font: var(--t-h3);
+  letter-spacing: var(--ls-body-tight);
+  color: var(--bp-white);
   margin-bottom: 14px;
 }
 .pooling-highlight p {
-  color: rgba(255,255,255,0.95);
+  color: rgba(255,255,255,.95);
   margin-bottom: 16px;
-  font-size: 18px;
-  line-height: 28px;
+  font: var(--t-body-lg);
 }
 .pooling-highlight ul { padding-left: 24px; margin: 18px 0; }
 .pooling-highlight ul li {
-  color: rgba(255,255,255,0.95);
+  color: rgba(255,255,255,.95);
   margin-bottom: 8px;
-  font-size: 16px;
-}
-.pooling-highlight .btn-on-green {
-  background: #fff; color: var(--accent);
-  margin-top: 12px;
+  font: var(--t-body);
 }
 
-/* ===================================================================
-   RELATED CARDS
-=================================================================== */
+/* === RELATED CARDS ========================================== */
 .related-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -782,110 +684,94 @@ blockquote cite {
   margin-top: 32px;
 }
 .related-tile {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  padding: 24px; border-radius: var(--radius);
+  background: var(--bp-white);
+  border: 1px solid var(--bp-ink-100);
+  padding: 24px; border-radius: var(--r-md);
   text-decoration: none; color: inherit;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition: box-shadow var(--dur-base) var(--ease-out),
+              transform var(--dur-base) var(--ease-out);
 }
 .related-tile:hover {
-  border-color: var(--accent);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 .related-tile h5 {
-  font-family: var(--sans);
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.3;
+  font: var(--t-h4);
+  color: var(--bp-ink-700);
   margin-bottom: 10px;
-  color: var(--ink);
-  transition: color 0.2s;
+  transition: color var(--dur-fast) var(--ease-out);
 }
-.related-tile:hover h5 { color: var(--accent); }
+.related-tile:hover h5 { color: var(--bp-green-600); }
 .related-tile p {
-  font-family: var(--sans);
-  font-size: 14px;
-  color: var(--muted);
+  font: var(--t-body-sm);
+  color: var(--bp-ink-500);
   margin: 0;
-  line-height: 22px;
 }
 
-/* ===================================================================
-   FAQ — DS Accordion (1px line + green chevron)
-=================================================================== */
+/* === FAQ — DS Accordion ===================================== */
 .faq-list { max-width: 920px; margin-top: 16px; }
 details {
   background: transparent;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 0;
+  border-bottom: 1px solid var(--bp-ink-100);
 }
-details:last-of-type { border-bottom: 1px solid var(--line); }
 details summary {
   padding: 24px 0;
   cursor: pointer;
-  font-family: var(--sans);
-  font-weight: 600;
-  font-size: 18px;
-  color: var(--ink);
+  font: var(--t-h4);
+  color: var(--bp-ink-700);
   list-style: none;
   position: relative;
   padding-right: 40px;
-  transition: color 0.2s;
+  transition: color var(--dur-fast) var(--ease-out);
 }
-details summary:hover { color: var(--accent); }
+details summary:hover { color: var(--bp-green-600); }
 details summary::-webkit-details-marker { display: none; }
 details summary::after {
   content: "";
   position: absolute;
   right: 0; top: 50%;
   width: 20px; height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2365b32e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2365b32e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
   background-size: contain; background-repeat: no-repeat;
   transform: translateY(-50%);
-  transition: transform 0.2s;
+  transition: transform var(--dur-base) var(--ease-out);
 }
 details[open] summary::after { transform: translateY(-50%) rotate(180deg); }
 details > p {
   padding: 0 0 24px;
-  font-family: var(--sans);
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 26px;
+  font: var(--t-body);
+  color: var(--bp-ink-500);
   max-width: 100%;
 }
 
-/* ===================================================================
-   END CTA — brand-dark bg
-=================================================================== */
+/* === END CTA — dark footer + signature squares ============== */
 .end-cta {
-  background: var(--brand-dark);
-  color: #fff;
-  padding: 96px 48px;
+  background: var(--bp-ink-800);
+  color: var(--bp-white);
+  padding: 96px 80px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
+.end-cta-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
 .end-cta .tag {
   margin: 0 auto 24px;
-  border-color: rgba(255,255,255,0.2);
-  color: var(--brand-lightgreen);
+  background: transparent;
+  border-color: rgba(255,255,255,.2);
+  color: var(--bp-green-200);
 }
-.end-cta .tag .dot { background: var(--accent); }
+.end-cta .tag::after { background: var(--bp-green-300); }
 .end-cta h2 {
-  font-family: var(--sans);
-  color: #fff;
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.88px;
+  font: var(--t-h1);
+  letter-spacing: var(--ls-display-tight);
+  color: var(--bp-white);
   margin: 0 auto 24px;
-  max-width: 760px;
 }
 .end-cta p {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,.75);
   margin: 0 auto 28px;
   max-width: 680px;
-  line-height: 28px;
-  font-size: 18px;
+  font: var(--t-body-lg);
 }
 .end-cta ul {
   list-style: none;
@@ -898,34 +784,55 @@ details > p {
 }
 .end-cta ul li {
   padding: 6px 0;
-  color: rgba(255,255,255,0.9);
-  font-size: 15px;
+  color: rgba(255,255,255,.9);
+  font: var(--t-body);
   position: relative;
   padding-left: 26px;
-  font-family: var(--sans);
 }
 .end-cta ul li::before {
   content: "";
   position: absolute;
   left: 0; top: 13px;
   width: 14px; height: 8px;
-  border-left: 2px solid var(--accent);
-  border-bottom: 2px solid var(--accent);
+  border-left: 2px solid var(--bp-green-500);
+  border-bottom: 2px solid var(--bp-green-500);
   transform: rotate(-45deg);
 }
+
+/* === SIGNATURE SQUARES (per preview/brand-signature-squares.html)
+   8 tiles (4 per row), 64×64, offset chequer anchored bottom-right of dark footer.
+   Brand watermark — green/dark/lightgreen/white. */
+.signature-squares {
+  position: absolute;
+  bottom: 0; right: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 64px);
+  grid-template-rows: repeat(2, 64px);
+  pointer-events: none;
+  z-index: 0;
+}
+.signature-squares span { display: block; }
+.signature-squares span:nth-child(1) { background: var(--bp-white); box-shadow: inset 0 0 0 1px var(--bp-ink-700); }
+.signature-squares span:nth-child(2) { background: var(--bp-green-500); }
+.signature-squares span:nth-child(3) { background: var(--bp-ink-700); }
+.signature-squares span:nth-child(4) { background: var(--bp-green-200); }
+.signature-squares span:nth-child(5) { background: var(--bp-ink-700); }
+.signature-squares span:nth-child(6) { background: var(--bp-white); box-shadow: inset 0 0 0 1px var(--bp-ink-700); }
+.signature-squares span:nth-child(7) { background: var(--bp-green-500); }
+.signature-squares span:nth-child(8) { background: var(--bp-ink-700); }
 </style>
 </head>
-<body>
+<body class="bp-base">
 <div class="wrap">
 
 <div class="meta-banner">
-  <strong>Makieta v4 (Design System) — strona #03 — Sprzedaż i transport na rynku napojów</strong>
-  URL: <code>/branzowe/sprzedaz-i-transport-na-rynku-napojow/</code> · NAJMOCNIEJSZY keyword SEO (skrzynka na piwo, vol 1 300, KD 0) · ostylowane pod tokens z <code>theme.css</code>
+  <strong>Makieta v5 (DS bekuplast canonical) — strona #03 — Sprzedaż i transport na rynku napojów</strong>
+  URL: <code>/branzowe/sprzedaz-i-transport-na-rynku-napojow/</code> · pillar SEO (skrzynka na piwo, vol 1 300, KD 0) · importuje <code>design-system/colors_and_type.css</code>
   <div class="specs">
     <div><b>Klasyfikacja</b>pain-point (pillar SEO)</div>
-    <div><b>Persona</b>Logistics Manager browaru/mleczarni</div>
+    <div><b>Persona</b>Logistics Manager browaru / mleczarni</div>
     <div><b>Primary keyword</b>skrzynka na piwo (vol 1 300, KD 0)</div>
-    <div><b>Potencjał 12m</b>800–1 500/m</div>
+    <div><b>Potencjał 12m</b>800–1 500 / mies.</div>
   </div>
 </div>
 
@@ -936,7 +843,7 @@ details > p {
   <select onchange="if(this.value) window.location.href = this.value">
       <option value="makieta_01_motoryzacja_automotive.html">01 — Motoryzacja i automotive</option>
       <option value="makieta_02_przetworstwo_zywnosci.html">02 — Przetwórstwo żywności</option>
-      <option value="makieta_03_napoje.html" selected>03 — Sprzedaż i transport na rynku napojów [DS v4]</option>
+      <option value="makieta_03_napoje.html" selected>03 — Sprzedaż i transport na rynku napojów [DS v5]</option>
       <option value="makieta_04_farmacja_kosmetyki.html">04 — Farmacja i kosmetyki</option>
       <option value="makieta_05_intralogistyka.html">05 — Intralogistyka i magazyn</option>
       <option value="makieta_06_logistyka_3pl.html">06 — Logistyka i transport (3PL) [NOWA]</option>
@@ -945,32 +852,38 @@ details > p {
       <option value="makieta_09_handel_fmcg.html">09 — Handel detaliczny i FMCG [REBRAND]</option>
       <option value="makieta_10_ecommerce_3pl.html">10 — E-commerce, 3PL i fulfillment [NOWA]</option>
   </select>
-  <span class="current-tag">DS v4</span>
+  <span class="current-tag">DS v5</span>
 </div>
 
-<div class="sticky-header">
-  <div class="logo">beku<span>plast</span></div>
-  <nav class="nav-main">
-    <a href="#">Produkty</a>
-    <a href="#">Rozwiązania branżowe</a>
-    <a href="#">Pooling</a>
-    <a href="#">PPWR</a>
-    <a href="#">Firma</a>
-  </nav>
-  <div class="sticky-cta">
-    <a href="#" class="phone">+48 32 224-3520</a>
-    <a href="#" class="btn btn-primary btn-sm">Rozmowa z inżynierem</a>
+<header class="sticky-header">
+  <div class="top">
+    <span class="logo">bekuplast<span class="dot"></span></span>
+    <nav class="util-nav">
+      <a class="item" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>Wyszukiwarka</a>
+      <a class="item" href="#">Lista ofert</a>
+      <a class="item" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Porównanie</a>
+      <a class="ai" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 14.39 8.25 20 9.27l-4 3.9.94 5.49L12 16.27l-4.95 2.39L8 13.17l-4-3.9 5.61-1.02z"/></svg>Zapytaj AI</a>
+      <span class="pl">PL</span>
+    </nav>
   </div>
-</div>
+  <nav class="main-nav">
+    <a href="#">Produkty</a>
+    <a href="#" class="is-active">Branże</a>
+    <a href="#">Serwis</a>
+    <a href="#">Aktualności</a>
+    <a href="#">Firma</a>
+    <a href="#">Kontakt z nami</a>
+  </nav>
+</header>
 
 <div class="hero">
   <div class="hero-content">
-    <span class="tag tag-green">BRANŻA · NAPOJE<span class="dot"></span></span>
+    <span class="tag is-green">BRANŻE · NAPOJE</span>
     <h1>Skrzynki na piwo, butelki zwrotne i napoje</h1>
-    <p class="lead">Skrzynki przegrodowe dla browarów, mleczarni i rozlewni. 100+ cykli rotacji, kompatybilne z systemem kaucji 2025 i celami reuse 70% PPWR od 2030 r.</p>
+    <p class="lede">Postaw na skrzynki przegrodowe bekuplast dla browarów, mleczarni i rozlewni. 100+ cykli rotacji, kompatybilne z systemem kaucji 2025 i celami reuse 70% PPWR od 2030 r.</p>
     <div class="cta-row">
-      <a href="#" class="btn btn-primary btn-md">Rozmowa z inżynierem opakowań →</a>
-      <a href="#" class="btn btn-outline btn-md">Sprawdź gotowość PPWR (30 sek)</a>
+      <a href="#" class="btn btn-primary">Rozmowa z inżynierem opakowań</a>
+      <a href="#" class="btn btn-outline">Sprawdź gotowość PPWR (30 sek)</a>
     </div>
   </div>
   <div class="hero-illustration">
@@ -995,7 +908,7 @@ details > p {
 
 <div class="breadcrumb-section">
   Strona główna <span class="sep">/</span> Rozwiązania branżowe <span class="sep">/</span> <b>Sprzedaż i transport na rynku napojów</b>
-  <span class="tag tag-gray">PILLAR SEO<span class="dot"></span></span>
+  <span class="tag is-green">PILLAR SEO</span>
 </div>
 
 <section class="tldr">
@@ -1004,10 +917,10 @@ details > p {
     <div class="tldr-animation">
       <div class="anim-dots"></div>
       <div class="play-icon"></div>
-      <span class="anim-label">▶ Wideo / animacja zapętlona (mute, autoplay) — produkty w cyklu reuse</span>
+      <span class="anim-label">▶ Wideo / animacja zapętlona — produkty w cyklu reuse</span>
     </div>
     <div class="tldr-box">
-      <span class="tag tag-green">TL;DR<span class="dot"></span></span>
+      <span class="tag is-green">TL;DR</span>
       <h2>Kluczowe wnioski</h2>
       <ul>
         <li><b>Trzy regulacje uderzają w branżę napojów jednocześnie:</b> kaucja konsumencka (od 2025), ROP-napoje i PPWR (od 12.08.2026).</li>
@@ -1021,44 +934,44 @@ details > p {
 </section>
 
 <section>
-  <span class="tag tag-green section-tag">WYZWANIA<span class="dot"></span></span>
+  <span class="section-eyebrow">CO ZYSKASZ</span>
   <h2>Pięć wyzwań logistyki napojów, które rozwiązujemy konkretnie</h2>
   <div class="cards-grid">
     <div class="card">
       <div class="num">01</div>
       <h4>Stłuczki butelek = realne koszty 2–4% obrotu</h4>
       <p>Browary i mleczarnie tracą rocznie 2–4% przychodu na stłuczki butelek zwrotnych. Główna przyczyna: skrzynki bez przegród, niewłaściwe sztaplowanie.</p>
-      <div class="what">→ Skrzynki przegrodowe z indywidualnym dopasowaniem. Redukcja stłuczek o 60–85%.</div>
+      <div class="what">Skrzynki przegrodowe — redukcja stłuczek o 60–85%</div>
     </div>
     <div class="card">
       <div class="num">02</div>
       <h4>Kaucja konsumencka 2025 — ryzyko operacyjne</h4>
       <p>Ustawa o kaucji nakłada na rozlewnie i sieci obowiązek przyjmowania zwrotów butelek i puszek. Skrzynka transportowa staje się elementem systemu rozliczeniowego.</p>
-      <div class="what">→ Skrzynki przegrodowe z miejscem na trwałe znakowanie (laser, hot-stamp).</div>
+      <div class="what">Trwałe znakowanie laser / hot-stamp / in-mould</div>
     </div>
     <div class="card">
       <div class="num">03</div>
       <h4>ROP-napoje (Rozszerzona Odpowiedzialność Producenta)</h4>
       <p>Producent ponosi koszt obsługi opakowania w całym cyklu życia. Single-use kartony = rosnący koszt netto. Skrzynki zwrotne = inwestycja amortyzowana 8–12 lat.</p>
-      <div class="what">→ Kalkulator TCO. Browary 20k+ HL → break-even w 18–24 mies.</div>
+      <div class="what">Kalkulator TCO — break-even 18–24 mies.</div>
     </div>
     <div class="card">
       <div class="num">04</div>
       <h4>PPWR — cele reuse 70% dla piwa i wody do 2030 r.</h4>
       <p>Art. 26 PPWR: piwo 25%/70% (2030/2040), woda i napoje bezalkoholowe 10%/40%. To wiążące obowiązki państw członkowskich.</p>
-      <div class="what">→ Skrzynki kompatybilne z istniejącą infrastrukturą browarów + przygotowane na DPP/RFID od 2029.</div>
+      <div class="what">Skrzynki RFID-ready pod DPP od 2029</div>
     </div>
     <div class="card">
       <div class="num">05</div>
       <h4>Transport międzymagazynowy DC → sklep</h4>
       <p>Art. 29(1) PPWR wprowadza 100% reuse dla transport packaging B2B intra-firmowego do 2030 r. Sieć bez pilotażu RTP w 2025–2026 dostanie wezwanie w 2027.</p>
-      <div class="what">→ Systemy dystrybucyjne (skrzynki + palety + skrzyniopalety) zintegrowane z poolingiem.</div>
+      <div class="what">Systemy dystrybucyjne zintegrowane z poolingiem</div>
     </div>
   </div>
 </section>
 
 <section class="alt-bg">
-  <span class="tag tag-green section-tag">PRODUKTY<span class="dot"></span></span>
+  <span class="section-eyebrow">PRODUKTY</span>
   <h2>Skrzynki przegrodowe, palety i systemy dystrybucyjne</h2>
   <div class="product-tiles">
     <a class="tile" href="#"><div class="img-placeholder">[Z1 — piwo]</div><div class="tile-body"><h5>Z1 — piwo</h5><div class="tile-meta">20 × 0,5 l</div></div></a>
@@ -1067,13 +980,13 @@ details > p {
     <a class="tile" href="#"><div class="img-placeholder">[Model A — woda]</div><div class="tile-body"><h5>Model A — woda</h5><div class="tile-meta">6 × 1,5 l PET</div></div></a>
     <a class="tile" href="#"><div class="img-placeholder">[Model O — soki]</div><div class="tile-body"><h5>Model O — soki</h5><div class="tile-meta">9 × 1 l szkło</div></div></a>
     <a class="tile" href="#"><div class="img-placeholder">[Model D1 — wina]</div><div class="tile-body"><h5>Model D1 — wina</h5><div class="tile-meta">12 × 0,7 l szkło</div></div></a>
-    <a class="tile" href="#"><div class="img-placeholder">[Palety Euro]</div><div class="tile-body"><h5>Palety Euro</h5><div class="tile-meta">Bez fumigacji</div></div></a>
+    <a class="tile" href="#"><div class="img-placeholder">[Palety Euro]</div><div class="tile-body"><h5>Palety Euro</h5><div class="tile-meta">Bez fumigacji ISPM-15</div></div></a>
     <a class="tile" href="#"><div class="img-placeholder">[Skrzyniopalety]</div><div class="tile-body"><h5>Skrzyniopalety</h5><div class="tile-meta">Magazyn browaru</div></div></a>
   </div>
 </section>
 
 <section class="ppwr-section">
-  <span class="tag tag-green section-tag">PPWR · COMPLIANCE<span class="dot"></span></span>
+  <span class="section-eyebrow">PPWR · COMPLIANCE</span>
   <h2>PPWR dla browarów, mleczarni i rozlewni — trzy regulacje, jeden plan</h2>
   <p>Branża napojów w Polsce mierzy się z trzema warstwami regulacji jednocześnie: kaucja konsumencka (od 1 stycznia 2025), ROP-napoje (producent finansuje cały cykl życia opakowania) oraz PPWR (Rozporządzenie UE 2025/40, wejście w życie 12 sierpnia 2026 r.).</p>
 
@@ -1097,7 +1010,7 @@ details > p {
   </div>
   <blockquote>
     Browary w Polsce mają najlepszy punkt startu w całej UE — kaucja na skrzynki funkcjonuje od dekad. Dodanie ROP-napoje i celów PPWR to nie rewolucja, to ewolucja. Mleczarnie i soki dopiero zaczynają — tu skala inwestycji w 2026–2028 będzie największa.
-    <cite>Sophie Chirez · EY Sustainability · raport „Reuse Targets for FMCG in CEE" (luty 2026)</cite>
+    <cite>Sophie Chirez · EY Sustainability · „Reuse Targets for FMCG in CEE" (luty 2026)</cite>
   </blockquote>
   <div class="ppwr-cta-box">
     <h3>Co możesz zrobić teraz</h3>
@@ -1110,7 +1023,7 @@ details > p {
 </section>
 
 <section class="alt-bg">
-  <span class="tag tag-green section-tag">CASE STUDY<span class="dot"></span></span>
+  <span class="section-eyebrow">CASE STUDY</span>
   <h2>Browar regionalny — redukcja TCO o 38% w 24 miesiące</h2>
   <div class="case-placeholder">
     <h4>Browar regionalny w południowej Polsce — wymiana floty 12 000 starych skrzynek</h4>
@@ -1124,16 +1037,16 @@ details > p {
   </div>
 </section>
 
-<section style="padding: 48px 48px; border-bottom: none;">
+<section style="padding: 48px 80px; border-bottom: none;">
   <div class="mid-cta-box">
     <h3>Oblicz koszt przejścia na skrzynki zwrotne dla Twojego browaru</h3>
-    <p>Kalkulator TCO/ROI dla branży napojów — wpisujesz skalę HL/rok, otrzymujesz break-even, payback, redukcję CO2.</p>
-    <a href="#" class="btn btn-on-green btn-lg">Oblicz TCO dla branży napojów →</a>
+    <p>Kalkulator TCO/ROI dla branży napojów — wpisz skalę HL/rok, otrzymasz break-even, payback, redukcję CO₂.</p>
+    <a href="#" class="btn btn-on-dark btn-lg">Oblicz TCO dla branży napojów</a>
   </div>
 </section>
 
 <section>
-  <span class="tag tag-green section-tag">POOLING<span class="dot"></span></span>
+  <span class="section-eyebrow">POOLING</span>
   <h2>Pooling dla browarów i mleczarni</h2>
   <div class="pooling-highlight">
     <h3>Container-as-a-Service — skalowanie z sezonem</h3>
@@ -1143,12 +1056,12 @@ details > p {
       <li>Skalowanie z sezonowością (peak Q4, święta)</li>
       <li>Zarządzanie cyklem zlecone operatorowi (zwrot, mycie, naprawa)</li>
     </ul>
-    <a href="#" class="btn btn-on-green btn-md">Sprawdź model pooling →</a>
+    <a href="#" class="btn btn-on-dark" style="margin-top: 12px;">Sprawdź model pooling</a>
   </div>
 </section>
 
 <section class="alt-bg">
-  <span class="tag tag-green section-tag">POWIĄZANE<span class="dot"></span></span>
+  <span class="section-eyebrow">POWIĄZANE</span>
   <h2>Może Cię też zainteresować</h2>
   <div class="related-grid">
     <a class="related-tile" href="#">
@@ -1167,7 +1080,7 @@ details > p {
 </section>
 
 <section>
-  <span class="tag tag-green section-tag">FAQ<span class="dot"></span></span>
+  <span class="section-eyebrow">FAQ</span>
   <h2>Najczęściej zadawane pytania</h2>
   <div class="faq-list">
     <details><summary>Czym różni się skrzynka przegrodowa od zwykłej skrzynki transportowej?</summary><p>Skrzynka przegrodowa ma indywidualne komory dla każdej butelki, dopasowane do średnicy szyjki i dna. Eliminuje kontakt szkło-szkło, redukując stłuczki o 60–85% vs. skrzynki bez przegród.</p></details>
@@ -1175,23 +1088,30 @@ details > p {
     <details><summary>Jakie obowiązki dla branży napojów wynikają z PPWR od 12 sierpnia 2026 r.?</summary><p>Art. 26 (cele reuse 25%/70% dla piwa, 10%/40% dla wody i napojów bezalkoholowych w 2030/2040), Art. 29(1) (100% reuse intra-firmowo do 2030), Art. 50–53 (harmonizacja kaucji od 2029).</p></details>
     <details><summary>Czy mogę zamówić skrzynkę na butelkę niestandardową (np. piwo rzemieślnicze 0,33 l)?</summary><p>Tak — robimy skrzynki indywidualne z dopasowanymi przegrodami. Minimum produkcji to zwykle 500 sztuk, czas realizacji 8–12 tygodni.</p></details>
     <details><summary>Jak wygląda znakowanie skrzynek dla systemu kaucji konsumenckiej?</summary><p>Oferujemy 3 metody znakowania trwałego: laserowe (najtrwalsze), hot-stamp (kolorowe), in-mould (znak w masie tworzywa). Możemy dodać kod EAN, QR lub RFID.</p></details>
-    <details><summary>Czy mogę porównać koszt skrzynek zwrotnych vs jednorazowych kartonów dla mojego browaru?</summary><p>Tak — kalkulator TCO/ROI dedykowany dla branży napojów. Wpisujesz skalę produkcji (HL/rok). Otrzymujesz: break-even, payback, redukcję CO2 i rekomendowane SKU.</p></details>
+    <details><summary>Czy mogę porównać koszt skrzynek zwrotnych vs jednorazowych kartonów dla mojego browaru?</summary><p>Tak — kalkulator TCO/ROI dedykowany dla branży napojów. Wpisujesz skalę produkcji (HL/rok). Otrzymujesz: break-even, payback, redukcję CO₂ i rekomendowane SKU.</p></details>
     <details><summary>Co z palety EPAL drewniane — czy muszę je wymienić na plastikowe?</summary><p>PPWR nie zakazuje palet EPAL, ale regulacja PFAS od 12.08.2026 zakazuje impregnacji palet drewnianych pestycydami z grupy PFAS. Palety plastikowe to alternatywa bez fumigacji.</p></details>
     <details><summary>Jakie są warunki współpracy?</summary><p>Minimum: 50 sztuk dla standardów, 500+ dla SKU indywidualnych. Czas: 2–4 tygodnie dla standardów, 8–12 tygodni dla SKU indywidualnych. Dostawa: cała Polska 3–5 dni.</p></details>
   </div>
 </section>
 
 <div class="end-cta">
-  <span class="tag">KONTAKT<span class="dot"></span></span>
-  <h2>Porozmawiajmy o opakowaniach dla Twojego browaru</h2>
-  <p>Rozmowa z inżynierem opakowań bekuplast — nie z handlowcem. W 30 minut omówimy: Twój model logistyczny, pasujące SKU, koszt indykatywny + payback, plan compliance pod PPWR, kaucję i ROP-napoje.</p>
-  <ul>
-    <li>Odpowiedź w 24 godziny</li>
-    <li>Inżynier, nie handlowiec</li>
-    <li>Konsultacja bezpłatna</li>
-    <li>Próbki wysyłamy bezpłatnie</li>
-  </ul>
-  <a href="#" class="btn btn-primary btn-lg">Umów rozmowę z inżynierem →</a>
+  <div class="end-cta-content">
+    <span class="tag">KONTAKT</span>
+    <h2>Porozmawiajmy o opakowaniach dla Państwa browaru</h2>
+    <p>Rozmowa z inżynierem opakowań bekuplast — nie z handlowcem. W 30 minut omówimy: model logistyczny Państwa firmy, pasujące SKU, koszt indykatywny + payback, plan compliance pod PPWR, kaucję i ROP-napoje.</p>
+    <ul>
+      <li>Odpowiedź w 24 godziny</li>
+      <li>Inżynier, nie handlowiec</li>
+      <li>Konsultacja bezpłatna</li>
+      <li>Próbki wysyłamy bezpłatnie</li>
+    </ul>
+    <a href="#" class="btn btn-primary btn-lg">Umów rozmowę z inżynierem</a>
+  </div>
+  <!-- Brand signature squares — 4×2 chequer, anchored bottom-right (per DS preview/brand-signature-squares.html) -->
+  <div class="signature-squares">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
 </div>
 
 </div>

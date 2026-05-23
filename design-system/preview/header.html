@@ -1,0 +1,39 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 12px; }
+  .header{ background: white; border: 1px solid var(--bp-ink-100); border-radius: var(--r-md); padding: 16px 24px; display:flex; flex-direction: column; gap: 14px; }
+  .top{ display:flex; align-items:center; justify-content: space-between; }
+  .logo{ display:inline-flex; align-items: baseline; gap: 8px; font: 700 24px/1 var(--f-display); letter-spacing: -.6px; color: var(--bp-ink-700); }
+  .logo .dot{ width: 5px; height: 5px; background: var(--bp-green-500); border-radius: 999px; transform: translateY(-1px); }
+  .util{ display:flex; gap: 28px; align-items: center; font: 500 13px/1 var(--f-display); color: var(--bp-ink-600); }
+  .util .ai{ background: var(--bp-green-500); color: white; padding: 8px 16px; border-radius: var(--r-sm); display:inline-flex; gap: 6px; align-items: center; font: 600 13px/1 var(--f-display); }
+  .util .pl{ width: 32px; height: 32px; border-radius: 999px; background: white; border: 1px solid var(--bp-ink-100); display:grid; place-items: center; font: 700 11px/1 var(--f-label); color: var(--bp-ink-600); }
+  .util .item{ display:inline-flex; gap: 6px; align-items:center; color: var(--bp-ink-600); }
+  .util svg{ width: 14px; height: 14px; }
+  .nav{ display:flex; gap: 28px; font: 600 14px/1 var(--f-display); color: var(--bp-ink-700); }
+  .nav a{ color: var(--bp-ink-700); text-decoration: none; }
+  .nav a.act{ color: var(--bp-green-600); }
+</style>
+<div class="ttl">Site header — top bar &amp; nav</div>
+<div class="header">
+  <div class="top">
+    <span class="logo">bekuplast<span class="dot"></span></span>
+    <div class="util">
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>Wyszukiwarka</span>
+      <span class="item">Lista ofert</span>
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Porównanie</span>
+      <span class="ai"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 14.39 8.25 20 9.27l-4 3.9.94 5.49L12 16.27l-4.95 2.39L8 13.17l-4-3.9 5.61-1.02z"/></svg>Zapytaj AI</span>
+      <span class="pl">PL</span>
+    </div>
+  </div>
+  <nav class="nav">
+    <a class="act">Produkty</a>
+    <a>Branże</a>
+    <a>Serwis</a>
+    <a>Aktualności</a>
+    <a>Firma</a>
+    <a>Kontakt z nami</a>
+  </nav>
+</div>
+</body></html>

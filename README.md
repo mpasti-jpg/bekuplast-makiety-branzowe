@@ -94,8 +94,24 @@ Po włączeniu GitHub Pages (zakładka Settings → Pages → Source: `main` bra
 - Master copy (treści 10 stron): `STRONY_BRANZOWE_master_v1.docx`
 - Master spec systemu: tamże, sekcja 00
 
+## 🎨 Design System
+
+W `/design-system/` znajduje się **kanoniczny bekuplast Design System** (handoff bundle z `claude.ai/design`), który jest single source of truth dla tokenów wizualnych:
+
+- `colors_and_type.css` — paleta brand-green 50..900 + Industrial Ink 25..900 + semantic states, type scale (display-1 72px → caption 12px), spacing 4pt grid, radii (xs 2 / sm 4 / md 8 / lg 12), shadows, motion tokens. Importować w każdym pliku, nie hardcode'ować.
+- `README.md` — pełne content & visual foundations: lowercase brand "bekuplast", Państwo address, NO emoji, hard numbers preferowane, Lucide line icons 24×24 1.5px stroke.
+- `SKILL.md` — manifest dla Claude jako Agent Skill.
+- `Design System.html` — pełny visual reference wszystkich komponentów w kontekście.
+- `preview/` — 23 small HTML kart (one concept per card): tokens kolorów, typografia, buttons, tags, cards, header, signature-squares, icons, etc.
+- `ui_kits/website/` — JSX components dla bekuplast.pl (Header, Footer, Hero, IndustryGrid, ProductGrid, AskAIPanel, FeatureBanner).
+- `assets/` — light icons (cash-shield SVGs) + product photo. Ciężkie photos (factory, logistics, warehouse) zostały w handoff bundle z claude.ai/design.
+
+**Makieta #03 (napoje)** jest pierwszą zaimplementowaną przez ten DS — importuje `design-system/colors_and_type.css` zamiast inline tokens, używa `.bp-*` helper classes, ma signature-squares pattern w end-cta footer. Pozostałe 9 makiet zostaje na poprzedniej palecie do osobnej batch konwersji.
+
 ## 📅 Wersje
 
+- **v5 — DS canonical** (23 maja 2026, late) — makieta #03 napoje przeszła na canonical bekuplast DS: import `colors_and_type.css`, helper classes `.bp-*`, signature-squares w footerze, lowercase brand throughout, Państwo address, header per `preview/header.html`.
+- **v4 — DS prototype** (23 maja 2026, evening) — full rebrand makiety #03 na zielony (#65b32e) z poprzedniego zipa DS.
 - **v3** (23 maja 2026, wieczór) — usunięte nazwy z ilustracji hero, breadcrumb pod hero, H2 "Kluczowe wnioski" w prawej kolumnie + proto-nav dropdown
 - **v2** (23 maja 2026) — hero 2-col z ilustracją, skrócone H1/lead, animacja w TL;DR, case study we wszystkich 10 makietach
 - **v1** (23 maja 2026, rano) — 10 makiet HTML z prawdziwymi treściami, identyczna paleta (#FF6B2C), tylko desktop

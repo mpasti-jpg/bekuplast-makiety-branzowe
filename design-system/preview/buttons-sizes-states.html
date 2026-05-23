@@ -1,0 +1,30 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+  .btn{ display:inline-flex; align-items:center; justify-content: center; gap: 8px; border-radius: var(--r-sm); font: 700 14px/1 var(--f-display); letter-spacing: -.16px; cursor:pointer; border: 1px solid transparent; background: var(--bp-green-500); color: white; }
+  .btn-sm{ height: 32px; padding: 0 14px; font-size: 13px; }
+  .btn-md{ height: 44px; padding: 0 22px; font-size: 14px; }
+  .btn-lg{ height: 52px; padding: 0 28px; font-size: 16px; }
+  .row{ display:flex; gap: 12px; align-items: center; }
+  .grid{ display:grid; grid-template-columns: 110px 1fr; gap: 12px; align-items:center; padding: 8px 0; border-top: 1px solid var(--bp-ink-100); }
+  .grid:first-of-type{ border-top: none; }
+  .nm{ font: var(--t-label); letter-spacing: var(--ls-label-wide); text-transform: uppercase; color: var(--bp-ink-500); }
+  .disabled{ background: var(--bp-ink-200); color: var(--bp-ink-400); cursor: not-allowed; }
+</style>
+<div class="ttl">Buttons — sizes &amp; states</div>
+<div class="sub">Three sizes: 32 / 44 / 52 px. Hover deepens green to 600. Disabled drops to Ink 200.</div>
+<div class="grid"><span class="nm">Sizes</span>
+  <div class="row"><button class="btn btn-sm">Small · 32</button><button class="btn btn-md">Medium · 44</button><button class="btn btn-lg">Large · 52</button></div>
+</div>
+<div class="grid"><span class="nm">Hover</span>
+  <div class="row"><button class="btn btn-md" style="background:var(--bp-green-600)">Hover state</button></div>
+</div>
+<div class="grid"><span class="nm">Disabled</span>
+  <div class="row"><button class="btn btn-md disabled">Niedostępne</button></div>
+</div>
+<div class="grid"><span class="nm">Focus</span>
+  <div class="row"><button class="btn btn-md" style="box-shadow: var(--focus-ring); outline: 3px solid var(--bp-green-200); outline-offset: 2px;">Focus ring</button></div>
+</div>
+</body></html>

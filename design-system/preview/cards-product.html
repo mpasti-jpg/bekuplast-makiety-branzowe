@@ -1,0 +1,75 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+  .grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+  .card{ background: white; border: 1px solid var(--bp-ink-100); border-radius: var(--r-sm); overflow: hidden; }
+  .ph{ aspect-ratio: 4/3; background: var(--bp-ink-25); display:grid; place-items: center; padding: 14px; position: relative; }
+  .ph svg{ width: 50%; height: 50%; color: var(--bp-ink-300); }
+  .body{ padding: 12px 14px 14px; display:flex; flex-direction: column; gap: 3px; }
+  .sku{ font: var(--t-mono); color: var(--bp-ink-500); }
+  h4{ font: 700 14px/1.25 var(--f-display); letter-spacing: -.1px; color: var(--bp-ink-700); margin: 0; }
+  .specs{ display:flex; gap: 8px; margin-top: 5px; font: 400 11px/1 var(--f-body); color: var(--bp-ink-500); }
+  .ft{ display:flex; align-items:center; justify-content: space-between; margin-top: 8px; }
+  .price{ font: 700 15px/1 var(--f-display); color: var(--bp-ink-700); }
+  .more{ font: 700 9px/1 var(--f-label); letter-spacing: 1.2px; text-transform: uppercase; color: var(--bp-green-600); }
+  .badge{ position: absolute; top: 8px; left: 8px; display:inline-flex; align-items:center; gap: 5px; padding: 3px 7px; border-radius: var(--r-xs); font: 600 10px/1.3 var(--f-label); letter-spacing: .3px; }
+  .badge .dot{ width: 5px; height: 5px; border-radius: 999px; background: currentColor; }
+  .b-green{ background: var(--bp-green-50); color: var(--bp-green-700); }
+  .b-warn{ background: var(--bp-warning-bg); color: var(--bp-warning); }
+  .b-info{ background: var(--bp-info-bg); color: var(--bp-info); }
+</style>
+<div class="ttl">Product cards</div>
+<div class="sub">Catalog &amp; search results. SKU + name + 3 key specs + status badge.</div>
+<div class="grid">
+  <article class="card">
+    <div class="ph">
+      <span class="badge b-green"><span class="dot"></span>W magazynie</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+    </div>
+    <div class="body">
+      <div class="sku">SKU 4630.B</div>
+      <h4>EURO Box 600×400×320</h4>
+      <div class="specs"><span>60 L</span><span>·</span><span>HDPE</span><span>·</span><span>2.1 kg</span></div>
+      <div class="ft"><span class="price">42,90 zł</span><span class="more">SZCZEGÓŁY →</span></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="ph">
+      <span class="badge b-warn"><span class="dot"></span>Niski stan</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+    </div>
+    <div class="body">
+      <div class="sku">SKU 8120.G</div>
+      <h4>KLT 400×300×147</h4>
+      <div class="specs"><span>15 L</span><span>·</span><span>PP</span><span>·</span><span>0.7 kg</span></div>
+      <div class="ft"><span class="price">28,50 zł</span><span class="more">SZCZEGÓŁY →</span></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="ph">
+      <span class="badge b-info"><span class="dot"></span>Na zamówienie</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+    </div>
+    <div class="body">
+      <div class="sku">SKU 5550.F</div>
+      <h4>Składany 800×600</h4>
+      <div class="specs"><span>120 L</span><span>·</span><span>HDPE</span><span>·</span><span>4.2 kg</span></div>
+      <div class="ft"><span class="price">189,00 zł</span><span class="more">SZCZEGÓŁY →</span></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="ph">
+      <span class="badge b-green"><span class="dot"></span>Nowość</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+    </div>
+    <div class="body">
+      <div class="sku">SKU 9001.E</div>
+      <h4>EcoBox 45 rPP</h4>
+      <div class="specs"><span>45 L</span><span>·</span><span>rPP</span><span>·</span><span>1.9 kg</span></div>
+      <div class="ft"><span class="price">68,00 zł</span><span class="more">SZCZEGÓŁY →</span></div>
+    </div>
+  </article>
+</div>
+</body></html>

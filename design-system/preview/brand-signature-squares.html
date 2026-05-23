@@ -1,0 +1,38 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 20px; max-width: 540px; }
+  /* Signature squares — 87×88 tiles arranged 2-row offset chequer, ankored in footer corners */
+  .squares{ position: relative; height: 184px; width: 100%; }
+  .sq{ position: absolute; width: 64px; height: 64px; }
+  /* Reference arrangement from figma footer (right edge) */
+  .row1 .sq{ top: 0; }
+  .row2 .sq{ top: 64px; }
+  /* 6 tiles in chequer */
+  .a{ left: 0;   background: var(--bp-white); box-shadow: inset 0 0 0 1px var(--bp-ink-100); }
+  .b{ left: 64px; background: var(--bp-green-500); }
+  .c{ left: 128px; background: var(--bp-ink-700); }
+  .d{ left: 192px; background: var(--bp-green-200); }
+  .e{ left: 0;   background: var(--bp-ink-700); }
+  .f{ left: 64px; background: var(--bp-white); box-shadow: inset 0 0 0 1px var(--bp-ink-100); }
+  .g{ left: 128px; background: var(--bp-green-500); }
+  .h{ left: 192px; background: var(--bp-ink-700); }
+  .legend{ position:absolute; left: 280px; top: 0; display:flex; flex-direction: column; gap: 6px; font: var(--t-body-sm); color: var(--bp-ink-600); }
+  .legend strong{ color: var(--bp-ink-700); font-family: var(--f-display); }
+  .legend .key{ display:flex; align-items:center; gap: 8px; }
+  .legend .chip{ width: 12px; height: 12px; }
+</style>
+<div class="ttl">Signature squares — brand decorative pattern</div>
+<div class="sub">Offset 2-row chequer in green / dark / light-green / white. Anchored to corners of dark surfaces (footer, banners, dividers). Tiles are 87×88 px in the canonical site; scale proportionally.</div>
+<div class="squares">
+  <div class="row1"><div class="sq a"></div><div class="sq b"></div><div class="sq c"></div><div class="sq d"></div></div>
+  <div class="row2"><div class="sq e"></div><div class="sq f"></div><div class="sq g"></div><div class="sq h"></div></div>
+  <div class="legend">
+    <div class="key"><span class="chip" style="background:var(--bp-green-500)"></span> Brand green 500</div>
+    <div class="key"><span class="chip" style="background:var(--bp-green-200)"></span> Light green 200</div>
+    <div class="key"><span class="chip" style="background:var(--bp-ink-700)"></span> Ink 700 (dark)</div>
+    <div class="key"><span class="chip" style="background:var(--bp-white);box-shadow:inset 0 0 0 1px var(--bp-ink-100)"></span> Pure white</div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,47 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+  .grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+  .card{ background: white; border: 1px solid var(--bp-ink-100); border-radius: var(--r-sm); overflow: hidden; }
+  .ph{ aspect-ratio: 4/3; background-size: cover; background-position: center; }
+  .body{ padding: 18px; display:flex; flex-direction: column; gap: 8px; }
+  .tag{ align-self: flex-start; display:inline-flex; align-items: center; gap: 10px; padding: 4px 9px; border-radius: var(--r-sm); border: 1px solid var(--bp-ink-200); background: white; font: 700 10px/1 var(--f-label); letter-spacing: 1.3px; text-transform: uppercase; color: var(--bp-green-600); }
+  .tag::after{ content:""; width: 3px; height: 3px; background: var(--bp-green-500); }
+  h3{ font: 700 18px/1.25 var(--f-display); letter-spacing: -.2px; color: var(--bp-ink-700); margin: 0; }
+  p{ font: 400 13px/20px var(--f-body); color: var(--bp-ink-500); margin: 0; }
+  .more{ display:inline-flex; align-items: center; gap: 6px; font: 700 10px/1 var(--f-label); letter-spacing: 1.3px; text-transform: uppercase; color: var(--bp-green-600); margin-top: 4px; }
+</style>
+<div class="ttl">Industry cards</div>
+<div class="sub">Used on homepage &amp; segment overview. 4:3 image, brand tag, H3, description, "more" link.</div>
+<div class="grid">
+  <article class="card">
+    <div class="ph" style="background-image:url('../assets/img-automotive-hero.png'); background-color: #efefef"></div>
+    <div class="body">
+      <span class="tag">AUTOMOTIVE</span>
+      <h3>Przemysł motoryzacyjny</h3>
+      <p>Pojemniki ESD i KLT do transportu części samochodowych.</p>
+      <span class="more">Dowiedz się więcej →</span>
+    </div>
+  </article>
+  <article class="card">
+    <div class="ph" style="background-image:url('../assets/img-warehouse.jpg')"></div>
+    <div class="body">
+      <span class="tag">LOGISTYKA</span>
+      <h3>Logistyka 3PL</h3>
+      <p>Skrzynki EURO i regały automatyczne dla magazynów AS/RS.</p>
+      <span class="more">Dowiedz się więcej →</span>
+    </div>
+  </article>
+  <article class="card">
+    <div class="ph" style="background-image:url('../assets/img-product-line.jpg')"></div>
+    <div class="body">
+      <span class="tag">PRODUKCJA</span>
+      <h3>Przetwórstwo żywności</h3>
+      <p>Pojemniki HACCP, wentylowane, składane, z pokrywami.</p>
+      <span class="more">Dowiedz się więcej →</span>
+    </div>
+  </article>
+</div>
+</body></html>

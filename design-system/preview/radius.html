@@ -1,0 +1,23 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+  .grid{ display:grid; grid-template-columns: repeat(7,1fr); gap: 14px; }
+  .item{ display:flex; flex-direction: column; gap: 6px; align-items:center; }
+  .box{ height: 52px; width: 100%; background: var(--bp-ink-50); border: 1px solid var(--bp-ink-100); }
+  .nm{ font: var(--t-mono); color: var(--bp-ink-700); }
+  .val{ font: var(--t-mono); color: var(--bp-ink-500); }
+</style>
+<div class="ttl">Radius</div>
+<div class="sub">Default <code style="font:var(--t-mono);background:var(--bp-ink-25);padding:1px 6px;border-radius:3px">--r-sm = 4 px</code> for buttons, inputs, tags. <code style="font:var(--t-mono);background:var(--bp-ink-25);padding:1px 6px;border-radius:3px">--r-md/lg</code> for cards and surfaces.</div>
+<div class="grid">
+  <div class="item"><div class="box" style="border-radius:2px"></div><div class="nm">xs</div><div class="val">2</div></div>
+  <div class="item"><div class="box" style="border-radius:4px"></div><div class="nm">sm</div><div class="val">4</div></div>
+  <div class="item"><div class="box" style="border-radius:8px"></div><div class="nm">md</div><div class="val">8</div></div>
+  <div class="item"><div class="box" style="border-radius:12px"></div><div class="nm">lg</div><div class="val">12</div></div>
+  <div class="item"><div class="box" style="border-radius:16px"></div><div class="nm">xl</div><div class="val">16</div></div>
+  <div class="item"><div class="box" style="border-radius:24px"></div><div class="nm">2xl</div><div class="val">24</div></div>
+  <div class="item"><div class="box" style="border-radius:9999px"></div><div class="nm">full</div><div class="val">∞</div></div>
+</div>
+</body></html>

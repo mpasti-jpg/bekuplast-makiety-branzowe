@@ -1,0 +1,21 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+  .sem{ border: 1px solid var(--bp-ink-100); border-radius: var(--r-md); overflow: hidden; }
+  .bar{ height: 60px; }
+  .body{ padding: 12px 14px; }
+  .name{ font: var(--t-h4); letter-spacing: var(--ls-body-tight); color: var(--bp-ink-700); }
+  .hex{ font: var(--t-mono); color: var(--bp-ink-500); margin-top: 2px; }
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+</style>
+<div class="ttl">Semantic colors</div>
+<div class="sub">For alerts, statuses, system messages. Never used decoratively.</div>
+<div class="grid">
+  <div class="sem"><div class="bar" style="background:var(--bp-success)"></div><div class="body"><div class="name">Success</div><div class="hex">#2F8F3A</div></div></div>
+  <div class="sem"><div class="bar" style="background:var(--bp-info)"></div><div class="body"><div class="name">Info</div><div class="hex">#1F6FB2</div></div></div>
+  <div class="sem"><div class="bar" style="background:var(--bp-warning)"></div><div class="body"><div class="name">Warning</div><div class="hex">#C47A00</div></div></div>
+  <div class="sem"><div class="bar" style="background:var(--bp-danger)"></div><div class="body"><div class="name">Danger</div><div class="hex">#C1272D</div></div></div>
+</div>
+</body></html>

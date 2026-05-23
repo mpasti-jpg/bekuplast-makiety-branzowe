@@ -1,0 +1,44 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card{ border: 1px solid var(--bp-ink-100); border-radius: var(--r-md); padding: 24px; }
+  .lab{ font: var(--t-label); letter-spacing: var(--ls-label-wide); text-transform: uppercase; color: var(--bp-ink-500); margin-bottom: 8px; }
+  .sample-m{ font: 600 56px/1 var(--f-display); letter-spacing: -1.2px; color: var(--bp-ink-700); }
+  .sample-i{ font: 700 56px/1 var(--f-label); letter-spacing: -1.2px; color: var(--bp-ink-700); }
+  .role{ font: var(--t-body-sm); color: var(--bp-ink-500); margin: 8px 0 16px; }
+  .weights{ display:flex; gap: 18px; flex-wrap:wrap; }
+  .weights span{ display:inline-flex; flex-direction: column; }
+  .weights small{ font: var(--t-mono); color: var(--bp-ink-400); }
+  .w4{ font-weight: 400; font-size: 18px; }
+  .w5{ font-weight: 500; font-size: 18px; }
+  .w6{ font-weight: 600; font-size: 18px; }
+  .w7{ font-weight: 700; font-size: 18px; }
+  .w8{ font-weight: 800; font-size: 18px; }
+</style>
+<div class="grid">
+  <div class="card">
+    <div class="lab">Display + Body — Manrope</div>
+    <div class="sample-m">Aa</div>
+    <div class="role">All headings, paragraphs, buttons. Geometric, plain-spoken.</div>
+    <div class="weights" style="font-family:var(--f-display);color:var(--bp-ink-700)">
+      <span><span class="w4">Regular</span><small>400</small></span>
+      <span><span class="w5">Medium</span><small>500</small></span>
+      <span><span class="w6">SemiBold</span><small>600</small></span>
+      <span><span class="w7">Bold</span><small>700</small></span>
+      <span><span class="w8">ExtraBold</span><small>800</small></span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lab">Technical labels — Inter</div>
+    <div class="sample-i">Aa</div>
+    <div class="role">Eyebrows, tags, SKUs. ALWAYS UPPERCASE, tracking 1.2–1.6 px.</div>
+    <div class="weights" style="font-family:var(--f-label);color:var(--bp-ink-700)">
+      <span><span class="w4">Regular</span><small>400</small></span>
+      <span><span class="w5">Medium</span><small>500</small></span>
+      <span><span class="w6">SemiBold</span><small>600</small></span>
+      <span><span class="w7">Bold</span><small>700</small></span>
+    </div>
+  </div>
+</div>
+</body></html>

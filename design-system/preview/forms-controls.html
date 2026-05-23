@@ -1,0 +1,50 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+  .grid{ display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .cap{ font: var(--t-label); letter-spacing: var(--ls-label-wide); text-transform: uppercase; color: var(--bp-ink-500); margin-bottom: 10px; }
+  .col{ display:flex; flex-direction: column; gap: 10px; }
+  .row{ display:flex; align-items: center; gap: 10px; font: var(--t-body-sm); color: var(--bp-ink-700); }
+  .check{ width: 18px; height: 18px; border-radius: var(--r-xs); border: 1.5px solid var(--bp-ink-300); background: white; display:inline-grid; place-items: center; flex: none; }
+  .check.on{ background: var(--bp-green-500); border-color: var(--bp-green-500); }
+  .check.on::after{ content:""; width: 9px; height: 5px; border-left: 2px solid white; border-bottom: 2px solid white; transform: rotate(-45deg) translate(1px, -1px); }
+  .radio{ width: 18px; height: 18px; border-radius: 999px; border: 1.5px solid var(--bp-ink-300); background: white; flex: none; }
+  .radio.on{ border-color: var(--bp-green-500); border-width: 5px; }
+  .switch{ position: relative; width: 36px; height: 20px; border-radius: 999px; background: var(--bp-ink-200); flex: none; }
+  .switch::after{ content:""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 999px; background: white; }
+  .switch.on{ background: var(--bp-green-500); }
+  .switch.on::after{ transform: translateX(16px); }
+</style>
+<div class="ttl">Checkbox · radio · switch</div>
+<div class="sub">Active states are always brand green 500. Tap target 18 px (input) with 10 px gap to label.</div>
+<div class="grid">
+  <div>
+    <div class="cap">Checkbox</div>
+    <div class="col">
+      <div class="row"><span class="check on"></span> Pojemniki z pokrywą</div>
+      <div class="row"><span class="check on"></span> Certyfikat do żywności</div>
+      <div class="row"><span class="check"></span> Etykieta RFID</div>
+      <div class="row"><span class="check"></span> Wersja składana</div>
+    </div>
+  </div>
+  <div>
+    <div class="cap">Radio</div>
+    <div class="col">
+      <div class="row"><span class="radio on"></span> EURO 400 × 300</div>
+      <div class="row"><span class="radio"></span> EURO 600 × 400</div>
+      <div class="row"><span class="radio"></span> EURO 800 × 600</div>
+      <div class="row"><span class="radio"></span> Wymiar custom</div>
+    </div>
+  </div>
+  <div>
+    <div class="cap">Switch</div>
+    <div class="col">
+      <div class="row"><span class="switch on"></span> Newsletter</div>
+      <div class="row"><span class="switch"></span> Powiadomienia SMS</div>
+      <div class="row"><span class="switch on"></span> Faktura cyfrowa</div>
+    </div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,29 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+  .row{ display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 14px; }
+  .tile{ border: 1px solid var(--bp-ink-100); border-radius: var(--r-md); height: 160px; display:grid; place-items:center; position:relative; }
+  .tile.dark{ background: var(--bp-ink-700); border-color: var(--bp-ink-700); }
+  .tile.green{ background: var(--bp-green-500); border-color: var(--bp-green-500); }
+  .cap{ position:absolute; top: 10px; left: 12px; font: var(--t-label); letter-spacing: var(--ls-label-wide); text-transform: uppercase; color: var(--bp-ink-400); }
+  .tile.dark .cap, .tile.green .cap { color: rgba(255,255,255,.55); }
+  .mark{ display:inline-flex; align-items: baseline; gap: 12px; font: 700 44px/1 var(--f-display); letter-spacing: -1.1px; color: var(--bp-ink-700); }
+  .tile.dark .mark, .tile.green .mark { color: white; }
+  .globe{ width: 44px; height: 44px; }
+</style>
+<div class="ttl">Logo · wordmark + globe with checkmark</div>
+<div class="sub">Manrope Bold lowercase "bekuplast" + a globe with a green ✓. The check is the only spot the brand green ever appears on the mark.</div>
+<div class="row">
+  <div class="tile"><span class="cap">PRIMARY · ON WHITE</span>
+    <span class="mark">bekuplast<svg class="globe" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="#9a9a9a" stroke-width="2"/><ellipse cx="32" cy="32" rx="12" ry="28" stroke="#9a9a9a" stroke-width="2"/><line x1="4" y1="32" x2="60" y2="32" stroke="#9a9a9a" stroke-width="2"/><line x1="8" y1="20" x2="56" y2="20" stroke="#9a9a9a" stroke-width="2"/><line x1="8" y1="44" x2="56" y2="44" stroke="#9a9a9a" stroke-width="2"/><path d="M20 32 L28 40 L46 22" stroke="#65b32e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+  </div>
+  <div class="tile dark"><span class="cap">ON DARK</span>
+    <span class="mark">bekuplast<svg class="globe" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="#dedede" stroke-width="2"/><ellipse cx="32" cy="32" rx="12" ry="28" stroke="#dedede" stroke-width="2"/><line x1="4" y1="32" x2="60" y2="32" stroke="#dedede" stroke-width="2"/><line x1="8" y1="20" x2="56" y2="20" stroke="#dedede" stroke-width="2"/><line x1="8" y1="44" x2="56" y2="44" stroke="#dedede" stroke-width="2"/><path d="M20 32 L28 40 L46 22" stroke="#b0d583" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+  </div>
+  <div class="tile green"><span class="cap">ON GREEN</span>
+    <span class="mark">bekuplast<svg class="globe" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="28" stroke="#fff" stroke-width="2"/><ellipse cx="32" cy="32" rx="12" ry="28" stroke="#fff" stroke-width="2"/><line x1="4" y1="32" x2="60" y2="32" stroke="#fff" stroke-width="2"/><line x1="8" y1="20" x2="56" y2="20" stroke="#fff" stroke-width="2"/><line x1="8" y1="44" x2="56" y2="44" stroke="#fff" stroke-width="2"/><path d="M20 32 L28 40 L46 22" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+  </div>
+</div>
+</body></html>

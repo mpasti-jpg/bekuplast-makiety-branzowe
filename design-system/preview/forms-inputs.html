@@ -1,0 +1,38 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+  .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .field{ display:flex; flex-direction: column; gap: 5px; }
+  .lab{ font: 600 13px/1.4 var(--f-display); letter-spacing: -.1px; color: var(--bp-ink-700); }
+  .help{ font: 400 12px/1.4 var(--f-body); color: var(--bp-ink-500); }
+  .err{ font: 400 12px/1.4 var(--f-body); color: var(--bp-danger); }
+  .input, .select{ width: 100%; height: 42px; padding: 0 14px; background: white; border: 1px solid var(--bp-ink-200); border-radius: var(--r-sm); font: 400 14px/1 var(--f-body); color: var(--bp-ink-700); }
+  .input:focus{ outline: none; border-color: var(--bp-green-500); box-shadow: 0 0 0 3px var(--bp-green-100); }
+  .input.error{ border-color: var(--bp-danger); }
+  .input.disabled{ background: var(--bp-ink-25); color: var(--bp-ink-400); }
+</style>
+<div class="ttl">Form inputs · text fields</div>
+<div class="sub">42 px tall, 4 px corners, focus ring = brand green 100. Labels always visible above field.</div>
+<div class="grid">
+  <div class="field">
+    <span class="lab">Nazwa firmy *</span>
+    <input class="input" value="Magazyn Centralny Sp. z o.o." />
+  </div>
+  <div class="field">
+    <span class="lab">Email kontaktowy</span>
+    <input class="input" placeholder="email@firma.pl" style="border-color: var(--bp-green-500); box-shadow: 0 0 0 3px var(--bp-green-100);" />
+    <span class="help">Wyślemy ofertę na ten adres.</span>
+  </div>
+  <div class="field">
+    <span class="lab">Numer NIP</span>
+    <input class="input error" value="525-12-345" />
+    <span class="err">Niepoprawny format NIP. Podaj 10 cyfr.</span>
+  </div>
+  <div class="field">
+    <span class="lab">Pole nieaktywne</span>
+    <input class="input disabled" value="Nie można edytować" disabled />
+  </div>
+</div>
+</body></html>

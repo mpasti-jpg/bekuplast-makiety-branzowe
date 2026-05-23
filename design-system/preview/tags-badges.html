@@ -1,0 +1,46 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="_preview.css"></head>
+<body class="bp-card">
+<style>
+  .ttl{ font: var(--t-h4); color: var(--bp-ink-700); letter-spacing: var(--ls-body-tight); margin-bottom: 4px; }
+  .sub{ font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+  .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .cap{ font: var(--t-label); letter-spacing: var(--ls-label-wide); text-transform: uppercase; color: var(--bp-ink-500); margin-bottom: 10px; }
+  .row{ display:flex; flex-wrap: wrap; gap: 10px; }
+  .tag{ display:inline-flex; align-items: center; gap: 14px; padding: 5px 11px; border-radius: var(--r-sm); border: 1px solid var(--bp-ink-200); background: var(--bp-white); font: 700 11px/1 var(--f-label); letter-spacing: 1.4px; text-transform: uppercase; color: var(--bp-ink-500); }
+  .tag::after{ content:""; width: 3px; height: 3px; background: var(--bp-ink-500); }
+  .tag.green{ color: var(--bp-green-600); }
+  .tag.green::after{ background: var(--bp-green-500); }
+  .tag.dark{ color: white; background: var(--bp-ink-700); border-color: transparent; }
+  .tag.dark::after{ background: var(--bp-green-300); }
+  .badge{ display:inline-flex; align-items:center; gap: 6px; padding: 3px 8px; border-radius: var(--r-xs); font: 600 11px/1.4 var(--f-label); letter-spacing: 0.3px; }
+  .badge .dot{ width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
+  .b-green{ background: var(--bp-green-50); color: var(--bp-green-700); }
+  .b-info{ background: var(--bp-info-bg); color: var(--bp-info); }
+  .b-warn{ background: var(--bp-warning-bg); color: var(--bp-warning); }
+  .b-danger{ background: var(--bp-danger-bg); color: var(--bp-danger); }
+  .b-neutral{ background: var(--bp-ink-50); color: var(--bp-ink-600); }
+</style>
+<div class="ttl">Tags &amp; badges</div>
+<div class="sub">Tags = brand eyebrow (bordered, with dot suffix). Badges = inline status pill.</div>
+<div class="grid">
+  <div>
+    <div class="cap">Brand tags — eyebrow / category</div>
+    <div class="row">
+      <span class="tag green">BEKUPLAST</span>
+      <span class="tag">BRANŻE</span>
+      <span class="tag">CO ZYSKASZ</span>
+      <span class="tag dark">NOWOŚĆ</span>
+    </div>
+  </div>
+  <div>
+    <div class="cap">Status badges — in UI</div>
+    <div class="row">
+      <span class="badge b-green"><span class="dot"></span>W magazynie</span>
+      <span class="badge b-info"><span class="dot"></span>W produkcji</span>
+      <span class="badge b-warn"><span class="dot"></span>Niski stan</span>
+      <span class="badge b-danger"><span class="dot"></span>Wycofany</span>
+      <span class="badge b-neutral">EURO 600×400</span>
+    </div>
+  </div>
+</div>
+</body></html>

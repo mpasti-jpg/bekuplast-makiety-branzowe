@@ -1,0 +1,2717 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>bekuplast — Design System v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================================
+   bekuplast — Design Tokens
+   ========================================================================= */
+:root{
+  /* Brand */
+  --bp-green-50:  #f1faea;
+  --bp-green-100: #defac3;
+  --bp-green-200: #cbf893;   /* light green (existing) */
+  --bp-green-300: #b0d583;   /* light green 2 (existing) */
+  --bp-green-400: #8ec659;
+  --bp-green-500: #65b32e;   /* primary brand */
+  --bp-green-600: #54971f;
+  --bp-green-700: #427718;
+  --bp-green-800: #325912;
+  --bp-green-900: #21390b;
+
+  /* Neutrals (warm-cool industrial gray) */
+  --bp-ink-900: #1d1d1d;
+  --bp-ink-800: #2b2b2b;
+  --bp-ink-700: #434343;     /* brand-dark */
+  --bp-ink-600: #5a5a5a;
+  --bp-ink-500: #717171;     /* brand-gray */
+  --bp-ink-400: #9a9a9a;
+  --bp-ink-300: #c2c2c2;
+  --bp-ink-200: #dedede;
+  --bp-ink-100: #ececec;
+  --bp-ink-50:  #f0f0f0;     /* light gray */
+  --bp-ink-25:  #f7f7f7;
+  --bp-white:   #ffffff;
+
+  /* Semantic */
+  --bp-success: #2f8f3a;
+  --bp-success-bg: #e8f6ea;
+  --bp-warning: #c47a00;
+  --bp-warning-bg: #fdf3df;
+  --bp-danger:  #c1272d;
+  --bp-danger-bg: #fbe9ea;
+  --bp-info:    #1f6fb2;
+  --bp-info-bg: #e7f1fa;
+
+  /* Radius */
+  --r-xs: 2px;
+  --r-sm: 4px;     /* default buttons / tags */
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-xl: 16px;
+  --r-2xl: 24px;
+  --r-full: 9999px;
+
+  /* Brand decorative squares pattern */
+  --bp-sq-1: var(--bp-green-500);
+  --bp-sq-2: var(--bp-green-300);
+  --bp-sq-3: var(--bp-green-200);
+  --bp-sq-4: var(--bp-white);
+
+  /* Shadow */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.04);
+  --shadow-sm: 0 2px 6px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 8px 20px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.04);
+  --shadow-lg: 0 18px 40px rgba(0,0,0,.10), 0 4px 10px rgba(0,0,0,.04);
+  --shadow-xl: 0 28px 60px rgba(0,0,0,.14), 0 6px 14px rgba(0,0,0,.05);
+
+  /* Spacing (4 pt grid) */
+  --s-0:  0;
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-8:  32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;
+  --s-24: 96px;
+  --s-32: 128px;
+
+  /* Type */
+  --f-display: "Manrope", system-ui, sans-serif;
+  --f-body:    "Manrope", system-ui, sans-serif;
+  --f-label:   "Inter", system-ui, sans-serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* =========================================================================
+   Base
+   ========================================================================= */
+*,*::before,*::after{ box-sizing: border-box; }
+html,body{ margin:0; padding:0; }
+html{ -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body{
+  font-family: var(--f-body);
+  color: var(--bp-ink-700);
+  background: var(--bp-white);
+  font-size: 16px;
+  line-height: 1.5;
+}
+a{ color: inherit; text-decoration: none; }
+img{ display:block; max-width:100%; }
+button{ font: inherit; }
+
+/* Code label tokens */
+.code{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--bp-ink-500);
+  letter-spacing: 0;
+}
+
+/* =========================================================================
+   Page layout
+   ========================================================================= */
+.app{
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+.sidebar{
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--bp-white);
+  border-right: 1px solid var(--bp-ink-100);
+  padding: 28px 24px;
+}
+.sidebar-brand{
+  display:flex; align-items:center; gap: 10px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--bp-ink-100);
+  margin-bottom: 18px;
+}
+.sidebar-brand .mark{
+  width: 32px; height: 32px; border-radius: var(--r-sm);
+  background: var(--bp-ink-700); color: white;
+  display:grid; place-items:center;
+  position: relative;
+}
+.sidebar-brand .mark svg{ width: 20px; height: 20px; color: var(--bp-green-300); }
+.sidebar-brand .name{
+  font-family: var(--f-display); font-weight: 700; color: var(--bp-ink-700);
+  font-size: 15px; letter-spacing: -0.2px;
+}
+.sidebar-brand .name small{
+  display:block;
+  font-family: var(--f-label); font-weight: 600; font-size: 10px;
+  color: var(--bp-ink-500); letter-spacing: 1.2px; text-transform: uppercase;
+  margin-top: 2px;
+}
+.nav-group{ margin-bottom: 18px; }
+.nav-group-title{
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-400);
+  padding: 0 12px 8px;
+}
+.nav a{
+  display:flex; align-items:center; gap: 10px;
+  padding: 8px 12px; border-radius: var(--r-sm);
+  font-size: 14px; color: var(--bp-ink-600);
+  transition: background .15s, color .15s;
+}
+.nav a:hover{ background: var(--bp-ink-25); color: var(--bp-ink-700); }
+.nav a.is-active{ background: var(--bp-green-50); color: var(--bp-green-700); font-weight: 600; }
+.nav a .num{
+  font-family: var(--f-mono); font-size: 10px; color: var(--bp-ink-400);
+  width: 22px; flex: none;
+}
+.nav a.is-active .num{ color: var(--bp-green-500); }
+
+.main{ min-width: 0; }
+
+.section{
+  padding: 96px 80px;
+  border-bottom: 1px solid var(--bp-ink-100);
+  max-width: 1240px;
+}
+.section + .section{ }
+.section-head{ margin-bottom: 56px; max-width: 760px; }
+.section-eyebrow{
+  display:inline-flex; align-items:center; gap: 12px;
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.6px; text-transform: uppercase;
+  color: var(--bp-green-600);
+  margin-bottom: 16px;
+}
+.section-eyebrow::before{
+  content:""; width: 24px; height: 1px; background: var(--bp-green-500);
+}
+.section-title{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 44px; line-height: 1.1; letter-spacing: -0.88px;
+  margin: 0 0 16px;
+}
+.section-lede{
+  font-family: var(--f-body); color: var(--bp-ink-500);
+  font-size: 18px; line-height: 28px; letter-spacing: -0.18px;
+  margin: 0; max-width: 640px;
+}
+.subsection-title{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 22px; line-height: 1.3; letter-spacing: -0.3px;
+  margin: 0 0 8px;
+}
+.subsection-sub{
+  font-family: var(--f-body); color: var(--bp-ink-500);
+  font-size: 14px; line-height: 22px;
+  margin: 0 0 24px; max-width: 560px;
+}
+.label-tag{
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-500);
+}
+
+/* =========================================================================
+   COVER
+   ========================================================================= */
+.cover{
+  position: relative;
+  padding: 0;
+  background:
+    radial-gradient(900px 600px at 0% 0%, var(--bp-green-50) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bp-white) 0%, var(--bp-ink-25) 100%);
+  overflow: hidden;
+  max-width: none;
+}
+.cover-inner{
+  padding: 96px 80px 80px;
+  max-width: 1240px;
+}
+.cover-meta{
+  display:flex; flex-wrap:wrap; gap: 32px;
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-500);
+  margin-bottom: 64px;
+}
+.cover-meta strong{ color: var(--bp-ink-700); font-weight: 600; }
+.cover-title{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: clamp(56px, 8vw, 96px);
+  line-height: 1; letter-spacing: -2.4px;
+  margin: 0 0 32px;
+}
+.cover-title em{
+  font-style: normal; color: var(--bp-green-500);
+}
+.cover-lede{
+  font-family: var(--f-body); color: var(--bp-ink-600);
+  font-size: 22px; line-height: 32px; letter-spacing: -0.22px;
+  max-width: 680px; margin: 0 0 64px;
+}
+.cover-grid{
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--bp-ink-100);
+  border: 1px solid var(--bp-ink-100);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.cover-stat{
+  background: var(--bp-white); padding: 28px 24px;
+}
+.cover-stat .num{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 36px; line-height: 1; letter-spacing: -0.7px;
+  margin-bottom: 12px;
+}
+.cover-stat .num em{ font-style: normal; color: var(--bp-green-500); }
+.cover-stat .lab{
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-500);
+}
+
+/* =========================================================================
+   PRINCIPLES
+   ========================================================================= */
+.principles{
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border-top: 1px solid var(--bp-ink-100);
+  border-left: 1px solid var(--bp-ink-100);
+}
+.principle{
+  border-right: 1px solid var(--bp-ink-100);
+  border-bottom: 1px solid var(--bp-ink-100);
+  padding: 32px 28px;
+  background: var(--bp-white);
+}
+.principle .ico{
+  width: 40px; height: 40px; border-radius: var(--r-sm);
+  background: var(--bp-green-50);
+  color: var(--bp-green-600);
+  display:grid; place-items:center;
+  margin-bottom: 20px;
+}
+.principle h3{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 18px; line-height: 1.4; letter-spacing: -0.2px;
+  margin: 0 0 8px;
+}
+.principle p{
+  font-family: var(--f-body); color: var(--bp-ink-500);
+  font-size: 14px; line-height: 22px;
+  margin: 0;
+}
+
+/* =========================================================================
+   LOGO
+   ========================================================================= */
+.logo-row{
+  display:grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px;
+}
+.logo-tile{
+  border: 1px solid var(--bp-ink-100);
+  border-radius: var(--r-md);
+  padding: 40px;
+  display:grid; place-items:center;
+  min-height: 200px;
+  position: relative;
+}
+.logo-tile.dark{ background: var(--bp-ink-700); }
+.logo-tile.green{ background: var(--bp-green-500); }
+.logo-caption{
+  position:absolute; top: 12px; left: 16px;
+  font-family: var(--f-label); font-size: 10px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-400);
+}
+.logo-tile.dark .logo-caption, .logo-tile.green .logo-caption{ color: rgba(255,255,255,.6); }
+
+.brand-mark{
+  display:inline-flex; align-items: center; gap: 10px;
+  font-family: var(--f-display); font-weight: 700;
+  font-size: 28px; line-height: 1; letter-spacing: -0.6px;
+  color: var(--bp-ink-700);
+}
+.brand-mark.lg{ font-size: 56px; letter-spacing: -1.4px; gap: 14px; }
+.brand-mark.sm{ font-size: 22px; letter-spacing: -0.5px; gap: 8px; }
+.brand-mark .word{ font-family: var(--f-display); font-weight: 700; }
+.brand-mark .globe{
+  width: 1em; height: 1em;
+  display:inline-block;
+  flex: none;
+  position: relative;
+}
+.brand-mark .globe svg{ width: 100%; height: 100%; display:block; }
+.brand-mark.on-dark{ color: var(--bp-white); }
+.brand-mark.on-green{ color: var(--bp-white); }
+
+/* The signature: small globe-with-checkmark mark */
+.bp-logo-svg{ width: 1em; height: 1em; }
+
+/* ===========================================================
+   SIGNATURE SQUARES (brand decorative pattern)
+   =========================================================== */
+.sq-pattern{
+  position: absolute;
+  pointer-events: none;
+  display: block;
+  z-index: 0;
+}
+.sq{ position: absolute; }
+.sq.s-1{ background: var(--bp-green-500); }
+.sq.s-2{ background: var(--bp-green-300); }
+.sq.s-3{ background: var(--bp-green-200); }
+.sq.s-4{ background: var(--bp-white); box-shadow: 0 0 0 1px rgba(0,0,0,.03); }
+.sq.s-ink{ background: var(--bp-ink-50); }
+
+.logo-rules{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-top: 24px;
+}
+.donts-grid{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+}
+.dont{
+  border: 1px solid var(--bp-ink-100); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.dont-art{
+  height: 120px;
+  background: var(--bp-ink-25);
+  display:grid; place-items:center;
+  border-bottom: 1px solid var(--bp-ink-100);
+}
+.dont-lab{
+  padding: 14px 16px;
+  display:flex; align-items:center; gap: 8px;
+  font-family: var(--f-body); font-size: 13px; color: var(--bp-ink-600);
+}
+.dont-x{
+  color: var(--bp-danger); font-weight: 700; font-size: 16px;
+}
+.logo-rule{
+  border: 1px solid var(--bp-ink-100); border-radius: var(--r-md);
+  padding: 20px 24px;
+}
+.logo-rule .lab-tag{
+  font-family: var(--f-label); font-size: 10px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-500); margin-bottom: 6px;
+}
+.logo-rule .val{
+  font-family: var(--f-display); font-weight: 600; font-size: 16px;
+  color: var(--bp-ink-700);
+}
+
+/* =========================================================================
+   COLORS
+   ========================================================================= */
+.color-scale{
+  display: grid;
+  grid-template-columns: 180px repeat(10, 1fr);
+  gap: 8px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+.color-scale .scale-label{
+  display:flex; flex-direction:column; justify-content: center;
+  padding: 0 8px;
+}
+.color-scale .scale-label .nm{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 16px;
+}
+.color-scale .scale-label .sub{
+  font-family: var(--f-body); color: var(--bp-ink-500); font-size: 13px; line-height: 1.4;
+}
+.swatch{
+  display:flex; flex-direction: column; justify-content: flex-end;
+  min-height: 96px; padding: 10px 12px;
+  border-radius: var(--r-sm);
+  color: var(--bp-ink-700); cursor: copy;
+  border: 1px solid transparent;
+  transition: transform .15s ease;
+  position: relative;
+}
+.swatch:hover{ transform: translateY(-2px); }
+.swatch[data-on="dark"]{ color: white; }
+.swatch .w{
+  font-family: var(--f-mono); font-size: 10px; font-weight: 500;
+  opacity: .7;
+}
+.swatch .hex{
+  font-family: var(--f-mono); font-size: 11px;
+  margin-top: 2px;
+}
+.swatch.is-anchor::after{
+  content: ""; position: absolute; top: 8px; right: 8px;
+  width: 6px; height: 6px; border-radius: var(--r-full);
+  background: currentColor; opacity: .7;
+}
+
+.color-uses{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  margin-top: 32px;
+}
+.color-use{
+  border: 1px solid var(--bp-ink-100); border-radius: var(--r-md);
+  padding: 20px 24px;
+}
+.color-use .lab{
+  font-family: var(--f-label); font-size: 10px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-500); margin-bottom: 12px;
+}
+.color-use .row{
+  display:flex; align-items:center; gap: 10px;
+  font-family: var(--f-body); font-size: 14px; color: var(--bp-ink-700);
+  padding: 4px 0;
+}
+.color-use .row + .row{ border-top: 1px dashed var(--bp-ink-100); }
+.color-use .chip{
+  width: 18px; height: 18px; border-radius: var(--r-xs);
+  border: 1px solid rgba(0,0,0,.05);
+}
+.color-use .code{ margin-left: auto; }
+
+/* Semantic colors */
+.semantic-grid{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  margin-top: 16px;
+}
+.sem-card{
+  border: 1px solid var(--bp-ink-100); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.sem-card .bar{ height: 80px; }
+.sem-card .body{
+  padding: 16px 20px;
+  display:flex; flex-direction: column; gap: 2px;
+}
+.sem-card .name{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700); font-size: 15px;
+}
+.sem-card .code{ margin-top: 6px; }
+
+/* =========================================================================
+   TYPOGRAPHY
+   ========================================================================= */
+.type-family{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  margin-bottom: 56px;
+}
+.type-fam-card{
+  border: 1px solid var(--bp-ink-100); border-radius: var(--r-md);
+  padding: 32px;
+}
+.type-fam-card .lab-tag{ margin-bottom: 12px; }
+.type-fam-card .name{
+  font-family: var(--f-display); font-weight: 600;
+  font-size: 56px; line-height: 1; letter-spacing: -1.4px;
+  color: var(--bp-ink-700);
+  margin: 0 0 4px;
+}
+.type-fam-card.inter .name{ font-family: var(--f-label); font-weight: 700; }
+.type-fam-card .role{
+  font-family: var(--f-body); color: var(--bp-ink-500); font-size: 14px;
+  margin: 0 0 24px;
+}
+.type-weights{
+  display:flex; gap: 24px; flex-wrap: wrap;
+  font-family: var(--f-display);
+  color: var(--bp-ink-700);
+}
+.type-fam-card.inter .type-weights{ font-family: var(--f-label); }
+.type-weights span{
+  display:inline-flex; flex-direction: column; align-items: flex-start;
+}
+.type-weights span small{
+  font-family: var(--f-mono); font-size: 10px; color: var(--bp-ink-400);
+  letter-spacing: 0; text-transform: none; margin-top: 2px;
+}
+.type-weights .w400{ font-weight: 400; font-size: 22px; }
+.type-weights .w500{ font-weight: 500; font-size: 22px; }
+.type-weights .w600{ font-weight: 600; font-size: 22px; }
+.type-weights .w700{ font-weight: 700; font-size: 22px; }
+.type-weights .w800{ font-weight: 800; font-size: 22px; }
+
+.type-scale{
+  display: grid; grid-template-columns: 220px 1fr; gap: 32px;
+  align-items: baseline;
+  padding: 24px 0;
+  border-top: 1px solid var(--bp-ink-100);
+}
+.type-scale .meta{
+  font-family: var(--f-mono); font-size: 11px; color: var(--bp-ink-500);
+  line-height: 18px;
+  padding-top: 8px;
+}
+.type-scale .meta strong{
+  display: block; font-family: var(--f-display); font-weight: 600;
+  color: var(--bp-ink-700); font-size: 14px; letter-spacing: -0.1px;
+  margin-bottom: 4px;
+}
+.type-display-1{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 72px; line-height: 1.1; letter-spacing: -1.44px;
+  margin: 0;
+}
+.type-display-2{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 56px; line-height: 1.1; letter-spacing: -1.12px;
+  margin: 0;
+}
+.type-h1{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 44px; line-height: 1.2; letter-spacing: -0.88px; margin: 0;
+}
+.type-h2{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 32px; line-height: 1.25; letter-spacing: -0.64px; margin: 0;
+}
+.type-h3{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 24px; line-height: 1.3; letter-spacing: -0.36px; margin: 0;
+}
+.type-h4{
+  font-family: var(--f-display); font-weight: 600; color: var(--bp-ink-700);
+  font-size: 18px; line-height: 1.4; letter-spacing: -0.18px; margin: 0;
+}
+.type-body-lg{
+  font-family: var(--f-body); font-weight: 400; color: var(--bp-ink-600);
+  font-size: 18px; line-height: 28px; letter-spacing: -0.18px; margin: 0;
+}
+.type-body{
+  font-family: var(--f-body); font-weight: 400; color: var(--bp-ink-600);
+  font-size: 16px; line-height: 24px; margin: 0;
+}
+.type-body-sm{
+  font-family: var(--f-body); font-weight: 400; color: var(--bp-ink-500);
+  font-size: 14px; line-height: 22px; margin: 0;
+}
+.type-caption{
+  font-family: var(--f-body); font-weight: 400; color: var(--bp-ink-500);
+  font-size: 12px; line-height: 18px; margin: 0;
+}
+.type-eyebrow{
+  font-family: var(--f-label); font-weight: 600; color: var(--bp-ink-500);
+  font-size: 11px; line-height: 16px; letter-spacing: 1.4px;
+  text-transform: uppercase; margin: 0;
+}
+
+/* =========================================================================
+   SPACING / RADIUS / SHADOWS / ICONS
+   ========================================================================= */
+.split-3{ display:grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 32px; }
+
+.space-rows{ display:flex; flex-direction: column; gap: 10px; }
+.space-row{ display:grid; grid-template-columns: 90px 80px 1fr; gap: 16px; align-items: center; }
+.space-row .nm{
+  font-family: var(--f-mono); font-size: 12px; color: var(--bp-ink-700);
+}
+.space-row .px{
+  font-family: var(--f-mono); font-size: 12px; color: var(--bp-ink-500);
+  text-align: right;
+}
+.space-row .bar{ height: 14px; background: var(--bp-green-200); border-radius: 2px; }
+
+.radius-rows{ display:flex; flex-direction: column; gap: 16px; }
+.radius-row{ display:grid; grid-template-columns: 90px 1fr 90px; gap: 16px; align-items: center; }
+.radius-row .nm{ font-family: var(--f-mono); font-size: 12px; color: var(--bp-ink-700); }
+.radius-row .val{ font-family: var(--f-mono); font-size: 12px; color: var(--bp-ink-500); text-align: right; }
+.radius-row .box{ height: 44px; background: var(--bp-ink-50); border: 1px solid var(--bp-ink-100); }
+
+.shadow-grid{ display:flex; flex-direction: column; gap: 16px; }
+.shadow-row{ display:grid; grid-template-columns: 100px 1fr; gap: 16px; align-items: center; }
+.shadow-row .nm{ font-family: var(--f-mono); font-size: 12px; color: var(--bp-ink-700); }
+.shadow-row .box{ height: 56px; background: white; border-radius: var(--r-sm); border: 1px solid rgba(0,0,0,.02); }
+
+/* Icon set */
+.icons-grid{
+  display:grid; grid-template-columns: repeat(8, 1fr); gap: 0;
+  border-top: 1px solid var(--bp-ink-100);
+  border-left: 1px solid var(--bp-ink-100);
+}
+.icon-cell{
+  display:flex; flex-direction: column; gap: 8px; align-items: center;
+  padding: 24px 8px;
+  border-right: 1px solid var(--bp-ink-100);
+  border-bottom: 1px solid var(--bp-ink-100);
+  background: white;
+}
+.icon-cell svg{ width: 24px; height: 24px; color: var(--bp-ink-700); stroke-width: 1.5; }
+.icon-cell .lab{
+  font-family: var(--f-label); font-size: 10px; color: var(--bp-ink-500);
+  letter-spacing: 0.4px;
+}
+.icon-sizes{
+  display:flex; align-items: center; gap: 24px; padding: 24px;
+  border: 1px solid var(--bp-ink-100); border-radius: var(--r-md);
+  margin-top: 24px;
+}
+.icon-sizes .group{ display:flex; flex-direction: column; align-items: center; gap: 6px; }
+.icon-sizes .group .lab{ font-family: var(--f-mono); font-size: 11px; color: var(--bp-ink-500); }
+
+/* =========================================================================
+   COMPONENTS — common chrome
+   ========================================================================= */
+.demo-frame{
+  border: 1px solid var(--bp-ink-100);
+  border-radius: var(--r-md);
+  background: var(--bp-white);
+  padding: 32px;
+}
+.demo-frame.muted{ background: var(--bp-ink-25); }
+.demo-row{ display:flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.demo-col{ display:flex; flex-direction: column; gap: 16px; }
+
+.demo-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.demo-grid > .demo-frame{ padding: 24px; }
+.demo-frame .demo-cap{
+  font-family: var(--f-label); font-size: 10px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-500);
+  margin-bottom: 16px;
+}
+
+/* =========================================================================
+   BUTTONS
+   ========================================================================= */
+.btn{
+  display:inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--f-display); font-weight: 600;
+  border-radius: var(--r-sm);
+  border: 1px solid transparent;
+  cursor: pointer; user-select: none;
+  transition: background .15s, border-color .15s, color .15s, transform .05s;
+  letter-spacing: -0.16px;
+}
+.btn:active{ transform: translateY(1px); }
+.btn:focus-visible{ outline: 3px solid var(--bp-green-200); outline-offset: 2px; }
+
+.btn-md{ height: 48px; padding: 0 24px; font-size: 16px; }
+.btn-sm{ height: 36px; padding: 0 16px; font-size: 14px; }
+.btn-lg{ height: 56px; padding: 0 32px; font-size: 18px; letter-spacing: -0.18px; }
+
+.btn-primary{ background: var(--bp-green-500); color: white; }
+.btn-primary:hover{ background: var(--bp-green-600); }
+.btn-primary.is-disabled{ background: var(--bp-ink-200); color: var(--bp-ink-400); cursor: not-allowed; }
+
+.btn-secondary{ background: var(--bp-ink-700); color: white; }
+.btn-secondary:hover{ background: var(--bp-ink-800); }
+
+.btn-outline{ background: white; color: var(--bp-green-600); border-color: var(--bp-green-500); }
+.btn-outline:hover{ background: var(--bp-green-50); }
+
+.btn-ghost{ background: transparent; color: var(--bp-ink-700); }
+.btn-ghost:hover{ background: var(--bp-ink-50); }
+
+.btn-danger{ background: var(--bp-danger); color: white; }
+.btn-danger:hover{ filter: brightness(0.92); }
+
+.btn .arrow{ width: 16px; height: 16px; }
+
+.button-matrix{
+  display:grid;
+  grid-template-columns: 110px repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--bp-ink-100);
+  border-left: 1px solid var(--bp-ink-100);
+}
+.button-matrix > div{
+  padding: 20px;
+  border-right: 1px solid var(--bp-ink-100);
+  border-bottom: 1px solid var(--bp-ink-100);
+  display:flex; align-items: center;
+}
+.button-matrix .col-h{
+  font-family: var(--f-label); font-size: 10px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-500); justify-content: flex-start;
+}
+.button-matrix .row-h{
+  font-family: var(--f-label); font-size: 10px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-500);
+}
+
+/* =========================================================================
+   TAGS & BADGES
+   ========================================================================= */
+.tag{
+  display:inline-flex; align-items: center; gap: 16px;
+  padding: 6px 12px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--bp-ink-200);
+  background: var(--bp-white);
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--bp-ink-500);
+}
+.tag::after{
+  content:""; width: 4px; height: 4px; background: var(--bp-ink-500);
+}
+.tag.is-green{ color: var(--bp-green-600); border-color: #dedede; }
+.tag.is-green::after{ background: var(--bp-green-500); }
+.tag.is-dark{ color: white; background: var(--bp-ink-700); border-color: transparent; }
+.tag.is-dark::after{ background: var(--bp-green-300); }
+
+.badge{
+  display:inline-flex; align-items: center; gap: 6px;
+  padding: 4px 8px;
+  border-radius: var(--r-xs);
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.4px;
+}
+.badge.b-green{ background: var(--bp-green-50); color: var(--bp-green-700); }
+.badge.b-info{ background: var(--bp-info-bg); color: var(--bp-info); }
+.badge.b-warn{ background: var(--bp-warning-bg); color: var(--bp-warning); }
+.badge.b-danger{ background: var(--bp-danger-bg); color: var(--bp-danger); }
+.badge.b-neutral{ background: var(--bp-ink-50); color: var(--bp-ink-600); }
+.badge .dot{ width: 6px; height: 6px; border-radius: 999px; background: currentColor; }
+
+/* =========================================================================
+   FORMS
+   ========================================================================= */
+.field{ display:flex; flex-direction: column; gap: 6px; }
+.field-label{
+  font-family: var(--f-display); font-weight: 600; font-size: 14px;
+  color: var(--bp-ink-700); letter-spacing: -0.1px;
+}
+.field-label .req{ color: var(--bp-danger); margin-left: 4px; }
+.field-help{
+  font-family: var(--f-body); font-size: 12px; color: var(--bp-ink-500);
+}
+.field-error{
+  font-family: var(--f-body); font-size: 12px; color: var(--bp-danger);
+}
+
+.input, .textarea, .select{
+  width: 100%;
+  background: var(--bp-white);
+  border: 1px solid var(--bp-ink-200);
+  border-radius: var(--r-sm);
+  padding: 0 16px;
+  height: 48px;
+  font-family: var(--f-body); font-size: 15px;
+  color: var(--bp-ink-700);
+  transition: border-color .15s, box-shadow .15s;
+}
+.input::placeholder{ color: var(--bp-ink-400); }
+.input:hover, .textarea:hover, .select:hover{ border-color: var(--bp-ink-300); }
+.input:focus, .textarea:focus, .select:focus{
+  outline: none;
+  border-color: var(--bp-green-500);
+  box-shadow: 0 0 0 3px var(--bp-green-100);
+}
+.textarea{ height: auto; padding: 12px 16px; min-height: 96px; resize: vertical; line-height: 22px; }
+.select{ appearance: none; background: white url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none' stroke='%23717171' stroke-width='1.6'><path d='M1 1.5l5 5 5-5'/></svg>") no-repeat right 16px center; padding-right: 40px; }
+
+.input-affix{ position: relative; }
+.input-affix .input{ padding-left: 44px; }
+.input-affix .ico{ position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--bp-ink-500); width: 18px; height: 18px; }
+
+.input.is-error{ border-color: var(--bp-danger); box-shadow: 0 0 0 3px rgba(193,39,45,.12); }
+.input.is-disabled{ background: var(--bp-ink-25); color: var(--bp-ink-400); cursor: not-allowed; }
+
+.check-row{ display:flex; align-items: center; gap: 10px; }
+.checkbox{
+  width: 18px; height: 18px; border-radius: var(--r-xs);
+  border: 1.5px solid var(--bp-ink-300);
+  background: white; display:inline-grid; place-items:center;
+  cursor: pointer; flex: none;
+}
+.checkbox.is-checked{ background: var(--bp-green-500); border-color: var(--bp-green-500); }
+.checkbox.is-checked::after{
+  content:""; width: 10px; height: 6px;
+  border-left: 2px solid white; border-bottom: 2px solid white;
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.radio{
+  width: 18px; height: 18px; border-radius: 999px;
+  border: 1.5px solid var(--bp-ink-300);
+  background: white; display:inline-grid; place-items:center;
+  cursor: pointer; flex: none;
+}
+.radio.is-checked{ border-color: var(--bp-green-500); border-width: 5px; }
+
+.switch{
+  position: relative;
+  width: 40px; height: 22px; border-radius: 999px;
+  background: var(--bp-ink-200);
+  transition: background .15s;
+  cursor: pointer; flex: none;
+}
+.switch::after{
+  content:""; position: absolute; top: 2px; left: 2px;
+  width: 18px; height: 18px; border-radius: 999px;
+  background: white; box-shadow: var(--shadow-xs);
+  transition: transform .2s;
+}
+.switch.is-on{ background: var(--bp-green-500); }
+.switch.is-on::after{ transform: translateX(18px); }
+
+.toggle-row{ display:flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+/* =========================================================================
+   CARDS
+   ========================================================================= */
+.industry-card{
+  display:flex; flex-direction: column;
+  background: white; border-radius: var(--r-sm);
+  overflow: hidden;
+  border: 1px solid var(--bp-ink-100);
+  cursor: pointer;
+  transition: box-shadow .2s, transform .2s;
+}
+.industry-card:hover{ box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.industry-card .ph{
+  aspect-ratio: 4 / 3; background-size: cover; background-position: center;
+}
+.industry-card .body{
+  padding: 24px;
+  display:flex; flex-direction: column; gap: 12px;
+}
+.industry-card h3{
+  font-family: var(--f-display); font-weight: 600; font-size: 22px;
+  line-height: 1.25; color: var(--bp-ink-700); margin: 0;
+  letter-spacing: -0.3px;
+}
+.industry-card p{
+  font-family: var(--f-body); font-size: 15px; line-height: 22px;
+  color: var(--bp-ink-500); margin: 0;
+}
+.industry-card .more{
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-green-600);
+  display:inline-flex; align-items: center; gap: 6px; margin-top: 4px;
+}
+
+.product-card{
+  border: 1px solid var(--bp-ink-100); border-radius: var(--r-sm);
+  background: white; overflow: hidden;
+  display:flex; flex-direction: column;
+  transition: box-shadow .2s, transform .2s;
+}
+.product-card:hover{ box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.product-card .ph{
+  aspect-ratio: 4 / 3; background: var(--bp-ink-25);
+  display:grid; place-items: center; padding: 24px; position: relative;
+}
+.product-card .ph svg{ width: 60%; height: 60%; color: var(--bp-ink-300); }
+.product-card .ph .badge{ position: absolute; top: 12px; left: 12px; }
+.product-card .body{ padding: 20px 24px 24px; display:flex; flex-direction: column; gap: 6px; }
+.product-card .sku{
+  font-family: var(--f-mono); font-size: 11px; color: var(--bp-ink-500);
+}
+.product-card h4{
+  font-family: var(--f-display); font-weight: 600; font-size: 16px;
+  color: var(--bp-ink-700); margin: 0; letter-spacing: -0.1px;
+}
+.product-card .specs{
+  display:flex; gap: 16px; margin-top: 8px;
+  font-family: var(--f-body); font-size: 12px; color: var(--bp-ink-500);
+}
+.product-card .specs span{ display:inline-flex; align-items:center; gap: 4px; }
+.product-card .ft{
+  margin-top: 12px; display:flex; align-items: center; justify-content: space-between;
+}
+.product-card .price{
+  font-family: var(--f-display); font-weight: 600; font-size: 18px; color: var(--bp-ink-700);
+}
+
+/* =========================================================================
+   STAT BLOCKS
+   ========================================================================= */
+.stat-block{
+  display:flex; flex-direction: column; gap: 8px;
+}
+.stat-block .val{
+  font-family: var(--f-display); font-weight: 600;
+  font-size: 44px; line-height: 1.1; letter-spacing: -0.88px;
+  color: var(--bp-green-500);
+}
+.stat-block .lab{
+  font-family: var(--f-body); font-size: 15px; line-height: 22px;
+  color: var(--bp-ink-500); max-width: 280px;
+}
+.stat-block.is-dark .val{ color: var(--bp-green-300); }
+.stat-block.is-dark .lab{ color: var(--bp-ink-300); }
+
+/* =========================================================================
+   ACCORDION
+   ========================================================================= */
+.acc{ display:flex; flex-direction: column; }
+.acc-item{ border-bottom: 1px solid var(--bp-ink-100); }
+.acc-trigger{
+  width: 100%; background: none; border: none;
+  display:flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 0; cursor: pointer; text-align: left;
+  font-family: var(--f-display); font-weight: 600; font-size: 18px;
+  color: var(--bp-ink-700); letter-spacing: -0.18px;
+}
+.acc-trigger:hover{ color: var(--bp-green-600); }
+.acc-trigger .chev{
+  width: 20px; height: 20px; color: var(--bp-green-500);
+  transition: transform .2s;
+  flex: none;
+}
+.acc-item.is-open .acc-trigger .chev{ transform: rotate(180deg); }
+.acc-content{
+  font-family: var(--f-body); font-size: 15px; line-height: 24px;
+  color: var(--bp-ink-500);
+  max-height: 0; overflow: hidden;
+  transition: max-height .3s ease, padding .2s ease;
+}
+.acc-item.is-open .acc-content{
+  max-height: 240px; padding-bottom: 24px;
+}
+
+/* =========================================================================
+   TABLE
+   ========================================================================= */
+.tbl-wrap{ border: 1px solid var(--bp-ink-100); border-radius: var(--r-md); overflow: hidden; }
+.tbl{ width: 100%; border-collapse: collapse; font-family: var(--f-body); font-size: 14px; }
+.tbl thead th{
+  background: var(--bp-ink-25);
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--bp-ink-500);
+  text-align: left;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--bp-ink-100);
+}
+.tbl tbody td{
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--bp-ink-100);
+  color: var(--bp-ink-700);
+  vertical-align: middle;
+}
+.tbl tbody tr:last-child td{ border-bottom: none; }
+.tbl tbody tr:hover{ background: var(--bp-ink-25); }
+.tbl .nm{ font-family: var(--f-display); font-weight: 600; }
+.tbl .sku{ font-family: var(--f-mono); font-size: 12px; color: var(--bp-ink-500); }
+.tbl .num{ font-variant-numeric: tabular-nums; text-align: right; }
+
+/* =========================================================================
+   ALERTS
+   ========================================================================= */
+.alert{
+  display:flex; gap: 12px;
+  padding: 16px 20px;
+  border-radius: var(--r-sm);
+  border-left: 3px solid currentColor;
+  font-family: var(--f-body); font-size: 14px; line-height: 22px;
+}
+.alert .body{ color: var(--bp-ink-700); flex: 1; }
+.alert .body strong{ display:block; margin-bottom: 2px; font-weight: 600; font-family: var(--f-display); }
+.alert .ico{ width: 20px; height: 20px; flex: none; margin-top: 1px; }
+.alert.a-success{ color: var(--bp-success); background: var(--bp-success-bg); }
+.alert.a-info{ color: var(--bp-info); background: var(--bp-info-bg); }
+.alert.a-warn{ color: var(--bp-warning); background: var(--bp-warning-bg); }
+.alert.a-danger{ color: var(--bp-danger); background: var(--bp-danger-bg); }
+
+/* =========================================================================
+   NAVIGATION PATTERNS
+   ========================================================================= */
+.site-header{
+  display:flex; align-items: center; justify-content: space-between;
+  padding: 20px 32px;
+  background: white;
+  border: 1px solid var(--bp-ink-100); border-radius: var(--r-md);
+}
+.site-header .brand{
+  font-family: var(--f-display); font-weight: 800; font-size: 22px; letter-spacing: -0.6px;
+  color: var(--bp-ink-700);
+  display:inline-flex; align-items: baseline; gap: 4px;
+}
+.site-header .brand .dot{ width: 6px; height: 6px; background: var(--bp-green-500); border-radius: 999px; transform: translateY(-1px); }
+.site-header nav{ display:flex; gap: 28px; }
+.site-header nav a{
+  font-family: var(--f-display); font-weight: 600; font-size: 14px;
+  color: var(--bp-ink-600); letter-spacing: -0.1px;
+}
+.site-header nav a:hover{ color: var(--bp-green-600); }
+.site-header nav a.is-active{ color: var(--bp-green-600); }
+.site-header .actions{ display:flex; align-items: center; gap: 12px; }
+.site-header .icon-btn{
+  width: 40px; height: 40px; border-radius: var(--r-sm);
+  display:grid; place-items: center;
+  background: transparent; border: 1px solid var(--bp-ink-200); cursor: pointer;
+  color: var(--bp-ink-600);
+}
+.site-header .icon-btn:hover{ background: var(--bp-ink-50); }
+
+.breadcrumb{
+  display:flex; align-items: center; gap: 8px;
+  font-family: var(--f-body); font-size: 13px; color: var(--bp-ink-500);
+}
+.breadcrumb a:hover{ color: var(--bp-green-600); }
+.breadcrumb .sep{ color: var(--bp-ink-300); }
+.breadcrumb .current{ color: var(--bp-ink-700); font-weight: 600; }
+
+.pagination{ display:flex; align-items: center; gap: 4px; }
+.pagination .p{
+  min-width: 36px; height: 36px; padding: 0 10px;
+  display:inline-grid; place-items: center;
+  border-radius: var(--r-sm); cursor: pointer;
+  font-family: var(--f-display); font-weight: 600; font-size: 14px;
+  color: var(--bp-ink-600);
+}
+.pagination .p:hover{ background: var(--bp-ink-50); }
+.pagination .p.is-active{ background: var(--bp-green-500); color: white; }
+.pagination .p.is-disabled{ color: var(--bp-ink-300); cursor: not-allowed; }
+
+.tabs{
+  display:flex; gap: 8px; border-bottom: 1px solid var(--bp-ink-100);
+}
+.tab{
+  padding: 14px 4px; border: none; background: none;
+  font-family: var(--f-display); font-weight: 600; font-size: 14px;
+  color: var(--bp-ink-500);
+  border-bottom: 2px solid transparent;
+  margin-right: 24px; cursor: pointer;
+  letter-spacing: -0.1px;
+}
+.tab:hover{ color: var(--bp-ink-700); }
+.tab.is-active{ color: var(--bp-green-600); border-bottom-color: var(--bp-green-500); }
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.site-footer{
+  background: var(--bp-ink-700); color: var(--bp-ink-200);
+  padding: 56px 48px 32px;
+  border-radius: var(--r-md);
+  display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px;
+}
+.site-footer .col h4{
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-300);
+  margin: 0 0 16px;
+}
+.site-footer .col a{
+  display:block;
+  font-family: var(--f-body); font-size: 14px; color: var(--bp-ink-100);
+  padding: 6px 0;
+}
+.site-footer .col a:hover{ color: var(--bp-green-300); }
+.site-footer .col-brand .brand-mark{ margin-bottom: 16px; }
+.site-footer .col-brand p{
+  font-family: var(--f-body); font-size: 14px; line-height: 22px;
+  color: var(--bp-ink-300); max-width: 320px; margin: 0;
+}
+.site-footer-bot{
+  grid-column: 1 / -1;
+  display:flex; justify-content: space-between; align-items: center;
+  padding-top: 28px; margin-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  font-family: var(--f-label); font-size: 11px; font-weight: 600;
+  letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--bp-ink-400);
+}
+
+/* =========================================================================
+   APPLICATION EXAMPLES — mini mockups using full system
+   ========================================================================= */
+.app-hero{
+  position: relative;
+  border-radius: var(--r-lg); overflow: hidden;
+  min-height: 540px;
+  background: url("assets/img-hero.png") center / cover no-repeat;
+  display:flex; align-items: flex-end;
+  padding: 64px;
+}
+.app-hero::before{
+  content:""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.55) 100%);
+}
+.app-hero .stack{
+  position: relative; z-index: 1; max-width: 720px; color: white;
+}
+.app-hero .stack .tag{
+  background: rgba(255,255,255,.1);
+  color: white; border-color: rgba(255,255,255,.2); backdrop-filter: blur(8px);
+  margin-bottom: 24px;
+}
+.app-hero .stack .tag::after{ background: var(--bp-green-300); }
+.app-hero h2{
+  font-family: var(--f-display); font-weight: 600;
+  font-size: 56px; line-height: 1.05; letter-spacing: -1.12px;
+  color: white; margin: 0 0 16px;
+}
+.app-hero h2 em{ font-style: normal; color: var(--bp-green-300); }
+.app-hero p{
+  font-family: var(--f-body); font-size: 18px; line-height: 28px;
+  color: rgba(255,255,255,.85); margin: 0 0 32px; max-width: 540px;
+}
+.app-hero .ctas{ display:flex; gap: 12px; flex-wrap: wrap; }
+.app-hero .ctas .btn-outline{
+  background: transparent; color: white; border-color: rgba(255,255,255,.4);
+}
+.app-hero .ctas .btn-outline:hover{ background: rgba(255,255,255,.1); }
+
+.industries-row{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 32px;
+}
+.stats-band{
+  background: var(--bp-ink-700);
+  border-radius: var(--r-lg);
+  padding: 56px 48px;
+  display:grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 48px;
+  align-items: center;
+  margin-top: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.stats-band::before{
+  content:""; position: absolute; top: -100px; right: -100px; width: 380px; height: 380px;
+  background: radial-gradient(circle, var(--bp-green-500) 0%, transparent 70%);
+  opacity: .25;
+}
+.stats-band .lead{ position: relative; }
+.stats-band .lead .tag{ background: transparent; border-color: rgba(255,255,255,.2); color: var(--bp-green-300); }
+.stats-band .lead .tag::after{ background: var(--bp-green-300); }
+.stats-band .lead h3{
+  font-family: var(--f-display); font-weight: 600; font-size: 32px;
+  line-height: 1.2; letter-spacing: -0.6px;
+  color: white; margin: 16px 0 0;
+}
+
+/* small utilities */
+.flex-row{ display:flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.flex-col{ display:flex; flex-direction: column; gap: 12px; }
+.gap-24{ gap: 24px; }
+.gap-32{ gap: 32px; }
+.mt-16{ margin-top: 16px; } .mt-24{ margin-top: 24px; } .mt-32{ margin-top: 32px; } .mt-48{ margin-top: 48px; }
+.cols-2{ display:grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.cols-3{ display:grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.cols-4{ display:grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+
+.toast{
+  position: relative;
+  background: white; border: 1px solid var(--bp-ink-100); border-radius: var(--r-sm);
+  padding: 14px 18px;
+  display:flex; align-items: center; gap: 12px;
+  box-shadow: var(--shadow-md);
+  font-family: var(--f-body); font-size: 14px; color: var(--bp-ink-700);
+  border-left: 3px solid var(--bp-green-500);
+}
+.toast .ico{ color: var(--bp-green-500); width: 18px; height: 18px; }
+
+/* Avatar for testimonial */
+.avatar{
+  width: 48px; height: 48px; border-radius: 999px;
+  background: var(--bp-green-200);
+  display:grid; place-items: center;
+  font-family: var(--f-display); font-weight: 700; color: var(--bp-green-800);
+}
+
+/* =========================================================================
+   Responsive (small screens)
+   ========================================================================= */
+@media (max-width: 1100px){
+  .app{ grid-template-columns: 1fr; }
+  .sidebar{ position: static; height: auto; border-right: none; border-bottom: 1px solid var(--bp-ink-100); }
+  .section{ padding: 64px 32px; }
+  .cover-inner{ padding: 64px 32px; }
+  .cover-grid, .principles{ grid-template-columns: repeat(2, 1fr); }
+  .cols-2, .cols-3, .cols-4, .industries-row, .stats-band, .site-footer, .logo-row, .type-family, .split-3{
+    grid-template-columns: 1fr;
+  }
+  .color-scale{ grid-template-columns: 1fr repeat(5, 1fr); }
+  .icons-grid{ grid-template-columns: repeat(4, 1fr); }
+  .button-matrix{ grid-template-columns: 90px repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ====================================================================
+       SIDEBAR NAV
+       ==================================================================== -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg>
+      </div>
+      <div class="name">bekuplast<small>Design System v2.0</small></div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Foundations</div>
+      <nav class="nav">
+        <a href="#cover" class="is-active"><span class="num">01</span>Wprowadzenie</a>
+        <a href="#principles"><span class="num">02</span>Zasady projektowe</a>
+        <a href="#brand"><span class="num">03</span>Logo &amp; znak</a>
+        <a href="#squares"><span class="num">04</span>Kwadraty — sygnatura</a>
+        <a href="#colors"><span class="num">05</span>Paleta kolorów</a>
+        <a href="#typography"><span class="num">06</span>Typografia</a>
+        <a href="#spacing"><span class="num">07</span>Odstępy &amp; siatka</a>
+        <a href="#radius"><span class="num">08</span>Zaokrąglenia &amp; cienie</a>
+        <a href="#icons"><span class="num">09</span>Ikonografia</a>
+      </nav>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Komponenty</div>
+      <nav class="nav">
+        <a href="#buttons"><span class="num">10</span>Przyciski</a>
+        <a href="#tags"><span class="num">11</span>Tagi &amp; etykiety</a>
+        <a href="#forms"><span class="num">12</span>Formularze</a>
+        <a href="#cards"><span class="num">13</span>Karty</a>
+        <a href="#stats"><span class="num">14</span>Statystyki</a>
+        <a href="#accordion"><span class="num">15</span>Akordeon</a>
+        <a href="#tables"><span class="num">16</span>Tabele</a>
+        <a href="#alerts"><span class="num">17</span>Alerty &amp; toasty</a>
+        <a href="#carousels"><span class="num">18</span>Karuzele</a>
+      </nav>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-title">Wzorce</div>
+      <nav class="nav">
+        <a href="#navigation"><span class="num">19</span>Nawigacja</a>
+        <a href="#newsletter"><span class="num">20</span>Newsletter</a>
+        <a href="#footer"><span class="num">21</span>Stopka</a>
+        <a href="#applied"><span class="num">22</span>Zastosowania</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- ====================================================================
+       MAIN
+       ==================================================================== -->
+  <main class="main">
+
+    <!-- ============ COVER ============ -->
+    <section class="section cover" id="cover">
+      <div class="cover-inner">
+        <div class="cover-meta">
+          <span><strong>bekuplast Polska</strong> · Producent opakowań z tworzyw</span>
+          <span>Design System · v1.0</span>
+          <span>Maj 2026</span>
+        </div>
+
+        <h1 class="cover-title">Design <em>System</em><br/>bekuplast.</h1>
+        <p class="cover-lede">
+          Wspólny język wizualny dla wszystkich punktów styku marki — od katalogu produktowego,
+          przez konfigurator pojemników, po dokumentację techniczną. Solidny jak nasze skrzynki.
+        </p>
+
+        <div class="cover-grid">
+          <div class="cover-stat">
+            <div class="num">5<em>+</em></div>
+            <div class="lab">Kolory marki</div>
+          </div>
+          <div class="cover-stat">
+            <div class="num">12</div>
+            <div class="lab">Skale typograficzne</div>
+          </div>
+          <div class="cover-stat">
+            <div class="num">24</div>
+            <div class="lab">Komponenty UI</div>
+          </div>
+          <div class="cover-stat">
+            <div class="num">∞</div>
+            <div class="lab">Zastosowania</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRINCIPLES ============ -->
+    <section class="section" id="principles">
+      <div class="section-head">
+        <div class="section-eyebrow">02 — Zasady projektowe</div>
+        <h2 class="section-title">Cztery zasady, którymi się kierujemy.</h2>
+        <p class="section-lede">
+          Każdy komponent i każda decyzja wizualna w tym systemie odpowiada na te cztery zasady.
+          Jeśli element ich nie spełnia, nie powinien znaleźć się w produkcji.
+        </p>
+      </div>
+
+      <div class="principles">
+        <div class="principle">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+          </div>
+          <h3>Solidność</h3>
+          <p>Wyraźne struktury, mocne kontrasty, geometryczne formy. Tak jak nasze pojemniki — bez kompromisów.</p>
+        </div>
+        <div class="principle">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>Funkcjonalność</h3>
+          <p>Forma podąża za funkcją. Każdy piksel ma cel — informuje, nakierowuje, ułatwia działanie.</p>
+        </div>
+        <div class="principle">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l5-5 5 5"/><path d="M7 7l5-5 5 5"/></svg>
+          </div>
+          <h3>Modułowość</h3>
+          <p>Komponenty łączą się jak skrzynki w stos. Powtarzalność daje przewidywalność użytkownikom.</p>
+        </div>
+        <div class="principle">
+          <div class="ico">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          </div>
+          <h3>Zrównoważoność</h3>
+          <p>Akcent zieleni nie jest dekoracją — to znak, że to materiał z recyklingu, który wraca do obiegu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BRAND / LOGO ============ -->
+    <section class="section" id="brand">
+      <div class="section-head">
+        <div class="section-eyebrow">03 — Logo &amp; znak</div>
+        <h2 class="section-title">Wordmark + globus z zielonym znacznikiem.</h2>
+        <p class="section-lede">
+          Logo <strong>bekuplast</strong> składa się z dwóch elementów: wordmarku w kroju Manrope Bold małymi literami
+          i ikony globusa z zielonym znakiem "✓" — symbolu obecności marki w 51 krajach i potwierdzenia jakości.
+          Globus jest <strong>nieodłączną częścią logo</strong> — nigdy nie występuje bez wordmarku.
+        </p>
+      </div>
+
+      <div class="logo-row">
+        <div class="logo-tile">
+          <span class="logo-caption">Primary · na białym</span>
+          <span class="brand-mark lg">
+            <span class="word">bekuplast</span>
+            <span class="globe">
+              <svg viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="28" stroke="#9a9a9a" stroke-width="2"/>
+                <ellipse cx="32" cy="32" rx="12" ry="28" stroke="#9a9a9a" stroke-width="2"/>
+                <line x1="4" y1="32" x2="60" y2="32" stroke="#9a9a9a" stroke-width="2"/>
+                <line x1="8" y1="20" x2="56" y2="20" stroke="#9a9a9a" stroke-width="2"/>
+                <line x1="8" y1="44" x2="56" y2="44" stroke="#9a9a9a" stroke-width="2"/>
+                <path d="M20 32 L28 40 L46 22" stroke="#65b32e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </span>
+        </div>
+        <div class="logo-tile dark">
+          <span class="logo-caption">Na ciemnym tle</span>
+          <span class="brand-mark lg on-dark">
+            <span class="word">bekuplast</span>
+            <span class="globe">
+              <svg viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="28" stroke="#dedede" stroke-width="2"/>
+                <ellipse cx="32" cy="32" rx="12" ry="28" stroke="#dedede" stroke-width="2"/>
+                <line x1="4" y1="32" x2="60" y2="32" stroke="#dedede" stroke-width="2"/>
+                <line x1="8" y1="20" x2="56" y2="20" stroke="#dedede" stroke-width="2"/>
+                <line x1="8" y1="44" x2="56" y2="44" stroke="#dedede" stroke-width="2"/>
+                <path d="M20 32 L28 40 L46 22" stroke="#b0d583" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </span>
+        </div>
+        <div class="logo-tile green">
+          <span class="logo-caption">Na zielonym tle</span>
+          <span class="brand-mark lg on-green">
+            <span class="word">bekuplast</span>
+            <span class="globe">
+              <svg viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="28" stroke="#ffffff" stroke-width="2"/>
+                <ellipse cx="32" cy="32" rx="12" ry="28" stroke="#ffffff" stroke-width="2"/>
+                <line x1="4" y1="32" x2="60" y2="32" stroke="#ffffff" stroke-width="2"/>
+                <line x1="8" y1="20" x2="56" y2="20" stroke="#ffffff" stroke-width="2"/>
+                <line x1="8" y1="44" x2="56" y2="44" stroke="#ffffff" stroke-width="2"/>
+                <path d="M20 32 L28 40 L46 22" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="logo-rules">
+        <div class="logo-rule">
+          <div class="lab-tag">Minimalna szerokość</div>
+          <div class="val">120 px / 32 mm</div>
+        </div>
+        <div class="logo-rule">
+          <div class="lab-tag">Pole ochronne</div>
+          <div class="val">1× wysokość liter</div>
+        </div>
+        <div class="logo-rule">
+          <div class="lab-tag">Krój wordmark</div>
+          <div class="val">Manrope Bold 700</div>
+        </div>
+        <div class="logo-rule">
+          <div class="lab-tag">Kolor znacznika “✓”</div>
+          <div class="val">Brand Green 500</div>
+        </div>
+        <div class="logo-rule">
+          <div class="lab-tag">Proporcje globusa</div>
+          <div class="val">1×1 wysokości wordmarku</div>
+        </div>
+        <div class="logo-rule">
+          <div class="lab-tag">Odstęp word ↔ globus</div>
+          <div class="val">0.25× wysokość liter</div>
+        </div>
+      </div>
+
+      <!-- Don'ts -->
+      <h3 class="subsection-title mt-48">Czego nie robić</h3>
+      <p class="subsection-sub">Logo ma jedną formę — wszelkie modyfikacje osłabiają rozpoznawalność marki.</p>
+      <div class="donts-grid">
+        <div class="dont">
+          <div class="dont-art">
+            <span style="font-family:var(--f-display);font-weight:700;font-size:28px;color:var(--bp-ink-700);text-transform:uppercase;letter-spacing:-0.4px;">BEKUPLAST</span>
+          </div>
+          <div class="dont-lab"><span class="dont-x">✗</span> Nie pisz wielkimi literami</div>
+        </div>
+        <div class="dont">
+          <div class="dont-art">
+            <span class="brand-mark" style="color:var(--bp-green-500)">
+              <span class="word">bekuplast</span>
+            </span>
+          </div>
+          <div class="dont-lab"><span class="dont-x">✗</span> Nie zmieniaj koloru wordmarku</div>
+        </div>
+        <div class="dont">
+          <div class="dont-art">
+            <span class="brand-mark" style="font-family: serif;">
+              <span class="word" style="font-family: 'Georgia', serif;">bekuplast</span>
+            </span>
+          </div>
+          <div class="dont-lab"><span class="dont-x">✗</span> Nie zmieniaj kroju</div>
+        </div>
+        <div class="dont">
+          <div class="dont-art">
+            <span class="brand-mark" style="transform: skew(-10deg);">
+              <span class="word">bekuplast</span>
+            </span>
+          </div>
+          <div class="dont-lab"><span class="dont-x">✗</span> Nie pochylaj i nie deformuj</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COLORS ============ -->
+    <section class="section" id="colors">
+      <div class="section-head">
+        <div class="section-eyebrow">04 — Paleta kolorów</div>
+        <h2 class="section-title">Zieleń recyklingu na przemysłowej szarości.</h2>
+        <p class="section-lede">
+          Kolor podstawowy <strong>Bekuplast Green #65b32e</strong> używamy oszczędnie — jako akcent,
+          stan aktywny lub potwierdzenie. Komunikuje to, co najważniejsze dla marki: zielone tworzywo
+          wracające do obiegu.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Skala marki — Bekuplast Green</h3>
+      <p class="subsection-sub">Główny kolor brandu, anchor na 500. Tinty i shade'y do tła, hoverów i komunikatów.</p>
+
+      <div class="color-scale">
+        <div class="scale-label">
+          <div class="nm">Brand Green</div>
+          <div class="sub">Bekuplast Green — kolor produktowy i akcent działań</div>
+        </div>
+        <div class="swatch" style="background:var(--bp-green-50)"><div class="w">50</div><div class="hex">#F1FAEA</div></div>
+        <div class="swatch" style="background:var(--bp-green-100)"><div class="w">100</div><div class="hex">#DEFAC3</div></div>
+        <div class="swatch" style="background:var(--bp-green-200)"><div class="w">200</div><div class="hex">#CBF893</div></div>
+        <div class="swatch" style="background:var(--bp-green-300)"><div class="w">300</div><div class="hex">#B0D583</div></div>
+        <div class="swatch" style="background:var(--bp-green-400)"><div class="w">400</div><div class="hex">#8EC659</div></div>
+        <div class="swatch is-anchor" data-on="dark" style="background:var(--bp-green-500)"><div class="w">500</div><div class="hex">#65B32E</div></div>
+        <div class="swatch" data-on="dark" style="background:var(--bp-green-600)"><div class="w">600</div><div class="hex">#54971F</div></div>
+        <div class="swatch" data-on="dark" style="background:var(--bp-green-700)"><div class="w">700</div><div class="hex">#427718</div></div>
+        <div class="swatch" data-on="dark" style="background:var(--bp-green-800)"><div class="w">800</div><div class="hex">#325912</div></div>
+        <div class="swatch" data-on="dark" style="background:var(--bp-green-900)"><div class="w">900</div><div class="hex">#21390B</div></div>
+      </div>
+
+      <h3 class="subsection-title mt-48">Neutralne — Industrial Ink</h3>
+      <p class="subsection-sub">Pełna skala szarości dla tekstu, obramowań, tła i powierzchni. Anchor 700 to brand-dark, 500 to brand-gray.</p>
+
+      <div class="color-scale">
+        <div class="scale-label">
+          <div class="nm">Industrial Ink</div>
+          <div class="sub">Neutrale na bazie ciepło-zimnej szarości</div>
+        </div>
+        <div class="swatch" style="background:var(--bp-ink-25);border:1px solid var(--bp-ink-100)"><div class="w">25</div><div class="hex">#F7F7F7</div></div>
+        <div class="swatch" style="background:var(--bp-ink-50)"><div class="w">50</div><div class="hex">#F0F0F0</div></div>
+        <div class="swatch" style="background:var(--bp-ink-100)"><div class="w">100</div><div class="hex">#ECECEC</div></div>
+        <div class="swatch" style="background:var(--bp-ink-200)"><div class="w">200</div><div class="hex">#DEDEDE</div></div>
+        <div class="swatch" style="background:var(--bp-ink-300)"><div class="w">300</div><div class="hex">#C2C2C2</div></div>
+        <div class="swatch" data-on="dark" style="background:var(--bp-ink-400)"><div class="w">400</div><div class="hex">#9A9A9A</div></div>
+        <div class="swatch" data-on="dark" style="background:var(--bp-ink-500)"><div class="w">500</div><div class="hex">#717171</div></div>
+        <div class="swatch" data-on="dark" style="background:var(--bp-ink-600)"><div class="w">600</div><div class="hex">#5A5A5A</div></div>
+        <div class="swatch is-anchor" data-on="dark" style="background:var(--bp-ink-700)"><div class="w">700</div><div class="hex">#434343</div></div>
+        <div class="swatch" data-on="dark" style="background:var(--bp-ink-900)"><div class="w">900</div><div class="hex">#1D1D1D</div></div>
+      </div>
+
+      <h3 class="subsection-title mt-48">Kolory funkcjonalne</h3>
+      <p class="subsection-sub">Stosowane w alertach, statusach zamówień i komunikatach systemowych. Nigdy nie używaj jako kolor dekoracyjny.</p>
+
+      <div class="semantic-grid">
+        <div class="sem-card">
+          <div class="bar" style="background:var(--bp-success)"></div>
+          <div class="body">
+            <div class="name">Success</div>
+            <div class="code">#2F8F3A</div>
+          </div>
+        </div>
+        <div class="sem-card">
+          <div class="bar" style="background:var(--bp-info)"></div>
+          <div class="body">
+            <div class="name">Info</div>
+            <div class="code">#1F6FB2</div>
+          </div>
+        </div>
+        <div class="sem-card">
+          <div class="bar" style="background:var(--bp-warning)"></div>
+          <div class="body">
+            <div class="name">Warning</div>
+            <div class="code">#C47A00</div>
+          </div>
+        </div>
+        <div class="sem-card">
+          <div class="bar" style="background:var(--bp-danger)"></div>
+          <div class="body">
+            <div class="name">Danger</div>
+            <div class="code">#C1272D</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="color-uses">
+        <div class="color-use">
+          <div class="lab">Główne zastosowania zieleni</div>
+          <div class="row"><span class="chip" style="background:var(--bp-green-500)"></span> Przycisk primary <span class="code">500</span></div>
+          <div class="row"><span class="chip" style="background:var(--bp-green-50)"></span> Tło sekcji wyróżnionej <span class="code">50</span></div>
+          <div class="row"><span class="chip" style="background:var(--bp-green-600)"></span> Hover akcji primary <span class="code">600</span></div>
+          <div class="row"><span class="chip" style="background:var(--bp-green-300)"></span> Akcenty na ciemnym tle <span class="code">300</span></div>
+        </div>
+        <div class="color-use">
+          <div class="lab">Główne zastosowania neutrali</div>
+          <div class="row"><span class="chip" style="background:var(--bp-ink-700)"></span> Tekst nagłówków <span class="code">700</span></div>
+          <div class="row"><span class="chip" style="background:var(--bp-ink-500)"></span> Tekst pomocniczy <span class="code">500</span></div>
+          <div class="row"><span class="chip" style="background:var(--bp-ink-100)"></span> Obramowania / dzielniki <span class="code">100</span></div>
+          <div class="row"><span class="chip" style="background:var(--bp-ink-25)"></span> Tło stref wtórnych <span class="code">25</span></div>
+        </div>
+        <div class="color-use">
+          <div class="lab">Reguły kontrastu (WCAG AA)</div>
+          <div class="row"><span class="chip" style="background:var(--bp-ink-700)"></span> Ink 700 na białym <span class="code">12.6:1</span></div>
+          <div class="row"><span class="chip" style="background:var(--bp-ink-500)"></span> Ink 500 na białym <span class="code">4.7:1</span></div>
+          <div class="row"><span class="chip" style="background:var(--bp-green-500)"></span> Green 500 na białym <span class="code">3.1:1 ✓ LG</span></div>
+          <div class="row"><span class="chip" style="background:var(--bp-green-700)"></span> Green 700 na białym <span class="code">5.4:1 ✓</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TYPOGRAPHY ============ -->
+    <section class="section" id="typography">
+      <div class="section-head">
+        <div class="section-eyebrow">05 — Typografia</div>
+        <h2 class="section-title">Manrope do mówienia, Inter do etykietowania.</h2>
+        <p class="section-lede">
+          Dwa kroje — jeden do wypowiedzi marki, drugi do precyzyjnych etykiet i kodów technicznych.
+          Wszystkie skale są oparte o 4 pt grid i zmienne CSS.
+        </p>
+      </div>
+
+      <div class="type-family">
+        <div class="type-fam-card">
+          <div class="lab-tag">Display &amp; Body — Manrope</div>
+          <div class="name">Aa</div>
+          <div class="role">Wszystkie nagłówki, tekst akapitów, przyciski. Geometryczna, czytelna, charakter „nowoczesnego przemysłu".</div>
+          <div class="type-weights">
+            <span><span class="w400">Regular</span><small>400</small></span>
+            <span><span class="w500">Medium</span><small>500</small></span>
+            <span><span class="w600">SemiBold</span><small>600</small></span>
+            <span><span class="w700">Bold</span><small>700</small></span>
+            <span><span class="w800">ExtraBold</span><small>800</small></span>
+          </div>
+        </div>
+        <div class="type-fam-card inter">
+          <div class="lab-tag">Etykiety techniczne — Inter</div>
+          <div class="name">Aa</div>
+          <div class="role">Eyebrows, tagi, kody produktów, etykiety techniczne. Stosowany TYLKO uppercase z tracking 1.2–1.6px.</div>
+          <div class="type-weights">
+            <span><span class="w400">Regular</span><small>400</small></span>
+            <span><span class="w500">Medium</span><small>500</small></span>
+            <span><span class="w600">SemiBold</span><small>600</small></span>
+            <span><span class="w700">Bold</span><small>700</small></span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Skala typograficzna</h3>
+      <p class="subsection-sub">Wszystkie wartości są tokenami — używaj zmiennych CSS, nie wartości literalnych.</p>
+
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Display 1</strong>
+          72 / 79 · ‑1.44px<br/>Manrope SemiBold
+        </div>
+        <h1 class="type-display-1">Pojemniki dla logistyki.</h1>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Display 2</strong>
+          56 / 62 · ‑1.12px<br/>Manrope SemiBold
+        </div>
+        <h2 class="type-display-2">Skrzynki na każdą branżę.</h2>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Heading 1</strong>
+          44 / 53 · ‑0.88px<br/>Manrope SemiBold
+        </div>
+        <h2 class="type-h1">Odkryj świat pojemników z tworzywa.</h2>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Heading 2</strong>
+          32 / 40 · ‑0.64px<br/>Manrope SemiBold
+        </div>
+        <h3 class="type-h2">Sekcja katalogowa.</h3>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Heading 3</strong>
+          24 / 31 · ‑0.36px<br/>Manrope SemiBold
+        </div>
+        <h4 class="type-h3">Pojemniki magazynowe EURO.</h4>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Heading 4</strong>
+          18 / 25 · ‑0.18px<br/>Manrope SemiBold
+        </div>
+        <h5 class="type-h4">Specyfikacja techniczna produktu</h5>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Body Large</strong>
+          18 / 28 · ‑0.18px<br/>Manrope Regular
+        </div>
+        <p class="type-body-lg">Solidne, wielokrotnego użytku skrzynki z polipropylenu — produkowane w Niemczech, dostępne w trzech wariantach kolorystycznych i pięciu rozmiarach EURO.</p>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Body</strong>
+          16 / 24<br/>Manrope Regular
+        </div>
+        <p class="type-body">Domyślny tekst akapitów. Stosowany w opisach produktów, treściach blogowych, dokumentacji.</p>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Body Small</strong>
+          14 / 22<br/>Manrope Regular
+        </div>
+        <p class="type-body-sm">Tekst pomocniczy w tabelach, podpisy obrazów, etykiety form. Używaj koloru Ink 500.</p>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Caption</strong>
+          12 / 18<br/>Manrope Regular
+        </div>
+        <p class="type-caption">Drobny tekst legalny, źródła, jednostki w specyfikacjach.</p>
+      </div>
+      <div class="type-scale">
+        <div class="meta">
+          <strong>Eyebrow / Label</strong>
+          11 / 16 · +1.4px<br/>Inter SemiBold UPPERCASE
+        </div>
+        <p class="type-eyebrow">Branża · logistyka i transport</p>
+      </div>
+    </section>
+
+    <!-- ============ SPACING / RADIUS / SHADOWS ============ -->
+    <section class="section" id="spacing">
+      <div class="section-head">
+        <div class="section-eyebrow">06 / 07 — Odstępy, zaokrąglenia, cienie</div>
+        <h2 class="section-title">Wszystko na siatce 4 pt.</h2>
+        <p class="section-lede">
+          Każdy odstęp, padding i margines pochodzi z tej skali. Nigdy nie używaj wartości spoza tokenów.
+        </p>
+      </div>
+
+      <div class="split-3">
+        <div>
+          <h3 class="subsection-title">Skala odstępów</h3>
+          <p class="subsection-sub">Token bazowy <code>--s-4 = 16 px</code>. Pozostałe są wielokrotnościami.</p>
+          <div class="space-rows">
+            <div class="space-row"><span class="nm">--s-1</span><span class="px">4 px</span><span class="bar" style="width:4px"></span></div>
+            <div class="space-row"><span class="nm">--s-2</span><span class="px">8 px</span><span class="bar" style="width:8px"></span></div>
+            <div class="space-row"><span class="nm">--s-3</span><span class="px">12 px</span><span class="bar" style="width:12px"></span></div>
+            <div class="space-row"><span class="nm">--s-4</span><span class="px">16 px</span><span class="bar" style="width:16px"></span></div>
+            <div class="space-row"><span class="nm">--s-5</span><span class="px">20 px</span><span class="bar" style="width:20px"></span></div>
+            <div class="space-row"><span class="nm">--s-6</span><span class="px">24 px</span><span class="bar" style="width:24px"></span></div>
+            <div class="space-row"><span class="nm">--s-8</span><span class="px">32 px</span><span class="bar" style="width:32px"></span></div>
+            <div class="space-row"><span class="nm">--s-10</span><span class="px">40 px</span><span class="bar" style="width:40px"></span></div>
+            <div class="space-row"><span class="nm">--s-12</span><span class="px">48 px</span><span class="bar" style="width:48px"></span></div>
+            <div class="space-row"><span class="nm">--s-16</span><span class="px">64 px</span><span class="bar" style="width:64px"></span></div>
+            <div class="space-row"><span class="nm">--s-20</span><span class="px">80 px</span><span class="bar" style="width:80px"></span></div>
+            <div class="space-row"><span class="nm">--s-24</span><span class="px">96 px</span><span class="bar" style="width:96px"></span></div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subsection-title">Zaokrąglenia</h3>
+          <p class="subsection-sub">Domyślne <code>--r-sm = 4 px</code> dla kontrolek. <code>--r-md/lg</code> dla powierzchni.</p>
+          <div class="radius-rows">
+            <div class="radius-row"><span class="nm">--r-xs</span><span class="box" style="border-radius:2px"></span><span class="val">2 px</span></div>
+            <div class="radius-row"><span class="nm">--r-sm</span><span class="box" style="border-radius:4px"></span><span class="val">4 px</span></div>
+            <div class="radius-row"><span class="nm">--r-md</span><span class="box" style="border-radius:8px"></span><span class="val">8 px</span></div>
+            <div class="radius-row"><span class="nm">--r-lg</span><span class="box" style="border-radius:12px"></span><span class="val">12 px</span></div>
+            <div class="radius-row"><span class="nm">--r-xl</span><span class="box" style="border-radius:16px"></span><span class="val">16 px</span></div>
+            <div class="radius-row"><span class="nm">--r-2xl</span><span class="box" style="border-radius:24px"></span><span class="val">24 px</span></div>
+            <div class="radius-row"><span class="nm">--r-full</span><span class="box" style="border-radius:9999px"></span><span class="val">9999</span></div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="subsection-title">Cienie</h3>
+          <p class="subsection-sub">Subtelne, low-key. Industrial estetyka unika dramatycznych głębi.</p>
+          <div class="shadow-grid">
+            <div class="shadow-row"><span class="nm">--shadow-xs</span><div class="box" style="box-shadow:var(--shadow-xs)"></div></div>
+            <div class="shadow-row"><span class="nm">--shadow-sm</span><div class="box" style="box-shadow:var(--shadow-sm)"></div></div>
+            <div class="shadow-row"><span class="nm">--shadow-md</span><div class="box" style="box-shadow:var(--shadow-md)"></div></div>
+            <div class="shadow-row"><span class="nm">--shadow-lg</span><div class="box" style="box-shadow:var(--shadow-lg)"></div></div>
+            <div class="shadow-row"><span class="nm">--shadow-xl</span><div class="box" style="box-shadow:var(--shadow-xl)"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ICONS ============ -->
+    <section class="section" id="icons">
+      <div class="section-head">
+        <div class="section-eyebrow">08 — Ikonografia</div>
+        <h2 class="section-title">Linijne ikony 24×24, stroke 1.5.</h2>
+        <p class="section-lede">
+          System ikonograficzny oparty o Lucide. Wszystkie ikony rysowane na siatce 24×24,
+          szerokość konturu 1.5 px, narożniki round. Brak wypełnień, brak gradientów.
+        </p>
+      </div>
+
+      <div class="icons-grid">
+        <!-- box -->
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><span class="lab">box</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M16.5 9.4 7.55 4.24"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg><span class="lab">crate</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span class="lab">global</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="lab">location</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span class="lab">search</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg><span class="lab">arrow</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="lab">team</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="2" y="9" width="20" height="12" rx="2"/></svg><span class="lab">secure</span></div>
+
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 2l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span class="lab">home</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="lab">file</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z"/><path d="M2 8 12 14 22 8"/></svg><span class="lab">mail</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="lab">phone</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="lab">clock</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="lab">check</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span class="lab">close</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg><span class="lab">info</span></div>
+      </div>
+
+      <div class="icon-sizes">
+        <div class="group">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--bp-ink-700)"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+          <span class="lab">14 — inline</span>
+        </div>
+        <div class="group">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--bp-ink-700)"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+          <span class="lab">16 — przycisk</span>
+        </div>
+        <div class="group">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--bp-ink-700)"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+          <span class="lab">20 — nawigacja</span>
+        </div>
+        <div class="group">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--bp-ink-700)"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+          <span class="lab">24 — domyślny</span>
+        </div>
+        <div class="group">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--bp-green-500)"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+          <span class="lab">32 — feature</span>
+        </div>
+        <div class="group">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--bp-green-500)"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>
+          <span class="lab">40 — hero</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BUTTONS ============ -->
+    <section class="section" id="buttons">
+      <div class="section-head">
+        <div class="section-eyebrow">09 — Przyciski</div>
+        <h2 class="section-title">Pięć wariantów, trzy rozmiary.</h2>
+        <p class="section-lede">
+          Primary używamy tylko raz na sekcję — to akcja, której najbardziej oczekujemy od użytkownika.
+          Pozostałe warianty wspierają primary lub akcje neutralne.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Warianty</h3>
+      <div class="demo-frame">
+        <div class="demo-row gap-24">
+          <button class="btn btn-md btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 14.39 8.25 20 9.27l-4 3.9.94 5.49L12 16.27l-4.95 2.39L8 13.17l-4-3.9 5.61-1.02z"/></svg>
+            Zapytaj AI
+          </button>
+          <button class="btn btn-md btn-primary">Sprawdź rozwiązania</button>
+          <button class="btn btn-md btn-secondary">Zobacz case study</button>
+          <button class="btn btn-md btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            Szukaj produktów
+          </button>
+          <button class="btn btn-md btn-ghost">
+            Więcej o nas
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn btn-md btn-danger">Usuń z koszyka</button>
+        </div>
+      </div>
+
+      <h3 class="subsection-title mt-48">Macierz: warianty × rozmiary × stany</h3>
+      <div class="button-matrix">
+        <div class="col-h">Wariant</div>
+        <div class="col-h">Small · 36</div>
+        <div class="col-h">Medium · 48</div>
+        <div class="col-h">Large · 56</div>
+        <div class="col-h">Hover</div>
+        <div class="col-h">Disabled</div>
+
+        <div class="row-h">Primary</div>
+        <div><button class="btn btn-sm btn-primary">Zamów</button></div>
+        <div><button class="btn btn-md btn-primary">Zamów ofertę</button></div>
+        <div><button class="btn btn-lg btn-primary">Zamów ofertę</button></div>
+        <div><button class="btn btn-md btn-primary" style="background:var(--bp-green-600)">Zamów ofertę</button></div>
+        <div><button class="btn btn-md btn-primary is-disabled">Zamów ofertę</button></div>
+
+        <div class="row-h">Secondary</div>
+        <div><button class="btn btn-sm btn-secondary">Pobierz</button></div>
+        <div><button class="btn btn-md btn-secondary">Pobierz PDF</button></div>
+        <div><button class="btn btn-lg btn-secondary">Pobierz PDF</button></div>
+        <div><button class="btn btn-md btn-secondary" style="background:var(--bp-ink-800)">Pobierz PDF</button></div>
+        <div><button class="btn btn-md btn-secondary" style="background:var(--bp-ink-200);color:var(--bp-ink-400)">Pobierz PDF</button></div>
+
+        <div class="row-h">Outline</div>
+        <div><button class="btn btn-sm btn-outline">Więcej</button></div>
+        <div><button class="btn btn-md btn-outline">Zobacz wszystkie</button></div>
+        <div><button class="btn btn-lg btn-outline">Zobacz wszystkie</button></div>
+        <div><button class="btn btn-md btn-outline" style="background:var(--bp-green-50)">Zobacz wszystkie</button></div>
+        <div><button class="btn btn-md btn-outline" style="color:var(--bp-ink-400);border-color:var(--bp-ink-200)">Zobacz wszystkie</button></div>
+
+        <div class="row-h">Ghost</div>
+        <div><button class="btn btn-sm btn-ghost">Anuluj</button></div>
+        <div><button class="btn btn-md btn-ghost">Anuluj</button></div>
+        <div><button class="btn btn-lg btn-ghost">Anuluj</button></div>
+        <div><button class="btn btn-md btn-ghost" style="background:var(--bp-ink-50)">Anuluj</button></div>
+        <div><button class="btn btn-md btn-ghost" style="color:var(--bp-ink-400)">Anuluj</button></div>
+      </div>
+    </section>
+
+    <!-- ============ TAGS ============ -->
+    <section class="section" id="tags">
+      <div class="section-head">
+        <div class="section-eyebrow">10 — Tagi &amp; etykiety</div>
+        <h2 class="section-title">Tagi marki + funkcyjne badge'y.</h2>
+        <p class="section-lede">
+          <strong>Tagi marki</strong> to charakterystyczny element systemu — Inter uppercase z kropką akcentem.
+          <strong>Badge'y</strong> komunikują status w UI.
+        </p>
+      </div>
+
+      <div class="cols-2">
+        <div class="demo-frame">
+          <div class="demo-cap">Tagi marki — eyebrow / kategoria</div>
+          <div class="demo-row gap-24">
+            <span class="tag is-green">BEKUPLAST</span>
+            <span class="tag">POZNAJ NAS</span>
+            <span class="tag">BRANŻE</span>
+            <span class="tag is-dark">NOWOŚĆ</span>
+          </div>
+        </div>
+        <div class="demo-frame">
+          <div class="demo-cap">Badge'y — status w UI</div>
+          <div class="demo-row gap-24">
+            <span class="badge b-green"><span class="dot"></span>W magazynie</span>
+            <span class="badge b-info"><span class="dot"></span>W produkcji</span>
+            <span class="badge b-warn"><span class="dot"></span>Niski stan</span>
+            <span class="badge b-danger"><span class="dot"></span>Wycofany</span>
+            <span class="badge b-neutral">EURO 600×400</span>
+            <span class="badge b-green">★ Recykling 100%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FORMS ============ -->
+    <section class="section" id="forms">
+      <div class="section-head">
+        <div class="section-eyebrow">11 — Formularze</div>
+        <h2 class="section-title">Pola wejściowe i kontrolki wyboru.</h2>
+        <p class="section-lede">
+          Wszystkie kontrolki używają zaokrąglenia 4 px, focus ringu w zieleni marki i wyraźnych
+          stanów błędu. Etykiety są zawsze widoczne nad polem.
+        </p>
+      </div>
+
+      <div class="cols-2 gap-32">
+
+        <div class="demo-frame">
+          <div class="demo-cap">Pola tekstowe</div>
+          <div class="demo-col">
+            <div class="field">
+              <label class="field-label">Nazwa firmy <span class="req">*</span></label>
+              <input type="text" class="input" placeholder="np. Magazyn Centralny Sp. z o.o." value="Magazyn Centralny Sp. z o.o." />
+            </div>
+            <div class="field">
+              <label class="field-label">Email kontaktowy</label>
+              <div class="input-affix">
+                <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z"/><path d="M2 8l10 6 10-6"/></svg>
+                <input type="email" class="input" placeholder="email@firma.pl" />
+              </div>
+              <span class="field-help">Wyślemy ofertę na ten adres.</span>
+            </div>
+            <div class="field">
+              <label class="field-label">Numer NIP</label>
+              <input type="text" class="input is-error" value="525-12-345" />
+              <span class="field-error">Niepoprawny format NIP. Podaj 10 cyfr.</span>
+            </div>
+            <div class="field">
+              <label class="field-label">Pole nieaktywne</label>
+              <input type="text" class="input is-disabled" value="Nie można edytować" disabled />
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-frame">
+          <div class="demo-cap">Pola złożone</div>
+          <div class="demo-col">
+            <div class="field">
+              <label class="field-label">Branża</label>
+              <select class="select">
+                <option>Wybierz branżę</option>
+                <option>Logistyka i transport</option>
+                <option selected>Automotive</option>
+                <option>Spożywcza</option>
+                <option>Farmaceutyczna</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label">Opis projektu</label>
+              <textarea class="textarea" placeholder="Opisz krótko, do czego potrzebujesz pojemników...">Potrzebujemy ok. 500 pojemników EURO 600×400 do magazynu części samochodowych.</textarea>
+            </div>
+            <div class="cols-2 gap-24">
+              <div class="field">
+                <label class="field-label">Ilość</label>
+                <input type="number" class="input" value="500" />
+              </div>
+              <div class="field">
+                <label class="field-label">Termin</label>
+                <input type="text" class="input" placeholder="DD.MM.YYYY" value="15.07.2026" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cols-3 gap-24 mt-32">
+        <div class="demo-frame">
+          <div class="demo-cap">Checkbox</div>
+          <div class="demo-col">
+            <div class="check-row"><span class="checkbox is-checked"></span> Pojemniki z pokrywą</div>
+            <div class="check-row"><span class="checkbox is-checked"></span> Z certyfikatem do żywności</div>
+            <div class="check-row"><span class="checkbox"></span> Z etykietą RFID</div>
+            <div class="check-row"><span class="checkbox"></span> Wersja składana</div>
+          </div>
+        </div>
+        <div class="demo-frame">
+          <div class="demo-cap">Radio</div>
+          <div class="demo-col">
+            <div class="check-row"><span class="radio is-checked"></span> EURO 400 × 300</div>
+            <div class="check-row"><span class="radio"></span> EURO 600 × 400</div>
+            <div class="check-row"><span class="radio"></span> EURO 800 × 600</div>
+            <div class="check-row"><span class="radio"></span> Wymiar custom</div>
+          </div>
+        </div>
+        <div class="demo-frame">
+          <div class="demo-cap">Switch</div>
+          <div class="demo-col">
+            <div class="toggle-row">
+              <div><div class="field-label">Newsletter</div><div class="field-help">Otrzymuj nowości raz w miesiącu</div></div>
+              <span class="switch is-on"></span>
+            </div>
+            <div class="toggle-row">
+              <div><div class="field-label">Powiadomienia SMS</div><div class="field-help">Status zamówienia na telefon</div></div>
+              <span class="switch"></span>
+            </div>
+            <div class="toggle-row">
+              <div><div class="field-label">Faktura cyfrowa</div><div class="field-help">PDF zamiast papieru</div></div>
+              <span class="switch is-on"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CARDS ============ -->
+    <section class="section" id="cards">
+      <div class="section-head">
+        <div class="section-eyebrow">12 — Karty</div>
+        <h2 class="section-title">Trzy typy kart: branża, produkt, case study.</h2>
+        <p class="section-lede">
+          Karty są płaskie domyślnie, z subtelnym hover-shadow i przesunięciem o 2 px.
+          Nigdy nie używaj cieni statycznie — to wskazówka interakcyjna.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Karty branżowe</h3>
+      <p class="subsection-sub">Używane na stronie głównej i przeglądzie segmentów. Obraz 4:3, tytuł H3, krótki opis, link „Dowiedz się więcej".</p>
+      <div class="cols-3 gap-24 mt-16">
+        <article class="industry-card">
+          <div class="ph" style="background-image:url('assets/img-auto.png')"></div>
+          <div class="body">
+            <span class="tag is-green" style="align-self: flex-start">AUTOMOTIVE</span>
+            <h3>Przemysł motoryzacyjny</h3>
+            <p>Pojemniki ESD i KLT do bezpiecznego transportu komponentów elektronicznych i części.</p>
+            <span class="more">Dowiedz się więcej
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </article>
+        <article class="industry-card">
+          <div class="ph" style="background-image:url('assets/img-hero.png')"></div>
+          <div class="body">
+            <span class="tag is-green" style="align-self: flex-start">LOGISTYKA</span>
+            <h3>Logistyka i magazynowanie</h3>
+            <p>Standardowe pojemniki EURO i regały automatyczne. Współpraca z największymi 3PL w Europie.</p>
+            <span class="more">Dowiedz się więcej
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </article>
+        <article class="industry-card">
+          <div class="ph" style="background-image:url('assets/img-crates.png');background-color:#f0f0f0;background-size:contain;background-repeat:no-repeat;background-position:center;"></div>
+          <div class="body">
+            <span class="tag is-green" style="align-self: flex-start">SPOŻYWCZE</span>
+            <h3>Przemysł spożywczy</h3>
+            <p>Certyfikowane do kontaktu z żywnością. Wersje wentylowane, składane i z pokrywami.</p>
+            <span class="more">Dowiedz się więcej
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="subsection-title mt-48">Karty produktowe</h3>
+      <p class="subsection-sub">W katalogu i wynikach wyszukiwania. SKU + nazwa + 3 najważniejsze parametry + status.</p>
+      <div class="cols-4 gap-24 mt-16">
+        <article class="product-card">
+          <div class="ph">
+            <span class="badge b-green"><span class="dot"></span>W magazynie</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+          </div>
+          <div class="body">
+            <div class="sku">SKU 4630.B</div>
+            <h4>EURO Box 600 × 400 × 320</h4>
+            <div class="specs"><span>60 L</span><span>·</span><span>HDPE</span><span>·</span><span>2.1 kg</span></div>
+            <div class="ft"><span class="price">42,90 zł</span><span class="more" style="font-size:11px;color:var(--bp-green-600);font-family:var(--f-label);font-weight:600;letter-spacing:1.4px;text-transform:uppercase;">Szczegóły →</span></div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="ph">
+            <span class="badge b-warn"><span class="dot"></span>Niski stan</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+          </div>
+          <div class="body">
+            <div class="sku">SKU 8120.G</div>
+            <h4>KLT 400 × 300 × 147</h4>
+            <div class="specs"><span>15 L</span><span>·</span><span>PP</span><span>·</span><span>0.7 kg</span></div>
+            <div class="ft"><span class="price">28,50 zł</span><span class="more" style="font-size:11px;color:var(--bp-green-600);font-family:var(--f-label);font-weight:600;letter-spacing:1.4px;text-transform:uppercase;">Szczegóły →</span></div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="ph">
+            <span class="badge b-info"><span class="dot"></span>Na zamówienie</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+          </div>
+          <div class="body">
+            <div class="sku">SKU 5550.F</div>
+            <h4>Pojemnik składany 800×600</h4>
+            <div class="specs"><span>120 L</span><span>·</span><span>HDPE</span><span>·</span><span>4.2 kg</span></div>
+            <div class="ft"><span class="price">189,00 zł</span><span class="more" style="font-size:11px;color:var(--bp-green-600);font-family:var(--f-label);font-weight:600;letter-spacing:1.4px;text-transform:uppercase;">Szczegóły →</span></div>
+          </div>
+        </article>
+        <article class="product-card">
+          <div class="ph">
+            <span class="badge b-green"><span class="dot"></span>Nowość</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>
+          </div>
+          <div class="body">
+            <div class="sku">SKU 9001.E</div>
+            <h4>Skrzynka RFID EcoBox</h4>
+            <div class="specs"><span>45 L</span><span>·</span><span>rPP</span><span>·</span><span>1.9 kg</span></div>
+            <div class="ft"><span class="price">68,00 zł</span><span class="more" style="font-size:11px;color:var(--bp-green-600);font-family:var(--f-label);font-weight:600;letter-spacing:1.4px;text-transform:uppercase;">Szczegóły →</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="section" id="stats">
+      <div class="section-head">
+        <div class="section-eyebrow">13 — Bloki statystyk</div>
+        <h2 class="section-title">Liczby, które robią wrażenie.</h2>
+        <p class="section-lede">
+          Pojedyncza, duża liczba w zieleni marki + krótka etykieta. Grupy ustawione w wiersz, zawsze
+          z taką samą szerokością etykiet.
+        </p>
+      </div>
+
+      <div class="demo-frame">
+        <div class="cols-4">
+          <div class="stat-block">
+            <div class="val">196 mln €</div>
+            <div class="lab">obroty roczne firmy w 2023 roku</div>
+          </div>
+          <div class="stat-block">
+            <div class="val">51</div>
+            <div class="lab">krajów, w których obecne są nasze produkty</div>
+          </div>
+          <div class="stat-block">
+            <div class="val">7 500+</div>
+            <div class="lab">aktywnych klientów na rynku B2B</div>
+          </div>
+          <div class="stat-block">
+            <div class="val">100%</div>
+            <div class="lab">tworzyw nadających się do recyklingu</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ACCORDION ============ -->
+    <section class="section" id="accordion">
+      <div class="section-head">
+        <div class="section-eyebrow">14 — Akordeon</div>
+        <h2 class="section-title">Akordeon do FAQ i specyfikacji.</h2>
+        <p class="section-lede">
+          Pojedyncze pytanie otwarte na raz. Trigger w Manrope SemiBold, zielona strzałka rotuje 180°.
+          Zawsze poprzedzony tytułem sekcji.
+        </p>
+      </div>
+
+      <div class="demo-frame">
+        <div class="acc" id="acc-demo">
+          <div class="acc-item is-open">
+            <button class="acc-trigger" type="button">
+              Czy pojemniki są w 100% nadające się do recyklingu?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="acc-content">
+              Tak, wszystkie nasze pojemniki produkowane są z polipropylenu (PP) i polietylenu (HDPE) — tworzyw nadających się do pełnego recyklingu. Linia EcoBox dodatkowo używa materiału z recyklingu (rPP) z certyfikatem ISCC PLUS.
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" type="button">
+              Jakie są minimalne ilości zamówienia (MOQ)?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="acc-content">
+              Standardowo MOQ to jedna paleta (zazwyczaj 40–80 sztuk w zależności od rozmiaru). Dla zamówień indywidualnych z nadrukiem lub w niestandardowym kolorze — minimum 500 sztuk.
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" type="button">
+              Jakie certyfikaty posiadają pojemniki?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="acc-content">
+              ISO 9001, ISO 14001, EU 10/2011 (kontakt z żywnością), oraz wybrane modele — REACH, RoHS i ISCC PLUS dla linii z recyklingu.
+            </div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-trigger" type="button">
+              Czy oferujecie nadruki i znakowanie?
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="acc-content">
+              Tak — od tampodruku, przez sitodruk in-mold-labeling, po znakowanie laserowe i RFID. Doradzamy w wyborze metody w zależności od trwałości i nakładu.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TABLES ============ -->
+    <section class="section" id="tables">
+      <div class="section-head">
+        <div class="section-eyebrow">15 — Tabele</div>
+        <h2 class="section-title">Tabele do specyfikacji technicznej.</h2>
+        <p class="section-lede">
+          Nagłówki w Inter UPPERCASE, dane w Manrope, liczby tabularne (font-variant-numeric).
+          Hover wiersza w Ink 25 — pomaga w skanowaniu długich list.
+        </p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>SKU</th>
+              <th class="num">Wymiary [mm]</th>
+              <th class="num">Pojemność</th>
+              <th class="num">Masa</th>
+              <th>Materiał</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="nm">EURO Box 64</td>
+              <td class="sku">4630.B</td>
+              <td class="num">600 × 400 × 320</td>
+              <td class="num">60 L</td>
+              <td class="num">2.1 kg</td>
+              <td>HDPE</td>
+              <td><span class="badge b-green"><span class="dot"></span>W magazynie</span></td>
+            </tr>
+            <tr>
+              <td class="nm">KLT 4314</td>
+              <td class="sku">8120.G</td>
+              <td class="num">400 × 300 × 147</td>
+              <td class="num">15 L</td>
+              <td class="num">0.7 kg</td>
+              <td>PP</td>
+              <td><span class="badge b-warn"><span class="dot"></span>Niski stan</span></td>
+            </tr>
+            <tr>
+              <td class="nm">Foldable 86</td>
+              <td class="sku">5550.F</td>
+              <td class="num">800 × 600 × 420</td>
+              <td class="num">120 L</td>
+              <td class="num">4.2 kg</td>
+              <td>HDPE</td>
+              <td><span class="badge b-info"><span class="dot"></span>Na zamówienie</span></td>
+            </tr>
+            <tr>
+              <td class="nm">EcoBox 45</td>
+              <td class="sku">9001.E</td>
+              <td class="num">600 × 400 × 220</td>
+              <td class="num">45 L</td>
+              <td class="num">1.9 kg</td>
+              <td>rPP (recykl.)</td>
+              <td><span class="badge b-green"><span class="dot"></span>Nowość</span></td>
+            </tr>
+            <tr>
+              <td class="nm">ESD KLT 6422</td>
+              <td class="sku">7715.A</td>
+              <td class="num">600 × 400 × 220</td>
+              <td class="num">38 L</td>
+              <td class="num">1.6 kg</td>
+              <td>PP-ESD</td>
+              <td><span class="badge b-green"><span class="dot"></span>W magazynie</span></td>
+            </tr>
+            <tr>
+              <td class="nm">Distribution 43</td>
+              <td class="sku">3210.W</td>
+              <td class="num">400 × 300 × 220</td>
+              <td class="num">22 L</td>
+              <td class="num">0.9 kg</td>
+              <td>HDPE</td>
+              <td><span class="badge b-danger"><span class="dot"></span>Wycofany</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ ALERTS ============ -->
+    <section class="section" id="alerts">
+      <div class="section-head">
+        <div class="section-eyebrow">16 — Alerty &amp; powiadomienia</div>
+        <h2 class="section-title">Komunikaty systemowe.</h2>
+        <p class="section-lede">
+          Cztery poziomy: success, info, warning, danger. Lewa krawędź 3 px w kolorze sygnałowym,
+          tło w wariancie -bg (z transparencją 12%).
+        </p>
+      </div>
+
+      <div class="cols-2 gap-24">
+        <div class="alert a-success">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="body"><strong>Zamówienie potwierdzone.</strong>Numer zamówienia <code>#BP-2026-04891</code>. Wysyłka planowana na 28 maja 2026.</div>
+        </div>
+        <div class="alert a-info">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <div class="body"><strong>Aktualizacja katalogu.</strong>Cennik na rok 2026 jest dostępny do pobrania. Zmiany cen średnio +3.2% w stosunku do 2025.</div>
+        </div>
+        <div class="alert a-warn">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3z"/><path d="M12 9v4M12 17h.01"/></svg>
+          <div class="body"><strong>Niski stan magazynowy.</strong>Pojemnik KLT 4314 — pozostało 240 sztuk. Złóż zamówienie z 2-tygodniowym wyprzedzeniem.</div>
+        </div>
+        <div class="alert a-danger">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+          <div class="body"><strong>Niepoprawny format NIP.</strong>Wpisany numer nie spełnia algorytmu kontrolnego. Sprawdź pole „Numer NIP" w formularzu.</div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title mt-48">Toast — krótkie powiadomienie</h3>
+      <div class="demo-frame muted">
+        <div class="demo-row gap-24">
+          <div class="toast">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Dodano do koszyka <strong style="color:var(--bp-ink-700);font-family:var(--f-display)">EURO Box 64</strong>
+            <button class="btn btn-sm btn-ghost" style="margin-left: 12px">Cofnij</button>
+          </div>
+          <div class="toast" style="border-left-color: var(--bp-info)">
+            <svg class="ico" style="color:var(--bp-info)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            PDF z ofertą został wysłany na Twój e-mail.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NAVIGATION ============ -->
+    <section class="section" id="navigation">
+      <div class="section-head">
+        <div class="section-eyebrow">17 — Nawigacja</div>
+        <h2 class="section-title">Header, breadcrumby, paginacja, tabs.</h2>
+        <p class="section-lede">
+          Wzorce nawigacyjne dla serwisu. Główny header w pełnej szerokości na białym tle, bez cienia,
+          z 1 px obramowaniem.
+        </p>
+      </div>
+
+      <h3 class="subsection-title">Główny header</h3>
+      <div class="site-header">
+        <div class="brand">bekuplast<span class="dot"></span></div>
+        <nav>
+          <a href="#" class="is-active">Produkty</a>
+          <a href="#">Branże</a>
+          <a href="#">Rozwiązania</a>
+          <a href="#">O nas</a>
+          <a href="#">Kontakt</a>
+        </nav>
+        <div class="actions">
+          <button class="icon-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+          <button class="btn btn-sm btn-outline">Zaloguj</button>
+          <button class="btn btn-sm btn-primary">Zamów wycenę</button>
+        </div>
+      </div>
+
+      <h3 class="subsection-title mt-48">Breadcrumb</h3>
+      <div class="demo-frame">
+        <div class="breadcrumb">
+          <a href="#">Strona główna</a>
+          <span class="sep">/</span>
+          <a href="#">Produkty</a>
+          <span class="sep">/</span>
+          <a href="#">Pojemniki EURO</a>
+          <span class="sep">/</span>
+          <span class="current">EURO Box 600 × 400 × 320</span>
+        </div>
+      </div>
+
+      <h3 class="subsection-title mt-48">Tabs i paginacja</h3>
+      <div class="cols-2 gap-24">
+        <div class="demo-frame">
+          <div class="tabs">
+            <button class="tab is-active">Specyfikacja</button>
+            <button class="tab">Wymiary</button>
+            <button class="tab">Akcesoria</button>
+            <button class="tab">Pliki CAD</button>
+          </div>
+        </div>
+        <div class="demo-frame">
+          <div class="pagination">
+            <span class="p is-disabled">‹</span>
+            <span class="p">1</span>
+            <span class="p is-active">2</span>
+            <span class="p">3</span>
+            <span class="p">4</span>
+            <span class="p" style="cursor:default">…</span>
+            <span class="p">12</span>
+            <span class="p">›</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <section class="section" id="footer">
+      <div class="section-head">
+        <div class="section-eyebrow">18 — Stopka</div>
+        <h2 class="section-title">Stopka — ciemna baza marki.</h2>
+        <p class="section-lede">Ink 700 jako tło, znak marki z akcentem w Green 300. Trzy lub cztery kolumny linków + linia legalna na dole.</p>
+      </div>
+
+      <div class="site-footer">
+        <div class="col col-brand">
+          <span class="brand-mark on-dark" style="font-size:32px;letter-spacing:-1.2px;">bekuplast<span class="dot"></span></span>
+          <p>Producent skrzynek, pojemników i opakowań z tworzyw sztucznych dla logistyki, magazynowania i przemysłu w 51 krajach.</p>
+        </div>
+        <div class="col">
+          <h4>Produkty</h4>
+          <a href="#">Pojemniki EURO</a>
+          <a href="#">Skrzynki KLT</a>
+          <a href="#">Pojemniki składane</a>
+          <a href="#">Pojemniki ESD</a>
+          <a href="#">Akcesoria</a>
+        </div>
+        <div class="col">
+          <h4>Branże</h4>
+          <a href="#">Automotive</a>
+          <a href="#">Logistyka 3PL</a>
+          <a href="#">Spożywcza</a>
+          <a href="#">Farmaceutyczna</a>
+          <a href="#">E-commerce</a>
+        </div>
+        <div class="col">
+          <h4>Firma</h4>
+          <a href="#">O nas</a>
+          <a href="#">Case studies</a>
+          <a href="#">Zrównoważony rozwój</a>
+          <a href="#">Kariera</a>
+          <a href="#">Kontakt</a>
+        </div>
+        <div class="site-footer-bot">
+          <span>© 2026 bekuplast Polska Sp. z o.o.</span>
+          <span style="display:flex;gap:24px;">
+            <a href="#">Polityka prywatności</a>
+            <a href="#">Regulamin</a>
+            <a href="#">Cookies</a>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPLIED EXAMPLES ============ -->
+    <section class="section" id="applied">
+      <div class="section-head">
+        <div class="section-eyebrow">19 — Zastosowania</div>
+        <h2 class="section-title">System w działaniu.</h2>
+        <p class="section-lede">
+          Sekcje gotowe do wdrożenia na stronie głównej i podstronach. Wszystkie używają wyłącznie
+          tokenów i komponentów z tego systemu.
+        </p>
+      </div>
+
+      <!-- HERO -->
+      <div class="app-hero">
+        <div class="stack">
+          <span class="tag is-green">BEKUPLAST · LOGISTYKA</span>
+          <h2>Twój magazyn potrzebuje <em>solidnych skrzynek</em>, nie obietnic.</h2>
+          <p>196 milionów euro obrotu i 51 rynków eksportowych zbudowane na jednej zasadzie — pojemnik, który nigdy nie zawiedzie w środku zmiany.</p>
+          <div class="ctas">
+            <button class="btn btn-lg btn-primary">Zobacz katalog produktów</button>
+            <button class="btn btn-lg btn-outline">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Obejrzyj film 2 min
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Industries triptych -->
+      <div class="industries-row">
+        <article class="industry-card">
+          <div class="ph" style="background-image:url('assets/img-auto.png')"></div>
+          <div class="body">
+            <span class="tag is-green" style="align-self:flex-start">AUTOMOTIVE</span>
+            <h3>Pojemniki dla motoryzacji</h3>
+            <p>KLT i ESD do bezpiecznego transportu komponentów elektronicznych. Współpracujemy z BMW, VW i Stellantis.</p>
+            <span class="more">Zobacz case study →</span>
+          </div>
+        </article>
+        <article class="industry-card">
+          <div class="ph" style="background-image:url('assets/img-hero.png')"></div>
+          <div class="body">
+            <span class="tag is-green" style="align-self:flex-start">LOGISTYKA</span>
+            <h3>Magazyny automatyczne</h3>
+            <p>Skrzynki kompatybilne z największymi systemami AS/RS w Europie. Z kodem barcode lub RFID.</p>
+            <span class="more">Zobacz case study →</span>
+          </div>
+        </article>
+        <article class="industry-card">
+          <div class="ph" style="background-image:url('assets/img-crates.png');background-color:#f0f0f0;background-size:contain;background-repeat:no-repeat;background-position:center;"></div>
+          <div class="body">
+            <span class="tag is-green" style="align-self:flex-start">SPOŻYWCZE</span>
+            <h3>Standardy HACCP</h3>
+            <p>Certyfikowane pojemniki z linii White Food i odzysk pojemników zwrotnych w obiegu zamkniętym.</p>
+            <span class="more">Zobacz case study →</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- STATS BAND -->
+      <div class="stats-band">
+        <div class="lead">
+          <span class="tag">BEKUPLAST W LICZBACH</span>
+          <h3>43 lata produkcji, jedna jakość.</h3>
+        </div>
+        <div class="stat-block is-dark">
+          <div class="val">196 mln €</div>
+          <div class="lab">obroty roczne 2023</div>
+        </div>
+        <div class="stat-block is-dark">
+          <div class="val">51</div>
+          <div class="lab">krajów eksportowych</div>
+        </div>
+        <div class="stat-block is-dark">
+          <div class="val">100%</div>
+          <div class="lab">tworzyw recyklingowalnych</div>
+        </div>
+      </div>
+
+      <!-- TESTIMONIAL / QUOTE -->
+      <div class="demo-frame mt-32" style="padding: 48px;">
+        <div class="cols-2 gap-32" style="align-items: center;">
+          <div>
+            <span class="tag is-green">CASE STUDY · DHL SUPPLY CHAIN</span>
+            <h3 class="type-h2 mt-16" style="margin-top:16px;max-width: 460px;">„Po przejściu na pojemniki bekuplast nasz wskaźnik uszkodzeń spadł o 64%."</h3>
+            <p class="type-body-lg mt-16" style="margin-top:24px;max-width:480px;">W ciągu pierwszych 12 miesięcy zaoszczędziliśmy €380k na samych reklamacjach. Solidność konstrukcji robi różnicę przy 11 000 cykli rocznie.</p>
+            <div class="flex-row mt-24" style="margin-top:32px;">
+              <div class="avatar">MK</div>
+              <div>
+                <div style="font-family:var(--f-display);font-weight:600;color:var(--bp-ink-700);font-size:15px;">Marcin Kowalski</div>
+                <div style="font-family:var(--f-body);font-size:13px;color:var(--bp-ink-500);">Head of Operations, DHL Supply Chain Polska</div>
+              </div>
+            </div>
+            <div class="flex-row mt-32" style="margin-top:32px;">
+              <button class="btn btn-md btn-primary">Pełne case study</button>
+              <button class="btn btn-md btn-ghost">
+                Pobierz PDF
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              </button>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="background: var(--bp-green-50); padding: 32px; border-radius: var(--r-md);">
+              <div style="font-family:var(--f-display);font-weight:600;font-size:48px;color:var(--bp-green-600);line-height:1;letter-spacing:-0.96px;">−64%</div>
+              <div style="font-family:var(--f-body);font-size:14px;color:var(--bp-ink-500);margin-top:8px;">uszkodzeń w transporcie</div>
+            </div>
+            <div style="background: var(--bp-ink-25); padding: 32px; border-radius: var(--r-md);">
+              <div style="font-family:var(--f-display);font-weight:600;font-size:48px;color:var(--bp-ink-700);line-height:1;letter-spacing:-0.96px;">€380k</div>
+              <div style="font-family:var(--f-body);font-size:14px;color:var(--bp-ink-500);margin-top:8px;">oszczędności rocznie</div>
+            </div>
+            <div style="background: var(--bp-ink-25); padding: 32px; border-radius: var(--r-md);">
+              <div style="font-family:var(--f-display);font-weight:600;font-size:48px;color:var(--bp-ink-700);line-height:1;letter-spacing:-0.96px;">11k</div>
+              <div style="font-family:var(--f-body);font-size:14px;color:var(--bp-ink-500);margin-top:8px;">cykli na pojemnik rocznie</div>
+            </div>
+            <div style="background: var(--bp-green-50); padding: 32px; border-radius: var(--r-md);">
+              <div style="font-family:var(--f-display);font-weight:600;font-size:48px;color:var(--bp-green-600);line-height:1;letter-spacing:-0.96px;">8 lat</div>
+              <div style="font-family:var(--f-body);font-size:14px;color:var(--bp-ink-500);margin-top:8px;">średnia żywotność</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FINAL CTA -->
+      <div class="demo-frame mt-32" style="padding: 64px; text-align: center; background: var(--bp-green-500); border-color: var(--bp-green-500);">
+        <h2 style="font-family:var(--f-display);font-weight:600;color:white;font-size:44px;letter-spacing:-0.88px;margin:0 0 16px;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.15;">Gotowy na rozmowę o Twoim magazynie?</h2>
+        <p style="font-family:var(--f-body);font-size:18px;line-height:28px;color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 32px;">15-minutowa konsultacja z naszym inżynierem. Bezpłatnie, bez zobowiązań.</p>
+        <div class="flex-row" style="justify-content:center;">
+          <button class="btn btn-lg" style="background:white;color:var(--bp-green-700);">Umów konsultację</button>
+          <button class="btn btn-lg btn-ghost" style="color:white;">
+            Lub napisz do nas
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============ CLOSER ============ -->
+    <section class="section" style="background: var(--bp-ink-25); border-bottom: none;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+        <div>
+          <div class="section-eyebrow" style="margin-bottom:8px;">Koniec dokumentu</div>
+          <h2 style="font-family:var(--f-display);font-weight:600;font-size:32px;color:var(--bp-ink-700);margin:0;letter-spacing:-0.64px;">bekuplast Design System v1.0</h2>
+          <p style="font-family:var(--f-body);font-size:15px;color:var(--bp-ink-500);margin:8px 0 0;">Maj 2026 · Pytania, zmiany, propozycje? <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4125243228262f0123242a34312d2032356f312d">[email&#160;protected]</a></p>
+        </div>
+        <div class="flex-row">
+          <span class="tag">19 SEKCJI</span>
+          <span class="tag">24 KOMPONENTY</span>
+          <span class="tag is-green">GOTOWE DO WDROŻENIA</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* =========================================================================
+   Light interactions — sidebar active state, accordion, swatch copy
+   ========================================================================= */
+(function(){
+  // Sidebar active section scrollspy
+  const links = document.querySelectorAll('.sidebar .nav a');
+  const sections = [...document.querySelectorAll('.section[id]')];
+  function onScroll(){
+    const y = window.scrollY + 120;
+    let active = sections[0];
+    for(const s of sections){
+      if(s.offsetTop <= y) active = s;
+    }
+    links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + active.id));
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Smooth scroll
+  links.forEach(a => a.addEventListener('click', e => {
+    const tgt = document.querySelector(a.getAttribute('href'));
+    if(tgt){ e.preventDefault(); tgt.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }));
+
+  // Accordion
+  document.querySelectorAll('.acc-trigger').forEach(t => {
+    t.addEventListener('click', () => {
+      const item = t.closest('.acc-item');
+      const wasOpen = item.classList.contains('is-open');
+      // single-open mode
+      item.parentElement.querySelectorAll('.acc-item').forEach(i => i.classList.remove('is-open'));
+      if(!wasOpen) item.classList.add('is-open');
+    });
+  });
+
+  // Click-to-copy swatch hex
+  document.querySelectorAll('.swatch').forEach(s => {
+    s.addEventListener('click', () => {
+      const hex = s.querySelector('.hex')?.textContent;
+      if(!hex || !navigator.clipboard) return;
+      navigator.clipboard.writeText(hex);
+      const orig = s.querySelector('.hex').textContent;
+      s.querySelector('.hex').textContent = 'SKOPIOWANO';
+      setTimeout(() => { s.querySelector('.hex').textContent = orig; }, 900);
+    });
+  });
+})();
+</script>
+</body>
+</html>

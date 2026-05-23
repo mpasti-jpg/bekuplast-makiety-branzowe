@@ -1,0 +1,202 @@
+/* =========================================================================
+   bekuplast — Colors & Type tokens
+   Source of truth for the design system. Import into any HTML/JSX.
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root{
+  /* -----------------------------------------------------------------
+     COLOR — BRAND GREEN (anchor 500 = #65b32e)
+     The single brand color. Used as accent / primary action / active
+     state / "this is recyclable" cue. Never decorative.
+     ----------------------------------------------------------------- */
+  --bp-green-50:  #f1faea;
+  --bp-green-100: #defac3;
+  --bp-green-200: #cbf893;   /* light highlight, on-dark accent */
+  --bp-green-300: #b0d583;   /* light green from figma site */
+  --bp-green-400: #8ec659;
+  --bp-green-500: #65b32e;   /* PRIMARY BRAND */
+  --bp-green-600: #54971f;   /* hover for primary */
+  --bp-green-700: #427718;
+  --bp-green-800: #325912;
+  --bp-green-900: #21390b;
+
+  /* -----------------------------------------------------------------
+     COLOR — INDUSTRIAL INK (neutrals)
+     Anchors: 700 = #434343 (brand-dark, text), 500 = #717171 (brand-gray)
+     ----------------------------------------------------------------- */
+  --bp-ink-900: #1d1d1d;
+  --bp-ink-800: #2d2d2d;     /* footer bg */
+  --bp-ink-700: #434343;     /* HEADINGS, body strong */
+  --bp-ink-600: #5a5a5a;
+  --bp-ink-500: #717171;     /* secondary text */
+  --bp-ink-400: #9a9a9a;
+  --bp-ink-300: #c2c2c2;
+  --bp-ink-200: #dedede;     /* borders */
+  --bp-ink-100: #ececec;     /* dividers */
+  --bp-ink-50:  #f0f0f0;     /* card bg, light gray */
+  --bp-ink-25:  #f3f3f3;     /* light section bg (matches figma rgb(243,243,243)) */
+  --bp-white:   #ffffff;
+
+  /* -----------------------------------------------------------------
+     COLOR — SEMANTIC (status only, never decorative)
+     ----------------------------------------------------------------- */
+  --bp-success:    #2f8f3a;
+  --bp-success-bg: #e8f6ea;
+  --bp-warning:    #c47a00;
+  --bp-warning-bg: #fdf3df;
+  --bp-danger:     #c1272d;
+  --bp-danger-bg:  #fbe9ea;
+  --bp-info:       #1f6fb2;
+  --bp-info-bg:    #e7f1fa;
+
+  /* -----------------------------------------------------------------
+     COLOR — SIGNATURE SQUARES PATTERN (decorative)
+     The 4-square chequer that appears in the footer and section dividers.
+     Always 87×88 px tiles arranged 2-row offset.
+     ----------------------------------------------------------------- */
+  --bp-sq-1: var(--bp-green-500);   /* hero green */
+  --bp-sq-2: var(--bp-green-300);   /* light green */
+  --bp-sq-3: var(--bp-ink-700);     /* dark accent (rgb 68,68,68 in figma → ink-700) */
+  --bp-sq-4: var(--bp-white);
+
+  /* -----------------------------------------------------------------
+     TYPE — FAMILIES
+     Manrope = display + body (all headlines, paragraphs, buttons)
+     Inter   = TECHNICAL LABELS ONLY — uppercase + tracking 1.2–1.6
+     JetBrains Mono = tokens / SKUs / hex / numeric
+     ----------------------------------------------------------------- */
+  --f-display: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-body:    "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-label:   "Inter",   system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* -----------------------------------------------------------------
+     TYPE — SEMANTIC SCALE (numbers from the live figma file)
+     Manrope SemiBold (600/700), letter-spacing always slightly tight.
+     ----------------------------------------------------------------- */
+  --t-display-1:  600 72px/79px var(--f-display);  /* hero */
+  --t-display-2:  600 56px/62px var(--f-display);  /* section super */
+  --t-h1:         700 44px/53px var(--f-display);  /* page heading (figma 44/53 700) */
+  --t-h2:         600 32px/40px var(--f-display);
+  --t-h3:         700 24px/31px var(--f-display);
+  --t-h4:         700 18px/25px var(--f-display);
+  --t-body-lg:    400 18px/28px var(--f-body);     /* lede (figma 18/28) */
+  --t-body:       400 16px/24px var(--f-body);
+  --t-body-sm:    400 14px/22px var(--f-body);
+  --t-caption:    400 12px/18px var(--f-body);
+  --t-eyebrow:    700 12px/16px var(--f-label);    /* INTER BOLD UPPERCASE +0.1em */
+  --t-label:      600 11px/16px var(--f-label);    /* INTER SEMIBOLD UPPERCASE */
+  --t-mono:       500 11px/16px var(--f-mono);
+
+  /* tracking presets */
+  --ls-display-tight: -0.020em;
+  --ls-body-tight:    -0.010em;
+  --ls-eyebrow-wide:  0.100em;
+  --ls-label-wide:    1.4px;
+
+  /* -----------------------------------------------------------------
+     RADIUS
+     Default for buttons / inputs / tags = 4 px. Cards = 8 px.
+     Hero / promo blocks = 12-16 px.
+     ----------------------------------------------------------------- */
+  --r-xs:   2px;
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   12px;
+  --r-xl:   16px;
+  --r-2xl:  24px;
+  --r-full: 9999px;
+
+  /* -----------------------------------------------------------------
+     SHADOW — low-key, industrial. No drama.
+     ----------------------------------------------------------------- */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.04);
+  --shadow-sm: 0 2px 6px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 8px 20px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.04);
+  --shadow-lg: 0 18px 40px rgba(0,0,0,.10), 0 4px 10px rgba(0,0,0,.04);
+  --shadow-xl: 0 28px 60px rgba(0,0,0,.14), 0 6px 14px rgba(0,0,0,.05);
+  --focus-ring: 0 0 0 3px var(--bp-green-100);
+
+  /* -----------------------------------------------------------------
+     SPACING — 4 pt grid
+     ----------------------------------------------------------------- */
+  --s-0:  0;
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  20px;
+  --s-6:  24px;
+  --s-8:  32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-20: 80px;   /* SECTION PADDING-X (figma site uses 80 px gutter) */
+  --s-24: 96px;
+  --s-32: 128px;
+  --s-40: 160px;
+
+  /* -----------------------------------------------------------------
+     LAYOUT
+     The bekuplast site is 1512 px max width with 80 px gutters.
+     ----------------------------------------------------------------- */
+  --maxw:  1352px;          /* content max-width inside 80px gutter */
+  --gutter: 80px;
+  --row-gap: 24px;
+
+  /* -----------------------------------------------------------------
+     EASE / MOTION
+     Mostly opacity & translateY(-2px) on hover. No bounces.
+     ----------------------------------------------------------------- */
+  --ease-out:  cubic-bezier(.2,.6,.2,1);
+  --ease-in:   cubic-bezier(.4,0,.6,.4);
+  --dur-fast:  120ms;
+  --dur-base:  180ms;
+  --dur-slow:  280ms;
+}
+
+/* =========================================================================
+   SEMANTIC HELPER CLASSES
+   Use these in JSX/HTML so you never hardcode values.
+   ========================================================================= */
+
+/* Base — apply to <body> */
+body.bp-base{
+  margin: 0;
+  font: var(--t-body);
+  font-feature-settings: "ss01" on, "cv11" on;
+  color: var(--bp-ink-700);
+  background: var(--bp-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display + heads */
+.bp-display-1   { font: var(--t-display-1);  letter-spacing: var(--ls-display-tight); color: var(--bp-ink-700); margin: 0; }
+.bp-display-2   { font: var(--t-display-2);  letter-spacing: var(--ls-display-tight); color: var(--bp-ink-700); margin: 0; }
+.bp-h1          { font: var(--t-h1);         letter-spacing: var(--ls-display-tight); color: var(--bp-ink-700); margin: 0; }
+.bp-h2          { font: var(--t-h2);         letter-spacing: var(--ls-display-tight); color: var(--bp-ink-700); margin: 0; }
+.bp-h3          { font: var(--t-h3);         letter-spacing: var(--ls-body-tight);    color: var(--bp-ink-700); margin: 0; }
+.bp-h4          { font: var(--t-h4);         letter-spacing: var(--ls-body-tight);    color: var(--bp-ink-700); margin: 0; }
+.bp-lede        { font: var(--t-body-lg);    letter-spacing: var(--ls-body-tight);    color: var(--bp-ink-500); margin: 0; }
+.bp-body        { font: var(--t-body);       color: var(--bp-ink-600); margin: 0; }
+.bp-body-sm     { font: var(--t-body-sm);    color: var(--bp-ink-500); margin: 0; }
+.bp-caption     { font: var(--t-caption);    color: var(--bp-ink-500); margin: 0; }
+.bp-eyebrow{
+  font: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow-wide);
+  text-transform: uppercase;
+  color: var(--bp-green-500);
+  margin: 0;
+}
+.bp-eyebrow.is-muted { color: var(--bp-ink-500); }
+.bp-mono        { font: var(--t-mono);       color: var(--bp-ink-500); }
+
+/* Decoration helpers */
+.bp-accent      { color: var(--bp-green-500); }
+.bp-on-dark     { color: var(--bp-white); }
+.bp-bg-light    { background: var(--bp-ink-25); }
+.bp-bg-dark     { background: var(--bp-ink-800); color: var(--bp-white); }
+.bp-bg-green    { background: var(--bp-green-500); color: var(--bp-white); }
