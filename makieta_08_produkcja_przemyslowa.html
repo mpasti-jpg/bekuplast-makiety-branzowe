@@ -170,11 +170,29 @@ section h2 {
 section h3 { font-size: 20px; font-weight: 700; margin: 28px 0 12px; }
 section p { margin-bottom: 14px; color: var(--ink); max-width: 860px; }
 
-/* TL;DR — 2 column z animacją placeholder */
+/* TL;DR — restyle pod Figma 355:3644 (sekcja 'zalety' bekuplast) */
+.tldr { position: relative; overflow: hidden; }
+.tldr-tiles {
+  position: absolute; top: 40px; right: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(2, 56px);
+  gap: 8px;
+  pointer-events: none; z-index: 0;
+  transform: translateX(38%);
+}
+.tldr-tiles span {
+  display: block; border-radius: 8px;
+  background: var(--accent);
+}
+.tldr-tiles span:nth-child(2),
+.tldr-tiles span:nth-child(6) { background: var(--accent-soft); }
+.tldr-tiles span:nth-child(4) { background: #fff; border: 1.5px solid var(--accent); }
+.tldr .tldr-grid { position: relative; z-index: 1; }
 .tldr-grid {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 40px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
   align-items: center;
 }
 .tldr-animation {
@@ -217,18 +235,46 @@ section p { margin-bottom: 14px; color: var(--ink); max-width: 860px; }
     radial-gradient(circle at 70% 60%, rgba(255,107,44,0.18) 0%, transparent 25%),
     radial-gradient(circle at 50% 80%, rgba(255,107,44,0.12) 0%, transparent 30%);
 }
-.tldr-box {
-  border-left: 4px solid var(--accent);
-  padding: 8px 28px;
-  background: transparent;
+.tldr-chip {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff; border: 1px solid var(--line);
+  padding: 6px 14px; border-radius: 100px;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 0.5px;
+  margin-bottom: 22px;
 }
+.tldr-chip::after {
+  content: ""; width: 5px; height: 5px;
+  background: var(--accent); border-radius: 50%;
+}
+.tldr-box { padding: 0; background: transparent; }
 .tldr-box h2 {
   font-family: var(--serif);
-  font-size: 32px; font-weight: 700; line-height: 1.2;
-  margin-bottom: 22px; letter-spacing: -0.3px;
+  font-size: 42px; font-weight: 700; line-height: 1.1;
+  margin-bottom: 32px; letter-spacing: -0.8px;
 }
-.tldr-box ul { padding-left: 22px; }
-.tldr-box li { margin-bottom: 12px; }
+.tldr-box ul { list-style: none; padding: 0; }
+.tldr-box li {
+  position: relative; padding-left: 30px;
+  margin-bottom: 24px;
+  font-size: 15px; line-height: 1.6;
+  color: var(--muted);
+}
+.tldr-box li::before {
+  content: ""; position: absolute;
+  left: 0; top: 9px;
+  width: 10px; height: 10px;
+  background: var(--accent);
+  border-radius: 3px;
+}
+.tldr-box li b,
+.tldr-box li strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
 
 /* WYZWANIA */
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 22px; }
@@ -501,6 +547,7 @@ details > p { padding: 0 22px 18px; font-size: 14px; color: var(--muted); max-wi
 </div>
 
 <section class="tldr">
+  <div class="tldr-tiles"><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="tldr-grid">
     <div class="tldr-animation">
       <div class="anim-dots"></div>
@@ -508,6 +555,7 @@ details > p { padding: 0 22px 18px; font-size: 14px; color: var(--muted); max-wi
       <span class="anim-label">▶ Wideo / animacja zapętlona (mute, autoplay) — produkty w cyklu reuse</span>
     </div>
     <div class="tldr-box">
+      <span class="tldr-chip">tl;dr</span>
       <h2>Kluczowe wnioski</h2>
       <ul>
         <li><b>Art. 29(1) PPWR wymaga 100% reuse w transport packaging intra-firmowym do 2030 r.</b> Każda firma z 2+ zakładami / magazynami w obrębie tej samej grupy kapitałowej jest objęta.</li><li><b>Closed-loop intra-firmowo to standard od dekady</b> w DACH (motoryzacja, AGD, elektronika). Polska nadrabia w 2026–2028.</li><li><b>Catch-all dla branż bez dedykowanej strony:</b> AGD, RTV, elektronika konsumencka, meble, chemia ogólna, budowlanka, tekstylia, narzędzia, części zamienne.</li><li><b>Pojemniki basicline plus</b> to nasz flagshipowy SKU dla dużych objętości w produkcji (AGD, meble, narzędzia).</li><li><b>Palety plastikowe Euro</b> zastępują EPAL drewniane — bez fumigacji, żywotność 8–12 lat.</li>
