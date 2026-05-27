@@ -844,6 +844,31 @@ details > p {
 }
 .scope-col li b { color: var(--bp-ink-700); }
 
+
+.tile.is-featured {
+  border-color: var(--bp-green-500);
+  border-width: 2px;
+  position: relative;
+}
+.tile.is-featured::before {
+  content: '★ POLECANY';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bp-green-500);
+  color: var(--bp-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  z-index: 2;
+}
+.tile-meta.is-featured-note {
+  color: var(--bp-green-700);
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body class="bp-base">
@@ -951,7 +976,8 @@ details > p {
 <section>
   <h2>Systemy dystrybucyjne, skrzynki i palety dla sieci handlowych</h2>
   <div class="product-tiles">
-    <a class="tile" href="#"><div class="img-placeholder">[Skrzynki przegrodowe]</div><h5>Skrzynki przegrodowe</h5><div class="tile-meta">Napoje, butelki zwrotne</div></a>
+    <a class="tile is-featured" href="#"><div class="img-placeholder">[AL643G]</div><h5>ALC tradeline AL643G</h5><div class="tile-meta is-featured-note">Polecany dla retail i FMCG</div><div class="tile-meta">ALC tradeline dla zwrotów, dystrybucji do sklepów, e-com B2B</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Skrzynki przegrodowe]</div><h5>Skrzynki przegrodowe</h5><div class="tile-meta">Napoje, butelki zwrotne</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[basicline]</div><h5>basicline</h5><div class="tile-meta">Uniwersalna DC → sklep</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[lightline]</div><h5>lightline</h5><div class="tile-meta">Manualny handling</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[Składane (clever)]</div><h5>Składane (clever)</h5><div class="tile-meta">Redukcja objętości 84%</div></a>
@@ -979,7 +1005,7 @@ details > p {
   <div class="ppwr-cta-box">
     <h3>Co możesz zrobić teraz</h3>
     <ol>
-      <li><b>Sprawdź gotowość firmy</b> — bezpłatny audyt PPWR online, 30 sek, raport per kategoria. → <a href="#">Sprawdź gotowość PPWR dla retail</a></li><li><b>Pobierz wzór RFP dla dostawców RTP</b> — gotowy template do wysłania do producentów i operatorów pool. → <a href="#">Pobierz wzór RFP (DOC)</a></li><li><b>Oblicz koszt pilotażu</b> — kalkulator TCO/ROI dla sieci 100 / 300 / 500 sklepów. → <a href="#">Oblicz TCO dla Twojej sieci</a></li>
+      <li><b>Sprawdź gotowość firmy</b> — bezpłatny audyt PPWR online, 30 sek, raport per kategoria. → <a href="#">Sprawdź gotowość PPWR dla retail</a></li><li><b>Pobierz wzór RFP dla dostawców RTP</b> — gotowy template do wysłania do producentów i operatorów pool. → <a href="#">Pobierz wzór RFP (DOC)</a></li><li><b>Oblicz koszt pilotażu</b> — kalkulator kosztu PPWR dla sieci 100 / 300 / 500 sklepów. → <a href="#">Sprawdź koszt PPWR dla Twojej sieci</a></li>
     </ol>
   </div>
 </section>

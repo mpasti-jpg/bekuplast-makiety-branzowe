@@ -844,6 +844,31 @@ details > p {
 }
 .scope-col li b { color: var(--bp-ink-700); }
 
+
+.tile.is-featured {
+  border-color: var(--bp-green-500);
+  border-width: 2px;
+  position: relative;
+}
+.tile.is-featured::before {
+  content: '★ POLECANY';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bp-green-500);
+  color: var(--bp-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  z-index: 2;
+}
+.tile-meta.is-featured-note {
+  color: var(--bp-green-700);
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body class="bp-base">
@@ -950,7 +975,8 @@ details > p {
 <section>
   <h2>Pojemniki, palety i skrzyniopalety dla produkcji przemysłowej</h2>
   <div class="product-tiles">
-    <a class="tile" href="#"><div class="img-placeholder">[basicline]</div><h5>basicline</h5><div class="tile-meta">Uniwersalne B2B</div></a>
+    <a class="tile is-featured" href="#"><div class="img-placeholder">[silverline]</div><h5>silverline</h5><div class="tile-meta is-featured-note">Polecany dla produkcji przemysłowej</div><div class="tile-meta">Wybór działu handlowego dla closed-loop intra-firmowo</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[basicline]</div><h5>basicline</h5><div class="tile-meta">Uniwersalne B2B</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[basicline plus]</div><h5>basicline plus</h5><div class="tile-meta">AGD, meble, narzędzia</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[silverline]</div><h5>silverline</h5><div class="tile-meta">Magazyny AKL</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[ESD]</div><h5>ESD</h5><div class="tile-meta">Elektronika</div></a>
@@ -978,7 +1004,7 @@ details > p {
   <div class="ppwr-cta-box">
     <h3>Co możesz zrobić teraz</h3>
     <ol>
-      <li><b>Pobierz przewodnik closed-loop intra-firmowo (PDF)</b> — Art. 29(1) PPWR + 5 scenariuszy implementacyjnych. → <a href="#">Pobierz PDF</a></li><li><b>Oblicz koszt closed-loop dla Twojej firmy</b>. → <a href="#">Oblicz TCO</a></li><li><b>Sprawdź gotowość firmy</b>. → <a href="#">Sprawdź gotowość PPWR</a></li>
+      <li><b>Pobierz przewodnik closed-loop intra-firmowo (PDF)</b> — Art. 29(1) PPWR + 5 scenariuszy implementacyjnych. → <a href="#">Pobierz PDF</a></li><li><b>Oblicz koszt closed-loop dla Twojej firmy</b>. → <a href="#">Sprawdź koszt PPWR</a></li><li><b>Sprawdź gotowość firmy</b>. → <a href="#">Sprawdź gotowość PPWR</a></li>
     </ol>
   </div>
 </section>
@@ -1024,7 +1050,7 @@ details > p {
 <details><summary>Jakie pojemniki polecacie do closed-loop AGD?</summary><p>Pojemniki basicline plus dla średnich i dużych komponentów AGD, silverline dla magazynów AKL, palety plastikowe Euro + skrzyniopalety dla transportu międzyzakładowego.</p></details>
 <details><summary>Czy palety plastikowe Euro są kompatybilne z systemami AKL Mecalux/Daifuku?</summary><p>Tak — produkujemy palety plastikowe Euro w standardach kompatybilnych z głównymi systemami AKL (Mecalux, Daifuku, Murata, SSI Schaefer, AutoStore). Tolerancje wymiarowe ±2 mm dla wymiaru palety.</p></details>
 <details><summary>Ile cykli wytrzymują palety plastikowe?</summary><p>8–12 lat eksploatacji w typowym closed-loop intra-firmowym (60–80 cykli rocznie). Dla porównania: palety EPAL drewniane 2–4 lata.</p></details>
-<details><summary>Czy mogę porównać koszt closed-loop z obecnym single-use?</summary><p>Tak — przygotowaliśmy kalkulator TCO/ROI z indywidualnymi cenami SKU. Wpisujesz: liczbę dostaw między zakładami, obecny model, skalę roczną. Otrzymujesz: break-even, payback, redukcja CO2.</p></details>
+<details><summary>Czy mogę porównać koszt closed-loop z obecnym single-use?</summary><p>Tak — przygotowaliśmy kalkulator kosztu PPWR z indywidualnymi cenami numerów artykułów. Wpisujesz: liczbę dostaw między zakładami, obecny model, skalę roczną. Otrzymujesz: break-even, payback, redukcja CO2.</p></details>
 <details><summary>Czy oferujecie znakowanie indywidualne dla producenta?</summary><p>Tak — laser, hot-stamp, in-mould (najtrwalsze). Logo firmy + numer pool-managera + ewentualnie RFID-ready miejsce na tag (UHF Gen2) dla DPP od 2029.</p></details>
 </section>
 

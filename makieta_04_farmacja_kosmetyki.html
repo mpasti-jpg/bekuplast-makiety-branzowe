@@ -844,6 +844,31 @@ details > p {
 }
 .scope-col li b { color: var(--bp-ink-700); }
 
+
+.tile.is-featured {
+  border-color: var(--bp-green-500);
+  border-width: 2px;
+  position: relative;
+}
+.tile.is-featured::before {
+  content: '★ POLECANY';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bp-green-500);
+  color: var(--bp-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  z-index: 2;
+}
+.tile-meta.is-featured-note {
+  color: var(--bp-green-700);
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body class="bp-base">
@@ -949,7 +974,8 @@ details > p {
 <section>
   <h2>Pojemniki ESD i sterylne</h2>
   <div class="product-tiles">
-    <a class="tile" href="#"><div class="img-placeholder">[EURO-NORM ESD]</div><h5>EURO-NORM ESD</h5><div class="tile-meta">IEC 61340-5-1 dla med-tech</div></a>
+    <a class="tile is-featured" href="#"><div class="img-placeholder">[AL643G]</div><h5>ALC tradeline AL643G</h5><div class="tile-meta is-featured-note">Polecany dla farmacji i kosmetyków</div><div class="tile-meta">ALC tradeline dla obrotu zwrotnego pharma + drogerie</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[EURO-NORM ESD]</div><h5>EURO-NORM ESD</h5><div class="tile-meta">IEC 61340-5-1 dla med-tech</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[Sterylizowalne]</div><h5>Sterylizowalne</h5><div class="tile-meta">Autoklaw 121°C / 134°C</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[basicline]</div><h5>basicline</h5><div class="tile-meta">Uniwersalne kosmetyka</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[lightline]</div><h5>lightline</h5><div class="tile-meta">Lekki picking</div></a>

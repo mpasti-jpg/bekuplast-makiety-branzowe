@@ -844,6 +844,31 @@ details > p {
 }
 .scope-col li b { color: var(--bp-ink-700); }
 
+
+.tile.is-featured {
+  border-color: var(--bp-green-500);
+  border-width: 2px;
+  position: relative;
+}
+.tile.is-featured::before {
+  content: '★ POLECANY';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bp-green-500);
+  color: var(--bp-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  z-index: 2;
+}
+.tile-meta.is-featured-note {
+  color: var(--bp-green-700);
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body class="bp-base">
@@ -950,7 +975,8 @@ details > p {
 <section>
   <h2>Składane skrzynki, totes magazynowe i palety dla operatorów e-com</h2>
   <div class="product-tiles">
-    <a class="tile" href="#"><div class="img-placeholder">[Clever move box]</div><h5>Clever move box</h5><div class="tile-meta">Redukcja objętości 84%</div></a>
+    <a class="tile is-featured" href="#"><div class="img-placeholder">[Clever 4011]</div><h5>Clever Retail Box 4011</h5><div class="tile-meta is-featured-note">Polecany dla e-commerce</div><div class="tile-meta">Składana skrzynka paczkomatowa / fulfillment</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Clever move box]</div><h5>Clever move box</h5><div class="tile-meta">Redukcja objętości 84%</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[silverline]</div><h5>silverline</h5><div class="tile-meta">AKL, automatyzacja</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[contecline]</div><h5>contecline</h5><div class="tile-meta">Magazyny automatyczne</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[lightline]</div><h5>lightline</h5><div class="tile-meta">Manualny picking</div></a>
@@ -978,7 +1004,7 @@ details > p {
   <div class="ppwr-cta-box">
     <h3>Co możesz zrobić teraz</h3>
     <ol>
-      <li><b>Sprawdź gotowość firmy</b> — bezpłatny audyt PPWR online, 30 sek. → <a href="#">Sprawdź gotowość PPWR dla e-com</a></li><li><b>Pobierz checklistę Art. 29(3)</b> dla operatorów e-com. → <a href="#">Pobierz PDF</a></li><li><b>Oblicz koszt reusable e-com box</b> dla Twojego operatora. → <a href="#">Oblicz TCO dla e-com</a></li>
+      <li><b>Sprawdź gotowość firmy</b> — bezpłatny audyt PPWR online, 30 sek. → <a href="#">Sprawdź gotowość PPWR dla e-com</a></li><li><b>Pobierz checklistę Art. 29(3)</b> dla operatorów e-com. → <a href="#">Pobierz PDF</a></li><li><b>Oblicz koszt reusable e-com box</b> dla Twojego operatora. → <a href="#">Sprawdź koszt PPWR dla e-commerce</a></li>
     </ol>
   </div>
 </section>

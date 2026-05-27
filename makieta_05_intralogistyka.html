@@ -844,6 +844,31 @@ details > p {
 }
 .scope-col li b { color: var(--bp-ink-700); }
 
+
+.tile.is-featured {
+  border-color: var(--bp-green-500);
+  border-width: 2px;
+  position: relative;
+}
+.tile.is-featured::before {
+  content: '★ POLECANY';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bp-green-500);
+  color: var(--bp-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  z-index: 2;
+}
+.tile-meta.is-featured-note {
+  color: var(--bp-green-700);
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body class="bp-base">
@@ -951,7 +976,8 @@ details > p {
 <section>
   <h2>Silverline, contecline, ESD — pojemniki dla magazynów automatycznych</h2>
   <div class="product-tiles">
-    <a class="tile" href="#"><div class="img-placeholder">[silverline]</div><h5>silverline</h5><div class="tile-meta">AKL/shuttle ±0,3 mm</div></a>
+    <a class="tile is-featured" href="#"><div class="img-placeholder">[contecline]</div><h5>contecline</h5><div class="tile-meta is-featured-note">Polecany dla intralogistyki</div><div class="tile-meta">Wybór działu handlowego dla magazynów AKL, shuttle, miniload</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[silverline]</div><h5>silverline</h5><div class="tile-meta">AKL/shuttle ±0,3 mm</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[contecline]</div><h5>contecline</h5><div class="tile-meta">Najwyższe obciążenia AKL</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[ESD]</div><h5>ESD</h5><div class="tile-meta">IEC 61340-5-1</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[lightline]</div><h5>lightline</h5><div class="tile-meta">Manualny picking</div></a>
@@ -978,7 +1004,7 @@ details > p {
   <div class="ppwr-cta-box">
     <h3>Co możesz zrobić teraz</h3>
     <ol>
-      <li><b>Pobierz benchmark intralogistyki PL</b> — mapa 47 firm w 12 segmentach. → <a href="#">Pobierz PDF</a></li><li><b>Oblicz koszt floty pojemników silverline</b> dla Twojego magazynu. → <a href="#">Oblicz TCO</a></li><li><b>Sprawdź gotowość firmy pod PPWR</b>. → <a href="#">Sprawdź gotowość PPWR</a></li>
+      <li><b>Pobierz benchmark intralogistyki PL</b> — mapa 47 firm w 12 segmentach. → <a href="#">Pobierz PDF</a></li><li><b>Oblicz koszt floty pojemników silverline</b> dla Twojego magazynu. → <a href="#">Sprawdź koszt PPWR</a></li><li><b>Sprawdź gotowość firmy pod PPWR</b>. → <a href="#">Sprawdź gotowość PPWR</a></li>
     </ol>
   </div>
 </section>

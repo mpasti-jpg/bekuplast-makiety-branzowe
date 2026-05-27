@@ -844,6 +844,31 @@ details > p {
 }
 .scope-col li b { color: var(--bp-ink-700); }
 
+
+.tile.is-featured {
+  border-color: var(--bp-green-500);
+  border-width: 2px;
+  position: relative;
+}
+.tile.is-featured::before {
+  content: '★ POLECANY';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bp-green-500);
+  color: var(--bp-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  z-index: 2;
+}
+.tile-meta.is-featured-note {
+  color: var(--bp-green-700);
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body class="bp-base">
@@ -949,7 +974,8 @@ details > p {
 <section>
   <h2>Pojemniki dla automotive</h2>
   <div class="product-tiles">
-    <a class="tile" href="#"><div class="img-placeholder">[KLT/VDA]</div><h5>KLT/VDA</h5><div class="tile-meta">Flagshipowy SKU</div></a>
+    <a class="tile is-featured" href="#"><div class="img-placeholder">[RL-KLT 6280]</div><h5>RL-KLT 6280</h5><div class="tile-meta is-featured-note">Polecany dla automotive PL</div><div class="tile-meta">Wybór działu handlowego bekuplast dla tier 1/2/3</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[KLT/VDA]</div><h5>KLT/VDA</h5><div class="tile-meta">Flagshipowy SKU</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[ESD]</div><h5>ESD</h5><div class="tile-meta">IEC 61340-5-1</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[silverline]</div><h5>silverline</h5><div class="tile-meta">AKL/shuttle</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[contecline]</div><h5>contecline</h5><div class="tile-meta">Magazyny automatyczne</div></a>

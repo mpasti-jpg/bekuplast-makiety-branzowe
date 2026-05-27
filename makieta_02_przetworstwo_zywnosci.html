@@ -844,6 +844,31 @@ details > p {
 }
 .scope-col li b { color: var(--bp-ink-700); }
 
+
+.tile.is-featured {
+  border-color: var(--bp-green-500);
+  border-width: 2px;
+  position: relative;
+}
+.tile.is-featured::before {
+  content: '★ POLECANY';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bp-green-500);
+  color: var(--bp-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  z-index: 2;
+}
+.tile-meta.is-featured-note {
+  color: var(--bp-green-700);
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body class="bp-base">
@@ -950,7 +975,8 @@ details > p {
 <section>
   <h2>Bakeline, dryline, mięso, nabiał — flagshipowe SKU</h2>
   <div class="product-tiles">
-    <a class="tile" href="#"><div class="img-placeholder">[bakeline]</div><h5>bakeline</h5><div class="tile-meta">Piekarnie, cukiernie</div></a>
+    <a class="tile is-featured" href="#"><div class="img-placeholder">[CFBA 2356]</div><h5>CFBA 2356</h5><div class="tile-meta is-featured-note">Polecany dla przetwórstwa żywności</div><div class="tile-meta">Składany pojemnik food-grade dla piekarni, mleczarni, mięsa</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[bakeline]</div><h5>bakeline</h5><div class="tile-meta">Piekarnie, cukiernie</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[Na pieczywo]</div><h5>Na pieczywo</h5><div class="tile-meta">Piekarnie rzemieślnicze</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[Mięso/drób]</div><h5>Mięso/drób</h5><div class="tile-meta">Zakłady mięsne</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[Owoce/warzywa]</div><h5>Owoce/warzywa</h5><div class="tile-meta">Przetwórnie</div></a>
@@ -976,7 +1002,7 @@ details > p {
   <div class="ppwr-cta-box">
     <h3>Co możesz zrobić teraz</h3>
     <ol>
-      <li><b>Pobierz checklistę PFAS + PPWR dla F&B</b>. → <a href="#">Pobierz PDF</a></li><li><b>Sprawdź gotowość firmy</b>. → <a href="#">Sprawdź gotowość PPWR</a></li><li><b>Oblicz koszt wymiany floty</b>. → <a href="#">Oblicz TCO</a></li>
+      <li><b>Pobierz checklistę PFAS + PPWR dla F&B</b>. → <a href="#">Pobierz PDF</a></li><li><b>Sprawdź gotowość firmy</b>. → <a href="#">Sprawdź gotowość PPWR</a></li><li><b>Oblicz koszt wymiany floty</b>. → <a href="#">Sprawdź koszt PPWR</a></li>
     </ol>
   </div>
 </section>

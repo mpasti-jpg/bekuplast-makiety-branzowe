@@ -757,6 +757,31 @@ details > p {
   transform: rotate(-45deg);
 }
 
+
+.tile.is-featured {
+  border-color: var(--bp-green-500);
+  border-width: 2px;
+  position: relative;
+}
+.tile.is-featured::before {
+  content: '★ POLECANY';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--bp-green-500);
+  color: var(--bp-white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: var(--r-xs);
+  z-index: 2;
+}
+.tile-meta.is-featured-note {
+  color: var(--bp-green-700);
+  font-weight: 600;
+}
+
 </style>
 </head>
 <body class="bp-base">
@@ -874,7 +899,7 @@ details > p {
       <div class="num">03</div>
       <h4>ROP-napoje (Rozszerzona Odpowiedzialność Producenta)</h4>
       <p>Producent ponosi koszt obsługi opakowania w całym cyklu życia. Single-use kartony = rosnący koszt netto. Skrzynki zwrotne = inwestycja amortyzowana 8–12 lat.</p>
-      <div class="what">Kalkulator TCO — break-even 18–24 mies.</div>
+      <div class="what">Kalkulator kosztu PPWR — break-even 18–24 mies.</div>
     </div>
     <div class="card">
       <div class="num">04</div>
@@ -895,7 +920,8 @@ details > p {
   <span class="section-eyebrow">PRODUKTY</span>
   <h2>Skrzynki przegrodowe, palety i systemy dystrybucyjne</h2>
   <div class="product-tiles">
-    <a class="tile" href="#"><div class="img-placeholder">[Z1 — piwo]</div><div class="tile-body"><h5>Z1 — piwo</h5><div class="tile-meta">20 × 0,5 l</div></div></a>
+    <a class="tile is-featured" href="#"><div class="img-placeholder">[R1/R2 24×0,33l]</div><h5>R1/R2 24 × 0,33 l</h5><div class="tile-meta is-featured-note">Polecany dla piwa rzemieślniczego i napojów</div><div class="tile-meta">Skrzynka przegrodowa pod butelki 0,33 l (24 sztuki)</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Z1 — piwo]</div><div class="tile-body"><h5>Z1 — piwo</h5><div class="tile-meta">20 × 0,5 l</div></div></a>
     <a class="tile" href="#"><div class="img-placeholder">[W2 — piwo]</div><div class="tile-body"><h5>W2 — piwo</h5><div class="tile-meta">24 × 0,5 l</div></div></a>
     <a class="tile" href="#"><div class="img-placeholder">[Z2 — piwo]</div><div class="tile-body"><h5>Z2 — piwo</h5><div class="tile-meta">12 × 0,33 l (rzemieślnicze)</div></div></a>
     <a class="tile" href="#"><div class="img-placeholder">[Model A — woda]</div><div class="tile-body"><h5>Model A — woda</h5><div class="tile-meta">6 × 1,5 l PET</div></div></a>
@@ -937,7 +963,7 @@ details > p {
     <h3>Co możesz zrobić teraz</h3>
     <ol>
       <li><b>Sprawdź gotowość firmy</b> bezpłatny audyt PPWR online, 30 sek. → <a href="#">Sprawdź gotowość PPWR dla branży napojów</a></li>
-      <li><b>Oblicz koszt przejścia na skrzynki zwrotne</b> kalkulator TCO/ROI dla browaru/mleczarni. → <a href="#">Oblicz TCO dla Twojej firmy</a></li>
+      <li><b>Oblicz koszt przejścia na skrzynki zwrotne</b> kalkulator kosztu PPWR dla browaru / mleczarni. → <a href="#">Sprawdź koszt PPWR dla Twojej firmy</a></li>
       <li><b>Pobierz kalkulator browaru w Excelu</b> dla browarów regionalnych (20k+ HL rocznie). → <a href="#">Pobierz Excel</a></li>
     </ol>
   </div>
@@ -961,8 +987,8 @@ details > p {
 <section style="padding: 48px 80px; border-bottom: none;">
   <div class="mid-cta-box">
     <h3>Oblicz koszt przejścia na skrzynki zwrotne dla Twojego browaru</h3>
-    <p>Kalkulator TCO/ROI dla branży napojów — wpisz skalę HL/rok, otrzymasz break-even, payback, redukcję CO₂.</p>
-    <a href="#" class="btn btn-on-dark btn-lg">Oblicz TCO dla branży napojów</a>
+    <p>Kalkulator kosztu PPWR dla branży napojów — wpisz skalę HL/rok, otrzymasz pełen koszt opakowań w obu ścieżkach (single-use i RTP), break-even i strukturę CO₂.</p>
+    <a href="#" class="btn btn-on-dark btn-lg">Sprawdź koszt PPWR dla branży napojów</a>
   </div>
 </section>
 
@@ -1009,7 +1035,7 @@ details > p {
     <details><summary>Jakie obowiązki dla branży napojów wynikają z PPWR od 12 sierpnia 2026 r.?</summary><p>Art. 26 (cele reuse 25%/70% dla piwa, 10%/40% dla wody i napojów bezalkoholowych w 2030/2040), Art. 29(1) (100% reuse intra-firmowo do 2030), Art. 50–53 (harmonizacja kaucji od 2029).</p></details>
     <details><summary>Czy mogę zamówić skrzynkę na butelkę niestandardową (np. piwo rzemieślnicze 0,33 l)?</summary><p>Tak — robimy skrzynki indywidualne z dopasowanymi przegrodami. Minimum produkcji to zwykle 500 sztuk, czas realizacji 8–12 tygodni.</p></details>
     <details><summary>Jak wygląda znakowanie skrzynek dla systemu kaucji konsumenckiej?</summary><p>Oferujemy 3 metody znakowania trwałego: laserowe (najtrwalsze), hot-stamp (kolorowe), in-mould (znak w masie tworzywa). Możemy dodać kod EAN, QR lub RFID.</p></details>
-    <details><summary>Czy mogę porównać koszt skrzynek zwrotnych vs jednorazowych kartonów dla mojego browaru?</summary><p>Tak — kalkulator TCO/ROI dedykowany dla branży napojów. Wpisujesz skalę produkcji (HL/rok). Otrzymujesz: break-even, payback, redukcję CO₂ i rekomendowane SKU.</p></details>
+    <details><summary>Czy mogę porównać koszt skrzynek zwrotnych vs jednorazowych kartonów dla mojego browaru?</summary><p>Tak — kalkulator kosztu PPWR dedykowany dla branży napojów. Wpisujesz skalę produkcji (HL/rok). Otrzymujesz: break-even, payback, redukcję CO₂ i rekomendowane SKU.</p></details>
     <details><summary>Co z palety EPAL drewniane — czy muszę je wymienić na plastikowe?</summary><p>PPWR nie zakazuje palet EPAL, ale regulacja PFAS od 12.08.2026 zakazuje impregnacji palet drewnianych pestycydami z grupy PFAS. Palety plastikowe to alternatywa bez fumigacji.</p></details>
     <details><summary>Jakie są warunki współpracy?</summary><p>Minimum: 50 sztuk dla standardów, 500+ dla SKU indywidualnych. Czas: 2–4 tygodnie dla standardów, 8–12 tygodni dla SKU indywidualnych. Dostawa: cała Polska 3–5 dni.</p></details>
   </div>
