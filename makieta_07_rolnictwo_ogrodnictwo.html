@@ -593,6 +593,15 @@ blockquote cite {
 }
 .case-placeholder li b { color: var(--bp-ink-700); font-weight: 700; }
 
+/* === Referencje / wdrożenia (v7 — zastępują fikcyjne case-placeholder) === */
+.ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 32px; }
+.ref-card { background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-left: 3px solid var(--bp-green-500); padding: 24px; border-radius: var(--r-md); }
+.ref-card .ref-name { font: var(--t-h4); color: var(--bp-ink-700); margin-bottom: 8px; }
+.ref-card .ref-meta { font: var(--t-mono); color: var(--bp-green-700); margin-bottom: 6px; }
+.ref-card .ref-desc { font: var(--t-body-sm); color: var(--bp-ink-500); margin: 0; }
+.ref-note { margin-top: 24px; font: var(--t-body); color: var(--bp-ink-500); }
+.ref-note a { color: var(--bp-green-600); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--bp-green-500); }
+
 /* === MID CTA — green primary banner ========================= */
 .mid-cta-box {
   background: var(--bp-green-500); color: var(--bp-white);
@@ -931,8 +940,8 @@ details > p {
     <h1>Skrzynki plastikowe dla rolnictwa i ogrodnictwa</h1>
     <p class="lead">Skrzynki ogrodnicze na warzywa, do zbioru jabłek i truskawek, transportery dla sadowników i hurtowni warzywno-owocowych. Pracują w 200+ polskich gospodarstwach.</p>
     <div class="cta-row">
-      <a href="#" class="btn btn-primary">Rozmowa z inżynierem opakowań →</a>
-      <a href="#" class="btn btn-outline">Pobierz kalendarz zbiorów + dobór SKU (XLS)</a>
+      <a href="#" class="btn btn-primary">Rozmowa z ekspertem →</a>
+      <a href="#" class="btn btn-outline">Pobierz kalendarz zbiorów + dobór numerów artykułów (XLS)</a>
     </div>
   </div>
   <div class="hero-illustration">
@@ -956,7 +965,7 @@ details > p {
       <span class="tag is-green">TL;DR</span>
       <h2>Kluczowe wnioski</h2>
       <ul>
-        <li><b>Polski rynek owoców-warzyw to dziś mix:</b> drewniane skrzynki na zbiór, plastikowe na transport, tekturowe na sprzedaż detaliczną. Konsolidacja pod plastikowe RTP trwa od 2020 r.</li><li><b>Sezonowość ekstremalna:</b> truskawki maj–czerwiec, czereśnie czerwiec, jabłka sierpień–październik, kapusta wrzesień–listopad. Floty skrzynek muszą być skalowane.</li><li><b>PPWR Art. 26 wyłącza rolnictwo pierwotne</b> z celów reuse — zbiór z pola jest poza zakresem. Ale <b>transport produktów rolnych do sieci handlowych jest objęty</b> Art. 29(3).</li><li><b>Sadownik z 50+ ha</b> używa 8 000–25 000 skrzynek w cyklu. Optymalny model: 70% zakup własny + 30% pooling sezonowy.</li><li><b>Skrzynki bekuplast EURO</b> są kompatybilne z systemami dystrybucyjnymi Lidl, Biedronka, Carrefour — eliminacja przeładunku.</li>
+        <li><b>Polski rynek owoców-warzyw to dziś mix:</b> drewniane skrzynki na zbiór, plastikowe na transport, tekturowe na sprzedaż detaliczną. Konsolidacja pod plastikowe RTP trwa od 2020 r.</li><li><b>Sezonowość ekstremalna:</b> truskawki maj–czerwiec, czereśnie czerwiec, jabłka sierpień–październik, kapusta wrzesień–listopad. Floty skrzynek muszą być skalowane.</li><li><b>PPWR Art. 26 wyłącza rolnictwo pierwotne</b> z celów reuse — zbiór z pola jest poza zakresem. Ale <b>transport produktów rolnych do sieci handlowych jest objęty</b> Art. 29(3).</li><li><b>Sadownik z 50+ ha</b> używa 8 000–25 000 skrzynek w cyklu — flota pojemników zwrotnych skalowana pod sezon zbiorów.</li><li><b>Skrzynki bekuplast EURO</b> są kompatybilne z systemami dystrybucyjnymi Lidl, Biedronka, Carrefour — eliminacja przeładunku.</li>
       </ul>
     </div>
   </div>
@@ -965,7 +974,7 @@ details > p {
 <section>
   <h2>Cztery wyzwania sadowników, gospodarstw warzywnych i hurtowni</h2>
   <div class="cards-grid">
-    <div class="card"><div class="num">01</div><h4>Sezonowość — flota skrzynek skaluje 4–6× w 6–10 tygodni</h4><p>Sadownik z 50 ha jabłoni używa 18 000 skrzynek w peak zbiorów (sierpień–wrzesień). Przez 9 miesięcy roku: 3 000–5 000 skrzynek wystarcza.</p><div class="what">→ Pooling sezonowy (CapEx → OpEx) lub kontrakty z wymianą flot. Skalowanie zgodne z kalendarzem zbiorów.</div></div>
+    <div class="card"><div class="num">01</div><h4>Sezonowość — flota skrzynek skaluje 4–6× w 6–10 tygodni</h4><p>Sadownik z 50 ha jabłoni używa 18 000 skrzynek w peak zbiorów (sierpień–wrzesień). Przez 9 miesięcy roku: 3 000–5 000 skrzynek wystarcza.</p><div class="what">→ Flota pojemników zwrotnych skalowana pod kalendarz zbiorów — bez over-provisioningu poza sezonem.</div></div>
 <div class="card"><div class="num">02</div><h4>Transport temperaturowy — od pola do sieci</h4><p>Truskawki, maliny, sałata, ogórki = transport chłodzony (2–6°C). Skrzynki muszą wytrzymać kondensację, różnicę temperatur, wahania wilgotności.</p><div class="what">→ Skrzynki ogrodnicze EURO HDPE z otworami wentylacyjnymi.</div></div>
 <div class="card"><div class="num">03</div><h4>Standaryzacja pod sieci handlowe</h4><p>Lidl, Biedronka, Carrefour wymagają konkretnych wymiarów skrzynek — Euro 400×300 lub 600×400. Sadownik musi dostosować flotę do standardu sieci.</p><div class="what">→ Skrzynki w wymiarach EURO 400×300 i 600×400, kompatybilne z systemami 5 największych sieci PL.</div></div>
 <div class="card"><div class="num">04</div><h4>Niska żywotność drewnianych skrzynek na zbiór</h4><p>Drewniane skrzynki sadownicze wytrzymują 2–4 lata. HDPE: 10–15 lat. ROI na wymianie: 18–28 miesięcy dla sadu 25+ ha.</p><div class="what">→ Skrzynki ogrodnicze EURO z dnem perforowanym, sztaplowanie 8 jednostek.</div></div>
@@ -982,7 +991,7 @@ details > p {
 <a class="tile" href="#"><div class="img-placeholder">[Palety Euro]</div><h5>Palety Euro</h5><div class="tile-meta">Bez fumigacji (eksport)</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[Skrzynki na truskawki]</div><h5>Skrzynki na truskawki</h5><div class="tile-meta">8 kg, perforowane</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[Skrzyniopalety na jabłka]</div><h5>Skrzyniopalety na jabłka</h5><div class="tile-meta">300 kg hurt</div></a>
-<a class="tile" href="#"><div class="img-placeholder">[Indywidualne pod SKU]</div><h5>Indywidualne pod SKU</h5><div class="tile-meta">Pod konkretne owoce</div></a>
+<a class="tile" href="#"><div class="img-placeholder">[Indywidualne realizacje]</div><h5>Indywidualne realizacje</h5><div class="tile-meta">Pod konkretne owoce</div></a>
   </div>
 </section>
 
@@ -1012,34 +1021,19 @@ details > p {
   <div class="ppwr-cta-box">
     <h3>Co możesz zrobić teraz</h3>
     <ol>
-      <li><b>Pobierz kalendarz zbiorów + dobór SKU</b> — Excel z mapowaniem skrzynek per sezon i per kategoria. → <a href="#">Pobierz Excel</a></li><li><b>Sprawdź gotowość firmy pod PPWR</b>. → <a href="#">Sprawdź gotowość PPWR</a></li><li><b>Oblicz koszt floty</b> dla Twojego sadu / gospodarstwa. → <a href="#">Sprawdź koszt PPWR</a></li>
+      <li><b>Pobierz kalendarz zbiorów + dobór numerów artykułów</b> — Excel z mapowaniem skrzynek per sezon i per kategoria. → <a href="#">Pobierz Excel</a></li><li><b>Sprawdź gotowość firmy pod PPWR</b>. → <a href="#">Sprawdź gotowość PPWR</a></li><li><b>Oblicz koszt floty</b> dla Twojego sadu / gospodarstwa. → <a href="#">Sprawdź koszt PPWR</a></li>
     </ol>
   </div>
 </section>
 
 <section>
-  <h2>Case study</h2>
-  <div class="case-placeholder">
-    <h4>Case study: hurtownia agro z Wielkopolski — wymiana floty 14 000 skrzynek + standaryzacja pod 3 sieci</h4>
-    <p>Brief do uzupełnienia po decyzji AD3 (Monika Sojka, tydzień 26 / 25–29 maja 2026):</p>
-    <ul>
-      <li><b>Klient:</b> hurtownia warzywno-owocowa z Wielkopolski (anonim)</li><li><b>Skala:</b> 14 000 skrzynek w cyklu, obroty 280 t/tydzień w peak sezonu, dostawca dla 3 sieci handlowych</li><li><b>Rozwiązanie:</b> 9 000 × skrzynki ogrodnicze EURO 400×300, 3 500 × na owoce i warzywa norma EURO 600×400, 1 500 × skrzyniopalety, pooling sezonowy 40%</li><li><b>3 KPI:</b> redukcja stłuczek o 73%, eliminacja przeładunku skrzynka→skrzynka u sieci (oszczędność 2,1 etatu), ROI 22 miesiące</li>
-    </ul>
-  </div>
+  <h2>Przykładowe wdrożenia bekuplast</h2>
+  <p>bekuplast dostarcza pojemniki zwrotne firmom w 51 krajach — od dystrybucji i handlu po przemysł. Wybrane realizacje opisujemy w sekcji referencji.</p>
+  <p class="ref-note"><a href="#">Zobacz przykładowe wdrożenia bekuplast →</a></p>
 </section>
 
 
 
-
-            <section>
-              <h2>Pooling sezonowy — skaluj flotę zgodnie z kalendarzem zbiorów</h2>
-              <div class="pooling-highlight">
-                <h3>🔄 Wynajem skrzynek w peak za stałą opłatę</h3>
-                <p>Sadownik z 50 ha jabłoni potrzebuje 18 000 skrzynek w sierpniu–wrześniu, 5 000 przez resztę roku. Pooling sezonowy = bez over-provisioning, bez magazynowania pustej floty 9 miesięcy w roku.</p>
-                <ul><li>Skalowanie z sezonem zbiorów (jabłka, truskawki, kapusta)</li><li>CapEx → OpEx, stała opłata miesięczna</li><li>Zarządzanie cyklem (mycie, naprawa, audyt jakości) zlecone operatorowi</li></ul>
-                <a href="#" class="btn btn-on-dark">Sprawdź model pooling →</a>
-              </div>
-            </section>
 
 <section>
   <h2>Może Cię też zainteresować</h2>
@@ -1057,18 +1051,17 @@ details > p {
 <details><summary>Czy macie skrzynki kompatybilne z Lidlem, Biedronką i Carrefourem?</summary><p>Tak — produkujemy skrzynki w wymiarach Euro 400×300 i 600×400 w standardach najczęściej wymaganych przez sieci handlowe. Możemy dopasować znakowanie, kolorystykę, perforację pod konkretną kategorię.</p></details>
 <details><summary>Czy rolnictwo jest objęte PPWR?</summary><p>Rolnictwo pierwotne (zbiór z pola, transport w obrębie gospodarstwa) — wyłączone przez Art. 26 PPWR. Transport do sieci handlowych — objęty Art. 29(3) (40% reuse 2030). PFAS ban (Art. 5) — dotyczy wszystkich opakowań do kontaktu z żywnością.</p></details>
 <details><summary>Ile cykli wytrzymują skrzynki ogrodnicze HDPE?</summary><p>10–15 lat intensywnej eksploatacji (sezonowa), 100+ cykli rotacji dla skrzynek transportowych. Dla porównania: drewniane skrzynki sadownicze 2–4 lata, tekturowe 1 cykl.</p></details>
-<details><summary>Czy mogę wynająć skrzynki tylko na sezon zbiorów?</summary><p>Tak — oferujemy pooling sezonowy (model OpEx). Płacisz miesięczną opłatę za cykl skrzynki w okresie peak (np. sierpień–październik dla jabłek).</p></details>
 <details><summary>Czy macie palety bez fumigacji do eksportu owoców?</summary><p>Tak — palety plastikowe Euro nie wymagają fumigacji ISPM-15. Sadownicy eksportujący do Skandynawii, UK, Bliskiego Wschodu unikają kosztów certyfikacji + dezynfekcji = oszczędność 8–12 zł/paleta.</p></details>
 </section>
 
 <div class="end-cta">
   <div class="end-cta-content">
     <h2>Porozmawiajmy o skrzynkach dla Twojego sadu / hurtowni</h2>
-      <p>Rozmowa z inżynierem opakowań — z osobą, która projektowała skrzynki sadownicze dla 200+ polskich gospodarstw.</p>
+      <p>Rozmowa z ekspertem — z osobą, która projektowała skrzynki sadownicze dla 200+ polskich gospodarstw.</p>
       <ul>
-        <li>Odpowiedź w 24 godziny</li><li>Inżynier, nie handlowiec</li><li>Konsultacja bezpłatna</li><li>Próbki bezpłatne</li>
+        <li>Odpowiedź w 24 godziny</li><li>Konsultacja merytoryczna</li><li>Konsultacja bezpłatna</li><li>Próbki bezpłatne</li>
       </ul>
-      <a href="#" class="btn btn-primary">Umów rozmowę z inżynierem →</a>
+      <a href="#" class="btn btn-primary">Umów rozmowę z ekspertem →</a>
   </div>
 </div></div>
 </div>

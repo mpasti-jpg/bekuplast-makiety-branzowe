@@ -593,6 +593,15 @@ blockquote cite {
 }
 .case-placeholder li b { color: var(--bp-ink-700); font-weight: 700; }
 
+/* === Referencje / wdrożenia (v7 — zastępują fikcyjne case-placeholder) === */
+.ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 32px; }
+.ref-card { background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-left: 3px solid var(--bp-green-500); padding: 24px; border-radius: var(--r-md); }
+.ref-card .ref-name { font: var(--t-h4); color: var(--bp-ink-700); margin-bottom: 8px; }
+.ref-card .ref-meta { font: var(--t-mono); color: var(--bp-green-700); margin-bottom: 6px; }
+.ref-card .ref-desc { font: var(--t-body-sm); color: var(--bp-ink-500); margin: 0; }
+.ref-note { margin-top: 24px; font: var(--t-body); color: var(--bp-ink-500); }
+.ref-note a { color: var(--bp-green-600); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--bp-green-500); }
+
 /* === MID CTA — green primary banner ========================= */
 .mid-cta-box {
   background: var(--bp-green-500); color: var(--bp-white);
@@ -931,7 +940,7 @@ details > p {
     <h1>Opakowania zwrotne dla retail i FMCG</h1>
     <p class="lead">Palety, skrzynki przegrodowe i systemy dystrybucyjne dla sieci handlowych (Lidl, Biedronka, Dino, Carrefour, Selgros, drogerie). PPWR Art. 29(3) — 40% reuse do 2030.</p>
     <div class="cta-row">
-      <a href="#" class="btn btn-primary">Rozmowa z inżynierem opakowań →</a>
+      <a href="#" class="btn btn-primary">Rozmowa z ekspertem →</a>
       <a href="#" class="btn btn-outline">Sprawdź gotowość PPWR dla retail</a>
     </div>
   </div>
@@ -956,7 +965,7 @@ details > p {
       <span class="tag is-green">TL;DR</span>
       <h2>Kluczowe wnioski</h2>
       <ul>
-        <li><b>Sieci handlowe w PL są priorytetem #1 PPWR</b> w naszej kampanii — pivot z single-use na reusable to 4-letni projekt (2026–2030).</li><li><b>Art. 29(3) PPWR</b> nakłada na sieci handlowe (jako dystrybutorów) obowiązek <b>40% reuse w transport packaging do 2030 i 70% do 2040</b>. Wiążące cele, egzekwowane krajowo.</li><li><b>Lidl, Carrefour, Selgros już piloty.</b> Sieci startujące pilotaż w 2024–2025 mają 2 lata przewagi operacyjnej w 2027.</li><li><b>Skrzynki przegrodowe + palety plastikowe + systemy dystrybucyjne</b> to fundament RTP w retail. Dla typowej sieci 200+ sklepów ROI: 24–36 miesięcy.</li><li><b>Nie projektujemy 'pojedynczego SKU'</b> projektujemy system: DC → sklep → zwrot → mycie → DC.</li>
+        <li><b>Sieci handlowe w PL są priorytetem #1 PPWR</b> w naszej kampanii — pivot z single-use na reusable to 4-letni projekt (2026–2030).</li><li><b>Art. 29(3) PPWR</b> nakłada na sieci handlowe (jako dystrybutorów) obowiązek <b>40% reuse w transport packaging do 2030 i 70% do 2040</b>. Wiążące cele, egzekwowane krajowo.</li><li><b>Lidl, Carrefour, Selgros już piloty.</b> Sieci startujące pilotaż w 2024–2025 mają 2 lata przewagi operacyjnej w 2027.</li><li><b>Skrzynki przegrodowe + palety plastikowe + systemy dystrybucyjne</b> to fundament RTP w retail. Dla typowej sieci 200+ sklepów ROI: 24–36 miesięcy.</li><li><b>Nie projektujemy 'pojedynczego numeru artykułu'</b> projektujemy system: DC → sklep → zwrot → mycie → DC.</li>
       </ul>
     </div>
   </div>
@@ -966,7 +975,7 @@ details > p {
   <h2>Pięć wyzwań retail i FMCG, które rozwiązujemy systemowo</h2>
   <div class="cards-grid">
     <div class="card"><div class="num">01</div><h4>Dystrybucja DC → sklep dziś w 70% single-use</h4><p>Polskie sieci wysyłają z DC do sklepu produkty głównie w kartonach jednorazowych + folii stretch + paletach drewnianych EPAL. Koszt utylizacji (sieć 300 sklepów) sięga 3–5 mln zł/rok.</p><div class="what">→ Closed-loop DC → sklep → zwrot → mycie. Eliminacja kartonu = redukcja kosztu odpadów o 60–80%.</div></div>
-<div class="card"><div class="num">02</div><h4>PPWR Art. 29(3) — dystrybutor odpowiada za reuse</h4><p>Sieć 300 sklepów: musi w 4 lata wymienić 40% strumienia transportowego na reuse. To inwestycja 8–25 mln zł w flotę + system pooling, payback 24–36 mies.</p><div class="what">→ Skrzynki przegrodowe + palety plastikowe + skrzyniopalety + pooling Container-as-a-Service.</div></div>
+<div class="card"><div class="num">02</div><h4>PPWR Art. 29(3) — dystrybutor odpowiada za reuse</h4><p>Sieć 300 sklepów: musi w 4 lata wymienić 40% strumienia transportowego na reuse. To inwestycja 8–25 mln zł w flotę i system zwrotów, payback 24–36 mies.</p><div class="what">→ Skrzynki przegrodowe + palety plastikowe + skrzyniopalety.</div></div>
 <div class="card"><div class="num">03</div><h4>ROP-opakowania — koszt utylizacji rośnie 8–12% rocznie</h4><p>Sieci ponoszą podwójny koszt: jako sprzedawca (ROP dla puszki/butelki/folii) + jako dystrybutor (ROP dla kartonu/folii/palety). Single-use = rosnący koszt netto.</p><div class="what">→ Reusable = inwestycja amortyzowana w 8–12 lat.</div></div>
 <div class="card"><div class="num">04</div><h4>Kaucja konsumencka 2025 — operacyjna integracja sklepu</h4><p>Kaucja na butelki szklane, puszki i PET wymaga infrastruktury zbierania w sklepie: skrzynki przegrodowe, systemy znakowania zwrotnego, integracja z systemem rozliczeniowym.</p><div class="what">→ Skrzynki przegrodowe z trwałym znakowaniem (laser, hot-stamp, RFID-ready dla DPP od 2029).</div></div>
 <div class="card"><div class="num">05</div><h4>Międzynarodowy nacisk od sieci-matek</h4><p>Polskie spółki sieci handlowych są częścią międzynarodowych grup z strategiami reuse korporacyjnymi (Lidl Group Climate Action 2030, Carrefour Act for Food).</p><div class="what">→ Pilotaż 2026, scale 2027–2028.</div></div>
@@ -1011,14 +1020,12 @@ details > p {
 </section>
 
 <section>
-  <h2>Case study</h2>
-  <div class="case-placeholder">
-    <h4>Case study: sieć drogerii w Polsce — pilotaż RTP w 27 sklepach, scale do 200 sklepów w 18 mies.</h4>
-    <p>Brief do uzupełnienia po decyzji AD3 (Monika Sojka, tydzień 26 / 25–29 maja 2026):</p>
-    <ul>
-      <li><b>Klient:</b> sieć drogerii / FMCG (jawnie lub anonimowo)</li><li><b>Skala:</b> pilotaż 27 sklepów (Q1 2025), scale do 200 sklepów (Q3 2026), rollout 450 sklepów Q2 2027</li><li><b>Rozwiązanie:</b> 35 000 × pojemniki basicline, 12 000 × clever move box (zwroty), 4 200 × palety plastikowe Euro, pooling Container-as-a-Service</li><li><b>3 KPI:</b> redukcja kosztu utylizacji o 67% (8 400 → 2 800 zł/mies. per sklep), redukcja odpadów o 84% (1,2 t → 0,2 t/mies.), time-to-zwrot 4,8 dnia (vs target 7)</li>
-    </ul>
+  <h2>Przykładowe wdrożenia</h2>
+  <div class="ref-grid">
+    <div class="ref-card"><div class="ref-name">Orbico</div><div class="ref-meta">2023 · 46 000 pojemników</div><div class="ref-desc">Dystrybucja beauty / FMCG (PL)</div></div>
+    <div class="ref-card"><div class="ref-name">ROSSMANN</div><div class="ref-meta">2025 · 160 000 pojemników</div><div class="ref-desc">Retail (DE)</div></div>
   </div>
+  <p class="ref-note">Pełne zestawienie realizacji: <a href="#">przykładowe wdrożenia bekuplast</a>.</p>
 </section>
 
 
@@ -1030,17 +1037,6 @@ details > p {
           </div>
         </section>
 
-
-            <section>
-              <h2>Pooling Container-as-a-Service dla sieci handlowych</h2>
-              <div class="pooling-box">
-                <div class="pooling-icon">🔄</div>
-                <div>
-                  <p>Sieci handlowe coraz częściej wybierają pooling skrzynek i palet zamiast zakupu na własność. Powody: brak CapEx (koszt floty 50k+ skrzynek to 8–15 mln zł), skala flotą z sezonem, zarządzanie cyklem zlecone operatorowi. Pooling stanowi ok. 25% obrotu bekuplast.</p>
-                  <a href="#" class="btn btn-outline">Sprawdź model pooling →</a>
-                </div>
-              </div>
-            </section>
 
 <section>
   <h2>Może Cię też zainteresować</h2>
@@ -1059,19 +1055,18 @@ details > p {
 <details><summary>Czy to dotyczy wszystkich sieci handlowych w Polsce?</summary><p>Tak — Art. 29(3) PPWR obejmuje wszystkich dystrybutorów detalicznych z roczną sprzedażą powyżej 2 mln EUR w państwie członkowskim. Wszystkie sieci ponadlokalne (Lidl, Biedronka, Dino, Carrefour, Selgros, Auchan, drogerie Rossmann, Hebe, Super-Pharm).</p></details>
 <details><summary>Czy pojedyncze sklepy lub franczyza są objęte?</summary><p>Pojedyncze sklepy poniżej progu 2 mln EUR rocznie są wyłączone. Sieci franczyzowe (Żabka, ABC, Lewiatan) są objęte na poziomie centrali, ale wdrożenie zależy od struktury.</p></details>
 <details><summary>Jak wygląda typowy pilotaż RTP w sieci handlowej?</summary><p>Wybieramy 1–2 kategorie produktowe + grupę 5–15 sklepów w jednym regionie + DC obsługujące tę grupę. Wdrażamy: skrzynki przegrodowe + palety plastikowe + system znakowania + integrację z WMS. Czas: 12–16 tygodni od decyzji do uruchomienia.</p></details>
-<details><summary>Czy mogę pomóc sieci wybrać skrzynki przegrodowe pod kategorię świeżych warzyw?</summary><p>Tak — projektujemy skrzynki indywidualne pod konkretne kategorie SKU. Dla warzyw świeżych stosujemy skrzynki z otworami wentylacyjnymi. Czas projektu + prototypu: 8–12 tygodni.</p></details>
-<details><summary>Czy mogę wynająć flotę zamiast kupować?</summary><p>Tak — oferujemy pooling Container-as-a-Service. Płacisz miesięczną opłatę za cykl skrzynki, my zarządzamy cyklem (zwrot, mycie, naprawa). Dla sieci 200+ sklepów to często optymalny model.</p></details>
+<details><summary>Czy mogę pomóc sieci wybrać skrzynki przegrodowe pod kategorię świeżych warzyw?</summary><p>Tak — projektujemy skrzynki indywidualne pod konkretne kategorie produktów. Dla warzyw świeżych stosujemy skrzynki z otworami wentylacyjnymi. Czas projektu + prototypu: 8–12 tygodni.</p></details>
 <details><summary>Czy macie doświadczenie z sieciami handlowymi w Niemczech / DACH?</summary><p>Tak — bekuplast obsługuje sieci handlowe w DACH od dekad (Edeka, Rewe, Aldi, Lidl Group). Polska spółka korzysta z tej bazy know-how. System 'Mehrweg' w niemieckim retail ma 35 lat.</p></details>
 </section>
 
 <div class="end-cta">
   <div class="end-cta-content">
     <h2>Porozmawiajmy o systemie reuse dla Twojej sieci handlowej</h2>
-      <p>Rozmowa z inżynierem opakowań bekuplast — z osobą, która wdrażała systemy RTP dla sieci handlowych w 7 krajach UE. W 30–45 minut omówimy obecną strukturę logistyki, wybór 2–3 kategorii pilotażowych, wybór modelu, plan 12–16 tygodni pilotażu, roadmapę scale.</p>
+      <p>Rozmowa z ekspertem bekuplast — z osobą, która wdrażała systemy RTP dla sieci handlowych w 7 krajach UE. W 30–45 minut omówimy obecną strukturę logistyki, wybór 2–3 kategorii pilotażowych, wybór modelu, plan 12–16 tygodni pilotażu, roadmapę scale.</p>
       <ul>
-        <li>Odpowiedź w 24 godziny</li><li>Inżynier + Account Manager dla sieci handlowych</li><li>Konsultacja bezpłatna i bezzobowiązaniowa</li><li>Sample-set produktów wysyłamy bezpłatnie</li>
+        <li>Odpowiedź w 24 godziny</li><li>Konsultacja merytoryczna</li><li>Konsultacja bezpłatna i bezzobowiązaniowa</li><li>Sample-set produktów wysyłamy bezpłatnie</li>
       </ul>
-      <a href="#" class="btn btn-primary">Umów rozmowę z inżynierem →</a>
+      <a href="#" class="btn btn-primary">Umów rozmowę z ekspertem →</a>
   </div>
 </div></div>
 </div>

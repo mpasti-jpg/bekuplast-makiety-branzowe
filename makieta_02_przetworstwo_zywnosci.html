@@ -593,6 +593,15 @@ blockquote cite {
 }
 .case-placeholder li b { color: var(--bp-ink-700); font-weight: 700; }
 
+/* === Referencje / wdrożenia (v7 — zastępują fikcyjne case-placeholder) === */
+.ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 32px; }
+.ref-card { background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-left: 3px solid var(--bp-green-500); padding: 24px; border-radius: var(--r-md); }
+.ref-card .ref-name { font: var(--t-h4); color: var(--bp-ink-700); margin-bottom: 8px; }
+.ref-card .ref-meta { font: var(--t-mono); color: var(--bp-green-700); margin-bottom: 6px; }
+.ref-card .ref-desc { font: var(--t-body-sm); color: var(--bp-ink-500); margin: 0; }
+.ref-note { margin-top: 24px; font: var(--t-body); color: var(--bp-ink-500); }
+.ref-note a { color: var(--bp-green-600); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--bp-green-500); }
+
 /* === MID CTA — green primary banner ========================= */
 .mid-cta-box {
   background: var(--bp-green-500); color: var(--bp-white);
@@ -931,7 +940,7 @@ details > p {
     <h1>Pojemniki HACCP dla branży spożywczej</h1>
     <p class="lead">Pojemniki dla piekarni, mleczarni, zakładów mięsnych i przetwórstwa rybnego. HDPE bez PFAS, dopuszczenie wg Reg. (UE) 10/2011, HACCP-compliant design.</p>
     <div class="cta-row">
-      <a href="#" class="btn btn-primary">Rozmowa z inżynierem opakowań →</a>
+      <a href="#" class="btn btn-primary">Rozmowa z ekspertem →</a>
       <a href="#" class="btn btn-outline">Sprawdź gotowość PPWR + PFAS</a>
     </div>
   </div>
@@ -956,7 +965,7 @@ details > p {
       <span class="tag is-green">TL;DR</span>
       <h2>Kluczowe wnioski</h2>
       <ul>
-        <li><b>Branża spożywcza ma podwójne uderzenie regulacyjne od 12.08.2026:</b> PFAS ban (Art. 5 PPWR) + cele reuse 40% (Art. 29(3) PPWR przez sieci handlowe).</li><li><b>80% polskich pudełek po frytkach jest nielegalne</b> od 12.08.2026 — zawierają PFAS w impregnacji papieru. HDPE plastikowe pojemniki bekuplast <b>nigdy nie zawierały PFAS</b>.</li><li><b>Piekarnie i mleczarnie w PL</b> są <b>5 lat za DACH</b> w eliminacji jednorazowych opakowań transportowych. Czas się kurczy.</li><li><b>HACCP-compliant design</b> to twarda preferencja — gładkie ściany, brak miejsc gromadzenia zanieczyszczeń, mycie w 90°C bez deformacji.</li><li><b>Bakeline i dryline</b> to nasze flagshipowe SKU dla piekarni. <b>Mięso i nabiał</b> mają dedykowane serie EURO-NORM.</li>
+        <li><b>Branża spożywcza ma podwójne uderzenie regulacyjne od 12.08.2026:</b> PFAS ban (Art. 5 PPWR) + cele reuse 40% (Art. 29(3) PPWR przez sieci handlowe).</li><li><b>80% polskich pudełek po frytkach jest nielegalne</b> od 12.08.2026 — zawierają PFAS w impregnacji papieru. HDPE plastikowe pojemniki bekuplast <b>nigdy nie zawierały PFAS</b>.</li><li><b>Piekarnie i mleczarnie w PL</b> są <b>5 lat za DACH</b> w eliminacji jednorazowych opakowań transportowych. Czas się kurczy.</li><li><b>HACCP-compliant design</b> to twarda preferencja — gładkie ściany, brak miejsc gromadzenia zanieczyszczeń, mycie w 90°C bez deformacji.</li><li><b>Bakeline i dryline</b> to nasze flagowe numery artykułów dla piekarni. <b>Mięso i nabiał</b> mają dedykowane serie EURO-NORM.</li>
       </ul>
     </div>
   </div>
@@ -968,12 +977,12 @@ details > p {
     <div class="card"><div class="num">01</div><h4>PFAS ban (Art. 5 PPWR) — 80% pudełek fast-food nielegalne</h4><p>Od 12.08.2026 zakaz PFAS w opakowaniach do kontaktu z żywnością. 80% polskich pudełek po frytkach, tacek na hamburgery, papierowych kubków na napoje gorące zawiera PFAS.</p><div class="what">→ HDPE plastikowe pojemniki nigdy nie zawierały PFAS — to natura materiału.</div></div>
 <div class="card"><div class="num">02</div><h4>HACCP — gładkie ściany, brak zacieków, mycie w 90°C</h4><p>Zakłady mięsne, mleczarnie, piekarnie muszą stosować pojemniki łatwe do mycia + dezynfekcji. Standardowe pojemniki z fakturowanymi ścianami gromadzą tłuszcz, mąkę, krew.</p><div class="what">→ Pojemniki HACCP-compliant z gładkimi ścianami, zaokrąglonymi narożnikami, mycie w 90°C.</div></div>
 <div class="card"><div class="num">03</div><h4>Reuse 40% w transport packaging (Art. 29(3) przez sieci)</h4><p>Producent F&B sprzedający do sieci handlowych (Lidl, Biedronka) jest pośrednio objęty celami sieci. Sieci wymagają od dostawców reusable packaging do 2027–2028.</p><div class="what">→ Pojemniki w wymiarach EURO 400×300 i 600×400, kompatybilne z systemami sieci PL.</div></div>
-<div class="card"><div class="num">04</div><h4>Skrzynki na pieczywo — sezonowość peak Q4</h4><p>Piekarnie obsługujące sieci handlowe mają peak 4× wyższy w grudniu (Boże Narodzenie, Sylwester) vs średnia roczna. Flota skrzynek musi skalować.</p><div class="what">→ Pooling sezonowy + standardowe SKU bakeline z gwarancją 10-letniej dostępności.</div></div>
+<div class="card"><div class="num">04</div><h4>Skrzynki na pieczywo — sezonowość peak Q4</h4><p>Piekarnie obsługujące sieci handlowe mają peak 4× wyższy w grudniu (Boże Narodzenie, Sylwester) vs średnia roczna. Flota skrzynek musi skalować.</p><div class="what">→ Standardowe numery artykułów bakeline z gwarancją 10-letniej dostępności.</div></div>
   </div>
 </section>
 
 <section>
-  <h2>Bakeline, dryline, mięso, nabiał — flagshipowe SKU</h2>
+  <h2>Bakeline, dryline, mięso, nabiał — flagowe numery artykułów</h2>
   <div class="product-tiles">
     <a class="tile is-featured" href="#"><div class="img-placeholder">[CFBA 2356]</div><h5>CFBA 2356</h5><div class="tile-meta is-featured-note">Polecany dla przetwórstwa żywności</div><div class="tile-meta">Składany pojemnik food-grade dla piekarni, mleczarni, mięsa</div></a>
 <a class="tile" href="#"><div class="img-placeholder">[bakeline]</div><h5>bakeline</h5><div class="tile-meta">Piekarnie, cukiernie</div></a>
@@ -1008,29 +1017,13 @@ details > p {
 </section>
 
 <section>
-  <h2>Case study</h2>
-  <div class="case-placeholder">
-    <h4>Case study: piekarnia przemysłowa w południowej Polsce — wymiana skrzynek bakeline 22 000 sztuk</h4>
-    <p>Brief do uzupełnienia po decyzji AD3 (Monika Sojka, tydzień 26 / 25–29 maja 2026):</p>
-    <ul>
-      <li><b>Klient:</b> piekarnia przemysłowa (anonim), dostawca sieci handlowych</li><li><b>Skala:</b> 22 000 skrzynek bakeline w cyklu, produkcja 28 t pieczywa/dobę</li><li><b>Rozwiązanie:</b> 18 000 × pojemniki bakeline, 4 000 × pojemniki na pieczywo standardowe EURO</li><li><b>3 KPI:</b> redukcja stłuczek pieczywa o 41%, eliminacja przeładunku do skrzynek sieci (oszczędność 1,4 etatu), ROI 20 miesięcy</li>
-    </ul>
-  </div>
+  <h2>Przykładowe wdrożenia bekuplast</h2>
+  <p>bekuplast dostarcza pojemniki zwrotne firmom w 51 krajach — od dystrybucji i handlu po przemysł. Wybrane realizacje opisujemy w sekcji referencji.</p>
+  <p class="ref-note"><a href="#">Zobacz przykładowe wdrożenia bekuplast →</a></p>
 </section>
 
 
 
-
-            <section>
-              <h2>Pooling sezonowy dla piekarń</h2>
-              <div class="pooling-box">
-                <div class="pooling-icon">🔄</div>
-                <div>
-                  <p>Piekarnie z peak Q4 (Boże Narodzenie) wybierają pooling sezonowy zamiast over-provisioning floty na 365 dni. Pooling stanowi ok. 25% obrotu bekuplast.</p>
-                  <a href="#" class="btn btn-outline">Sprawdź model pooling →</a>
-                </div>
-              </div>
-            </section>
 
 <section>
   <h2>Może Cię też zainteresować</h2>
@@ -1043,23 +1036,23 @@ details > p {
 
 <section>
   <h2>Najczęściej zadawane pytania</h2>
-  <details><summary>Czy pojemniki bekuplast mają dopuszczenie do kontaktu z żywnością?</summary><p>Tak — wszystkie SKU dedykowane F&B mają dopuszczenie wg Reg. (UE) 10/2011. Dodatkowo: certyfikat materiałowy HDPE virgin, testy migracji zgodne z EFSA.</p></details>
+  <details><summary>Czy pojemniki bekuplast mają dopuszczenie do kontaktu z żywnością?</summary><p>Tak — wszystkie numery artykułów dedykowane F&B mają dopuszczenie wg Reg. (UE) 10/2011. Dodatkowo: certyfikat materiałowy HDPE virgin, testy migracji zgodne z EFSA.</p></details>
 <details><summary>Czy pojemniki bekuplast zawierają PFAS?</summary><p>Nie — nigdy nie zawierały. HDPE używane w naszych pojemnikach food-grade to virgin polietylen HDPE bez dodatków per-/poly-fluoroalkylowych. PFAS ban (Art. 5 PPWR od 12.08.2026) nie wpływa na nasz produkt.</p></details>
 <details><summary>W jakich temperaturach mogę myć pojemniki bakeline?</summary><p>Pojemniki bakeline są odporne na mycie w temperaturze do 95°C bez deformacji ani odbarwień. Kompatybilne z standardowymi środkami HACCP do mycia + dezynfekcji.</p></details>
 <details><summary>Czy mogę zamówić pojemnik na pieczywo z indywidualnym znakowaniem?</summary><p>Tak — znakowanie laserowe, hot-stamp lub in-mould (najtrwalsze). Możliwe logo piekarni + numer pool-managera dla systemu dystrybucji.</p></details>
-<details><summary>Czy macie SKU do mleczarni?</summary><p>Tak — pojemniki basicline + skrzynki przegrodowe dla butelek szklanych. Dla mleczarni wprowadzających butelki zwrotne (kaucja 2025) — pełna kompatybilność z systemami dystrybucyjnymi.</p></details>
+<details><summary>Czy macie pojemniki do mleczarni?</summary><p>Tak — pojemniki basicline + skrzynki przegrodowe dla butelek szklanych. Dla mleczarni wprowadzających butelki zwrotne (kaucja 2025) — pełna kompatybilność z systemami dystrybucyjnymi.</p></details>
 <details><summary>Co dalej z papierowymi/drewnianymi skrzynkami w F&B?</summary><p>Drewno fumigowane — będzie wycofywane stopniowo. Papier z powłoką PFAS — nielegalny od 12.08.2026. HDPE plastikowe — pozostaje standardem (recykling 100%, bez PFAS, żywotność 8–12 lat).</p></details>
-<details><summary>Jakie są warunki dostawy?</summary><p>Minimum zamówienia: 50 sztuk dla katalogu, 500+ dla SKU indywidualnych. Czas realizacji: 2–4 tygodnie standardów, 8–12 tygodni indywidualnych. Dostawa: cała Polska 3–5 dni roboczych.</p></details>
+<details><summary>Jakie są warunki dostawy?</summary><p>Minimum zamówienia: 50 sztuk dla katalogu, 500+ dla indywidualnych numerów artykułów. Czas realizacji: 2–4 tygodnie standardów, 8–12 tygodni indywidualnych. Dostawa: cała Polska 3–5 dni roboczych.</p></details>
 </section>
 
 <div class="end-cta">
   <div class="end-cta-content">
     <h2>Porozmawiajmy o pojemnikach dla Twojej piekarni / mleczarni / zakładu mięsnego</h2>
-      <p>Rozmowa z inżynierem opakowań bekuplast — z osobą, która wdrażała systemy HACCP-compliant dla 100+ polskich zakładów F&B.</p>
+      <p>Rozmowa z ekspertem bekuplast — z osobą, która wdrażała systemy HACCP-compliant dla 100+ polskich zakładów F&B.</p>
       <ul>
-        <li>Odpowiedź w 24 godziny</li><li>Inżynier, nie handlowiec</li><li>Konsultacja bezpłatna</li><li>Próbki bezpłatne</li>
+        <li>Odpowiedź w 24 godziny</li><li>Konsultacja merytoryczna</li><li>Konsultacja bezpłatna</li><li>Próbki bezpłatne</li>
       </ul>
-      <a href="#" class="btn btn-primary">Umów rozmowę z inżynierem →</a>
+      <a href="#" class="btn btn-primary">Umów rozmowę z ekspertem →</a>
   </div>
 </div></div>
 </div>
