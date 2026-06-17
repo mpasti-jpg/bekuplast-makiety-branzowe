@@ -2,7 +2,8 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Makieta v2 — Farmacja i kosmetyki | bekuplast.pl</title>
+<title>Opakowania farmaceutyczne i kosmetyczne — ESD, sterylne | bekuplast</title>
+<meta name="description" content="Pojemniki ESD i sterylizowalne dla farmacji oraz opakowania transportowe dla kosmetyków. Co PPWR naprawdę obejmuje w pharma — bez mitu wyłączenia 2035.">
 <link rel="stylesheet" href="design-system/colors_and_type.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +52,7 @@ body.bp-base {
   background: var(--bp-white);
   border-radius: var(--r-lg);
   box-shadow: var(--shadow-lg);
-  overflow: hidden;
+  overflow: clip;
 }
 
 /* === PROTO-NAV (dev dropdown) ================================ */
@@ -91,7 +92,7 @@ body.bp-base {
   border-bottom: 1px solid var(--bp-ink-100);
   padding: 16px 32px;
   display: flex; flex-direction: column; gap: 14px;
-  position: sticky; top: 0; z-index: 10;
+  position: relative;
 }
 .sticky-header .top {
   display: flex; align-items: center; justify-content: space-between;
@@ -878,6 +879,257 @@ details > p {
   font-weight: 600;
 }
 
+/* ============================================================
+   v8 — wspólne komponenty (wstawiane na końcu bloku stylów)
+   Używa wyłącznie tokenów z design-system/colors_and_type.css.
+   ============================================================ */
+
+/* === KOSZT PPWR — zielona sekcja 2-kol (wzorzec LP /ppwr/) ==== */
+.koszt-section {
+  background: var(--bp-green-500);
+  border-bottom: 1px solid var(--bp-ink-100);
+  padding: 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.koszt-content .section-eyebrow { color: var(--bp-white); opacity: .9; }
+.koszt-content h2 {
+  font: var(--t-h1);
+  letter-spacing: var(--ls-display-tight);
+  color: var(--bp-white);
+  margin-bottom: 20px;
+  max-width: 520px;
+}
+.koszt-content p {
+  font: var(--t-body-lg);
+  color: rgba(255,255,255,.92);
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+.koszt-illustration {
+  position: relative;
+  background: rgba(255,255,255,.14);
+  border-radius: var(--r-lg);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.koszt-illustration .illustration-label {
+  font: var(--t-label); letter-spacing: var(--ls-label-wide);
+  text-transform: uppercase; color: var(--bp-white);
+  background: rgba(0,0,0,.22); padding: 6px 12px; border-radius: var(--r-sm);
+}
+
+/* === FORMULARZ CTA — "Porozmawiaj z ekspertem o PPWR" ========= */
+.form-cta { background: var(--bp-ink-800); color: var(--bp-white); padding: 96px 80px; }
+.form-cta-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+  align-items: start; max-width: var(--maxw); margin: 0 auto;
+}
+.form-cta .section-eyebrow { color: var(--bp-green-300); }
+.form-cta h2 {
+  font: var(--t-h1); letter-spacing: var(--ls-display-tight);
+  color: var(--bp-white); margin-bottom: 28px; max-width: 460px;
+}
+.form-cta ul { list-style: none; display: grid; gap: 14px; padding: 0; }
+.form-cta ul li {
+  position: relative; padding-left: 28px;
+  color: rgba(255,255,255,.9); font: var(--t-body);
+}
+.form-cta ul li::before {
+  content: ""; position: absolute; left: 0; top: 7px;
+  width: 14px; height: 8px;
+  border-left: 2px solid var(--bp-green-500);
+  border-bottom: 2px solid var(--bp-green-500);
+  transform: rotate(-45deg);
+}
+.form-card {
+  background: var(--bp-white); border-radius: var(--r-lg);
+  padding: 40px; box-shadow: var(--shadow-lg);
+}
+.form-card h3 { font: var(--t-h3); color: var(--bp-ink-700); margin-bottom: 24px; }
+.form-field { margin-bottom: 18px; }
+.form-field label {
+  display: block; font: var(--t-label);
+  letter-spacing: var(--ls-label-wide); text-transform: uppercase;
+  color: var(--bp-ink-600); margin-bottom: 8px;
+}
+.form-field input, .form-field select {
+  width: 100%; height: 48px; padding: 0 14px;
+  border: 1px solid var(--bp-ink-200); border-radius: var(--r-sm);
+  font: var(--t-body); color: var(--bp-ink-700); background: var(--bp-white);
+}
+.form-field input:focus, .form-field select:focus {
+  outline: none; border-color: var(--bp-green-500); box-shadow: var(--focus-ring);
+}
+.form-card .btn { width: 100%; margin-top: 8px; }
+
+/* === KARUZELA WDROŻEŃ — 4 realne case study (AD17) =========== */
+.case-carousel-wrap { margin-top: 32px; }
+.case-carousel {
+  display: grid; grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 340px);
+  gap: 24px; overflow-x: auto;
+  scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  padding-bottom: 14px;
+}
+.case-carousel::-webkit-scrollbar { height: 8px; }
+.case-carousel::-webkit-scrollbar-track { background: var(--bp-ink-100); border-radius: var(--r-full); }
+.case-carousel::-webkit-scrollbar-thumb { background: var(--bp-ink-300); border-radius: var(--r-full); }
+.case-slide {
+  scroll-snap-align: start;
+  background: var(--bp-white); border: 1px solid var(--bp-ink-100);
+  border-left: 3px solid var(--bp-green-500);
+  padding: 28px; border-radius: var(--r-md);
+  display: flex; flex-direction: column;
+}
+.case-slide .case-name { font: var(--t-h4); color: var(--bp-ink-700); margin-bottom: 8px; }
+.case-slide .case-meta { font: var(--t-mono); color: var(--bp-green-700); margin-bottom: 12px; }
+.case-slide .case-desc { font: var(--t-body-sm); color: var(--bp-ink-500); margin: 0; }
+.case-nav { display: flex; gap: 8px; margin-top: 18px; }
+.case-nav button {
+  width: 44px; height: 44px; border-radius: var(--r-full);
+  border: 1px solid var(--bp-ink-200); background: var(--bp-white);
+  color: var(--bp-ink-700); cursor: pointer; font-size: 20px; line-height: 1;
+  transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.case-nav button:hover { border-color: var(--bp-green-500); color: var(--bp-green-600); }
+
+
+/* ============================================================
+   v10 — LAYOUTY wg projektu graficznego (sticky / slider / scroll-poziomy)
+   Mechaniki wykonalne w CSS; pełny pin/scroll-jacking = dev TYPO3 (GSAP).
+   ============================================================ */
+
+/* eyebrow-pill jako nagłówek sekcji (wzorzec z projektu) */
+section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
+
+/* === SPLIT 2-kol: lewa sticky / prawa przewijana (węższa) (Wyzwania, FAQ) === */
+.split { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 700px); gap: 72px; align-items: start; }
+.split-head { position: sticky; top: 48px; align-self: start; }
+.split-head .tag { margin-bottom: 18px; }
+.split-head h2 { margin-bottom: 16px; }
+.split-head .split-lead { font: var(--t-body); color: var(--bp-ink-500); margin: 0; max-width: 340px; }
+.split-head .sticky-hint { margin-top: 22px; font: var(--t-mono); color: var(--bp-ink-400); }
+
+/* === WYZWANIA — karty z osadzoną mini-kartą produktu === */
+.challenge-list { display: flex; flex-direction: column; gap: 24px; }
+.challenge-card { background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-radius: var(--r-lg); padding: 36px 40px; transition: box-shadow var(--dur-base) var(--ease-out); }
+.challenge-card:hover { box-shadow: var(--shadow-md); }
+.challenge-card .challenge-num { font: var(--t-display-2); color: var(--bp-green-500); line-height: 1; margin-bottom: 10px; }
+.challenge-card h4 { font: var(--t-h3); color: var(--bp-ink-700); margin-bottom: 12px; }
+.challenge-card > p { font: var(--t-body); color: var(--bp-ink-500); margin-bottom: 24px; max-width: 640px; }
+.challenge-product { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: center; border-top: 1px solid var(--bp-ink-100); padding-top: 24px; }
+.challenge-product .cp-thumb { aspect-ratio: 4/3; border-radius: var(--r-sm); background: linear-gradient(135deg, var(--bp-ink-50), var(--bp-ink-100)); display: flex; align-items: center; justify-content: center; font: var(--t-mono); color: var(--bp-ink-400); text-align: center; padding: 6px; }
+.challenge-product .cp-name { font: var(--t-h4); color: var(--bp-ink-700); }
+.challenge-product .cp-dim { font: var(--t-mono); color: var(--bp-ink-500); margin: 4px 0 10px; }
+.challenge-product a { font: var(--t-label); letter-spacing: var(--ls-label-wide); text-transform: uppercase; color: var(--bp-green-600); text-decoration: none; }
+.challenge-product a:hover { color: var(--bp-green-700); }
+
+/* === PRODUKTY — lewa (nagłówek + render) sticky i wyśrodkowana pionowo / prawa lista === */
+.product-showcase { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; }
+/* start: w naturalnym flow (wyrównane do góry); po przewinięciu — sticky i wyśrodkowane pionowo */
+.ps-visual { position: sticky; top: calc(50vh - 300px); display: flex; flex-direction: column; gap: 24px; }
+.ps-visual > .tag { align-self: flex-start; }
+.ps-visual > h2 { margin: 0; }
+.ps-stage { aspect-ratio: 4/3; border-radius: var(--r-lg); background: var(--bp-ink-25); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); }
+.ps-stage::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 30% 35%, rgba(101,179,46,.10), transparent 55%); }
+.ps-stage .ps-render { font: var(--t-h3); color: var(--bp-ink-400); position: relative; z-index: 1; transition: opacity var(--dur-base) var(--ease-out); text-align: center; padding: 24px; }
+.ps-sq { position: absolute; width: 64px; height: 64px; }
+.ps-sq.a { top: 0; left: 0; background: var(--bp-green-500); }
+.ps-sq.b { bottom: 0; right: 0; background: var(--bp-green-200); }
+.ps-list { display: flex; flex-direction: column; gap: 14px; }
+.ps-item { display: block; text-decoration: none; color: inherit; background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-radius: var(--r-md); padding: 24px 28px; transition: border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out); opacity: .55; }
+.ps-item:hover { opacity: 1; }
+.ps-item.is-active { opacity: 1; border-color: var(--bp-green-500); box-shadow: var(--shadow-md); }
+.ps-item h5 { font: var(--t-h3); color: var(--bp-ink-700); margin-bottom: 4px; }
+.ps-item .ps-note { font: var(--t-body-sm); color: var(--bp-ink-500); margin-bottom: 16px; }
+.ps-item .ps-cta { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border-radius: var(--r-sm); background: var(--bp-green-500); color: var(--bp-white); font: 700 13px/1 var(--f-display); }
+.ps-item:not(.is-active) .ps-cta { background: var(--bp-white); color: var(--bp-green-600); border: 1px solid var(--bp-ink-200); }
+
+/* === PPWR — slider kart-„teczek" + nagłówek 2-kol === */
+.ppwr-header { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; margin-bottom: 12px; }
+.ppwr-header h2 { margin: 0; }
+.ppwr-header p { margin: 0; }
+.article-slider-wrap { margin-top: 28px; }
+.article-slider-nav { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 18px; }
+.article-slider-nav button { width: 44px; height: 44px; border-radius: var(--r-full); border: 1px solid var(--bp-ink-200); background: var(--bp-white); color: var(--bp-ink-700); cursor: pointer; font-size: 18px; }
+.article-slider-nav button:hover { border-color: var(--bp-green-500); color: var(--bp-green-600); }
+.article-slider { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(300px, 340px); gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding-bottom: 14px; }
+.article-card { scroll-snap-align: start; background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-radius: 0 var(--r-md) var(--r-md) var(--r-md); padding: 28px; position: relative; margin-top: 18px; }
+.article-card::before { content: ""; position: absolute; top: -18px; left: -1px; width: 120px; height: 18px; background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-bottom: none; border-radius: var(--r-md) var(--r-md) 0 0; }
+.article-card .article-tag { position: relative; z-index: 1; }
+.article-card .art-divider { border: none; border-top: 1px dashed var(--bp-ink-200); margin: 16px 0; }
+.article-card p { font: var(--t-body-sm); color: var(--bp-ink-500); margin: 0; }
+
+/* === CO MOŻESZ ZROBIĆ + CYTAT — ciemna sekcja, kroki w poziomie === */
+.action-section { background: var(--bp-ink-800); color: var(--bp-white); position: relative; overflow: hidden; padding: 96px 80px; }
+.action-section::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle at 18% 25%, rgba(101,179,46,.20), transparent 30%), radial-gradient(circle at 72% 60%, rgba(101,179,46,.14), transparent 28%); animation: actiondrift 18s ease-in-out infinite alternate; }
+@keyframes actiondrift { from { transform: translate3d(0,0,0); } to { transform: translate3d(-30px,18px,0); } }
+.action-head { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-bottom: 48px; }
+.action-head h2 { font: var(--t-h1); letter-spacing: var(--ls-display-tight); color: var(--bp-white); margin: 0; }
+.action-quote { position: relative; }
+.action-quote .qmark { font: 700 64px/1 var(--f-display); color: var(--bp-green-300); display: block; margin-bottom: 8px; }
+.action-quote blockquote { border: none; padding: 0; margin: 0; max-width: 520px; font: 500 22px/1.45 var(--f-display); color: var(--bp-white); }
+.action-quote cite { display: block; margin-top: 18px; font: var(--t-label); letter-spacing: var(--ls-label-wide); text-transform: uppercase; color: rgba(255,255,255,.6); font-style: normal; }
+.action-steps { position: relative; z-index: 1; display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; border-radius: var(--r-lg); }
+.action-step { flex: 0 0 340px; scroll-snap-align: start; background: rgba(255,255,255,.05); border-right: 1px solid rgba(255,255,255,.12); padding: 40px; min-height: 240px; transition: flex-basis var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out); }
+.action-step.is-open { flex: 0 0 52%; }
+.action-step:first-child { border-radius: var(--r-lg) 0 0 var(--r-lg); }
+.action-step.is-open { background: var(--bp-white); color: var(--bp-ink-700); }
+.action-step .as-num { font: var(--t-display-2); line-height: 1; color: rgba(255,255,255,.35); margin-bottom: 18px; }
+.action-step.is-open .as-num { color: var(--bp-green-500); }
+.action-step h4 { font: var(--t-h3); color: inherit; margin-bottom: 10px; }
+.action-step .as-desc { font: var(--t-body-sm); color: inherit; opacity: .8; margin-bottom: 18px; }
+.action-step .as-link { font: var(--t-label); letter-spacing: var(--ls-label-wide); text-transform: uppercase; color: var(--bp-green-300); text-decoration: none; }
+.action-step.is-open .as-link { color: var(--bp-green-600); }
+.action-step:not(.is-open) h4, .action-step:not(.is-open) .as-desc { color: rgba(255,255,255,.85); }
+.action-hint { position: relative; z-index: 1; margin-top: 16px; font: var(--t-mono); color: rgba(255,255,255,.45); }
+
+/* === CASE — karuzela foto-forward, wyśrodkowana === */
+.case-section-v10 { text-align: center; }
+.case-section-v10 > .tag { margin: 0 auto 20px; }
+.case-section-v10 h2 { margin: 0 auto 16px; }
+.case-section-v10 .case-intro { margin: 0 auto 8px; text-align: center; }
+/* karuzela: duża karta na środku + podgląd sąsiadów po bokach (center snap + peek) */
+.case-carousel.is-photo { display: flex; grid-auto-columns: none; gap: 28px; text-align: left; padding-inline: calc(50% - 340px); }
+.case-slide.is-photo { flex: 0 0 680px; scroll-snap-align: center; padding: 0; border: 1px solid var(--bp-ink-100); border-radius: var(--r-md); overflow: hidden; background: var(--bp-white); }
+.case-slide.is-photo .case-photo { aspect-ratio: 16/10; background: linear-gradient(135deg, var(--bp-ink-100), var(--bp-ink-50)); display: flex; align-items: center; justify-content: center; font: var(--t-mono); color: var(--bp-ink-400); }
+.case-slide.is-photo .case-body { padding: 24px 32px 30px; }
+.case-slide.is-photo .case-name { margin-bottom: 6px; }
+.case-slide.is-photo .case-desc { margin-bottom: 16px; }
+.case-chips { display: flex; gap: 10px; flex-wrap: wrap; }
+.case-chip { font: var(--t-mono); color: var(--bp-ink-600); border: 1px solid var(--bp-ink-200); border-radius: var(--r-full); padding: 6px 14px; }
+.case-nav.is-center { justify-content: center; margin-top: 28px; }
+
+/* === RELATED — siatka z ikoną + przycisk === */
+.related-grid-v10 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 32px; }
+.related-card { background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-radius: var(--r-lg); padding: 32px; display: flex; flex-direction: column; }
+.related-card .rc-icon { width: 52px; height: 52px; border: 1px solid var(--bp-ink-200); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; color: var(--bp-green-600); margin-bottom: 20px; }
+.related-card .rc-icon svg { width: 26px; height: 26px; }
+.related-card h5 { font: var(--t-h4); color: var(--bp-ink-700); margin-bottom: 14px; }
+.related-card .rc-divider { border: none; border-top: 1px solid var(--bp-ink-100); margin: 0 0 16px; }
+.related-card p { font: var(--t-body-sm); color: var(--bp-ink-500); margin: 0 0 24px; flex: 1; }
+.related-card .rc-btn { align-self: flex-start; }
+
+/* === FAQ — split 2-kol sticky, prawa kolumna węższa === */
+.faq-split .split { grid-template-columns: minmax(300px, 380px) minmax(0, 640px); }
+.faq-split .split-head { top: 48px; }
+.faq-accordion { max-width: 100%; }
+/* akordeon: ikona +/− zamiast strzałki */
+.faq-accordion details summary::after {
+  content: "+"; background-image: none; width: auto; height: auto;
+  font: 300 30px/1 var(--f-display); color: var(--bp-green-500);
+  right: 2px; transform: translateY(-50%);
+}
+.faq-accordion details[open] summary::after { content: "\2212"; transform: translateY(-50%); background-image: none; }
+
+@media (max-width: 980px) {
+  .split, .product-showcase, .ppwr-header, .action-head { grid-template-columns: 1fr; }
+  .split-head, .ps-visual { position: static; }
+}
 </style>
 </head>
 <body class="bp-base">
@@ -886,7 +1138,7 @@ details > p {
 
     <div class="meta-banner">
       <strong>Makieta v2 — strona #04 — Farmacja i kosmetyki</strong>
-      URL: <code>/branzowe/przemysl-farmaceutyczny-i-kosmetyczny/</code> · compliance compact (wyłączenie do 2035)
+      URL: <code>/branzowe/przemysl-farmaceutyczny-i-kosmetyczny/</code> · compliance — opakowania transportowe pharma + kosmetyki w zakresie PPWR
       <div class="specs">
         <div><b>Klasyfikacja:</b> compliance compact</div>
         <div><b>Persona:</b> Compliance / Sustainability Manager</div>
@@ -937,11 +1189,11 @@ details > p {
 
 <div class="hero">
   <div class="hero-content">
-    <h1>Pojemniki ESD i sterylne dla farmacji</h1>
-    <p class="lead">Pojemniki ESD EURO-NORM dla podzespołów elektronicznych w urządzeniach medycznych, pojemniki sterylizowalne dla produkcji farmaceutycznej, kanistry dla chemii kosmetycznej.</p>
+    <h1>Opakowania dla farmacji i kosmetyków</h1>
+    <p class="lede">Opakowania farmaceutyczne i kosmetyczne wielokrotnego użytku: pojemniki ESD EURO-NORM dla podzespołów urządzeń medycznych, pojemniki sterylizowalne dla produkcji farmaceutycznej i kanistry dla chemii kosmetycznej.</p>
     <div class="cta-row">
-      <a href="#" class="btn btn-primary">Rozmowa z ekspertem →</a>
-      <a href="#" class="btn btn-outline">Sprawdź audyt PPWR (30 sek)</a>
+      <a href="#kontakt" class="btn btn-primary">Zapytaj eksperta</a>
+      <a href="#" class="btn btn-outline">Przeprowadź audyt PPWR</a>
     </div>
   </div>
   <div class="hero-illustration">
@@ -962,97 +1214,320 @@ details > p {
       <span class="anim-label">▶ Wideo / animacja zapętlona (mute, autoplay) — produkty w cyklu reuse</span>
     </div>
     <div class="tldr-box">
-      <span class="tag is-green">TL;DR</span>
+      <span class="tag is-green">NAJWAŻNIEJSZE</span>
       <h2>Kluczowe wnioski</h2>
       <ul>
-        <li><b>Farmacja ma wyłączenie z PPWR Art. 26 do 2035 r.</b> produkcja farmaceutyczna i opakowania pierwotne (blistry, fiolki) są wyłączone z celów reuse na 9 lat dłużej niż reszta branż.</li><li><b>To brzmi jak luksus — to jest pułapka.</b> Infrastruktura RTP zostanie zbudowana dla innych branż w 2026–2030. Farmacja w 2035 dołącza do gotowego systemu lub buduje od zera.</li><li><b>Kosmetyki nie mają wyłączenia</b> kosmetyka kontraktowa, dystrybucja kosmetyków do retail = Art. 29(3) PPWR (40% reuse 2030).</li><li><b>PFAS ban (Art. 5)</b> dotyczy wszystkich opakowań do kontaktu — w tym opakowań chemii kosmetycznej. Wymaga audytu folii i powłok do 12.08.2026.</li><li><b>ESD dla farmacji rośnie</b> wraz z digitalizacją (urządzenia medyczne, IoT sensory) — bekuplast produkuje pojemniki ESD wg IEC 61340-5-1.</li>
+        <li><b>PPWR nie omija opakowań transportowych farmacji.</b> Opakowania bezpośrednie leków i wyrobów medycznych są wyłączone z celów reuse ze względów bezpieczeństwa, ale opakowania transportowe i dystrybucyjne w logistyce pharma podlegają tym samym celom co inne branże (Art. 29).</li><li><b>Kosmetyki nie mają żadnego wyłączenia.</b> Kosmetyka kontraktowa i dystrybucja kosmetyków do handlu = cele ponownego użycia opakowań transportowych (40% w 2030, 70% w 2040).</li><li><b>Rok 2035 to nie wyłączenie farmacji.</b> To unijny próg redukcji odpadów opakowaniowych (10% vs 2018, Art. 43) — dotyczy wszystkich sektorów.</li><li><b>Transport wewnątrz firmy = 100% reuse do 2030.</b> Zakłady z 2+ lokalizacjami muszą używać opakowań wielokrotnego użytku w obiegu między nimi (Art. 29).</li><li><b>ESD rośnie z med-techem.</b> bekuplast produkuje pojemniki ESD wg IEC 61340-5-1 dla podzespołów urządzeń medycznych, diagnostyki i sensorów.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section>
-  <h2>Trzy wyzwania farmacji i kosmetyki kontraktowej</h2>
-  <div class="cards-grid">
-    <div class="card"><div class="num">01</div><h4>Sterylność + materiały do kontaktu</h4><p>Produkcja farmaceutyczna wymaga pojemników sterylizowalnych (autoklaw 121°C / 134°C), bez emisji substancji do produktu, z dopuszczeniem do kontaktu z substancjami farmaceutycznymi.</p><div class="what">→ Pojemniki HDPE virgin food-grade + opcja PP do sterylizacji wysokotemperaturowej. Certyfikaty wg Reg. (UE) 10/2011.</div></div>
-<div class="card"><div class="num">02</div><h4>ESD dla urządzeń medycznych i diagnostyki</h4><p>Sektor med-tech (diagnostyka, urządzenia monitorujące, sensory) rośnie 12–18% rocznie. Wymagania ESD identyczne jak w electronics (IEC 61340-5-1).</p><div class="what">→ Pojemniki ESD EURO-NORM.</div></div>
-<div class="card"><div class="num">03</div><h4>PFAS ban dla opakowań kosmetyki + chemii</h4><p>Folie barierowe stosowane w opakowaniach kosmetycznych (kremy, balsamy, perfumy) często zawierają PFAS. Od 12.08.2026 — zakaz. Wymaga audytu wszystkich folii.</p><div class="what">→ HDPE plastikowe pojemniki bekuplast nigdy nie zawierały PFAS.</div></div>
+<section class="alt-bg">
+  <div class="split">
+    <div class="split-head">
+      <span class="tag">WYZWANIA</span>
+      <h2>Trzy wyzwania farmacji i kosmetyki kontraktowej</h2>
+      <p class="split-lead">Farmacja i kosmetyka kontraktowa potrzebują opakowań łączących sterylność, ochronę ESD i zgodność z PPWR w logistyce transportowej.</p>
+      <p class="sticky-hint">↓ przewiń — wyzwań jest 3–5 zależnie od branży</p>
+    </div>
+    <div class="challenge-list">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h4>Sterylność + materiały do kontaktu</h4>
+        <p>Produkcja farmaceutyczna wymaga pojemników sterylizowalnych (autoklaw 121°C / 134°C), bez emisji substancji do produktu, z dopuszczeniem do kontaktu z substancjami farmaceutycznymi. Pojemniki HDPE virgin food-grade + opcja PP do sterylizacji wysokotemperaturowej. Certyfikaty wg Reg. (UE) 10/2011.</p>
+        <div class="challenge-product">
+          <div class="cp-thumb">[Sterylizowalne]</div>
+          <div class="cp-info"><div class="cp-name">Pojemniki sterylizowalne</div><div class="cp-dim">Autoklaw 121°C / 134°C · Reg. (UE) 10/2011</div><a href="#">zobacz produkt →</a></div>
+        </div>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h4>ESD dla urządzeń medycznych i diagnostyki</h4>
+        <p>Sektor med-tech (diagnostyka, urządzenia monitorujące, sensory) szybko rośnie. Wymagania ESD identyczne jak w electronics (IEC 61340-5-1). Pojemniki ESD EURO-NORM.</p>
+        <div class="challenge-product">
+          <div class="cp-thumb">[EURO-NORM ESD]</div>
+          <div class="cp-info"><div class="cp-name">Pojemnik EURO-NORM ESD</div><div class="cp-dim">IEC 61340-5-1</div><a href="#">zobacz produkt →</a></div>
+        </div>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h4>Cele ponownego użycia w transporcie i dystrybucji</h4>
+        <p>Opakowania bezpośrednie leków są wyłączone z celów reuse ze względów bezpieczeństwa, ale opakowania transportowe i grupowe w logistyce farmaceutycznej oraz dystrybucji kosmetyków podlegają celom Art. 29 PPWR (40% w 2030, 70% w 2040). Pojemniki zwrotne ESD/sterylne + ALC tradeline dla obiegu zwrotnego pharma i drogerii.</p>
+        <div class="challenge-product">
+          <div class="cp-thumb">[AL643G]</div>
+          <div class="cp-info"><div class="cp-name">ALC tradeline AL643G</div><div class="cp-dim">Obieg zwrotny pharma i drogerii</div><a href="#">zobacz produkt →</a></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section>
-  <h2>Pojemniki ESD i sterylne</h2>
-  <div class="product-tiles">
-    <a class="tile is-featured" href="#"><div class="img-placeholder">[AL643G]</div><h5>ALC tradeline AL643G</h5><div class="tile-meta is-featured-note">Polecany dla farmacji i kosmetyków</div><div class="tile-meta">ALC tradeline dla obrotu zwrotnego pharma + drogerie</div></a>
-<a class="tile" href="#"><div class="img-placeholder">[EURO-NORM ESD]</div><h5>EURO-NORM ESD</h5><div class="tile-meta">IEC 61340-5-1 dla med-tech</div></a>
-<a class="tile" href="#"><div class="img-placeholder">[Sterylizowalne]</div><h5>Sterylizowalne</h5><div class="tile-meta">Autoklaw 121°C / 134°C</div></a>
-<a class="tile" href="#"><div class="img-placeholder">[basicline]</div><h5>basicline</h5><div class="tile-meta">Uniwersalne kosmetyka</div></a>
-<a class="tile" href="#"><div class="img-placeholder">[lightline]</div><h5>lightline</h5><div class="tile-meta">Lekki picking</div></a>
-<a class="tile" href="#"><div class="img-placeholder">[Wersje specjalne]</div><h5>Wersje specjalne</h5><div class="tile-meta">Farma indywidualne</div></a>
-<a class="tile" href="#"><div class="img-placeholder">[Indywidualne]</div><h5>Indywidualne</h5><div class="tile-meta">Pod produkcję farma</div></a>
+  <div class="product-showcase">
+    <div class="ps-visual">
+      <span class="tag">PRODUKTY</span>
+      <h2>Pojemniki ESD i sterylne</h2>
+      <div class="ps-stage">
+        <span class="ps-sq a"></span><span class="ps-sq b"></span>
+        <span class="ps-render" id="ps-render-04">[AL643G]</span>
+      </div>
+    </div>
+    <div class="ps-list" data-render-target="ps-render-04">
+      <a class="ps-item is-active" href="#" data-render="[AL643G]"><h5>ALC tradeline AL643G</h5><div class="ps-note">ALC tradeline dla obrotu zwrotnego pharma i drogerii</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[EURO-NORM ESD]"><h5>EURO-NORM ESD</h5><div class="ps-note">IEC 61340-5-1 dla med-tech</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[Sterylizowalne]"><h5>Sterylizowalne</h5><div class="ps-note">Autoklaw 121°C / 134°C</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[basicline]"><h5>basicline</h5><div class="ps-note">Uniwersalne kosmetyka</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[lightline]"><h5>lightline</h5><div class="ps-note">Lekki picking</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[Wersje specjalne]"><h5>Wersje specjalne</h5><div class="ps-note">Farma indywidualne</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[Indywidualne]"><h5>Indywidualne</h5><div class="ps-note">Pod produkcję farma</div><span class="ps-cta">Zobacz serię →</span></a>
+    </div>
   </div>
 </section>
 
 <section class="ppwr-section">
-  <h2>PPWR a farmacja — wyłączenie do 2035 brzmi jak luksus. To jest pułapka czasowa</h2>
-  <p>Art. 26 PPWR wyłącza produkcję farmaceutyczną z celów reuse do 2035 r. Wyłączenie dotyczy opakowań pierwotnych (blistry, fiolki, ampułki). Nie dotyczy: opakowań pomocniczych w farmacji (Art. 29(1)), kosmetyki kontraktowej i dystrybucji do retail (Art. 29(3)), chemii specjalistycznej.</p>
-  
-  <div class="regulations-grid">
-    <div class="reg-pill"><span class="article-tag">Art. 26</span><p>Wyłączenie produktów farmaceutycznych do 2035 r. Pułapka czasowa: brak ekspertyzy operacyjnej + dostawcy zoptymalizowani pod inne branże.</p></div>
-<div class="reg-pill"><span class="article-tag">Art. 29(1)</span><p>100% reuse intra-firmowo do 2030 — dotyczy farmacji tak samo jak innych branż (transport między zakładami).</p></div>
-<div class="reg-pill"><span class="article-tag">Art. 29(3)</span><p>Kosmetyka kontraktowa i dystrybucja do retail — 40% reuse 2030 (przez sieci drogerii Rossmann, Hebe).</p></div>
-<div class="reg-pill"><span class="article-tag">Art. 5 PFAS</span><p>Zakaz PFAS w opakowaniach do kontaktu, w tym folii barierowych w opakowaniach kosmetycznych. Audit do 12.08.2026.</p></div>
+  <span class="tag">PPWR · COMPLIANCE</span>
+  <div class="ppwr-header">
+    <h2>PPWR a farmacja i kosmetyki — co naprawdę jest objęte, a co wyłączone</h2>
+    <p>PPWR (Rozporządzenie UE 2025/40, stosowane od 12 sierpnia 2026 r.) wyłącza z celów ponownego użycia opakowania bezpośrednie produktów leczniczych i wyrobów medycznych — ze względów bezpieczeństwa, bezterminowo. Wyłączenie nie obejmuje opakowań transportowych i dystrybucyjnych w logistyce farmaceutycznej ani opakowań kosmetyków, które podlegają celom reuse jak w innych branżach. Data 2035 w PPWR to nie wyłączenie farmacji, lecz unijny próg redukcji odpadów opakowaniowych (10% vs 2018, Art. 43) — obowiązujący wszystkie sektory.</p>
   </div>
-  <blockquote>
-    Farmacja ma wyłączenie do 2035 — to wydaje się sukces lobbystyczny branży. Ale to pułapka czasowa. W 2035 cała reszta UE działa w infrastrukturze RTP, farmacja musi się dopasować. Firmy, które dziś pilotują RTP w opakowaniach pomocniczych, mają 9 lat przewagi nad konkurencją.
-    <cite>— MMLC (Maciej Mądry), kancelaria prawna, podcast 'Prawo opakowaniowe' #14</cite>
-  </blockquote>
-  <div class="ppwr-cta-box">
-    <h3>Co możesz zrobić teraz</h3>
-    <ol>
-      <li><b>Pobierz raport "Pułapka 2035"</b> — co konkretnie pilotować w 2026–2027. → <a href="#">Pobierz PDF</a></li><li><b>Sprawdź gotowość firmy</b> (krótki audyt indykatywny). → <a href="#">Sprawdź gotowość PPWR</a></li>
-    </ol>
+  <div class="article-slider-wrap">
+    <div class="article-slider-nav">
+      <button type="button" aria-label="Poprzedni" onclick="this.closest('.article-slider-wrap').querySelector('.article-slider').scrollBy({left:-340,behavior:'smooth'})">‹</button>
+      <button type="button" aria-label="Następny" onclick="this.closest('.article-slider-wrap').querySelector('.article-slider').scrollBy({left:340,behavior:'smooth'})">›</button>
+    </div>
+    <div class="article-slider">
+      <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>Opakowania transportowe między zakładami tej samej firmy — 100% reuse do 2030 r. Między operatorami (dystrybucja) — 40% w 2030, 70% w 2040.</p></div>
+      <div class="article-card"><span class="article-tag">Wyłączenie pharma</span><hr class="art-divider"><p>Opakowania bezpośrednie leków i wyrobów medycznych — wyłączone z celów reuse ze względów bezpieczeństwa, bezterminowo. Nie dotyczy opakowań transportowych.</p></div>
+      <div class="article-card"><span class="article-tag">Art. 43</span><hr class="art-divider"><p>Próg redukcji odpadów opakowaniowych per capita: 5% (2030), 10% (2035), 15% (2040) vs 2018 — dotyczy wszystkich branż.</p></div>
+      <div class="article-card"><span class="article-tag">Kosmetyki</span><hr class="art-divider"><p>Kosmetyka kontraktowa i dystrybucja kosmetyków do handlu — pełne cele ponownego użycia opakowań transportowych (Art. 29).</p></div>
+    </div>
   </div>
 </section>
 
-<section>
-  <h2>Przykładowe wdrożenia bekuplast</h2>
-  <p>bekuplast dostarcza pojemniki zwrotne firmom w 51 krajach — od dystrybucji i handlu po przemysł. Wybrane realizacje opisujemy w sekcji referencji.</p>
-  <p class="ref-note"><a href="#">Zobacz przykładowe wdrożenia bekuplast →</a></p>
+<section class="action-section">
+  <span class="tag is-dark">NASTĘPNE KROKI</span>
+  <div class="action-head">
+    <h2>Co możesz zrobić już teraz</h2>
+    <div class="action-quote">
+      <span class="qmark">&ldquo;</span>
+      <blockquote>Cele ponownego użycia nie obejmują opakowań bezpośrednich leków i wyrobów medycznych — to wyłączenie podyktowane bezpieczeństwem, nie ulgą czasową. Rok 2035 nie jest „pułapką" farmacji (to unijny próg redukcji odpadów), lecz odkładanie pilotaży w opakowaniach transportowych, które PPWR już obejmuje.</blockquote>
+      <cite>na podstawie Rozporządzenia (UE) 2025/40 (PPWR), Art. 29 i 43 — EUR-Lex</cite>
+    </div>
+  </div>
+  <div class="action-steps">
+    <div class="action-step is-open">
+      <div class="as-num">01</div>
+      <h4>Przeprowadź audyt PPWR</h4>
+      <div class="as-desc">Sprawdź, co dotyczy Twoich opakowań transportowych w pharma i kosmetyce.</div>
+      <a class="as-link" href="#">Przejdź do audytu →</a>
+    </div>
+    <div class="action-step">
+      <div class="as-num">02</div>
+      <h4>Oblicz koszt PPWR</h4>
+      <div class="as-desc">Porównaj opakowania jednorazowe i zwrotne pojemniki ESD/sterylne, zobacz break-even.</div>
+      <a class="as-link" href="#">Otwórz kalkulator →</a>
+    </div>
+    <div class="action-step">
+      <div class="as-num">03</div>
+      <h4>Zapytaj eksperta</h4>
+      <div class="as-desc">O PPWR w farmacji i kosmetyce.</div>
+      <a class="as-link" href="#kontakt">Umów rozmowę →</a>
+    </div>
+  </div>
+  <p class="action-hint">→ przewiń w poziomie, aby odsłonić kolejne kroki</p>
+</section>
+
+<section class="case-section-v10 alt-bg">
+  <span class="tag">DOWODY</span>
+  <h2>Przykładowe wdrożenia</h2>
+  <p class="case-intro">Bez niezweryfikowanych liczb — pokazujemy wyłącznie realne wdrożenia bekuplast oraz fakty wprost z rozporządzenia i nazwanych źródeł.</p>
+  <div class="case-carousel-wrap">
+    <div class="case-carousel is-photo is-loop">
+      <article class="case-slide is-photo">
+        <div class="case-photo">[foto wdrożenia]</div>
+        <div class="case-body">
+          <div class="case-name">ROSSMANN</div>
+          <p class="case-desc">Intralogistyka sieci drogerii (DE) — pojemniki obiegowe w magazynie centralnym.</p>
+          <div class="case-chips"><span class="case-chip">2025</span><span class="case-chip">160 000 pojemników</span></div>
+        </div>
+      </article>
+      <article class="case-slide is-photo">
+        <div class="case-photo">[foto wdrożenia]</div>
+        <div class="case-body">
+          <div class="case-name">Orbico</div>
+          <p class="case-desc">Dystrybucja beauty i FMCG (PL) — pojemniki zwrotne w kompletacji zamówień.</p>
+          <div class="case-chips"><span class="case-chip">2023</span><span class="case-chip">46 000 pojemników</span></div>
+        </div>
+      </article>
+      <article class="case-slide is-photo">
+        <div class="case-photo">[foto wdrożenia]</div>
+        <div class="case-body">
+          <div class="case-name">Onninen</div>
+          <p class="case-desc">Dystrybucja materiałów budowlanych (PL) — pojemniki contecline.</p>
+          <div class="case-chips"><span class="case-chip">2019</span><span class="case-chip">40 000 pojemników</span></div>
+        </div>
+      </article>
+      <article class="case-slide is-photo">
+        <div class="case-photo">[foto wdrożenia]</div>
+        <div class="case-body">
+          <div class="case-name">Auto Partner SA</div>
+          <p class="case-desc">Dystrybucja części samochodowych (PL) — obieg zwrotny w centrum dystrybucyjnym.</p>
+          <div class="case-chips"><span class="case-chip">2022</span><span class="case-chip">27 000 pojemników</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="case-nav is-center">
+      <button type="button" aria-label="Poprzednie wdrożenie" onclick="caseLoop(this,-1)">‹</button>
+      <button type="button" aria-label="Następne wdrożenie" onclick="caseLoop(this,1)">›</button>
+    </div>
+  </div>
+  <p class="ref-note"><a href="#">Zobacz wszystkie wdrożenia bekuplast →</a></p>
 </section>
 
 
 
 
 
-<section>
+<!-- KOSZT PPWR — nagłówek STAŁY na każdej stronie; różni się tylko akapit {{PARA}} -->
+<section class="koszt-section">
+  <div class="koszt-content">
+    <span class="section-eyebrow">KOSZT PPWR</span>
+    <h2>Koszt przejścia na skrzynki wielokrotnego użytku</h2>
+    <p>Porównaj koszt opakowań jednorazowych i zwrotnych pojemników ESD/sterylnych w logistyce pharma i kosmetyków — kalkulator pokaże break-even i strukturę CO₂.</p>
+    <a href="#" class="btn btn-secondary btn-lg">Oblicz koszt PPWR w 2 min.</a>
+  </div>
+  <div class="koszt-illustration">
+    <span class="illustration-label">Kalkulator kosztu PPWR</span>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <span class="tag">POWIĄZANE</span>
   <h2>Może Cię też zainteresować</h2>
-  <div class="related-grid">
-    <a class="related-tile" href="#"><h5>Przetwórstwo żywności →</h5><p>HACCP + materiały do kontaktu z żywnością + PFAS — wspólne wyzwania regulacyjne.</p></a>
-<a class="related-tile" href="#"><h5>Produkcja przemysłowa →</h5><p>Pojemniki ESD dla podzespołów elektronicznych w urządzeniach medycznych.</p></a>
+  <div class="related-grid-v10">
+    <div class="related-card">
+      <div class="rc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5.5 18a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L14 9.5V3"/><path d="M7 15h10"/></svg></div>
+      <h5>Przetwórstwo żywności</h5>
+      <hr class="rc-divider">
+      <p>HACCP + materiały do kontaktu z żywnością + PFAS — wspólne wyzwania regulacyjne.</p>
+      <a class="btn btn-outline btn-sm rc-btn" href="#">Zobacz więcej</a>
+    </div>
+    <div class="related-card">
+      <div class="rc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg></div>
+      <h5>Produkcja przemysłowa</h5>
+      <hr class="rc-divider">
+      <p>Pojemniki ESD dla podzespołów elektronicznych w urządzeniach medycznych.</p>
+      <a class="btn btn-outline btn-sm rc-btn" href="#">Zobacz więcej</a>
+    </div>
   </div>
 </section>
 
-<section>
-  <h2>Najczęściej zadawane pytania</h2>
-  <details><summary>Czy farmacja jest objęta PPWR?</summary><p>Częściowo wyłączona — produkty farmaceutyczne i opakowania pierwotne (blistry, fiolki, ampułki) są wyłączone z celów reuse PPWR (Art. 26) do 2035 r. Wyłączenie nie dotyczy opakowań pomocniczych, kosmetyki kontraktowej ani dystrybucji do retail.</p></details>
+<section class="faq-split">
+  <div class="split">
+    <div class="split-head">
+      <span class="tag">FAQ</span>
+      <h2>Najczęściej zadawane pytania</h2>
+      <p class="sticky-hint">↓ przewiń pytania</p>
+    </div>
+    <div class="faq-accordion faq-list">
+  <details><summary>Czy farmacja jest objęta PPWR?</summary><p>Tak — w zakresie opakowań transportowych i dystrybucyjnych. Wyłączone z celów ponownego użycia są wyłącznie opakowania bezpośrednie produktów leczniczych i wyrobów medycznych (ze względów bezpieczeństwa). Opakowania transportowe w logistyce pharma oraz całość opakowań kosmetyków podlegają celom reuse jak w innych branżach.</p></details>
 <details><summary>Co to są pojemniki ESD i kiedy są potrzebne w farmacji?</summary><p>Pojemniki ESD (Electrostatic Discharge) mają rezystancję powierzchniową 10⁴–10⁹ Ω — eliminują wyładowania elektrostatyczne uszkadzające komponenty elektroniczne. W farmacji stosowane dla urządzeń medycznych, sensorów diagnostycznych, modułów IoT. Certyfikacja: IEC 61340-5-1.</p></details>
 <details><summary>Czy macie pojemniki sterylizowalne?</summary><p>Tak — w wersji specjalnej PP do sterylizacji w autoklawie 121°C / 134°C. Dopuszczenie wg Reg. (UE) 10/2011. Czas projektu + prototypu: 8–12 tygodni dla indywidualnego numeru artykułu.</p></details>
-<details><summary>Co z PFAS w opakowaniach kosmetyki?</summary><p>PFAS ban (Art. 5 PPWR) dotyczy wszystkich opakowań do kontaktu od 12.08.2026 — w tym folii barierowych w opakowaniach kosmetycznych. HDPE plastikowe pojemniki bekuplast nigdy nie zawierały PFAS.</p></details>
-<details><summary>Czy pojemniki bekuplast są dopuszczone do kontaktu z kosmetykami?</summary><p>Tak — HDPE virgin z certyfikatem wg Reg. (UE) 10/2011 (materiały z tworzyw sztucznych przeznaczonych do kontaktu z żywnością i kosmetykami).</p></details>
-<details><summary>Czy warto inwestować w RTP mimo wyłączenia do 2035?</summary><p>Tak, w opakowaniach pomocniczych (transport między zakładami — Art. 29(1) obowiązuje od 2030) oraz w dystrybucji do hurtowni / retail (Art. 29(3)). To buduje 9-letnią przewagę operacyjną vs konkurencja czekająca na 2035.</p></details>
+<details><summary>Co z PFAS w opakowaniach kosmetyki?</summary><p>Zakaz PFAS (Art. 5 PPWR, od 12.08.2026) dotyczy opakowań przeznaczonych do kontaktu z żywnością — nie obejmuje opakowań kosmetyków ani chemii. Niezależnie od tego pojemniki HDPE bekuplast nigdy nie zawierały PFAS.</p></details>
+<details><summary>Czy pojemniki bekuplast są dopuszczone do kontaktu z kosmetykami?</summary><p>Tak — HDPE virgin z certyfikatem wg Reg. (UE) 10/2011 (materiały z tworzyw sztucznych przeznaczone do kontaktu z żywnością). Ten sam materiał klasy food-grade stosujemy w opakowaniach transportowych dla chemii kosmetycznej.</p></details>
+<details><summary>Czy warto inwestować w RTP w farmacji już teraz?</summary><p>Tak. Opakowania transportowe między zakładami (Art. 29, 100% reuse do 2030) i dystrybucja do hurtowni/aptek oraz drogerii (cele 40% w 2030) są objęte PPWR niezależnie od wyłączenia opakowań bezpośrednich. Wczesny pilotaż buduje przewagę operacyjną.</p></details>
+    </div>
+  </div>
 </section>
 
-<div class="end-cta">
-  <div class="end-cta-content">
-    <h2>Porozmawiajmy o pojemnikach ESD i sterylnych dla Twojego zakładu</h2>
-      <p>Rozmowa z ekspertem — z osobą, która projektowała pojemniki ESD dla med-tech i kosmetyki kontraktowej.</p>
+<section class="form-cta" id="kontakt">
+  <div class="form-cta-grid">
+    <div class="form-cta-content">
+      <span class="section-eyebrow">ZADAJ PYTANIA</span>
+      <h2>Porozmawiaj z ekspertem bekuplast o PPWR</h2>
       <ul>
-        <li>Odpowiedź w 24 godziny</li><li>Konsultacja merytoryczna</li><li>Konsultacja bezpłatna</li><li>Próbki bezpłatne</li>
+        <li>Odpowiadamy w 24 godziny</li>
+        <li>Rozmowa z ekspertem, nie z handlowcem</li>
+        <li>Konsultacja bezpłatna i bez zobowiązań</li>
+        <li>Poznaj dokładny koszt wdrożenia</li>
       </ul>
-      <a href="#" class="btn btn-primary">Umów rozmowę z ekspertem →</a>
+    </div>
+    <div class="form-card">
+      <h3>Umów rozmowę z ekspertem</h3>
+      <form onsubmit="return false">
+        <div class="form-field">
+          <label for="cf-name">Imię i nazwisko</label>
+          <input id="cf-name" type="text" placeholder="Twoje imię i nazwisko">
+        </div>
+        <div class="form-field">
+          <label for="cf-company">Firma</label>
+          <input id="cf-company" type="text" placeholder="Nazwa firmy">
+        </div>
+        <div class="form-field">
+          <label for="cf-email">E-mail</label>
+          <input id="cf-email" type="email" placeholder="Adres e-mail">
+        </div>
+        <div class="form-field">
+          <label for="cf-branza">Branża</label>
+          <select id="cf-branza">
+            <option value="" selected disabled>Wybierz</option>
+            <option>Motoryzacja i automotive</option>
+            <option>Przetwórstwo żywności</option>
+            <option>Napoje</option>
+            <option>Farmacja i kosmetyki</option>
+            <option>Intralogistyka i magazyn</option>
+            <option>Logistyka i transport (3PL)</option>
+            <option>Rolnictwo i ogrodnictwo</option>
+            <option>Produkcja przemysłowa</option>
+            <option>Handel detaliczny i FMCG</option>
+            <option>E-commerce i fulfillment</option>
+            <option>Inna</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Umów rozmowę z ekspertem</button>
+      </form>
+    </div>
   </div>
-</div></div>
+</section></div>
 </div>
+<script>
+/* Produkty — render po lewej podmienia się wraz z aktywnym boksem; aktywacja bliżej GÓRY ekranu */
+document.querySelectorAll('.ps-list').forEach(function (list) {
+  var renderEl = document.getElementById(list.dataset.renderTarget);
+  var items = Array.prototype.slice.call(list.querySelectorAll('.ps-item'));
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        items.forEach(function (i) { i.classList.remove('is-active'); });
+        e.target.classList.add('is-active');
+        if (renderEl) { renderEl.textContent = e.target.dataset.render; }
+      }
+    });
+  }, { rootMargin: '-22% 0px -68% 0px', threshold: 0 });
+  items.forEach(function (i) { io.observe(i); });
+});
+
+/* Wdrożenia — karuzela „endless loop": kopia przed i po, start w środku (podgląd sąsiadów po obu stronach) */
+function caseGap(car) { var cs = getComputedStyle(car); return parseFloat(cs.columnGap || cs.gap) || 28; }
+document.querySelectorAll('.case-carousel.is-loop').forEach(function (car) {
+  var originals = Array.prototype.slice.call(car.children);
+  var n = originals.length;
+  originals.forEach(function (node) { car.appendChild(node.cloneNode(true)); });
+  originals.slice().reverse().forEach(function (node) { car.insertBefore(node.cloneNode(true), car.firstChild); });
+  function setW() { return n * (originals[0].getBoundingClientRect().width + caseGap(car)); }
+  requestAnimationFrame(function () { car.scrollLeft = setW(); });
+  car.addEventListener('scroll', function () {
+    var s = setW();
+    if (car.scrollLeft < s) car.scrollLeft += s;
+    else if (car.scrollLeft >= 2 * s) car.scrollLeft -= s;
+  });
+});
+function caseLoop(btn, dir) {
+  var car = btn.closest('.case-carousel-wrap').querySelector('.case-carousel');
+  var step = car.children[0].getBoundingClientRect().width + caseGap(car);
+  car.scrollBy({ left: dir * step, behavior: 'smooth' });
+}
+</script>
 </body>
 </html>
