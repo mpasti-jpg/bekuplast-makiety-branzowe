@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Skrzynka na piwo i skrzynki na butelki zwrotne | bekuplast</title>
-<meta name="description" content="Skrzynki przegrodowe na piwo i butelki zwrotne dla browarów, mleczarni i rozlewni. Redukcja stłuczek o 60–85%. Kaucja, ROP-napoje i PPWR — sprawdź.">
-<!-- Canonical tokens — single source of truth z /design-system/ -->
+<meta name="description" content="Skrzynki przegrodowe na piwo i butelki zwrotne dla browarów, mleczarni i rozlewni. Redukcja stłuczek o 60–85%. Kaucja, ROP-napoje i PPWR – sprawdź.">
+<!-- Canonical tokens – single source of truth z /design-system/ -->
 <link rel="stylesheet" href="design-system/colors_and_type.css">
 <style>
 /* ===================================================================
-   Makieta layout — używa wyłącznie tokens z colors_and_type.css.
-   Nie definiujemy żadnych kolorów ani typografii inline — wszystko
+   Makieta layout – używa wyłącznie tokens z colors_and_type.css.
+   Nie definiujemy żadnych kolorów ani typografii inline – wszystko
    przez var(--bp-*) lub helper classes .bp-*.
    Per design-system/README.md:
      - 80px gutter (--s-20), 1352px maxw (--maxw)
@@ -376,7 +376,7 @@ section p {
   margin-bottom: 6px;
 }
 
-/* === CARDS GRID (Wyzwania) — flat, hover shadow + ty(-2px) === */
+/* === CARDS GRID (Wyzwania) – flat, hover shadow + ty(-2px) === */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -421,7 +421,7 @@ section p {
   color: var(--bp-green-600);
 }
 
-/* === PRODUCT TILES — image 4:3 + 24px content =============== */
+/* === PRODUCT TILES – image 4:3 + 24px content =============== */
 .product-tiles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -475,7 +475,7 @@ section p {
   margin-top: 4px;
 }
 
-/* === PPWR SECTION — lightgreen accent ======================= */
+/* === PPWR SECTION – lightgreen accent ======================= */
 .ppwr-section {
   background: linear-gradient(135deg, var(--bp-green-50) 0%, var(--bp-white) 100%);
   border-left: 6px solid var(--bp-green-500);
@@ -567,7 +567,7 @@ blockquote cite {
   margin-top: 20px;
 }
 .case-placeholder::before {
-  content: "PLACEHOLDER — UZUPEŁNIĆ PO AD3";
+  content: "PLACEHOLDER – UZUPEŁNIĆ PO AD3";
   position: absolute; top: -12px; left: 24px;
   background: var(--bp-danger); color: var(--bp-white);
   padding: 5px 12px; border-radius: var(--r-sm);
@@ -593,7 +593,7 @@ blockquote cite {
 }
 .case-placeholder li b { color: var(--bp-ink-700); font-weight: 700; }
 
-/* === Referencje / wdrożenia (v7 — zastępują fikcyjne case-placeholder) === */
+/* === Referencje / wdrożenia (v7 – zastępują fikcyjne case-placeholder) === */
 .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 32px; }
 .ref-card { background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-left: 3px solid var(--bp-green-500); padding: 24px; border-radius: var(--r-md); }
 .ref-card .ref-name { font: var(--t-h4); color: var(--bp-ink-700); margin-bottom: 8px; }
@@ -602,7 +602,7 @@ blockquote cite {
 .ref-note { margin-top: 24px; font: var(--t-body); color: var(--bp-ink-500); }
 .ref-note a { color: var(--bp-green-600); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--bp-green-500); }
 
-/* === MID CTA — green primary banner ========================= */
+/* === MID CTA – green primary banner ========================= */
 .mid-cta-box {
   background: var(--bp-green-500); color: var(--bp-white);
   padding: 48px; border-radius: var(--r-lg);
@@ -621,7 +621,7 @@ blockquote cite {
   font: var(--t-body-lg);
 }
 
-/* === POOLING — green→lightgreen gradient ==================== */
+/* === POOLING – green→lightgreen gradient ==================== */
 .pooling-highlight {
   background: linear-gradient(135deg, var(--bp-green-500) 0%, var(--bp-green-300) 100%);
   color: var(--bp-white);
@@ -678,7 +678,7 @@ blockquote cite {
   margin: 0;
 }
 
-/* === FAQ — DS Accordion ===================================== */
+/* === FAQ – DS Accordion ===================================== */
 .faq-list { max-width: 920px; margin-top: 16px; }
 details {
   background: transparent;
@@ -714,7 +714,7 @@ details > p {
   max-width: 100%;
 }
 
-/* === END CTA — dark footer ================================== */
+/* === END CTA – dark footer ================================== */
 .end-cta {
   background: var(--bp-ink-800);
   color: var(--bp-white);
@@ -768,11 +768,11 @@ details > p {
 }
 
 /* ============================================================
-   v8 — wspólne komponenty (wstawiane na końcu bloku stylów)
+   v8 – wspólne komponenty (wstawiane na końcu bloku stylów)
    Używa wyłącznie tokenów z design-system/colors_and_type.css.
    ============================================================ */
 
-/* === KOSZT PPWR — zielona sekcja 2-kol (wzorzec LP /ppwr/) ==== */
+/* === KOSZT PPWR – zielona sekcja 2-kol (wzorzec LP /ppwr/) ==== */
 .koszt-section {
   background: var(--bp-green-500);
   border-bottom: 1px solid var(--bp-ink-100);
@@ -810,7 +810,7 @@ details > p {
   background: rgba(0,0,0,.22); padding: 6px 12px; border-radius: var(--r-sm);
 }
 
-/* === FORMULARZ CTA — "Porozmawiaj z ekspertem o PPWR" ========= */
+/* === FORMULARZ CTA – "Porozmawiaj z ekspertem o PPWR" ========= */
 .form-cta { background: var(--bp-ink-800); color: var(--bp-white); padding: 96px 80px; }
 .form-cta-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
@@ -854,7 +854,7 @@ details > p {
 }
 .form-card .btn { width: 100%; margin-top: 8px; }
 
-/* === KARUZELA WDROŻEŃ — 4 realne case study (AD17) =========== */
+/* === KARUZELA WDROŻEŃ – 4 realne case study (AD17) =========== */
 .case-carousel-wrap { margin-top: 32px; }
 .case-carousel {
   display: grid; grid-auto-flow: column;
@@ -886,7 +886,7 @@ details > p {
 .case-nav button:hover { border-color: var(--bp-green-500); color: var(--bp-green-600); }
 
 /* ============================================================
-   v10 — LAYOUTY wg projektu graficznego (sticky / slider / scroll-poziomy)
+   v10 – LAYOUTY wg projektu graficznego (sticky / slider / scroll-poziomy)
    Mechaniki wykonalne w CSS; pełny pin/scroll-jacking = dev TYPO3 (GSAP).
    ============================================================ */
 
@@ -901,7 +901,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 .split-head .split-lead { font: var(--t-body); color: var(--bp-ink-500); margin: 0; max-width: 340px; }
 .split-head .sticky-hint { margin-top: 22px; font: var(--t-mono); color: var(--bp-ink-400); }
 
-/* === WYZWANIA — karty z osadzoną mini-kartą produktu === */
+/* === WYZWANIA – karty z osadzoną mini-kartą produktu === */
 .challenge-list { display: flex; flex-direction: column; gap: 24px; }
 .challenge-card { background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-radius: var(--r-lg); padding: 36px 40px; transition: box-shadow var(--dur-base) var(--ease-out); }
 .challenge-card:hover { box-shadow: var(--shadow-md); }
@@ -915,9 +915,9 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 .challenge-product a { font: var(--t-label); letter-spacing: var(--ls-label-wide); text-transform: uppercase; color: var(--bp-green-600); text-decoration: none; }
 .challenge-product a:hover { color: var(--bp-green-700); }
 
-/* === PRODUKTY — lewa (nagłówek + render) sticky i wyśrodkowana pionowo / prawa lista === */
+/* === PRODUKTY – lewa (nagłówek + render) sticky i wyśrodkowana pionowo / prawa lista === */
 .product-showcase { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; }
-/* start: w naturalnym flow (wyrównane do góry); po przewinięciu — sticky i wyśrodkowane pionowo */
+/* start: w naturalnym flow (wyrównane do góry); po przewinięciu – sticky i wyśrodkowane pionowo */
 .ps-visual { position: sticky; top: calc(50vh - 300px); display: flex; flex-direction: column; gap: 24px; }
 .ps-visual > .tag { align-self: flex-start; }
 .ps-visual > h2 { margin: 0; }
@@ -936,7 +936,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 .ps-item .ps-cta { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border-radius: var(--r-sm); background: var(--bp-green-500); color: var(--bp-white); font: 700 13px/1 var(--f-display); }
 .ps-item:not(.is-active) .ps-cta { background: var(--bp-white); color: var(--bp-green-600); border: 1px solid var(--bp-ink-200); }
 
-/* === PPWR — slider kart-„teczek" + nagłówek 2-kol === */
+/* === PPWR – slider kart-„teczek" + nagłówek 2-kol === */
 .ppwr-header { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; margin-bottom: 12px; }
 .ppwr-header h2 { margin: 0; }
 .ppwr-header p { margin: 0; }
@@ -951,7 +951,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 .article-card .art-divider { border: none; border-top: 1px dashed var(--bp-ink-200); margin: 16px 0; }
 .article-card p { font: var(--t-body-sm); color: var(--bp-ink-500); margin: 0; }
 
-/* === CO MOŻESZ ZROBIĆ + CYTAT — ciemna sekcja, kroki w poziomie === */
+/* === CO MOŻESZ ZROBIĆ + CYTAT – ciemna sekcja, kroki w poziomie === */
 .action-section { background: var(--bp-ink-800); color: var(--bp-white); position: relative; overflow: hidden; padding: 96px 80px; }
 .action-section::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(circle at 18% 25%, rgba(101,179,46,.20), transparent 30%), radial-gradient(circle at 72% 60%, rgba(101,179,46,.14), transparent 28%); animation: actiondrift 18s ease-in-out infinite alternate; }
 @keyframes actiondrift { from { transform: translate3d(0,0,0); } to { transform: translate3d(-30px,18px,0); } }
@@ -975,7 +975,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 .action-step:not(.is-open) h4, .action-step:not(.is-open) .as-desc { color: rgba(255,255,255,.85); }
 .action-hint { position: relative; z-index: 1; margin-top: 16px; font: var(--t-mono); color: rgba(255,255,255,.45); }
 
-/* === CASE — karuzela foto-forward, wyśrodkowana === */
+/* === CASE – karuzela foto-forward, wyśrodkowana === */
 .case-section-v10 { text-align: center; }
 .case-section-v10 > .tag { margin: 0 auto 20px; }
 .case-section-v10 h2 { margin: 0 auto 16px; }
@@ -991,7 +991,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 .case-chip { font: var(--t-mono); color: var(--bp-ink-600); border: 1px solid var(--bp-ink-200); border-radius: var(--r-full); padding: 6px 14px; }
 .case-nav.is-center { justify-content: center; margin-top: 28px; }
 
-/* === RELATED — siatka z ikoną + przycisk === */
+/* === RELATED – siatka z ikoną + przycisk === */
 .related-grid-v10 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 32px; }
 .related-card { background: var(--bp-white); border: 1px solid var(--bp-ink-100); border-radius: var(--r-lg); padding: 32px; display: flex; flex-direction: column; }
 .related-card .rc-icon { width: 52px; height: 52px; border: 1px solid var(--bp-ink-200); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; color: var(--bp-green-600); margin-bottom: 20px; }
@@ -1001,7 +1001,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 .related-card p { font: var(--t-body-sm); color: var(--bp-ink-500); margin: 0 0 24px; flex: 1; }
 .related-card .rc-btn { align-self: flex-start; }
 
-/* === FAQ — split 2-kol sticky, prawa kolumna węższa === */
+/* === FAQ – split 2-kol sticky, prawa kolumna węższa === */
 .faq-split .split { grid-template-columns: minmax(300px, 380px) minmax(0, 640px); }
 .faq-split .split-head { top: 48px; }
 .faq-accordion { max-width: 100%; }
@@ -1023,7 +1023,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 <div class="wrap">
 
 <div class="meta-banner">
-  <strong>Makieta v5 (DS bekuplast canonical) — strona #03 — Sprzedaż i transport na rynku napojów</strong>
+  <strong>Makieta v5 (DS bekuplast canonical) – strona #03 – Sprzedaż i transport na rynku napojów</strong>
   URL: <code>/branzowe/sprzedaz-i-transport-na-rynku-napojow/</code> · pillar SEO (skrzynka na piwo, vol 1 300, KD 0) · importuje <code>design-system/colors_and_type.css</code>
   <div class="specs">
     <div><b>Klasyfikacja</b>pain-point (pillar SEO)</div>
@@ -1038,16 +1038,16 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 <div class="proto-nav">
   <span class="label">Makiety branżowe (<b>10</b>):</span>
   <select onchange="if(this.value) window.location.href = this.value">
-      <option value="makieta_01_motoryzacja_automotive.html">01 — Motoryzacja i automotive</option>
-      <option value="makieta_02_przetworstwo_zywnosci.html">02 — Przetwórstwo żywności</option>
-      <option value="makieta_03_napoje.html" selected>03 — Sprzedaż i transport na rynku napojów [DS v5]</option>
-      <option value="makieta_04_farmacja_kosmetyki.html">04 — Farmacja i kosmetyki</option>
-      <option value="makieta_05_intralogistyka.html">05 — Intralogistyka i magazyn</option>
-      <option value="makieta_06_logistyka_3pl.html">06 — Logistyka i transport (3PL) [NOWA]</option>
-      <option value="makieta_07_rolnictwo_ogrodnictwo.html">07 — Rolnictwo, ogrodnictwo, owoce-warzywa [REBRAND]</option>
-      <option value="makieta_08_produkcja_przemyslowa.html">08 — Produkcja przemysłowa</option>
-      <option value="makieta_09_handel_fmcg.html">09 — Handel detaliczny i FMCG [REBRAND]</option>
-      <option value="makieta_10_ecommerce_3pl.html">10 — E-commerce, 3PL i fulfillment [NOWA]</option>
+      <option value="makieta_01_motoryzacja_automotive.html">01 – Motoryzacja i automotive</option>
+      <option value="makieta_02_przetworstwo_zywnosci.html">02 – Przetwórstwo żywności</option>
+      <option value="makieta_03_napoje.html" selected>03 – Sprzedaż i transport na rynku napojów [DS v5]</option>
+      <option value="makieta_04_farmacja_kosmetyki.html">04 – Farmacja i kosmetyki</option>
+      <option value="makieta_05_intralogistyka.html">05 – Intralogistyka i magazyn</option>
+      <option value="makieta_06_logistyka_3pl.html">06 – Logistyka i transport (3PL) [NOWA]</option>
+      <option value="makieta_07_rolnictwo_ogrodnictwo.html">07 – Rolnictwo, ogrodnictwo, owoce-warzywa [REBRAND]</option>
+      <option value="makieta_08_produkcja_przemyslowa.html">08 – Produkcja przemysłowa</option>
+      <option value="makieta_09_handel_fmcg.html">09 – Handel detaliczny i FMCG [REBRAND]</option>
+      <option value="makieta_10_ecommerce_3pl.html">10 – E-commerce, 3PL i fulfillment [NOWA]</option>
   </select>
   <span class="current-tag">DS v5</span>
 </div>
@@ -1098,7 +1098,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="tldr-animation">
       <div class="anim-dots"></div>
       <div class="play-icon"></div>
-      <span class="anim-label">▶ Wideo / animacja zapętlona — produkty w cyklu reuse</span>
+      <span class="anim-label">▶ Wideo / animacja zapętlona – produkty w cyklu reuse</span>
     </div>
     <div class="tldr-box">
       <span class="tag is-green">NAJWAŻNIEJSZE</span>
@@ -1119,8 +1119,8 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="split-head">
       <span class="tag">WYZWANIA</span>
       <h2>Pięć wyzwań logistyki napojów, które rozwiązujemy konkretnie</h2>
-      <p class="split-lead">Od skrzynek na piwo po systemy dystrybucyjne — pokazujemy, jak ograniczamy stłuczki i koszty w logistyce napojów.</p>
-      <p class="sticky-hint">↓ przewiń — wyzwań jest 3–5 zależnie od branży</p>
+      <p class="split-lead">Od skrzynek na piwo po systemy dystrybucyjne – pokazujemy, jak ograniczamy stłuczki i koszty w logistyce napojów.</p>
+      <p class="sticky-hint">↓ przewiń – wyzwań jest 3–5 zależnie od branży</p>
     </div>
     <div class="challenge-list">
       <div class="challenge-card">
@@ -1134,7 +1134,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       </div>
       <div class="challenge-card">
         <div class="challenge-num">02</div>
-        <h4>Kaucja konsumencka (od 1 października 2025) — ryzyko operacyjne</h4>
+        <h4>Kaucja konsumencka (od 1 października 2025) – ryzyko operacyjne</h4>
         <p>Ustawa o kaucji nakłada na rozlewnie i sieci obowiązek przyjmowania zwrotów butelek i puszek. Skrzynka transportowa staje się elementem systemu rozliczeniowego.</p>
         <div class="challenge-product">
           <div class="cp-thumb">[Znakowanie trwałe]</div>
@@ -1152,8 +1152,8 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       </div>
       <div class="challenge-card">
         <div class="challenge-num">04</div>
-        <h4>PPWR — cele reuse 70% dla piwa i wody do 2030 r.</h4>
-        <p>Art. 29 PPWR: cele ponownego użycia opakowań napojowych — 10% w 2030 r. i 40% w 2040 r. Wyłączenia obejmują m.in. mleko, wino i napoje spirytusowe.</p>
+        <h4>PPWR – cele reuse 70% dla piwa i wody do 2030 r.</h4>
+        <p>Art. 29 PPWR: cele ponownego użycia opakowań napojowych – 10% w 2030 r. i 40% w 2040 r. Wyłączenia obejmują m.in. mleko, wino i napoje spirytusowe.</p>
         <div class="challenge-product">
           <div class="cp-thumb">[Skrzynki RFID-ready]</div>
           <div class="cp-info"><div class="cp-name">Skrzynki RFID-ready</div><div class="cp-dim">Oznakowanie (kod QR) od 2028</div><a href="#">zobacz produkt →</a></div>
@@ -1184,12 +1184,12 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     </div>
     <div class="ps-list" data-render-target="ps-render-03">
       <a class="ps-item is-active" href="#" data-render="[R1/R2 24×0,33l]"><h5>R1/R2 24 × 0,33 l</h5><div class="ps-note">Skrzynka przegrodowa pod butelki 0,33 l (24 sztuki)</div><span class="ps-cta">Zobacz serię →</span></a>
-      <a class="ps-item" href="#" data-render="[Z1 — piwo]"><h5>Z1 — piwo</h5><div class="ps-note">20 × 0,5 l</div><span class="ps-cta">Zobacz serię →</span></a>
-      <a class="ps-item" href="#" data-render="[W2 — piwo]"><h5>W2 — piwo</h5><div class="ps-note">24 × 0,5 l</div><span class="ps-cta">Zobacz serię →</span></a>
-      <a class="ps-item" href="#" data-render="[Z2 — piwo]"><h5>Z2 — piwo</h5><div class="ps-note">12 × 0,33 l (rzemieślnicze)</div><span class="ps-cta">Zobacz serię →</span></a>
-      <a class="ps-item" href="#" data-render="[Model A — woda]"><h5>Model A — woda</h5><div class="ps-note">6 × 1,5 l PET</div><span class="ps-cta">Zobacz serię →</span></a>
-      <a class="ps-item" href="#" data-render="[Model O — soki]"><h5>Model O — soki</h5><div class="ps-note">9 × 1 l szkło</div><span class="ps-cta">Zobacz serię →</span></a>
-      <a class="ps-item" href="#" data-render="[Model D1 — wina]"><h5>Model D1 — wina</h5><div class="ps-note">12 × 0,7 l szkło</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[Z1 – piwo]"><h5>Z1 – piwo</h5><div class="ps-note">20 × 0,5 l</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[W2 – piwo]"><h5>W2 – piwo</h5><div class="ps-note">24 × 0,5 l</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[Z2 – piwo]"><h5>Z2 – piwo</h5><div class="ps-note">12 × 0,33 l (rzemieślnicze)</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[Model A – woda]"><h5>Model A – woda</h5><div class="ps-note">6 × 1,5 l PET</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[Model O – soki]"><h5>Model O – soki</h5><div class="ps-note">9 × 1 l szkło</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[Model D1 – wina]"><h5>Model D1 – wina</h5><div class="ps-note">12 × 0,7 l szkło</div><span class="ps-cta">Zobacz serię →</span></a>
       <a class="ps-item" href="#" data-render="[Palety Euro]"><h5>Palety Euro</h5><div class="ps-note">Bez fumigacji ISPM-15</div><span class="ps-cta">Zobacz serię →</span></a>
       <a class="ps-item" href="#" data-render="[Skrzyniopalety]"><h5>Skrzyniopalety</h5><div class="ps-note">Magazyn browaru</div><span class="ps-cta">Zobacz serię →</span></a>
     </div>
@@ -1199,7 +1199,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 <section class="ppwr-section">
   <span class="tag">PPWR · COMPLIANCE</span>
   <div class="ppwr-header">
-    <h2>PPWR dla browarów, mleczarni i rozlewni — trzy regulacje, jeden plan</h2>
+    <h2>PPWR dla browarów, mleczarni i rozlewni – trzy regulacje, jeden plan</h2>
     <p>Branża napojów w Polsce mierzy się z trzema warstwami regulacji jednocześnie: kaucja konsumencka (od 1 października 2025 r.), ROP-napoje (producent finansuje cały cykl życia opakowania) oraz PPWR (Rozporządzenie UE 2025/40, wejście w życie 12 sierpnia 2026 r.).</p>
   </div>
   <div class="article-slider-wrap">
@@ -1210,8 +1210,8 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="article-slider">
       <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>Cele ponownego użycia opakowań napojowych: 10% w 2030 r. i 40% w 2040 r. (alkoholowe i bezalkoholowe). Wyłączone m.in. mleko, wino, napoje spirytusowe i łatwo psujące się.</p></div>
       <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>100% reuse dla transport packaging intra-firmowego (między zakładami tej samej firmy) do 2030 r.</p></div>
-      <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>Dystrybutorzy (sieci, hurtownie) odpowiadają za reuse opakowań transportowych — 40% w 2030, 70% w 2040.</p></div>
-      <div class="article-card"><span class="article-tag">Art. 50</span><hr class="art-divider"><p>System kaucyjny w UE — od 2029 r. obowiązek kaucji na jednorazowe butelki PET i puszki metalowe (≤3 l) oraz 90% selektywnej zbiórki.</p></div>
+      <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>Dystrybutorzy (sieci, hurtownie) odpowiadają za reuse opakowań transportowych – 40% w 2030, 70% w 2040.</p></div>
+      <div class="article-card"><span class="article-tag">Art. 50</span><hr class="art-divider"><p>System kaucyjny w UE – od 2029 r. obowiązek kaucji na jednorazowe butelki PET i puszki metalowe (≤3 l) oraz 90% selektywnej zbiórki.</p></div>
     </div>
   </div>
 </section>
@@ -1222,8 +1222,8 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <h2>Co możesz zrobić już teraz</h2>
     <div class="action-quote">
       <span class="qmark">&ldquo;</span>
-      <blockquote>Branża napojów łączy trzy warstwy regulacji: polski system kaucyjny (od 1 października 2025 r.), nowy system ROP wprowadzany ustawą wdrażającą PPWR oraz cele ponownego użycia opakowań napojowych — 10% do 2030 r. i 40% do 2040 r.</blockquote>
-      <cite>Rozporządzenie (UE) 2025/40 (PPWR), Art. 29 i 50 — EUR-Lex</cite>
+      <blockquote>Branża napojów łączy trzy warstwy regulacji: polski system kaucyjny (od 1 października 2025 r.), nowy system ROP wprowadzany ustawą wdrażającą PPWR oraz cele ponownego użycia opakowań napojowych – 10% do 2030 r. i 40% do 2040 r.</blockquote>
+      <cite>Rozporządzenie (UE) 2025/40 (PPWR), Art. 29 i 50 – EUR-Lex</cite>
     </div>
   </div>
   <div class="action-steps">
@@ -1252,14 +1252,14 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 <section class="case-section-v10 alt-bg">
   <span class="tag">DOWODY</span>
   <h2>Przykładowe wdrożenia</h2>
-  <p class="case-intro">Bez niezweryfikowanych liczb — pokazujemy wyłącznie realne wdrożenia bekuplast oraz fakty wprost z rozporządzenia i nazwanych źródeł.</p>
+  <p class="case-intro">Bez niezweryfikowanych liczb – pokazujemy wyłącznie realne wdrożenia bekuplast oraz fakty wprost z rozporządzenia i nazwanych źródeł.</p>
   <div class="case-carousel-wrap">
     <div class="case-carousel is-photo is-loop">
       <article class="case-slide is-photo">
         <div class="case-photo">[foto wdrożenia]</div>
         <div class="case-body">
           <div class="case-name">ROSSMANN</div>
-          <p class="case-desc">Intralogistyka sieci drogerii (DE) — pojemniki obiegowe w magazynie centralnym.</p>
+          <p class="case-desc">Intralogistyka sieci drogerii (DE) – pojemniki obiegowe w magazynie centralnym.</p>
           <div class="case-chips"><span class="case-chip">2025</span><span class="case-chip">160 000 pojemników</span></div>
         </div>
       </article>
@@ -1267,7 +1267,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
         <div class="case-photo">[foto wdrożenia]</div>
         <div class="case-body">
           <div class="case-name">Orbico</div>
-          <p class="case-desc">Dystrybucja beauty i FMCG (PL) — pojemniki zwrotne w kompletacji zamówień.</p>
+          <p class="case-desc">Dystrybucja beauty i FMCG (PL) – pojemniki zwrotne w kompletacji zamówień.</p>
           <div class="case-chips"><span class="case-chip">2023</span><span class="case-chip">46 000 pojemników</span></div>
         </div>
       </article>
@@ -1275,7 +1275,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
         <div class="case-photo">[foto wdrożenia]</div>
         <div class="case-body">
           <div class="case-name">Onninen</div>
-          <p class="case-desc">Dystrybucja materiałów budowlanych (PL) — pojemniki contecline.</p>
+          <p class="case-desc">Dystrybucja materiałów budowlanych (PL) – pojemniki contecline.</p>
           <div class="case-chips"><span class="case-chip">2019</span><span class="case-chip">40 000 pojemników</span></div>
         </div>
       </article>
@@ -1283,7 +1283,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
         <div class="case-photo">[foto wdrożenia]</div>
         <div class="case-body">
           <div class="case-name">Auto Partner SA</div>
-          <p class="case-desc">Dystrybucja części samochodowych (PL) — obieg zwrotny w centrum dystrybucyjnym.</p>
+          <p class="case-desc">Dystrybucja części samochodowych (PL) – obieg zwrotny w centrum dystrybucyjnym.</p>
           <div class="case-chips"><span class="case-chip">2022</span><span class="case-chip">27 000 pojemników</span></div>
         </div>
       </article>
@@ -1296,12 +1296,12 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
   <p class="ref-note"><a href="#">Zobacz wszystkie wdrożenia bekuplast →</a></p>
 </section>
 
-<!-- KOSZT PPWR — nagłówek STAŁY na każdej stronie; różni się tylko akapit {{PARA}} -->
+<!-- KOSZT PPWR – nagłówek STAŁY na każdej stronie; różni się tylko akapit {{PARA}} -->
 <section class="koszt-section">
   <div class="koszt-content">
     <span class="section-eyebrow">KOSZT PPWR</span>
     <h2>Koszt przejścia na skrzynki wielokrotnego użytku</h2>
-    <p>Wpisz skalę HL/rok i porównaj koszt opakowań jednorazowych ze skrzynkami zwrotnymi — kalkulator pokaże break-even i strukturę CO₂ dla branży napojów.</p>
+    <p>Wpisz skalę HL/rok i porównaj koszt opakowań jednorazowych ze skrzynkami zwrotnymi – kalkulator pokaże break-even i strukturę CO₂ dla branży napojów.</p>
     <a href="#" class="btn btn-secondary btn-lg">Oblicz koszt PPWR w 2 min.</a>
   </div>
   <div class="koszt-illustration">
@@ -1347,11 +1347,11 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="faq-accordion faq-list">
     <details><summary>Czym różni się skrzynka przegrodowa od zwykłej skrzynki transportowej?</summary><p>Skrzynka przegrodowa ma indywidualne komory dla każdej butelki, dopasowane do średnicy szyjki i dna. Eliminuje kontakt szkło-szkło, znacząco ograniczając stłuczki przez eliminację kontaktu szkło-szkło.</p></details>
     <details><summary>Ile cykli rotacji wytrzymuje skrzynka na piwo bekuplast?</summary><p>Skrzynki HDPE w jakości industrialnej wytrzymują 100+ pełnych cykli rotacji. W typowym browarze regionalnym to 8–12 lat eksploatacji.</p></details>
-    <details><summary>Jakie obowiązki dla branży napojów wynikają z PPWR od 12 sierpnia 2026 r.?</summary><p>Art. 29 (cele ponownego użycia opakowań napojowych — 10% w 2030 r., 40% w 2040 r.; 100% dla opakowań transportowych w obiegu wewnątrzfirmowym do 2030 r.), Art. 50 (system kaucyjny dla butelek PET i puszek od 2029 r.).</p></details>
-    <details><summary>Czy mogę zamówić skrzynkę na butelkę niestandardową (np. piwo rzemieślnicze 0,33 l)?</summary><p>Tak — robimy skrzynki indywidualne z dopasowanymi przegrodami. Minimum produkcji to zwykle 500 sztuk, czas realizacji 8–12 tygodni.</p></details>
+    <details><summary>Jakie obowiązki dla branży napojów wynikają z PPWR od 12 sierpnia 2026 r.?</summary><p>Art. 29 (cele ponownego użycia opakowań napojowych – 10% w 2030 r., 40% w 2040 r.; 100% dla opakowań transportowych w obiegu wewnątrzfirmowym do 2030 r.), Art. 50 (system kaucyjny dla butelek PET i puszek od 2029 r.).</p></details>
+    <details><summary>Czy mogę zamówić skrzynkę na butelkę niestandardową (np. piwo rzemieślnicze 0,33 l)?</summary><p>Tak – robimy skrzynki indywidualne z dopasowanymi przegrodami. Minimum produkcji to zwykle 500 sztuk, czas realizacji 8–12 tygodni.</p></details>
     <details><summary>Jak wygląda znakowanie skrzynek dla systemu kaucji konsumenckiej?</summary><p>Oferujemy 3 metody znakowania trwałego: laserowe (najtrwalsze), hot-stamp (kolorowe), in-mould (znak w masie tworzywa). Możemy dodać kod EAN, QR lub RFID.</p></details>
-    <details><summary>Czy mogę porównać koszt skrzynek zwrotnych vs jednorazowych kartonów dla mojego browaru?</summary><p>Tak — kalkulator kosztu PPWR dedykowany dla branży napojów. Wpisujesz skalę produkcji (HL/rok). Otrzymujesz kierunkowy break-even, redukcję CO₂ i polecane numery artykułów.</p></details>
-    <details><summary>Co z palety EPAL drewniane — czy muszę je wymienić na plastikowe?</summary><p>PPWR nie zakazuje palet EPAL, ale regulacja PFAS od 12.08.2026 zakazuje impregnacji palet drewnianych pestycydami z grupy PFAS. Palety plastikowe to alternatywa bez fumigacji.</p></details>
+    <details><summary>Czy mogę porównać koszt skrzynek zwrotnych vs jednorazowych kartonów dla mojego browaru?</summary><p>Tak – kalkulator kosztu PPWR dedykowany dla branży napojów. Wpisujesz skalę produkcji (HL/rok). Otrzymujesz kierunkowy break-even, redukcję CO₂ i polecane numery artykułów.</p></details>
+    <details><summary>Co z palety EPAL drewniane – czy muszę je wymienić na plastikowe?</summary><p>PPWR nie zakazuje palet EPAL, ale regulacja PFAS od 12.08.2026 zakazuje impregnacji palet drewnianych pestycydami z grupy PFAS. Palety plastikowe to alternatywa bez fumigacji.</p></details>
     <details><summary>Jakie są warunki współpracy?</summary><p>Minimum: 50 sztuk dla standardów, 500+ dla indywidualnych numerów artykułów. Czas: 2–4 tygodnie dla standardów, 8–12 tygodni dla indywidualnych numerów artykułów. Dostawa: cała Polska 3–5 dni.</p></details>
     </div>
   </div>
@@ -1410,7 +1410,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 </div>
 </div>
 <script>
-/* Produkty — render po lewej podmienia się wraz z aktywnym boksem; aktywacja bliżej GÓRY ekranu */
+/* Produkty – render po lewej podmienia się wraz z aktywnym boksem; aktywacja bliżej GÓRY ekranu */
 document.querySelectorAll('.ps-list').forEach(function (list) {
   var renderEl = document.getElementById(list.dataset.renderTarget);
   var items = Array.prototype.slice.call(list.querySelectorAll('.ps-item'));
@@ -1426,7 +1426,7 @@ document.querySelectorAll('.ps-list').forEach(function (list) {
   items.forEach(function (i) { io.observe(i); });
 });
 
-/* Wdrożenia — karuzela „endless loop": kopia przed i po, start w środku (podgląd sąsiadów po obu stronach) */
+/* Wdrożenia – karuzela „endless loop": kopia przed i po, start w środku (podgląd sąsiadów po obu stronach) */
 function caseGap(car) { var cs = getComputedStyle(car); return parseFloat(cs.columnGap || cs.gap) || 28; }
 document.querySelectorAll('.case-carousel.is-loop').forEach(function (car) {
   var originals = Array.prototype.slice.call(car.children);
