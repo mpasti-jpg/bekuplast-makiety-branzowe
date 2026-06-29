@@ -810,7 +810,7 @@ details > p {
   background: rgba(0,0,0,.22); padding: 6px 12px; border-radius: var(--r-sm);
 }
 
-/* === FORMULARZ CTA – "Porozmawiaj z ekspertem o PPWR" ========= */
+/* === FORMULARZ CTA – sekcja KONTAKT ============================ */
 .form-cta { background: var(--bp-ink-800); color: var(--bp-white); padding: 96px 80px; }
 .form-cta-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
@@ -853,6 +853,10 @@ details > p {
   outline: none; border-color: var(--bp-green-500); box-shadow: var(--focus-ring);
 }
 .form-card .btn { width: 100%; margin-top: 8px; }
+.form-consent { display: flex; gap: 10px; align-items: flex-start; margin: 4px 0 20px; cursor: pointer; }
+.form-consent input { width: 16px; height: 16px; flex: 0 0 auto; margin-top: 2px; accent-color: var(--bp-green-600); }
+.form-consent span { font: var(--t-caption); color: var(--bp-ink-500); }
+.form-consent a { color: var(--bp-green-600); text-decoration: underline; }
 
 /* === KARUZELA WDROŻEŃ – 4 realne case study (AD17) =========== */
 .case-carousel-wrap { margin-top: 32px; }
@@ -1098,17 +1102,17 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="tldr-animation">
       <div class="anim-dots"></div>
       <div class="play-icon"></div>
-      <span class="anim-label">▶ Wideo / animacja zapętlona – produkty w cyklu reuse</span>
+      <span class="anim-label">▶ Wideo / animacja zapętlona – produkty w cyklu ponownego użycia</span>
     </div>
     <div class="tldr-box">
       <span class="tag is-green">NAJWAŻNIEJSZE</span>
       <h2>Kluczowe wnioski</h2>
       <ul>
-        <li><b>Trzy regulacje uderzają w branżę napojów jednocześnie:</b> kaucja konsumencka (od 1 października 2025 r.), nowy system ROP i PPWR (od 12.08.2026).</li>
-        <li><b>Browary mają najlepszy punkt startu.</b> Kaucja na skrzynki istnieje od lat. PPWR dodaje cele reuse 70% do 2030 dla piwa i wody.</li>
-        <li><b>Skrzynka na piwo wytrzymuje 100+ cykli rotacji.</b> To ok. 6× szybszy break-even niż jednorazowy karton.</li>
-        <li><b>Mleczarnie i soki dopiero zaczynają.</b> Większość transportu nabiału i soków w PL to single-use. Cele PPWR (Art. 29) wymuszą inwestycję w 2027–2028.</li>
-        <li><b>Polskie browary regionalne</b> są 12–18 mies. spóźnione vs niemiecki Mehrweg, ale skala adaptacji 2026–2027 będzie szybsza.</li>
+        <li><b>Trzy regulacje uderzają w branżę napojów jednocześnie</b> – kaucja konsumencka (od 1 października 2025 r.), nowy system ROP i PPWR (weszło w życie 11 lutego 2025 r., stosowane od 12 sierpnia 2026 r.).</li>
+        <li><b>Browary mają najlepszy punkt startu.</b> Kaucja na skrzynki istnieje od lat. PPWR dodaje cele ponownego użycia opakowań napojowych – 10% (2030) i 40% (2040, cel aspiracyjny).</li>
+        <li><b>Skrzynka na piwo wytrzymuje 100+ cykli rotacji.</b> To znacznie szybszy próg rentowności niż jednorazowy karton.</li>
+        <li><b>Mleczarnie i soki dopiero zaczynają.</b> Większość transportu nabiału i soków w Polsce to opakowania jednorazowe. Napoje mleczne są wyłączone z celu napojowego (art. 29 ust. 7), ale skrzynki transportowe mleczarni i tak podlegają celowi transportowemu (art. 29 ust. 1) – inwestycja czeka w 2027–2028.</li>
+        <li><b>Polskie browary regionalne</b> są 12–18 mies. spóźnione wobec niemieckiego systemu Mehrweg, ale skala adaptacji w latach 2026–2027 będzie szybsza.</li>
       </ul>
     </div>
   </div>
@@ -1119,7 +1123,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="split-head">
       <span class="tag">WYZWANIA</span>
       <h2>Pięć wyzwań logistyki napojów, które rozwiązujemy konkretnie</h2>
-      <p class="split-lead">Od skrzynek na piwo po systemy dystrybucyjne – pokazujemy, jak ograniczamy stłuczki i koszty w logistyce napojów.</p>
+      <p class="split-lead">Od skrzynek na piwo po systemy dystrybucyjne – pokazujemy, jak ograniczasz stłuczki i koszty w logistyce napojów.</p>
       <p class="sticky-hint">↓ przewiń – wyzwań jest 3–5 zależnie od branży</p>
     </div>
     <div class="challenge-list">
@@ -1134,7 +1138,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       </div>
       <div class="challenge-card">
         <div class="challenge-num">02</div>
-        <h4>Kaucja konsumencka (od 1 października 2025) – ryzyko operacyjne</h4>
+        <h4>Kaucja konsumencka (od 1 października 2025 r.) – ryzyko operacyjne</h4>
         <p>Ustawa o kaucji nakłada na rozlewnie i sieci obowiązek przyjmowania zwrotów butelek i puszek. Skrzynka transportowa staje się elementem systemu rozliczeniowego.</p>
         <div class="challenge-product">
           <div class="cp-thumb">[Znakowanie trwałe]</div>
@@ -1144,25 +1148,25 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       <div class="challenge-card">
         <div class="challenge-num">03</div>
         <h4>ROP-napoje (Rozszerzona Odpowiedzialność Producenta)</h4>
-        <p>Producent ponosi koszt obsługi opakowania w całym cyklu życia. Single-use kartony = rosnący koszt netto. Skrzynki zwrotne = inwestycja amortyzowana 8–12 lat.</p>
+        <p>Producent ponosi koszt obsługi opakowania w całym cyklu życia. Kartony jednorazowe = rosnący koszt netto. Skrzynki zwrotne = inwestycja amortyzowana przez 8–12 lat.</p>
         <div class="challenge-product">
           <div class="cp-thumb">[Skrzynki zwrotne]</div>
-          <div class="cp-info"><div class="cp-name">Skrzynki zwrotne HDPE</div><div class="cp-dim">Break-even 18–24 mies.</div><a href="#">zobacz produkt →</a></div>
+          <div class="cp-info"><div class="cp-name">Skrzynki zwrotne HDPE</div><div class="cp-dim">Próg rentowności 18–24 mies.</div><a href="#">zobacz produkt →</a></div>
         </div>
       </div>
       <div class="challenge-card">
         <div class="challenge-num">04</div>
-        <h4>PPWR – cele reuse 70% dla piwa i wody do 2030 r.</h4>
-        <p>Art. 29 PPWR: cele ponownego użycia opakowań napojowych – 10% w 2030 r. i 40% w 2040 r. Wyłączenia obejmują m.in. mleko, wino i napoje spirytusowe.</p>
+        <h4>PPWR – cele ponownego użycia napojów 10% (2030) i 40% (2040)</h4>
+        <p>Art. 29 ust. 6 PPWR: cele ponownego użycia opakowań napojowych – 10% w 2030 r. (wiążący) i 40% w 2040 r. (cel aspiracyjny). Wyłączenia obejmują m.in. mleko, wino i napoje spirytusowe.</p>
         <div class="challenge-product">
-          <div class="cp-thumb">[Skrzynki RFID-ready]</div>
-          <div class="cp-info"><div class="cp-name">Skrzynki RFID-ready</div><div class="cp-dim">Oznakowanie (kod QR) od 2028</div><a href="#">zobacz produkt →</a></div>
+          <div class="cp-thumb">[Skrzynki przygotowane pod RFID]</div>
+          <div class="cp-info"><div class="cp-name">Skrzynki przygotowane pod RFID</div><div class="cp-dim">Oznakowanie (kod QR) od 2028 r.</div><a href="#">zobacz produkt →</a></div>
         </div>
       </div>
       <div class="challenge-card">
         <div class="challenge-num">05</div>
         <h4>Transport międzymagazynowy DC → sklep</h4>
-        <p>Art. 29 PPWR wprowadza 100% reuse dla transport packaging B2B intra-firmowego do 2030 r. Sieć bez pilotażu RTP w 2025–2026 dostanie wezwanie w 2027.</p>
+        <p>Art. 29 ust. 2 PPWR: od 2030 r. opakowania transportowe w obiegu wewnątrz firmy muszą być wielokrotnego użytku (w praktyce pełny ponowny użytek). Sieć bez pilotażu RTP w latach 2025–2026 dostanie wezwanie w 2027 r.</p>
         <div class="challenge-product">
           <div class="cp-thumb">[Systemy dystrybucyjne]</div>
           <div class="cp-info"><div class="cp-name">Systemy dystrybucyjne</div><div class="cp-dim">skrzynki · palety · skrzyniopalety</div><a href="#">zobacz produkt →</a></div>
@@ -1197,10 +1201,10 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 </section>
 
 <section class="ppwr-section">
-  <span class="tag">PPWR · COMPLIANCE</span>
+  <span class="tag">PPWR · ZGODNOŚĆ</span>
   <div class="ppwr-header">
     <h2>PPWR dla browarów, mleczarni i rozlewni – trzy regulacje, jeden plan</h2>
-    <p>Branża napojów w Polsce mierzy się z trzema warstwami regulacji jednocześnie: kaucja konsumencka (od 1 października 2025 r.), ROP-napoje (producent finansuje cały cykl życia opakowania) oraz PPWR (Rozporządzenie UE 2025/40, wejście w życie 12 sierpnia 2026 r.).</p>
+    <p>Branża napojów w Polsce mierzy się z trzema warstwami regulacji jednocześnie – kaucją konsumencką (od 1 października 2025 r.), ROP-napoje (producent finansuje cały cykl życia opakowania) oraz PPWR (rozporządzenie UE 2025/40, weszło w życie 11 lutego 2025 r., stosuje się od 12 sierpnia 2026 r.).</p>
   </div>
   <div class="article-slider-wrap">
     <div class="article-slider-nav">
@@ -1208,9 +1212,9 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       <button type="button" aria-label="Następny" onclick="this.closest('.article-slider-wrap').querySelector('.article-slider').scrollBy({left:340,behavior:'smooth'})">›</button>
     </div>
     <div class="article-slider">
-      <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>Cele ponownego użycia opakowań napojowych: 10% w 2030 r. i 40% w 2040 r. (alkoholowe i bezalkoholowe). Wyłączone m.in. mleko, wino, napoje spirytusowe i łatwo psujące się.</p></div>
-      <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>100% reuse dla transport packaging intra-firmowego (między zakładami tej samej firmy) do 2030 r.</p></div>
-      <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>Dystrybutorzy (sieci, hurtownie) odpowiadają za reuse opakowań transportowych – 40% w 2030, 70% w 2040.</p></div>
+      <div class="article-card"><span class="article-tag">Art. 29 ust. 6</span><hr class="art-divider"><p>Cele ponownego użycia opakowań napojowych (alkoholowych i bezalkoholowych): 10% w 2030 r. (wiążący) i 40% w 2040 r. (cel aspiracyjny). Wyłączone m.in. mleko, wino, napoje spirytusowe i napoje łatwo psujące się.</p></div>
+      <div class="article-card"><span class="article-tag">Art. 29 ust. 2</span><hr class="art-divider"><p>Opakowania transportowe w obiegu wewnątrz firmy (między zakładami tego samego lub powiązanego podmiotu) od 2030 r. muszą być wielokrotnego użytku – w praktyce pełny ponowny użytek.</p></div>
+      <div class="article-card"><span class="article-tag">Art. 29 ust. 1</span><hr class="art-divider"><p>Podmioty stosujące opakowania transportowe (m.in. sieci, hurtownie) – co najmniej 40% wielokrotnego użytku w 2030 r. (wiążący) i 70% w 2040 r. (cel aspiracyjny).</p></div>
       <div class="article-card"><span class="article-tag">Art. 50</span><hr class="art-divider"><p>System kaucyjny w UE – od 2029 r. obowiązek kaucji na jednorazowe butelki PET i puszki metalowe (≤3 l) oraz 90% selektywnej zbiórki.</p></div>
     </div>
   </div>
@@ -1222,8 +1226,8 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <h2>Co możesz zrobić już teraz</h2>
     <div class="action-quote">
       <span class="qmark">&ldquo;</span>
-      <blockquote>Branża napojów łączy trzy warstwy regulacji: polski system kaucyjny (od 1 października 2025 r.), nowy system ROP wprowadzany ustawą wdrażającą PPWR oraz cele ponownego użycia opakowań napojowych – 10% do 2030 r. i 40% do 2040 r.</blockquote>
-      <cite>Rozporządzenie (UE) 2025/40 (PPWR), Art. 29 i 50 – EUR-Lex</cite>
+      <blockquote>Branża napojów łączy trzy warstwy regulacji – polski system kaucyjny (od 1 października 2025 r.), nowy system ROP wprowadzany ustawą wdrażającą PPWR oraz cele ponownego użycia opakowań napojowych: 10% do 2030 r. (wiążący) i 40% do 2040 r. (cel aspiracyjny).</blockquote>
+      <cite>Rozporządzenie (UE) 2025/40 (PPWR), art. 29 i 50 – EUR-Lex</cite>
     </div>
   </div>
   <div class="action-steps">
@@ -1236,7 +1240,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="action-step">
       <div class="as-num">02</div>
       <h4>Oblicz koszt PPWR</h4>
-      <div class="as-desc">Wpisz skalę HL/rok i porównaj single-use ze skrzynkami zwrotnymi.</div>
+      <div class="as-desc">Wpisz skalę HL/rok i porównaj opakowania jednorazowe ze skrzynkami zwrotnymi.</div>
       <a class="as-link" href="#">Otwórz kalkulator →</a>
     </div>
     <div class="action-step">
@@ -1250,9 +1254,9 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 </section>
 
 <section class="case-section-v10 alt-bg">
-  <span class="tag">DOWODY</span>
-  <h2>Przykładowe wdrożenia</h2>
-  <p class="case-intro">Bez niezweryfikowanych liczb – pokazujemy wyłącznie realne wdrożenia bekuplast oraz fakty wprost z rozporządzenia i nazwanych źródeł.</p>
+  <span class="tag">Case Studies</span>
+  <h2>Opakowania wielokrotnego użytku we wdrożeniach bekuplast</h2>
+  <p class="case-intro">Każde wdrożenie to osobna historia naszego Klienta. Indywidualne wymagania, do których dopasowujemy optymalne rozwiązania.</p>
   <div class="case-carousel-wrap">
     <div class="case-carousel is-photo is-loop">
       <article class="case-slide is-photo">
@@ -1293,7 +1297,6 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       <button type="button" aria-label="Następne wdrożenie" onclick="caseLoop(this,1)">›</button>
     </div>
   </div>
-  <p class="ref-note"><a href="#">Zobacz wszystkie wdrożenia bekuplast →</a></p>
 </section>
 
 <!-- KOSZT PPWR – nagłówek STAŁY na każdej stronie; różni się tylko akapit {{PARA}} -->
@@ -1301,7 +1304,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
   <div class="koszt-content">
     <span class="section-eyebrow">KOSZT PPWR</span>
     <h2>Koszt przejścia na skrzynki wielokrotnego użytku</h2>
-    <p>Wpisz skalę HL/rok i porównaj koszt opakowań jednorazowych ze skrzynkami zwrotnymi – kalkulator pokaże break-even i strukturę CO₂ dla branży napojów.</p>
+    <p>Wpisz skalę HL/rok i porównaj koszt opakowań jednorazowych ze skrzynkami zwrotnymi – kalkulator pokaże próg rentowności i strukturę CO₂ dla branży napojów.</p>
     <a href="#" class="btn btn-secondary btn-lg">Oblicz koszt PPWR w 2 min.</a>
   </div>
   <div class="koszt-illustration">
@@ -1324,7 +1327,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       <div class="rc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg></div>
       <h5>Przetwórstwo żywności</h5>
       <hr class="rc-divider">
-      <p>Mleczarnie i piekarnie korzystają z podobnych systemów HACCP-compliant.</p>
+      <p>Mleczarnie i piekarnie korzystają z podobnych systemów zgodnych z HACCP.</p>
       <a class="btn btn-outline btn-sm rc-btn" href="#">Zobacz więcej</a>
     </div>
     <div class="related-card">
@@ -1345,13 +1348,13 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       <p class="sticky-hint">↓ przewiń pytania</p>
     </div>
     <div class="faq-accordion faq-list">
-    <details><summary>Czym różni się skrzynka przegrodowa od zwykłej skrzynki transportowej?</summary><p>Skrzynka przegrodowa ma indywidualne komory dla każdej butelki, dopasowane do średnicy szyjki i dna. Eliminuje kontakt szkło-szkło, znacząco ograniczając stłuczki przez eliminację kontaktu szkło-szkło.</p></details>
-    <details><summary>Ile cykli rotacji wytrzymuje skrzynka na piwo bekuplast?</summary><p>Skrzynki HDPE w jakości industrialnej wytrzymują 100+ pełnych cykli rotacji. W typowym browarze regionalnym to 8–12 lat eksploatacji.</p></details>
-    <details><summary>Jakie obowiązki dla branży napojów wynikają z PPWR od 12 sierpnia 2026 r.?</summary><p>Art. 29 (cele ponownego użycia opakowań napojowych – 10% w 2030 r., 40% w 2040 r.; 100% dla opakowań transportowych w obiegu wewnątrzfirmowym do 2030 r.), Art. 50 (system kaucyjny dla butelek PET i puszek od 2029 r.).</p></details>
+    <details><summary>Czym różni się skrzynka przegrodowa od zwykłej skrzynki transportowej?</summary><p>Skrzynka przegrodowa ma indywidualne komory dla każdej butelki, dopasowane do średnicy szyjki i dna. Eliminuje kontakt szkło-szkło, znacząco ograniczając stłuczki.</p></details>
+    <details><summary>Ile cykli rotacji wytrzymuje skrzynka na piwo bekuplast?</summary><p>Skrzynki HDPE w jakości przemysłowej wytrzymują ponad 100 pełnych cykli rotacji. W typowym browarze regionalnym to 8–12 lat eksploatacji.</p></details>
+    <details><summary>Jakie obowiązki dla branży napojów wynikają z PPWR od 12 sierpnia 2026 r.?</summary><p>Art. 29 ust. 6 (cele ponownego użycia opakowań napojowych – 10% w 2030 r., 40% w 2040 r. jako cel aspiracyjny) oraz art. 29 ust. 2 (opakowania transportowe w obiegu wewnątrz firmy muszą być wielokrotnego użytku do 2030 r. – w praktyce pełny ponowny użytek). Dochodzi też art. 50 (system kaucyjny dla butelek PET i puszek od 2029 r.).</p></details>
     <details><summary>Czy mogę zamówić skrzynkę na butelkę niestandardową (np. piwo rzemieślnicze 0,33 l)?</summary><p>Tak – robimy skrzynki indywidualne z dopasowanymi przegrodami. Minimum produkcji to zwykle 500 sztuk, czas realizacji 8–12 tygodni.</p></details>
     <details><summary>Jak wygląda znakowanie skrzynek dla systemu kaucji konsumenckiej?</summary><p>Oferujemy 3 metody znakowania trwałego: laserowe (najtrwalsze), hot-stamp (kolorowe), in-mould (znak w masie tworzywa). Możemy dodać kod EAN, QR lub RFID.</p></details>
-    <details><summary>Czy mogę porównać koszt skrzynek zwrotnych vs jednorazowych kartonów dla mojego browaru?</summary><p>Tak – kalkulator kosztu PPWR dedykowany dla branży napojów. Wpisujesz skalę produkcji (HL/rok). Otrzymujesz kierunkowy break-even, redukcję CO₂ i polecane numery artykułów.</p></details>
-    <details><summary>Co z palety EPAL drewniane – czy muszę je wymienić na plastikowe?</summary><p>PPWR nie zakazuje palet EPAL, ale regulacja PFAS od 12.08.2026 zakazuje impregnacji palet drewnianych pestycydami z grupy PFAS. Palety plastikowe to alternatywa bez fumigacji.</p></details>
+    <details><summary>Czy mogę porównać koszt skrzynek zwrotnych vs jednorazowych kartonów dla mojego browaru?</summary><p>Tak – kalkulator kosztu PPWR dedykowany dla branży napojów. Wpisujesz skalę produkcji (HL/rok). Otrzymujesz kierunkowy próg rentowności, redukcję CO₂ i polecane numery artykułów.</p></details>
+    <details><summary>Co z paletami drewnianymi EPAL – czy muszę je wymienić na plastikowe?</summary><p>PPWR nie zakazuje palet EPAL. To dwa odrębne tematy. Palety drewniane w eksporcie poza UE podlegają normie fitosanitarnej ISPM-15, która wymaga obróbki termicznej (rdzeń drewna min. 56°C przez 30 minut) albo fumigacji bromkiem metylu – to nie jest impregnacja PFAS. Z kolei ograniczenie PFAS z art. 5 PPWR (od 12 sierpnia 2026 r.) dotyczy wyłącznie opakowań mających kontakt z żywnością, nie obróbki palet (PFAS to nie pestycydy). Palety z tworzywa (HDPE) nie podlegają ISPM-15 – odpada powracający koszt obróbki i certyfikacji każdej palety.</p></details>
     <details><summary>Jakie są warunki współpracy?</summary><p>Minimum: 50 sztuk dla standardów, 500+ dla indywidualnych numerów artykułów. Czas: 2–4 tygodnie dla standardów, 8–12 tygodni dla indywidualnych numerów artykułów. Dostawa: cała Polska 3–5 dni.</p></details>
     </div>
   </div>
@@ -1360,17 +1363,17 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 <section class="form-cta" id="kontakt">
   <div class="form-cta-grid">
     <div class="form-cta-content">
-      <span class="section-eyebrow">ZADAJ PYTANIA</span>
-      <h2>Porozmawiaj z ekspertem bekuplast o PPWR</h2>
+      <span class="section-eyebrow">KONTAKT</span>
+      <h2>Omówmy rozwiązanie dla Twojego procesu</h2>
       <ul>
-        <li>Odpowiadamy w 24 godziny</li>
-        <li>Rozmowa z ekspertem, nie z handlowcem</li>
-        <li>Konsultacja bezpłatna i bez zobowiązań</li>
-        <li>Poznaj dokładny koszt wdrożenia</li>
+        <li>Kontakt do 24 godzin</li>
+        <li>Rozmawiamy o Twoich konkretnych potrzebach</li>
+        <li>Bezpłatnie i bez zobowiązań</li>
+        <li>Możliwość pozyskania próbek produktów</li>
       </ul>
     </div>
     <div class="form-card">
-      <h3>Umów rozmowę z ekspertem</h3>
+      <h3>Pozostaw dane kontaktowe</h3>
       <form onsubmit="return false">
         <div class="form-field">
           <label for="cf-name">Imię i nazwisko</label>
@@ -1385,23 +1388,14 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
           <input id="cf-email" type="email" placeholder="Adres e-mail">
         </div>
         <div class="form-field">
-          <label for="cf-branza">Branża</label>
-          <select id="cf-branza">
-            <option value="" selected disabled>Wybierz</option>
-            <option>Motoryzacja i automotive</option>
-            <option>Przetwórstwo żywności</option>
-            <option>Napoje</option>
-            <option>Farmacja i kosmetyki</option>
-            <option>Intralogistyka i magazyn</option>
-            <option>Logistyka i transport (3PL)</option>
-            <option>Rolnictwo i ogrodnictwo</option>
-            <option>Produkcja przemysłowa</option>
-            <option>Handel detaliczny i FMCG</option>
-            <option>E-commerce i fulfillment</option>
-            <option>Inna</option>
-          </select>
+          <label for="cf-phone">Telefon</label>
+          <input id="cf-phone" type="tel" placeholder="Numer telefonu">
         </div>
-        <button type="submit" class="btn btn-primary btn-lg">Umów rozmowę z ekspertem</button>
+        <label class="form-consent">
+          <input type="checkbox" id="cf-consent">
+          <span>Wyrażam zgodę na przetwarzanie danych osobowych i potwierdzam, że zapoznałem/am się z <a href="#">Polityką prywatności</a> dotyczącą zasad przetwarzania moich danych osobowych.</span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg">Proszę o kontakt</button>
       </form>
     </div>
   </div>

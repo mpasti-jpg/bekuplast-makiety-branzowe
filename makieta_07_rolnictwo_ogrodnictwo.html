@@ -922,7 +922,7 @@ details > p {
   background: rgba(0,0,0,.22); padding: 6px 12px; border-radius: var(--r-sm);
 }
 
-/* === FORMULARZ CTA – "Porozmawiaj z ekspertem o PPWR" ========= */
+/* === FORMULARZ CTA – sekcja KONTAKT ============================ */
 .form-cta { background: var(--bp-ink-800); color: var(--bp-white); padding: 96px 80px; }
 .form-cta-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
@@ -965,6 +965,10 @@ details > p {
   outline: none; border-color: var(--bp-green-500); box-shadow: var(--focus-ring);
 }
 .form-card .btn { width: 100%; margin-top: 8px; }
+.form-consent { display: flex; gap: 10px; align-items: flex-start; margin: 4px 0 20px; cursor: pointer; }
+.form-consent input { width: 16px; height: 16px; flex: 0 0 auto; margin-top: 2px; accent-color: var(--bp-green-600); }
+.form-consent span { font: var(--t-caption); color: var(--bp-ink-500); }
+.form-consent a { color: var(--bp-green-600); text-decoration: underline; }
 
 /* === KARUZELA WDROŻEŃ – 4 realne case study (AD17) =========== */
 .case-carousel-wrap { margin-top: 32px; }
@@ -1211,13 +1215,13 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="tldr-animation">
       <div class="anim-dots"></div>
       <div class="play-icon"></div>
-      <span class="anim-label">▶ Wideo / animacja zapętlona (mute, autoplay) – produkty w cyklu reuse</span>
+      <span class="anim-label">▶ Wideo / animacja zapętlona (mute, autoplay) – produkty w cyklu ponownego użycia</span>
     </div>
     <div class="tldr-box">
       <span class="tag is-green">NAJWAŻNIEJSZE</span>
       <h2>Kluczowe wnioski</h2>
       <ul>
-        <li><b>Polski rynek owoców-warzyw to dziś mix:</b> drewniane skrzynki na zbiór, plastikowe na transport, tekturowe na sprzedaż detaliczną. Konsolidacja pod plastikowe RTP trwa od 2020 r.</li><li><b>Sezonowość ekstremalna:</b> truskawki maj–czerwiec, czereśnie czerwiec, jabłka sierpień–październik, kapusta wrzesień–listopad. Floty skrzynek muszą być skalowane.</li><li><b>Transport produktów rolnych do sieci handlowych jest objęty</b> celami ponownego użycia opakowań transportowych (Art. 29 PPWR, 40% do 2030 r.). PPWR nie ustanawia ogólnego wyłączenia rolnictwa pierwotnego – węższy zakres obowiązków dotyczy tylko wybranych kategorii (np. produkty łatwo psujące się).</li><li><b>Sadownik z 50+ ha</b> używa 8 000–25 000 skrzynek w cyklu – flota pojemników zwrotnych skalowana pod sezon zbiorów.</li><li><b>Skrzynki bekuplast EURO</b> są kompatybilne z systemami dystrybucyjnymi Lidl, Biedronka, Carrefour – eliminacja przeładunku.</li>
+        <li><b>Polski rynek owoców-warzyw to dziś mieszanka:</b> drewniane skrzynki na zbiór, plastikowe na transport, tekturowe na sprzedaż detaliczną. Konsolidacja wokół plastikowych RTP (opakowań zwrotnych) trwa od 2020 r.</li><li><b>Sezonowość ekstremalna:</b> truskawki maj–czerwiec, czereśnie czerwiec, jabłka sierpień–październik, kapusta wrzesień–listopad. Flotę skrzynek trzeba skalować pod kalendarz zbiorów.</li><li><b>Transport produktów rolnych do sieci handlowych jest objęty</b> celami ponownego użycia opakowań transportowych (art. 29 ust. 1 PPWR). Obowiązek spoczywa na podmiotach stosujących opakowania transportowe – Ciebie jako sadownika czy hurtownię to dotyczy. Cel to 40% do 2030 r. (wiążący) i 70% do 2040 r. (cel aspiracyjny). PPWR nie ustanawia ogólnego wyłączenia rolnictwa pierwotnego – wyłączone są tylko wybrane kategorie produktów (np. opakowania elastyczne w bezpośrednim kontakcie z żywnością).</li><li><b>Sadownik z 50+ ha</b> używa 8 000–25 000 skrzynek w cyklu – flota pojemników zwrotnych skalowana pod sezon zbiorów.</li><li><b>Skrzynki bekuplast EURO</b> są kompatybilne z systemami dystrybucyjnymi Lidl, Biedronka, Carrefour – eliminacja przeładunku.</li>
       </ul>
     </div>
   </div>
@@ -1234,8 +1238,8 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="challenge-list">
       <div class="challenge-card">
         <div class="challenge-num">01</div>
-        <h4>Sezonowość – flota skrzynek skaluje 4–6× w 6–10 tygodni</h4>
-        <p>Sadownik z 50 ha jabłoni używa 18 000 skrzynek w peak zbiorów (sierpień–wrzesień). Przez 9 miesięcy roku: 3 000–5 000 skrzynek wystarcza.</p>
+        <h4>Sezonowość – flota skrzynek rośnie 4–6× w 6–10 tygodni</h4>
+        <p>Sadownik z 50 ha jabłoni używa 18 000 skrzynek w szczycie zbiorów (sierpień–wrzesień). Przez pozostałe 9 miesięcy roku wystarcza 3 000–5 000 skrzynek.</p>
         <div class="challenge-product">
           <div class="cp-thumb">[Skrzynki ogrodnicze EURO]</div>
           <div class="cp-info"><div class="cp-name">Skrzynki ogrodnicze EURO</div><div class="cp-dim">Flota zwrotna · pod kalendarz zbiorów</div><a href="#">zobacz produkt →</a></div>
@@ -1287,7 +1291,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       <a class="ps-item" href="#" data-render="[Skrzynki ogrodnicze EURO]"><h5>Skrzynki ogrodnicze EURO</h5><div class="ps-note">Pełna gama</div><span class="ps-cta">Zobacz serię →</span></a>
       <a class="ps-item" href="#" data-render="[Owoce i warzywa norma EURO]"><h5>Owoce i warzywa norma EURO</h5><div class="ps-note">Standardy sieci</div><span class="ps-cta">Zobacz serię →</span></a>
       <a class="ps-item" href="#" data-render="[Skrzyniopalety]"><h5>Skrzyniopalety</h5><div class="ps-note">Hurt jabłka, ziemniaki</div><span class="ps-cta">Zobacz serię →</span></a>
-      <a class="ps-item" href="#" data-render="[Palety Euro]"><h5>Palety Euro</h5><div class="ps-note">Bez fumigacji (eksport)</div><span class="ps-cta">Zobacz serię →</span></a>
+      <a class="ps-item" href="#" data-render="[Palety Euro]"><h5>Palety Euro</h5><div class="ps-note">Bez ISPM-15 (eksport)</div><span class="ps-cta">Zobacz serię →</span></a>
       <a class="ps-item" href="#" data-render="[Skrzynki na truskawki]"><h5>Skrzynki na truskawki</h5><div class="ps-note">8 kg, perforowane</div><span class="ps-cta">Zobacz serię →</span></a>
       <a class="ps-item" href="#" data-render="[Skrzyniopalety na jabłka]"><h5>Skrzyniopalety na jabłka</h5><div class="ps-note">300 kg hurt</div><span class="ps-cta">Zobacz serię →</span></a>
       <a class="ps-item" href="#" data-render="[Indywidualne realizacje]"><h5>Indywidualne realizacje</h5><div class="ps-note">Pod konkretne owoce</div><span class="ps-cta">Zobacz serię →</span></a>
@@ -1296,10 +1300,10 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 </section>
 
 <section class="ppwr-section">
-  <span class="tag">PPWR · COMPLIANCE</span>
+  <span class="tag">PPWR · ZGODNOŚĆ</span>
   <div class="ppwr-header">
     <h2>PPWR a rolnictwo – co jest objęte, a co nie</h2>
-    <p>Transport produktów rolnych do sieci handlowych jest objęty celami ponownego użycia opakowań transportowych (Art. 29 PPWR). Zakaz PFAS (Art. 5) dotyczy opakowań do kontaktu z żywnością – w tym papierowych skrzynek na owoce z powłoką woskową. PPWR nie ustanawia ogólnego wyłączenia rolnictwa pierwotnego; węższy zakres obowiązków dotyczy jedynie wybranych kategorii produktów.</p>
+    <p>Transport produktów rolnych do sieci handlowych jest objęty celami ponownego użycia opakowań transportowych (art. 29 ust. 1 PPWR) – obowiązek spoczywa na podmiotach stosujących opakowania transportowe, czyli również na Tobie jako sadowniku lub hurtowni. Ograniczenie PFAS (art. 5) dotyczy opakowań mających kontakt z żywnością – w tym papierowych tacek i skrzynek na owoce z barierową powłoką fluorową. PPWR nie wyłącza całego rolnictwa pierwotnego; art. 29 ust. 4 lit. c) wyłącza jedynie opakowania w formacie elastycznym w bezpośrednim kontakcie z żywnością – sztywne skrzynki i pojemniki HDPE pozostają objęte celami.</p>
   </div>
   <div class="article-slider-wrap">
     <div class="article-slider-nav">
@@ -1307,11 +1311,11 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       <button type="button" aria-label="Następny" onclick="this.closest('.article-slider-wrap').querySelector('.article-slider').scrollBy({left:340,behavior:'smooth'})">›</button>
     </div>
     <div class="article-slider">
-      <div class="article-card"><span class="article-tag">Wyłączenia</span><hr class="art-divider"><p>Wyłączenia od celów ponownego użycia są produktowe (np. produkty łatwo psujące się), nie sektorowe – PPWR nie wyłącza całego rolnictwa pierwotnego.</p></div>
-      <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>Transport z sadu lub hurtowni do sieci handlowych jest objęty – 40% reuse do 2030 r.</p></div>
-      <div class="article-card"><span class="article-tag">Art. 29</span><hr class="art-divider"><p>Transport B2B w obrębie firmy (hurtownia agro z 2+ magazynami) – 100% reuse do 2030 r.</p></div>
-      <div class="article-card"><span class="article-tag">Art. 5 PFAS</span><hr class="art-divider"><p>Większość papierowych skrzynek na owoce ma powłokę woskową z PFAS – nielegalne od 12.08.2026. Dotyczy też transportu produktów przetworzonych.</p></div>
-      <div class="article-card"><span class="article-tag">Poza zakresem</span><hr class="art-divider"><p>Zbiór z pola, transport sezonowy w obrębie gospodarstwa oraz sadownik produkujący dla własnej hurtowni – wyłączone z celów reuse.</p></div>
+      <div class="article-card"><span class="article-tag">Wyłączenia</span><hr class="art-divider"><p>Wyłączenia od celów ponownego użycia są produktowe (opakowania elastyczne w bezpośrednim kontakcie z żywnością – art. 29 ust. 4 lit. c), nie sektorowe – PPWR nie wyłącza całego rolnictwa pierwotnego.</p></div>
+      <div class="article-card"><span class="article-tag">Art. 29 ust. 1</span><hr class="art-divider"><p>Transport z sadu lub hurtowni do sieci handlowych jest objęty – 40% ponownego użycia do 2030 r. (wiążący), 70% do 2040 r. (cel aspiracyjny).</p></div>
+      <div class="article-card"><span class="article-tag">Art. 29 ust. 2</span><hr class="art-divider"><p>Transport wewnątrz firmy (hurtownia agro z co najmniej 2 magazynami) – opakowania muszą być wielokrotnego użytku od 2030 r., w praktyce 100% ponownego użycia.</p></div>
+      <div class="article-card"><span class="article-tag">Art. 5 PFAS</span><hr class="art-divider"><p>Wiele papierowych tacek i skrzynek na owoce ma barierową powłokę fluorową (PFAS) – niedozwoloną w opakowaniach do kontaktu z żywnością od 12.08.2026. PFAS to substancje fluorowane, nie pestycydy.</p></div>
+      <div class="article-card"><span class="article-tag">Poza zakresem</span><hr class="art-divider"><p>Zbiór z pola i transport sezonowy w obrębie samego gospodarstwa pozostają poza celami transportowymi – inaczej niż dostawy do innego podmiotu w tym samym kraju.</p></div>
     </div>
   </div>
 </section>
@@ -1322,8 +1326,8 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <h2>Co możesz zrobić już teraz</h2>
     <div class="action-quote">
       <span class="qmark">&ldquo;</span>
-      <blockquote>Opakowania transportowe, w których produkty rolne trafiają do sieci handlowych, podlegają celom ponownego użycia. Zakaz PFAS obejmuje opakowania do kontaktu z żywnością – w tym papierowe skrzynki na owoce z powłoką woskową.</blockquote>
-      <cite>Rozporządzenie (UE) 2025/40 (PPWR), Art. 5 i 29 – EUR-Lex</cite>
+      <blockquote>Opakowania transportowe, w których produkty rolne trafiają do sieci handlowych, podlegają celom ponownego użycia. Ograniczenie PFAS obejmuje opakowania mające kontakt z żywnością – w tym papierowe tacki i skrzynki na owoce z barierową powłoką fluorową.</blockquote>
+      <cite>Rozporządzenie (UE) 2025/40 (PPWR), art. 5 i 29 – EUR-Lex</cite>
     </div>
   </div>
   <div class="action-steps">
@@ -1336,7 +1340,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
     <div class="action-step">
       <div class="as-num">02</div>
       <h4>Oblicz koszt PPWR</h4>
-      <div class="as-desc">Porównaj opakowania jednorazowe i zwrotne, zobacz break-even.</div>
+      <div class="as-desc">Porównaj opakowania jednorazowe i zwrotne, zobacz próg rentowności.</div>
       <a class="as-link" href="#">Otwórz kalkulator →</a>
     </div>
     <div class="action-step">
@@ -1350,9 +1354,9 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 </section>
 
 <section class="case-section-v10 alt-bg">
-  <span class="tag">DOWODY</span>
-  <h2>Przykładowe wdrożenia</h2>
-  <p class="case-intro">Bez niezweryfikowanych liczb – pokazujemy wyłącznie realne wdrożenia bekuplast oraz fakty wprost z rozporządzenia i nazwanych źródeł.</p>
+  <span class="tag">Case Studies</span>
+  <h2>Opakowania wielokrotnego użytku we wdrożeniach bekuplast</h2>
+  <p class="case-intro">Każde wdrożenie to osobna historia naszego Klienta. Indywidualne wymagania, do których dopasowujemy optymalne rozwiązania.</p>
   <div class="case-carousel-wrap">
     <div class="case-carousel is-photo is-loop">
       <article class="case-slide is-photo">
@@ -1393,7 +1397,6 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
       <button type="button" aria-label="Następne wdrożenie" onclick="caseLoop(this,1)">›</button>
     </div>
   </div>
-  <p class="ref-note"><a href="#">Zobacz wszystkie wdrożenia bekuplast →</a></p>
 </section>
 
 <!-- KOSZT PPWR – nagłówek STAŁY na każdej stronie; różni się tylko akapit {{PARA}} -->
@@ -1401,7 +1404,7 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
   <div class="koszt-content">
     <span class="section-eyebrow">KOSZT PPWR</span>
     <h2>Koszt przejścia na skrzynki wielokrotnego użytku</h2>
-    <p>Porównaj koszt jednorazowych skrzynek i zwrotnych skrzynek na owoce i warzywa – kalkulator pokaże break-even i strukturę CO₂ dla sadu lub gospodarstwa.</p>
+    <p>Porównaj koszt jednorazowych skrzynek i zwrotnych skrzynek na owoce i warzywa – kalkulator pokaże próg rentowności i strukturę CO₂ dla sadu lub gospodarstwa.</p>
     <a href="#" class="btn btn-secondary btn-lg">Oblicz koszt PPWR w 2 min.</a>
   </div>
   <div class="koszt-illustration">
@@ -1448,9 +1451,9 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
   <details><summary>Jakie skrzynki polecacie do zbioru truskawek?</summary><p>Skrzynki ogrodnicze EURO 400×300×120 mm z perforowanym dnem (drenaż soku owoców) i ażurowymi ścianami (wentylacja). Pojemność 8–10 kg truskawek. Sztaplowanie 6 jednostek.</p></details>
 <details><summary>Jakie skrzynki polecacie do jabłek?</summary><p>Dla zbioru w sadzie: skrzynki ogrodnicze EURO 600×400×180–280 mm, pełnościenne, z dnem perforowanym. Dla hurtowego transportu: skrzyniopalety 1200×800×800 mm (300–400 kg jabłek). Dla transportu do sieci handlowej: skrzynki EURO 600×400×130 mm w standardzie sieci.</p></details>
 <details><summary>Czy macie skrzynki kompatybilne z Lidlem, Biedronką i Carrefourem?</summary><p>Tak – produkujemy skrzynki w wymiarach Euro 400×300 i 600×400 w standardach najczęściej wymaganych przez sieci handlowe. Możemy dopasować znakowanie, kolorystykę, perforację pod konkretną kategorię.</p></details>
-<details><summary>Czy rolnictwo jest objęte PPWR?</summary><p>Transport produktów rolnych do sieci handlowych jest objęty celami ponownego użycia opakowań transportowych (Art. 29, 40% do 2030 r.). PPWR nie ustanawia ogólnego wyłączenia rolnictwa pierwotnego – węższy zakres dotyczy tylko wybranych kategorii (np. produkty łatwo psujące się). Zakaz PFAS (Art. 5) obejmuje opakowania do kontaktu z żywnością.</p></details>
+<details><summary>Czy rolnictwo jest objęte PPWR?</summary><p>Transport produktów rolnych do sieci handlowych jest objęty celami ponownego użycia opakowań transportowych (art. 29 ust. 1 – 40% do 2030 r. jako cel wiążący, 70% do 2040 r. jako cel aspiracyjny). Obowiązek dotyczy podmiotów stosujących opakowania transportowe, więc obejmuje również Ciebie. PPWR nie ustanawia ogólnego wyłączenia rolnictwa pierwotnego – art. 29 ust. 4 lit. c) wyłącza jedynie opakowania elastyczne w bezpośrednim kontakcie z żywnością, a Twoje sztywne skrzynki HDPE celom podlegają. Ograniczenie PFAS (art. 5) obejmuje opakowania mające kontakt z żywnością.</p></details>
 <details><summary>Ile cykli wytrzymują skrzynki ogrodnicze HDPE?</summary><p>10–15 lat intensywnej eksploatacji (sezonowa), 100+ cykli rotacji dla skrzynek transportowych. Dla porównania: drewniane skrzynki sadownicze niskiej jakości 2–4 lata, tekturowe 1 cykl.</p></details>
-<details><summary>Czy macie palety bez fumigacji do eksportu owoców?</summary><p>Tak – palety plastikowe Euro nie wymagają fumigacji ISPM-15. Sadownicy eksportujący do Skandynawii, UK, Bliskiego Wschodu unikają kosztów certyfikacji + dezynfekcji = oszczędność 8–12 zł/paleta.</p></details>
+<details><summary>Czy macie palety bez obróbki ISPM-15 do eksportu owoców?</summary><p>Tak – palety plastikowe Euro (HDPE) nie podlegają normie ISPM-15. W przeciwieństwie do palet drewnianych nie wymagają obróbki termicznej (HT) ani fumigacji bromkiem metylu i certyfikacji fitosanitarnej przy eksporcie poza UE. Sadownicy eksportujący do Skandynawii, Wielkiej Brytanii czy na Bliski Wschód unikają w ten sposób powracającego kosztu obróbki i certyfikacji każdej palety.</p></details>
     </div>
   </div>
 </section>
@@ -1458,17 +1461,17 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
 <section class="form-cta" id="kontakt">
   <div class="form-cta-grid">
     <div class="form-cta-content">
-      <span class="section-eyebrow">ZADAJ PYTANIA</span>
-      <h2>Porozmawiaj z ekspertem bekuplast o PPWR</h2>
+      <span class="section-eyebrow">KONTAKT</span>
+      <h2>Omówmy rozwiązanie dla Twojego procesu</h2>
       <ul>
-        <li>Odpowiadamy w 24 godziny</li>
-        <li>Rozmowa z ekspertem, nie z handlowcem</li>
-        <li>Konsultacja bezpłatna i bez zobowiązań</li>
-        <li>Poznaj dokładny koszt wdrożenia</li>
+        <li>Kontakt do 24 godzin</li>
+        <li>Rozmawiamy o Twoich konkretnych potrzebach</li>
+        <li>Bezpłatnie i bez zobowiązań</li>
+        <li>Możliwość pozyskania próbek produktów</li>
       </ul>
     </div>
     <div class="form-card">
-      <h3>Umów rozmowę z ekspertem</h3>
+      <h3>Pozostaw dane kontaktowe</h3>
       <form onsubmit="return false">
         <div class="form-field">
           <label for="cf-name">Imię i nazwisko</label>
@@ -1483,23 +1486,14 @@ section > .tag, .ppwr-section > .tag { margin-bottom: 20px; }
           <input id="cf-email" type="email" placeholder="Adres e-mail">
         </div>
         <div class="form-field">
-          <label for="cf-branza">Branża</label>
-          <select id="cf-branza">
-            <option value="" selected disabled>Wybierz</option>
-            <option>Motoryzacja i automotive</option>
-            <option>Przetwórstwo żywności</option>
-            <option>Napoje</option>
-            <option>Farmacja i kosmetyki</option>
-            <option>Intralogistyka i magazyn</option>
-            <option>Logistyka i transport (3PL)</option>
-            <option>Rolnictwo i ogrodnictwo</option>
-            <option>Produkcja przemysłowa</option>
-            <option>Handel detaliczny i FMCG</option>
-            <option>E-commerce i fulfillment</option>
-            <option>Inna</option>
-          </select>
+          <label for="cf-phone">Telefon</label>
+          <input id="cf-phone" type="tel" placeholder="Numer telefonu">
         </div>
-        <button type="submit" class="btn btn-primary btn-lg">Umów rozmowę z ekspertem</button>
+        <label class="form-consent">
+          <input type="checkbox" id="cf-consent">
+          <span>Wyrażam zgodę na przetwarzanie danych osobowych i potwierdzam, że zapoznałem/am się z <a href="#">Polityką prywatności</a> dotyczącą zasad przetwarzania moich danych osobowych.</span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg">Proszę o kontakt</button>
       </form>
     </div>
   </div>
