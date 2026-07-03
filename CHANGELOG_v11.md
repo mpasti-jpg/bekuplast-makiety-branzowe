@@ -83,4 +83,47 @@ W tym samym pushu co v11. Zmiana treści dwóch sekcji na **wszystkich 10 strona
 - zgoda: „zapoznałem/am się **z z Polityka** prywatności" → „**z Polityką** prywatności"
 
 ---
-*Korekta: sesja redakcyjna. Baza faktów: `PPWR_fakty_referencja_PL.md`. Poprzednia wersja: branch `v10-przed-korekta-jezyk`. Raport szczegółowy: `KOREKTA_v11_REPORT.md`.*
+
+# Changelog v13 – poprawki po audycie treści (3.07.2026)
+
+Pełny audyt 10 stron (merytoryka vs baza faktów + aktualność regulacyjna na 3.07.2026, spójność, język, ton). Zastosowano pakiety A (twarde błędy i wycieki) i B (spójność, język). 11 plików, ~240 podmian.
+
+## Systemowe (wiele stron)
+- **Cytaty przy sekcji „Następne kroki":** podpis `Rozporządzenie (UE) 2025/40…` → `na podstawie rozporządzenia (UE) 2025/40…` (9 stron; #04 już miało poprawnie). Z cytatów usunięte zdania marketingowe (#02 teza o HDPE, #06 zdanie o CHEP/IPP/LPR, #10 zdanie o pojemnikach składanych) – prawnik nie zakwestionuje „cytatu, którego nie ma w akcie".
+- **Wyciek szablonu (10/10):** hint „↓ przewiń – wyzwań jest 3–5 zależnie od branży" → „↓ przewiń kolejne wyzwania".
+- **„– Art." po półpauzie** → „– art." (5 miejsc: #06, #08 ×3, #10).
+- **Nagłówek sekcji KOSZT PPWR (wspólny, 10/10):** „Koszt przejścia na skrzynki wielokrotnego użytku" → „…na opakowania wielokrotnego użytku" (neutralne produktowo – strona 3PL/produkcja/farmacja nie jest o skrzynkach; nagłówek pozostaje STAŁY na wszystkich stronach).
+- **Ujednolicenia:** „strukturę CO₂" → „strukturę emisji CO₂" (6 stron); „o 84%" → „do 84%" (#06, #10); „zakaz PFAS" → „ograniczenie PFAS" (#04, #05); „Bez fumigacji …" → „Bez obróbki ISPM-15" (#03, #08 ×3, #09); „HL/rok" → „hl/rok"; „e-com" → „e-commerce" (poza strefą dev); „ROP-napoje/ROP-opakowania" → „ROP za napoje / ROP za opakowania"; „Certyfikacja: IEC 61340-5-1" → „Zgodność z IEC 61340-5-1"; ust. 2: „do 2030 r." → „od 2030 r." (#03, #04, #05); „w praktyce 100% ponownego użycia" → „w praktyce pełny ponowny użytek" (#05, #07 – jak na #01/#03/#08); mieszane cudzysłowy „…" → „…” (#04, index).
+- **Formularz (10/10):** koniec zgody „…zasad przetwarzania moich danych osobowych" → „…zasad ich przetwarzania" (usunięte powtórzenie; treść zgody bez zmian merytorycznych).
+
+## Najważniejsze poprawki merytoryczne per strona
+- **#01:** „klisze wymiarowe" → „moduły wymiarowe podstawy (…mm)"; sprzeczność „lata 80. vs 90." → jednolicie „od końca lat 80. XX w."; „wszyscy OEM-i / Wszyscy OEM" → „wszystkie OEM-y"; „±0,3 mm jako wymóg VDA" → „tolerancje rzędu dziesiątych części milimetra"; „2 000–4 000 komponentów (200–400 w 1990)" → zmiękczone bez liczb; PFAS dla automotive opisany jako marginalny; drobne (tier 2/3, KLT/VDA, „ponownego użycia").
+- **#02:** adresat – producent objęty **bezpośrednio** (2 miejsca; było „pośrednio", sprzeczne z #07); cel napojowy 10% przypisany dystrybutorom końcowym (nie rozlewniom); daty przy dwóch wymogach (PFAS od 12.08.2026, cele art. 29 od 2030); ISPM-15 tylko przy eksporcie poza UE; usunięty mylący nawias o kaucji przy mleku (mleko wyłączone z kaucji); dryline usunięte z zapowiedzi (brak kafla – do przywrócenia po dodaniu kafla); H2 „PPWR i PFAS" → „Ograniczenie PFAS i cele ponownego użycia – podwójne uderzenie PPWR…"; język (HACCP-środki, „fakturowane" ściany → teksturowane, „dedykowane" → „przeznaczone").
+- **#03 (pillar):** usunięty straszak „dostanie wezwanie w 2027 r."; nagłówek karty 40% (2040) z dopiskiem „cel aspiracyjny"; „12–18 mies. spóźnione" → zmiękczone; przykłady adresata + browary; FAQ o obowiązkach od 12.08.2026 z poprawnym otwarciem; „(Raben, Rohlig)" → „Rohlig Suus"; szkło–szkło; wino FAQ bez „0,33 l jako niestandard". Fraza „skrzynka na piwo" nietknięta (title/H1/lede/FAQ).
+- **#04:** cele zbiorczych rozdzielone od transportowych (40/70 ust. 1 vs 10/25 ust. 5); „całość opakowań kosmetyków" → „opakowania transportowe kosmetyków"; **„sterylne" → „sterylizowalne"** (title, H2, body ×4); rozp. 10/2011 poprawnie jako dopuszczenie do kontaktu z żywnością; karta „Wyłączenie farmacji" → „Wyłączenie opakowań bezpośrednich"; „Zakłady z dwoma lokalizacjami" → „Firmy z dwiema…".
+- **#05:** karta PFAS przepisana (ograniczenie, tylko żywność, palet/folii nie dotyczy); FAQ o zakresie PPWR przepisane (usunięta samosprzeczność); trwałość ujednolicona (system: 100 tys. operacji; pojemnik: 100+ cykli rotacji); usunięty zdublowany kafelek contecline; „Indywidualne pod WMS (Mecalux/Daifuku)" → „pod AKL"; „co do zasady każdą firmę" (zwolnienie mikro).
+- **#06:** „Skandynawia" usunięta z przykładów eksportu ISPM-15 (kraje UE); dwa zdania z odzyskanym łącznikiem („…transportowe – musisz zapewnić…", „…ISPM-15 – to ważny atut"); „Polskie 3PL używa" → „Polska branża 3PL używa"; skrzyniopalety-orzecznik; 60–75% oznaczone jako szacunek branżowy; „systemy poolingu" → „poolingowe".
+- **#07:** rekcja w TL;DR („dotyczy to również Ciebie, sadownika lub hurtowni"); „Skandynawia" → Wielka Brytania/Turcja; karta „Poza zakresem" przepisana (jedno miejsce działalności vs art. 29 ust. 2); sezon „sierpień–październik" (spójnie z „pozostałe 9 miesięcy"); „lub paszą" przy art. 29 ust. 4 lit. c; „m.in." przy wyłączeniach; PFAS jako limity (nie „niedozwolona"); ROI → „zwrot z inwestycji"; widełki chipów zgodne z FAQ (8–10 kg, 300–400 kg); meta description bez zeugmy.
+- **#08:** usunięty wyciek „Strona zbiorcza dla branż…" z Kluczowych wniosków; **AutoStore usunięty z listy systemów paletowych**; FAQ „Nie –…" → „Nie w zakresie obiegu wewnętrznego –…"; zdublowany kafelek silverline → contecline (Magazyny AKL); „automatyczna paczka" → „automatyczna stacja pakowania"; „lub partnerskich" przy przedsiębiorstwach powiązanych (TL;DR + cytat); RFID i kod QR rozdzielone (art. 12, od sierpnia 2028); pytanie FAQ zawężone do ust. 2; „magazynami DC" → „centrami dystrybucyjnymi".
+- **#09:** karta „Art. 7" → **„Art. 25 + zał. V"** z poprawną treścią (ograniczenia formatów jednorazowych z tworzyw; nie karton, nie „w sklepie"); usunięty wyciek „w naszej kampanii"; zdanie bez orzeczenia w sekcji kaucyjnej naprawione (+ art. 12); pilotaż ujednolicony 5–10 sklepów; FAQ w głosie klienta („Czy pomożecie nam…"); Mehrweg → „standard niemieckiego handlu spożywczego od lat 90."; kaucja UE 2029 z dopiskiem o polskim systemie od 1.10.2025 (karta + cytat); „sieć jako operator" → „jako dystrybutor końcowy"; etykiety kart „Art. 29" → „ust. 1" / „ust. 6"; „w 70%" → „głównie"; „Polskie spółki sieci…" → „Wiele polskich sieci…" (Dino); „Trzy ścieżki" → „Trzy etapy"; „nacisk od sieci-matek" → „Presja ze strony międzynarodowych central"; „wielorazowe" → „wielokrotnego użytku".
+- **#10:** przepisany nielogiczny akapit „karton wraca pusty od konsumenta" (argument dotyczy opakowań zwrotnych); „4 lata przewagi" → przewaga infrastruktury paczkomatów; karta art. 24 z datą (od 1.01.2030); karta art. 50 z dopiskiem o polskim systemie od 1.10.2025; usunięty dopisek „także w handlu elektronicznym" przy ust. 6; usunięte „ok. 85% paczek" (niespójne z własnymi liczbami); rozsypane zdanie o fulfillment center naprawione; „w paczkomat" → „do paczkomatu"; FAQ „są objęci" → „są objęte PPWR"; title „fulfillmentu".
+- **index:** „wejście w życie 12 sierpnia 2026" → „stosowane od 12 sierpnia 2026" (+ zapis „(UE) 2025/40"); „95% reuse u OEM-ów" → bez nieźródłowanej liczby; „sterylne/pharma" → „sterylizowalne/farmacja"; cudzysłów „…Centrum projektu”.
+
+## Świadomie NIE zmienione (pakiet C – decyzje klienta)
+- Nazwy „VW C-Box / BMW SuperRack / Mercedes Pool" (#01) – do walidacji klienta (nie znajdują potwierdzenia w źródłach publicznych).
+- „12 × 0,7 l szkło" przy skrzynce na wino (#03) – standard wina to 0,75 l; sprawdzić kartę produktu.
+- Statystyki firmowe (400+ magazynów, 200+ gospodarstw po korekcie zapisu, kwoty inwestycji/ROI, cykle) – walidacja klienta.
+- Zgoda RODO – warto dodać cel przetwarzania (np. „w celu obsługi zapytania"); do decyzji z prawnikiem.
+- Microcopy „Zapytaj eksperta o PPWR w swojej branży." (generyczne na 5 stronach) i dobór case studies pod branżę strony.
+- Badge'y prototypowe „PILLAR SEO" (#03) i „REBRAND" (#07, #09) w breadcrumbie oraz chipy klasyfikacyjne na index – strefa prototypowa, ukryć przed produkcją.
+- Etykiety/kod QR „od 2028 r.": formalnie poprawne (12.08.2028), ale akt wykonawczy KE się spóźnia – jeśli nie wyjdzie do 12.08.2026, termin może przesunąć się poza 2028; monitorować.
+
+## Nowości regulacyjne (zweryfikowane 3.07.2026, bez konfliktów z treścią)
+- Termin stosowania 12.08.2026 utrzymany (KE pisemnie odmówiła odroczenia – komisarz Roswall).
+- Decyzja delegowana (UE) 2026/429 (25.02.2026): folie owijające palety i taśmy spinające wyłączone ze 100% wymogu ponownego użycia (art. 29 ust. 2–3) – korzystne dla RTP; do rozważenia wzmianka na #05/#08.
+- Wytyczne KE C(2026) 3702 final z 5.06.2026 (Dz.Urz. 10.06.2026) – oficjalne interpretacje PPWR; mocny materiał na aktualizację treści przed 12.08.2026.
+- UC100: projekt nadal przed Radą Ministrów (stan 1.07.2026); nowy ROP planowany od 1.01.2027; kary (projekt: do 2 mln zł) nieprzesądzone – strony #06/#09/#10 opisują to poprawnie.
+- Nowelizacja ustawy kaucyjnej (luty 2026): zwroty bez paragonu; browary mogą prowadzić własne systemy zbiórki butelek szklanych do końca 2028 r. – potencjalny news na #03.
+
+---
+*Korekta: sesja redakcyjna. Baza faktów: `PPWR_fakty_referencja_PL.md`. Poprzednia wersja: branch `v10-przed-korekta-jezyk`. Raport szczegółowy: `KOREKTA_v11_REPORT.md`; raport audytu 3.07.2026: `AUDYT_TRESCI_2026-07-03.md` (w repo).*
