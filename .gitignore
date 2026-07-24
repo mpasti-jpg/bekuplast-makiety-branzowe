@@ -14,3 +14,7 @@ node_modules/
 .cache/
 dist/
 *.log
+
+# Word: pliki blokady + pośredni model treści (regenerowalny z HTML)
+~$*.docx
+tools/content.json
