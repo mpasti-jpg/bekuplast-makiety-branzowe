@@ -2,11 +2,11 @@
 
 **Źródło:** mail Mai Podsiadło (Specjalistka ds. Ochrony Środowiska, SQD Alliance Sp. z o.o.) z 29.07.2026 21:50 do Moniki Sojki, CC Mateusz. Treść: „Przesyłam pierwsze wnioski – wyciągnięte z «przeklikania» audytu. Przejrzałam też kilka treści na strony branżowe, ale jestem w trakcie przeglądania pozostałych. **Będę informacje przekazywać sukcesywnie**."
 
-**Załączniki (3):** `Uwagi do treści_SQDA.docx` (cytaty ze słowniczka i sekcji AUDYTU + 7 komentarzy) · `MS Strona 02 – Przetwórstwo żywności (v14).docx` (6 komentarzy) · `MS Strona 03 – …napojów (v14).docx` (1 komentarz). **Wszystkie uwagi wyłącznie w komentarzach Word** (tekst główny = bitowo identyczny z plikami Moniki z 24.07; zero tracked changes). Ekstrakty + kotwice: scratchpad sesji `sqda/komentarze_full.json`.
+**Załączniki (3):** `Uwagi do treści_SQDA.docx` (cytaty ze słowniczka i sekcji AUDYTU + 7 komentarzy) · `MS Strona 02 – Przetwórstwo żywności (v14).docx` (6 komentarzy) · `MS Strona 03 – …napojów (v14).docx` (1 komentarz). **Wszystkie uwagi wyłącznie w komentarzach Word** (tekst główny = bitowo identyczny z plikami Moniki z 24.07; zero tracked changes). Ekstrakty + kotwice: scratchpad sesji `sqda/komentarze_full.json` (ID komentarzy Worda w #02 nieciągłe: 0–3,7,8 – naturalna numeracja Worda po edycjach; komplet Mai = 6 szt.).
 
 **Status: ⏳ NIE NANIESIONE.** To pierwsza partia („sukcesywnie") – rekomendacja: zebrać komplet od Mai przed wydaniem v16 makiet; wyjątek: aplikacje (patrz `POPRAWKI_APPS_SQDA_2026-07-29.md` w folderze hubowym – poprawki krytyczne merytorycznie, do naniesienia w osobnej sesji nad appką TYPO3).
 
-**Weryfikacja:** wszystkie twierdzenia Mai sprawdzone wobec `PPWR_fakty_referencja_PL.md` – **100% zgodne** (sekcje A2/A3/A5 bazy potwierdzają ją dosłownie; komentarz o art. 29 ust. 3 pokrywa się z naszym własnym faktem A3, który… nie został przeniesiony do słowniczka audytu – patrz U9).
+**Weryfikacja:** twierdzenia Mai sprawdzone wobec `PPWR_fakty_referencja_PL.md` – **nic nie przeczy bazie**. Wprost potwierdzone przez bazę: kierunek U11/U12 (sekcja A3 – ust. 3 = dostawy B2B w tym samym państwie; ust. 6 = napoje/dystrybutorzy końcowi; nasz własny fakt A3 nie został przeniesiony do słowniczka audytu – patrz U11) oraz progowy charakter PFAS (sekcja D5 – U5/U6). Poza zakresem bazy (przyjęte za ekspertką, częściowo z cytatami rozporządzenia verbatim; przed publikacją szybki check EUR-Lex): U7 napój=żywność, U8 BDO, U9 wytwórca/UC100, U12 ust. 9, U13 art. 40, U14 art. 39 ust. 3 – stąd rekomendacja 4 (uzupełnienie #25).
 
 ---
 
@@ -27,7 +27,7 @@
 
 | # | Kotwica | Uwaga Mai | Istota |
 |---|---|---|---|
-| U7 | „[obowiązki] dla branży napojów wynikają z PPWR" (lead sekcji PPWR) | „**+ Zawartość PFAS; napój wg standardów unijnych jest traktowany jak żywność**" | dodać art. 5/PFAS do tematów PPWR dla napojów |
+| U7 | „[Jakie obowiązki] dla branży napojów wynikają z PPWR [od 12 sierpnia 2026 r.?]" (pytanie FAQ) | „**+ Zawartość PFAS; napój wg standardów unijnych jest traktowany jak żywność**" | dodać art. 5/PFAS do tematów PPWR dla napojów |
 
 ### Audyt – `Uwagi do treści_SQDA.docx` (7; cytuje nasz słowniczek + sekcję fresh_food)
 
@@ -37,9 +37,9 @@
 | U9 | hasło **DoC**: „Wystawia ją **producent lub wprowadzający opakowanie na rynek**" | „Wystawia ją **wytwórca** opakowania **na podstawie sporządzonej dokumentacji technicznej**. Producent i wytwórca mają w PPWR **inne definicje**; w PPWR **nie ma definicji «wprowadzającego na rynek»**; projekt UC100 przechodzi na pojęcia PPWR: **wprowadzanie do obrotu / udostępnianie na rynku**" | terminologia definicyjna PPWR |
 | U10 | hasło **PPWR** „Rozporządzenie UE 2025/40 **o opakowaniach** i odpadach…" | „…**w sprawie opakowań** i odpadów opakowaniowych" | oficjalna nazwa |
 | U11 | hasło **Art. 29**: „Art. 29(3) przewiduje dodatkowo obowiązki dystrybutorów dotyczące oferowania opakowań zwrotnych **w punktach sprzedaży**" | „Art. 29 ust. 3 wprowadza nakaz stosowania opakowań wielokrotnego użycia w ramach systemu reuse dla opakowań transportowych lub handlowych **wykorzystywanych do transportu produktów, w tym e-commerce, w celu dostarczenia innemu podmiotowi gospodarczemu w tym samym państwie członkowskim**" | ⛔ nasz wpis myli ust. 3 (B2B krajowe) z ust. 6 (napoje/punkty sprzedaży). Nasza baza faktów (A3) mówiła to samo – błąd przeżył w appce |
-| U12 | jw. | cytat **art. 29 ust. 9**: dystrybutorzy końcowi przyjmują nieodpłatnie opakowania reuse tego samego rodzaju/kształtu/wielkości w punkcie sprzedaży lub w bliskim sąsiedztwie; zwrot kaucji | uzupełnienie właściwej podstawy dla „zwrotów w punkcie sprzedaży" |
+| U12 | jw. | cytat **art. 29 ust. 9**: dystrybutorzy końcowi przyjmują nieodpłatnie opakowania reuse tego samego rodzaju/kształtu/wielkości co udostępniane przez nich w danym systemie w punkcie sprzedaży; użytkownik końcowy zwraca je w miejscu wydawania lub jego bliskim sąsiedztwie; zwrot kaucji | uzupełnienie właściwej podstawy dla „zwrotów w punkcie sprzedaży" |
 | U13 | hasło **„Art. 38–40"** (jako artykuły o ocenie zgodności i DoC) | „**Art. 40 dotyczy wyznaczenia organu kontrolnego** przez państwa członkowskie. Odwołanie do art. 38–40 jest też wyżej w treści" | zakres = art. 38–39 (+ zał. VII/VIII); art. 40 = nadzór rynku |
-| U14 | fresh_food: „[DoC food-contact równolegle z DoC PPWR –] **dwa różne dokumenty, jeden łańcuch dowodowy**" (+ jej dopisek „UE 1935/2004" w treści) | „Zgodnie z **art. 39 ust. 3**: jeżeli opakowanie/produkt podlega więcej niż jednemu aktowi UE wymagającemu deklaracji zgodności UE – **sporządza się jedną deklarację** odnoszącą się do wszystkich" | zniuansować „dwa dokumenty"; dodać podstawę (WE) 1935/2004 |
+| U14 | fresh_food, karta „UE 1935/2004": „[DoC food-contact równolegle z DoC PPWR –] **dwa różne dokumenty, jeden łańcuch dowodowy**" | „Zgodnie z **art. 39 ust. 3**: jeżeli opakowanie/produkt podlega więcej niż jednemu aktowi UE wymagającemu deklaracji zgodności UE – **sporządza się jedną deklarację** odnoszącą się do wszystkich" | zniuansować „dwa dokumenty" wg art. 39 ust. 3 (podstawa (WE) 1935/2004 już jest w karcie) |
 
 ---
 
@@ -66,4 +66,4 @@
 2. **Makiety #02/#03 – czekać na komplet od Mai** („sukcesywnie"), potem jedna runda v16: U1–U7 + globalny sweep U2 („40% do 2030 r." → „co najmniej 40% od 1 stycznia 2030 r."; „70% do 2040" → „dążenie do 70% od 2040 r." – 44 wystąpienia, po decyzji Mateusza, bo to zmiana redakcyjna na wszystkich stronach).
 3. **Blog (sesja blogowa, chip czeka):** dopisać do zakresu U2 (ujednolicenie „od 1 stycznia 2030"), U9-filtr (tylko konteksty wystawcy DoC), re-check #06 (PFAS – model progowy!), #08/#11/#14 (art. 29 ust. 3 – potwierdzić brzmienia), #09 (1935/2004 już cytowane ✓).
 4. **Notion #25 (rejestr faktów):** dopisać F-wpisy: PFAS progowo (art. 5 ust. 5), wytwórca vs producent, art. 29 ust. 9, art. 39 ust. 3, art. 40, pełna nazwa BDO.
-5. **Konflikt-notka:** U1–U3 korygują brzmienia, które **Monika sama podała 7.07** (w.88/91). W komunikacji do klientek: neutralnie „doprecyzowanie po konsultacji środowiskowej SQD", bez wskazywania autorstwa.
+5. **Konflikt-notka:** U1–U3 korygują brzmienia, które **Monika sama podała 7.07** (w.69/88/91). W komunikacji do klientek: neutralnie „doprecyzowanie po konsultacji środowiskowej SQD", bez wskazywania autorstwa.
