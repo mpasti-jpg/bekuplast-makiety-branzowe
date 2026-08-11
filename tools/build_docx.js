@@ -7,7 +7,7 @@
  * placeholdery zdjęć, pola formularza).
  *
  * Uruchomienie:  node tools/build_docx.js
- * Wynik:         word_v14/Strona NN – Tytuł (v14).docx
+ * Wynik:         word_$VER/Strona NN – Tytuł ($VER).docx  (MAKIETY_VER, domyślnie v14)
  */
 
 const fs = require("fs");
@@ -37,7 +37,8 @@ const TEXT_WIDTH = 11906 - 2 * convertMillimetersToTwip(MARGIN_MM);
 
 const ROOT = path.dirname(__dirname);
 const docs = JSON.parse(fs.readFileSync(path.join(__dirname, "content.json"), "utf8"));
-const OUTDIR = path.join(ROOT, "word_v14");
+const VER = process.env.MAKIETY_VER || "v14";
+const OUTDIR = path.join(ROOT, process.env.MAKIETY_OUT || `word_${VER}`);
 
 // --- pomocnicze akapity ----------------------------------------------------
 

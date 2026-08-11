@@ -62,7 +62,7 @@ def norm(s):
 
 html_files = sorted(glob.glob(os.path.join(ROOT, "makieta_*.html")))
 docx_files = sorted(
-    f for f in glob.glob(os.path.join(ROOT, "word_v14", "*.docx"))
+    f for f in glob.glob(os.path.join(ROOT, os.environ.get("MAKIETY_OUT", "word_" + os.environ.get("MAKIETY_VER", "v14")), "*.docx"))
     if not os.path.basename(f).startswith("~$")  # pliki blokady Worda
 )
 
